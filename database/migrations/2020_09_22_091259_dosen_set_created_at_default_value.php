@@ -3,8 +3,9 @@
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
+use Illuminate\Support\Facades\DB;
 
-class CreateDosenTable extends Migration
+class DosenSetCreatedAtDefaultValue extends Migration
 {
     /**
      * Run the migrations.
@@ -13,12 +14,7 @@ class CreateDosenTable extends Migration
      */
     public function up()
     {
-        Schema::create('dosen', function (Blueprint $table) {
-            $table->id();
-            $table->char('nipy');
-            $table->char('nama');
-            $table->timestamps();
-        });
+        DB::statement("ALTER TABLE dosen CHANGE created_at created_at TIMESTAMP NULL DEFAULT CURRENT_TIMESTAMP");
     }
 
     /**
@@ -28,6 +24,8 @@ class CreateDosenTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('dosen');
+        Schema::table('dosen', function (Blueprint $table) {
+            $table->timestamp('created_at')->default(NULL)->change();
+        });
     }
 }
