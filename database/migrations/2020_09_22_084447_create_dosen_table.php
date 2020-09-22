@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class ChangeDosentifToDosenTable extends Migration
+class CreateDosenTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,7 +13,13 @@ class ChangeDosentifToDosenTable extends Migration
      */
     public function up()
     {
-        Schema::rename('dosentif', 'dosen');
+        Schema::create('dosen', function (Blueprint $table) {
+            $table->id();
+            $table->char('nipy');
+            $table->char('nama');
+            $table->char('jabfung');
+            $table->timestamps();
+        });
     }
 
     /**
@@ -23,8 +29,6 @@ class ChangeDosentifToDosenTable extends Migration
      */
     public function down()
     {
-        Schema::table('dosen', function (Blueprint $table) {
-            //
-        });
+        Schema::dropIfExists('dosen');
     }
 }
