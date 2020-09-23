@@ -46,12 +46,12 @@ class BangunRuang
 
     /**
      * Menghitung Luas Permukaan Bola
-     * Rumus: 6 x s kuadrat 
+     * Rumus: 4 * phi * r kuadrat 
      */
     function luasBola($jari_jari)
     {
         $empat = 4;
-        return $empat * $this->phi * $jari_jari;
+        return $empat * $this->phi * $this->kuadrat($jari_jari);
     }
 }
 
