@@ -3,6 +3,7 @@
 class BangunRuang
 {
     private $phi = 3.14;
+ 
 
     /**
      * Menghitung nilai kuadrat pangkat dua
@@ -43,6 +44,13 @@ class BangunRuang
         $enam_sisi = 6;
         return $enam_sisi * $this->kuadrat($sisi);
     }
+    function luasPermukaaanpersegipanjang($p,$l)
+    {
+        $p = 2;
+        $l = 3;
+        $luas = ($p*$l);
+        return $luas;
+    }
 }
 
 $bangunRuang = new BangunRuang();
@@ -51,3 +59,5 @@ echo '<br>';
 echo 'Keliling lingkaran: '.$bangunRuang->kelilingLingkaran(8);
 echo '<br>';
 echo 'Luas permukaan kubus: '.$bangunRuang->luasPermukaanKubus(13);
+echo '<br>';
+echo 'Luas permukaan persegi panjang: '.$bangunRuang->luasPermukaaanpersegipanjang(10,10,10);
