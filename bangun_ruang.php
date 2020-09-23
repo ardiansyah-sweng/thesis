@@ -43,11 +43,21 @@ class BangunRuang
         $enam_sisi = 6;
         return $enam_sisi * $this->kuadrat($sisi);
     }
+
+    /**
+     * hitung luas permukaan kerucut
+     */
+    function luasPermukaanKerucut()
+    {
+        $r = 4;
+        $s = 5;
+        return ($this->phi * $r * $s) + ($this->phi * $this->kuadrat($r));
+    }
 }
 
 $bangunRuang = new BangunRuang();
-echo 'Luas lingkaran: '.$bangunRuang->luasLingkaran(30);
+echo 'Luas lingkaran: ' . $bangunRuang->luasLingkaran(30);
 echo '<br>';
-echo 'Keliling lingkaran: '.$bangunRuang->kelilingLingkaran(8);
+echo 'Keliling lingkaran: ' . $bangunRuang->kelilingLingkaran(8);
 echo '<br>';
-echo 'Luas permukaan kubus: '.$bangunRuang->luasPermukaanKubus(13);
+echo 'Luas permukaan kubus: ' . $bangunRuang->luasPermukaanKubus(13);
