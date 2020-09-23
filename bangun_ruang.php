@@ -15,6 +15,16 @@ class BangunRuang
     }
 
     /**
+     * Menghitung nilai pangkat tiga
+     * pangkat = nilai^pangkat
+     */
+    function pangkatTiga($nilai)
+    {
+        $pangkat = 3;
+        return pow($nilai, $pangkat);
+    }
+
+    /**
      * Menghitung Luas Lingkaran
      * Rumus: 0.25 * 3.14 * diameter kuadrat
      */
@@ -53,6 +63,16 @@ class BangunRuang
         $empat = 4;
         return $empat * $this->phi * $this->kuadrat($jari_jari);
     }
+
+    /**
+     * Menghitung Volume Bola
+     * Rumus: 1.33 * phi * r^pangkat tiga 
+     */
+    function volumeBola($jari_jari)
+    {
+        $empatpertiga = 1.33;
+        return $empatpertiga * $this->phi * $this->pangkatTiga($jari_jari);
+    }
 }
 
 $bangunRuang = new BangunRuang();
@@ -63,3 +83,5 @@ echo '<br>';
 echo 'Luas Kubus: '.$bangunRuang->luasKubus(5);
 echo '<br>';
 echo 'Luas Permukaan Bola: '.$bangunRuang->luasBola(7);
+echo '<br>';
+echo 'Volume Bola: '.$bangunRuang->volumeBola(3);
