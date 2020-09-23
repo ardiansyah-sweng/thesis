@@ -43,6 +43,14 @@ class BangunRuang
         $enam_sisi = 6;
         return $enam_sisi * $this->kuadrat($sisi);
     }
+    /**
+     * Menghitung Volume Balok
+     * Rumus: panjang x lebar x tinggi
+     */
+    function volume_balok($p, $l, $t)
+    {
+        return $p * $l * $t;
+    }
 }
 
 $bangunRuang = new BangunRuang();
@@ -51,3 +59,5 @@ echo '<br>';
 echo 'Keliling lingkaran: '.$bangunRuang->kelilingLingkaran(8);
 echo '<br>';
 echo 'Luas permukaan kubus: '.$bangunRuang->luasPermukaanKubus(13);
+echo '<br>';
+echo 'Volume Balok: '.$bangunRuang->volume_balok(4,5,6);
