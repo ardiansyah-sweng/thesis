@@ -34,9 +34,14 @@ class BangunRuang
         return $this->phi * $dua * $jari_jari;
     }
 
-    function luasKubus()
+    /**
+     * Menghitung Luas Kubus
+     * Rumus: 6 x s kuadrat 
+     */
+    function luasKubus($sisi)
     {
-
+        $enam = 6;
+        return $enam * $this->kuadrat($sisi);
     }
 }
 
@@ -44,3 +49,5 @@ $bangunRuang = new BangunRuang();
 echo 'Luas lingkaran: '.$bangunRuang->luasLingkaran(30);
 echo '<br>';
 echo 'Keliling lingkaran: '.$bangunRuang->kelilingLingkaran(8);
+echo '<br>';
+echo 'Luas Kubus: '.$bangunRuang->luasKubus(5);
