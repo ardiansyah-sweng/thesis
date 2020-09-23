@@ -36,7 +36,7 @@ class BangunRuang
 
     /**
      * Menghitung Keliling Lingkaran
-     * Rumus: 3.24 x 2 x r
+     * Rumus: 3.24 * 2 * r
      */
     function kelilingLingkaran($jari_jari)
     {
@@ -46,7 +46,7 @@ class BangunRuang
 
     /**
      * Menghitung Luas Kubus
-     * Rumus: 6 x s kuadrat 
+     * Rumus: 6 * s kuadrat 
      */
     function luasKubus($sisi)
     {
