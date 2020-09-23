@@ -36,11 +36,17 @@ class BangunRuang
 
     function luasKubus()
     {
+    }
 
+    function volumeKubus($sisi)
+    {
+        return $this->$sisi * $sisi * $sisi;
     }
 }
 
 $bangunRuang = new BangunRuang();
-echo 'Luas lingkaran: '.$bangunRuang->luasLingkaran(30);
+echo 'Luas lingkaran: ' . $bangunRuang->luasLingkaran(30);
 echo '<br>';
-echo 'Keliling lingkaran: '.$bangunRuang->kelilingLingkaran(8);
+echo 'Keliling lingkaran: ' . $bangunRuang->kelilingLingkaran(8);
+echo '<br>';
+echo 'Volume kubus: ' . $bangunRuang->volumeKubus(5);
