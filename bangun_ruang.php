@@ -43,6 +43,16 @@ class BangunRuang
         $enam = 6;
         return $enam * $this->kuadrat($sisi);
     }
+
+    /**
+     * Menghitung Luas Permukaan Bola
+     * Rumus: 6 x s kuadrat 
+     */
+    function luasBola($jari_jari)
+    {
+        $empat = 4;
+        return $empat * $this->phi * $jari_jari;
+    }
 }
 
 $bangunRuang = new BangunRuang();
@@ -51,3 +61,5 @@ echo '<br>';
 echo 'Keliling lingkaran: '.$bangunRuang->kelilingLingkaran(8);
 echo '<br>';
 echo 'Luas Kubus: '.$bangunRuang->luasKubus(5);
+echo '<br>';
+echo 'Luas Permukaan Bola: '.$bangunRuang->luasBola(7);
