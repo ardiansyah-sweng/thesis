@@ -26,7 +26,7 @@ class BangunRuang
 
     /**
      * Menghitung Keliling Lingkaran
-     * Rumus: 3.24 x 2 x r
+     * Rumus: phi x 2 x r
      */
     function kelilingLingkaran($jari_jari)
     {
@@ -34,9 +34,14 @@ class BangunRuang
         return $this->phi * $dua * $jari_jari;
     }
 
-    function luasKubus()
+    /**
+     * Menghitung Luas Permukaan Kubus
+     * Rumus: 6 x sisi^kuadrat
+     */
+    function luasPermukaanKubus($sisi)
     {
-
+        $enam_sisi = 6;
+        return $enam_sisi * $this->kuadrat($sisi);
     }
 }
 
@@ -44,3 +49,5 @@ $bangunRuang = new BangunRuang();
 echo 'Luas lingkaran: '.$bangunRuang->luasLingkaran(30);
 echo '<br>';
 echo 'Keliling lingkaran: '.$bangunRuang->kelilingLingkaran(8);
+echo '<br>';
+echo 'Luas permukaan kubus: '.$bangunRuang->luasPermukaanKubus(13);
