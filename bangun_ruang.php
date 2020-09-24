@@ -96,7 +96,8 @@ class BangunRuang
      */
     function kelilingBalok($panjang, $lebar, $tinggi)
     {
-        return 4 * $panjang * $lebar * $tinggi;
+        $EMPAT = 4;
+        return $EMPAT * $panjang * $lebar * $tinggi;
     }
 }
 
