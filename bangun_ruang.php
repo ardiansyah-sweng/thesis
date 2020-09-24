@@ -105,6 +105,15 @@ class BangunRuang
     {
         return ($this->PHI * $jarijari * $garisPelukis) + ($this->PHI * $this->kuadrat($jarijari));
     }
+    /**
+     * Menghitung Luas Permukaan Bola
+     * Rumus: 4 x PHI x jari-jari Kuadrat
+     */
+    function luasPermukaanBola($jariJari)
+    {
+        $EMPAT = 4;
+        return $EMPAT *  $this->PHI * $this->kuadrat($jariJari);
+    }
 }
 
 $bangunRuang = new BangunRuang();
@@ -129,3 +138,5 @@ echo '<br>';
 echo 'Volume Tabung ' . $bangunRuang->volumeTabung(10, 20);
 echo '<br>';
 echo 'Luas Permukaan Kerucut : ' . $bangunRuang->luasPermukaanKerucut(7, 9);
+echo '<br>';
+echo 'Luas permukaan bola: '. $bangunRuang->luasPermukaanBola(13);
