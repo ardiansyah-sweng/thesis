@@ -92,11 +92,11 @@ class BangunRuang
      * Menghitung Volume Kerucut
      * Rumus 1/3 * PHI * jari-jari * jari-jari * tinggi
      */
-    function VolumeKerucut($jari_jari, $tinggi)
+    function VolumeKerucut($jariJari, $tinggi)
     {
         $SATUPERTIGA = 0.33;
         
-        return $SATUPERTIGA * $this->PHI * $this->kuadrat($jari_jari) * $tinggi;
+        return $SATUPERTIGA * $this->PHI * $this->kuadrat($jariJari) * $tinggi;
     }
 }
 
@@ -117,6 +117,6 @@ echo 'Volume Limas Segi Tiga: ' . $bangunRuang->volumeLimasSegiTiga(30, 10);
 echo '<br>';
 echo 'Luas permukaan Limas Segi Tiga: ' . $bangunRuang->luasPermukaanLimasSegiTiga(30, 40);
 echo '<br>';
-echo 'Volume Balok: '.$bangunRuang->volumeBalok(4,5,6);
+echo 'Volume Balok: '. $bangunRuang->volumeBalok(4,5,6);
 echo '<br>';
 echo 'Volume Kerucut: ' . $bangunRuang->volumeKerucut(10,8);
