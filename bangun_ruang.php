@@ -46,7 +46,7 @@ class BangunRuang
 
     /**
      * Menghitung Volume Limas Segiempat
-     * Rumus: 0.33 * p * l * t
+     * Rumus: 0.33 * panjang * lebar * tinggi
      */
     function volumeLimasSegiempat($panjang, $lebar, $tinggi)
     {
@@ -56,7 +56,7 @@ class BangunRuang
 
     /**
      * Menghitung Keliling Balok
-     * Rumus: 4 * p * l * t
+     * Rumus: 4 * panjang * lebar * tinggi
      */
     function kelilingBalok($panjang, $lebar, $tinggi)
     {
