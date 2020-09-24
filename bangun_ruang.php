@@ -6,7 +6,7 @@ class BangunRuang
 
     /**
      * Menghitung nilai kuadrat pangkat dua
-     * pangkat = nilai^pangkat
+     * pangkat = nilai^pangkat dua
      */
     function kuadrat($nilai)
     {
