@@ -50,8 +50,7 @@ class BangunRuang
      */
     function volumeKubus($sisi)
     {
-        $Vk = $sisi * $sisi * $sisi;
-        return $Vk;
+        return $sisi * $sisi * $sisi;
     }
 }
 
