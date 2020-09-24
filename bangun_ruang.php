@@ -52,6 +52,11 @@ class BangunRuang
     {
         return $sisi * $sisi * $sisi;
     }
+    function KelilingKubus($sisi)
+    {
+        $duabelas_sisi = 12;
+        return $duabelas_sisi * $sisi;
+    }
 }
 
 $bangunRuang = new BangunRuang();
@@ -61,4 +66,6 @@ echo 'Keliling lingkaran: '.$bangunRuang->kelilingLingkaran(8);
 echo '<br>';
 echo 'Luas permukaan kubus: '.$bangunRuang->luasPermukaanKubus(13);
 echo '<br>';
-echo 'Volume permukaan kubus: '.$bangunRuang->VolumeKubus(5);
+echo 'Volume kubus: '.$bangunRuang->VolumeKubus(5);
+echo '<br>';
+echo 'Keliling kubus: '.$bangunRuang->KelilingKubus(2);
