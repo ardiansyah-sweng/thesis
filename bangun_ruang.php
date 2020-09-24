@@ -60,6 +60,9 @@ class BangunRuang
      */
     function kelilingBalok($panjang, $lebar, $tinggi)
     {
+        /**
+        variabel $empat tidak perlu di tulis, langsung saja di tulis di return 4 * $panjang * $lebar * $tinggi ;
+        */
         $empat = 4;
         return $empat * $panjang * $lebar * $tinggi;
     }
