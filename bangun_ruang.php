@@ -2,7 +2,7 @@
 
 class BangunRuang
 {
-    private $phi = 3.14;
+    private $PHI = 3.14;
 
     /**
      * Menghitung nilai kuadrat pangkat dua
@@ -10,8 +10,8 @@ class BangunRuang
      */
     function kuadrat($nilai)
     {
-        $pangkat = 2;
-        return pow($nilai, $pangkat);
+        $PANGKAT_DUA = 2;
+        return pow($nilai, $PANGKAT_DUA);
     }
 
     /**
@@ -21,7 +21,7 @@ class BangunRuang
     function luasLingkaran($diameter)
     {
         $seperempat = 0.25;
-        return $seperempat * $this->phi * $this->kuadrat($diameter);
+        return $seperempat * $this->PHI * $this->kuadrat($diameter);
     }
 
     /**
@@ -40,8 +40,8 @@ class BangunRuang
      */
     function luasPermukaanKubus($sisi)
     {
-        $enam_sisi = 6;
-        return $enam_sisi * $this->kuadrat($sisi);
+        $ENAM_SISI = 6;
+        return $ENAM_SISI * $this->kuadrat($sisi);
     }
 }
 
