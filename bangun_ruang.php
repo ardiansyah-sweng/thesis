@@ -65,6 +65,8 @@ class BangunRuang
 }
 
 $bangunRuang = new BangunRuang();
+
+/*
 echo 'Luas lingkaran: ' . $bangunRuang->luasLingkaran(30);
 echo '<br>';
 echo 'Keliling lingkaran: ' . $bangunRuang->kelilingLingkaran(8);
@@ -75,5 +77,47 @@ echo 'Luas permukaan kubus: '.$bangunRuang->luasPermukaanKubus(13);
 echo '<br>';
 echo 'Luas permukaan persegi panjang: '.$bangunRuang->luasPermukaaanPersegiPanjang(2,4);
 echo '<br>';
-echo 'Volume Kubus: ' . $bangunRuang->volumeKubus(5);
+echo 'Volume Kubus: ' . $bangunRuang->volumeKubus(5);*/
+
+
+?>
+
+
+<html>
+<head></head>
+<body>
+
+	<form action="" method="post">
+		Masukkan angka: <input type="text" name="num"><br>
+		<p>ingin cari apa ? : </p>
+		<input type="submit" name="submit" value="Luas Lingkaran">
+		<input type="submit" name="submit" value="Keliling Lingkaran">
+		<input type="submit" name="submit" value="Luas Permukaan Kubus">
+	</form>
+	
+	<?php
+	
+		$angka = 0;
+		if(isset($_POST['num'])){
+			$angka = floatval($_POST['num']);
+		}
+		
+		$state = "";
+		if(isset($_POST['submit'])){
+			$state = $_POST['submit'];
+		}
+		
+		if(strlen($angka) > 0 && $state === "Luas Lingkaran"){
+			echo "hasil : ",$bangunRuang->luasLingkaran($angka);
+		}
+		else if(strlen($angka) > 0 && $state === "Keliling Lingkaran"){
+			echo "hasil : ",$bangunRuang->kelilingLingkaran($angka);
+		}
+		else if(strlen($angka) > 0 && $state === "Luas Permukaan Kubus"){
+			echo "hasil : ",$bangunRuang->luasPermukaanKubus($angka);
+		}
+	?>
+</body>
+
+</html>
 
