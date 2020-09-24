@@ -67,7 +67,7 @@ class BangunRuang
      * Menghitung Volume Limas Segi Tiga
      * Rumus: 1/3 * Luas Alas x tinggi
      */
-    public function volumeLimasSegiTiga($luasAlas, $tinggi)
+    function volumeLimasSegiTiga($luasAlas, $tinggi)
     {
         return (1 / 3 * $luasAlas * $tinggi);
     }
@@ -76,7 +76,7 @@ class BangunRuang
      * Menghitung Luas Permukaan Limas Segi Tiga
      * Rumus: Luas Selubung Limas + Luas Alas
      */
-    public function luasPermukaanLimasSegiTiga($luasAlas, $luasSelubungLimas)
+    function luasPermukaanLimasSegiTiga($luasAlas, $luasSelubungLimas)
     {
         return $luasAlas + $luasSelubungLimas;
     }
@@ -87,6 +87,14 @@ class BangunRuang
     function volumeBalok($panjang, $lebar, $tinggi)
     {
         return $panjang * $lebar * $tinggi;
+    }
+    /**
+     * Menghitung Volume Tabung
+     * Rumus : PHI x jari-jari Kuadrat x tinggi
+     */
+    function volumeTabung($jariJari, $tinggi)
+    {
+        return $this->PHI * $this->kuadrat($jariJari) * $tinggi;
     }
 }
 
@@ -108,3 +116,5 @@ echo '<br>';
 echo 'Luas permukaan Limas Segi Tiga: ' . $bangunRuang->luasPermukaanLimasSegiTiga(30, 40);
 echo '<br>';
 echo 'Volume Balok: '.$bangunRuang->volumeBalok(4,5,6);
+echo '<br>';
+echo 'Volume Tabung '.$bangunRuang->volumeTabung(10, 20);
