@@ -44,10 +44,14 @@ class BangunRuang
         return $enam_sisi * $this->kuadrat($sisi);
     }
 
+    /**
+     * Menghitung Volume Kubus
+     * Rumus sisi*sisi*sisi
+     */
     function volumeKubus($sisi)
     {
-        $vK = $sisi * $sisi * $sisi;
-        return $vK;
+        $Vk = $sisi * $sisi * $sisi;
+        return $Vk;
     }
 }
 
