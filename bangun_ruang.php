@@ -114,6 +114,15 @@ class BangunRuang
         $EMPAT = 4;
         return $EMPAT *  $this->PHI * $this->kuadrat($jariJari);
     }
+    /**
+     * Menghitung Luas Persegi
+     * Rumus: 4 x sisi
+     */
+    function kelilingPersegi($sisi)
+    {
+        $EMPAT = 4;
+        return $EMPAT *  $sisi;
+    }
 }
 
 $bangunRuang = new BangunRuang();
@@ -140,3 +149,5 @@ echo '<br>';
 echo 'Luas Permukaan Kerucut : ' . $bangunRuang->luasPermukaanKerucut(7, 9);
 echo '<br>';
 echo 'Luas permukaan bola: '. $bangunRuang->luasPermukaanBola(13);
+echo '<br>';
+echo 'Keliling Persegi: '. $bangunRuang->kelilingPersegi(9);
