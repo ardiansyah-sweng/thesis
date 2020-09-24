@@ -43,6 +43,15 @@ class BangunRuang
         $enam_sisi = 6;
         return $enam_sisi * $this->kuadrat($sisi);
     }
+
+    /**
+     * Menghitung Volume Kubus 
+     * Rumus: sisi^kubik
+     */
+    function VolumeKubus($sisi)
+    {
+        return $sisi * $sisi * $sisi;
+    }
 }
 
 $bangunRuang = new BangunRuang();
@@ -51,3 +60,5 @@ echo '<br>';
 echo 'Keliling lingkaran: '.$bangunRuang->kelilingLingkaran(8);
 echo '<br>';
 echo 'Luas permukaan kubus: '.$bangunRuang->luasPermukaanKubus(13);
+echo '<br>';
+echo 'Volume permukaan kubus: '.$bangunRuang->VolumeKubus(5);
