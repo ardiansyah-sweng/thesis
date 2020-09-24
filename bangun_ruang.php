@@ -92,9 +92,9 @@ class BangunRuang
      * Menghitung Volume Tabung
      * Rumus : PHI x jari-jari Kuadrat x tinggi
      */
-    function volumeTabung($jari_jari, $tinggi)
+    function volumeTabung($jariJari, $tinggi)
     {
-        return $this->PHI * $this->kuadrat($jari_jari) * $tinggi;
+        return $this->PHI * $this->kuadrat($jariJari) * $tinggi;
     }
 }
 
