@@ -62,6 +62,14 @@ class BangunRuang
     {
         return $panjang * $lebar;
     }
+
+    /**
+     * Menghitung volume tabung
+     * Rumus: phi x jari-jari x jari-jari x tinggi
+     */
+    function VolumeTabung($jariJari,$tinggi){
+        return $this->PHI * $jariJari*$jariJari*$tinggi;
+    }
 }
 
 $bangunRuang = new BangunRuang();
@@ -76,4 +84,6 @@ echo '<br>';
 echo 'Luas permukaan persegi panjang: '.$bangunRuang->luasPermukaaanPersegiPanjang(2,4);
 echo '<br>';
 echo 'Volume Kubus: ' . $bangunRuang->volumeKubus(5);
+echo '<br>';
+echo 'Volume tabung: ' . $bangunRuang->VolumeTabung(7,6) .' cm^2';
 
