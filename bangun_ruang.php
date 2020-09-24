@@ -58,9 +58,9 @@ class BangunRuang
      */
     function VolumeKerucut($jari_jari, $tinggi)
     {
-        $sepertiga = 0.33;
+        $satupertiga = 0.33;
         
-        return $sepertiga * $this->PHI * $this->kuadrat($jari_jari) * $tinggi;
+        return $satupertiga * $this->PHI * $this->kuadrat($jari_jari) * $tinggi;
     }
 }
 
