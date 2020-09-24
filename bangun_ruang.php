@@ -4,7 +4,6 @@ class BangunRuang
 {
 
     private $PHI = 3.14;
-    private $luasAlasLimas = 30; // Add
 
     /**
      * Menghitung nilai kuadrat pangkat dua
@@ -67,19 +66,17 @@ class BangunRuang
      * Menghitung Volume Limas Segi Tiga
      * Rumus: 1/3 * Luas Alas x tinggi
      */
-    public function volumeLimasSegiTiga()
+    public function volumeLimasSegiTiga($luasAlas, $tinggi)
     {
-        $tinggi = 10;
-        return (1 / 3 * $this->luasAlasLimas * $tinggi);
+        return (1 / 3 * $luasAlas * $tinggi);
     }
     /**
      * Menghitung Luas Permukaan Limas Segi Tiga
      * Rumus: Luas Selubung Limas + Luas Alas
      */
-    public function luaspermukaanLimasSegiTiga()
+    public function luaspermukaanLimasSegiTiga($luasAlas, $luasSelubungLimas)
     {
-        $luasSelubungLimas = 30; // var $lsl = luas selubung limas
-        return $this->luasAlasLimas + $luasSelubungLimas;  // Rumus Luas Permukaan Limas Segi Tiga
+        return $luasAlas + $luasSelubungLimas;
     }
 }
 
@@ -96,6 +93,6 @@ echo 'Luas permukaan persegi panjang: ' . $bangunRuang->luasPermukaaanPersegiPan
 echo '<br>';
 echo 'Volume Kubus: ' . $bangunRuang->volumeKubus(5);
 echo '<br>';
-echo 'Volume Limas Segi Tiga: ' . $bangunRuang->volumeLimasSegiTiga();
+echo 'Volume Limas Segi Tiga: ' . $bangunRuang->volumeLimasSegiTiga(30, 10);
 echo '<br>';
-echo 'Luas permukaan Limas Segi Tiga: ' . $bangunRuang->luaspermukaanLimasSegiTiga();
+echo 'Luas permukaan Limas Segi Tiga: ' . $bangunRuang->luaspermukaanLimasSegiTiga(30, 40);
