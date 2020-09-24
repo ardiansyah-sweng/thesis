@@ -54,7 +54,7 @@ class BangunRuang
     }
     /**
      * Menghitung Volume Kerucut
-     * Rumus 1/3 * PHI * r * r * t
+     * Rumus 1/3 * PHI * jari-jari * jari-jari * tinggi
      */
     function VolumeKerucut($jari_jari, $tinggi)
     {
