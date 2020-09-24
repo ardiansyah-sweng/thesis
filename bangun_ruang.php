@@ -31,7 +31,7 @@ class BangunRuang
     function kelilingLingkaran($jari_jari)
     {
         $dua = 2;
-        return $this->phi * $dua * $jari_jari;
+        return $this->PHI * $dua * $jari_jari;
     }
 
     /**
