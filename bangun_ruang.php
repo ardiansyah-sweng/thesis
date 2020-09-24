@@ -26,7 +26,7 @@ class BangunRuang
 
     /**
      * Menghitung Luas Lingkaran
-     * Rumus: 0.25 * 3.14 * diameter kuadrat
+     * Rumus: 0.25 * phi * diameter kuadrat
      */
     function luasLingkaran($diameter)
     {
@@ -36,7 +36,7 @@ class BangunRuang
 
     /**
      * Menghitung Keliling Lingkaran
-     * Rumus: 3.24 * 2 * r
+     * Rumus: phi * 2 * r
      */
     function kelilingLingkaran($jari_jari)
     {
@@ -73,6 +73,8 @@ class BangunRuang
         $empatpertiga = 1.33;
         return $empatpertiga * $this->phi * $this->pangkatTiga($jari_jari);
     }
+
+
 }
 
 $bangunRuang = new BangunRuang();
