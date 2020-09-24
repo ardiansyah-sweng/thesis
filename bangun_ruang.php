@@ -52,6 +52,16 @@ class BangunRuang
     {
         return $sisi * $sisi * $sisi;
     }
+    /**
+     * Menghitung Volume Kerucut
+     * Rumus 1/3 * PHI * r * r * t
+     */
+    function VolumeKerucut($jari_jari, $tinggi)
+    {
+        $sepertiga = 0.33;
+        
+        return $sepertiga * $this->PHI * $this->kuadrat($jari_jari) * $tinggi;
+    }
 }
 
 $bangunRuang = new BangunRuang();
@@ -62,3 +72,5 @@ echo '<br>';
 echo 'Luas permukaan kubus: ' . $bangunRuang->luasPermukaanKubus(13);
 echo '<br>';
 echo 'Volume Kubus: ' . $bangunRuang->volumeKubus(5);
+echo '<br>';
+echo 'Volume Kerucut: ' . $bangunRuang->volumeKerucut(10,8);
