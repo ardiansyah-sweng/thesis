@@ -44,12 +44,15 @@ class BangunRuang
         $enam_sisi = 6;
         return $enam_sisi * $this->kuadrat($sisi);
     }
-    function luasPermukaaanpersegipanjang($p,$l)
+
+    /**
+     * Menghitung Luas Permukaan Persegi Panjang
+     * Rumus: Panjang x Lebar
+     */
+    function luasPermukaaanPersegiPanjang($panjang,$lebar)
     {
-        $p = 2;
-        $l = 3;
-        $luas = ($p*$l);
-        return $luas;
+        
+        return $panjang * $lebar;
     }
 }
 
@@ -60,4 +63,4 @@ echo 'Keliling lingkaran: '.$bangunRuang->kelilingLingkaran(8);
 echo '<br>';
 echo 'Luas permukaan kubus: '.$bangunRuang->luasPermukaanKubus(13);
 echo '<br>';
-echo 'Luas permukaan persegi panjang: '.$bangunRuang->luasPermukaaanpersegipanjang(10,10,10);
+echo 'Luas permukaan persegi panjang: '.$bangunRuang->luasPermukaaanPersegiPanjang(2,4);
