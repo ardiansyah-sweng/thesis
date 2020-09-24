@@ -62,6 +62,7 @@ class BangunRuang
     {
         return $panjang * $lebar;
     }
+    
     /**
      * Menghitung Volume Limas Segi Tiga
      * Rumus: 1/3 * Luas Alas x tinggi
@@ -70,6 +71,7 @@ class BangunRuang
     {
         return (1 / 3 * $luasAlas * $tinggi);
     }
+
     /**
      * Menghitung Luas Permukaan Limas Segi Tiga
      * Rumus: Luas Selubung Limas + Luas Alas
