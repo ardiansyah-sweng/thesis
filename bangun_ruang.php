@@ -1,9 +1,9 @@
 <?php
 
-class Matematika
+class BangunRuang
 {
 
-    private $phi = 3.14;
+    private $PHI = 3.14;
 
     /**
      * Menghitung nilai kuadrat pangkat dua
@@ -11,8 +11,8 @@ class Matematika
      */
     function kuadrat($nilai)
     {
-        $pangkat = 2;
-        return pow($nilai, $pangkat);
+        $PANGKAT_DUA = 2;
+        return pow($nilai, $PANGKAT_DUA);
     }
 
     /**
