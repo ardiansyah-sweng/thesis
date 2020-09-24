@@ -27,12 +27,12 @@ class BangunRuang
 
     /**
      * Menghitung Keliling Lingkaran
-     * Rumus: phi x 2 x r
+     * Rumus: phi x 2 x jari jari
      */
-    function kelilingLingkaran($jari_jari)
+    function kelilingLingkaran($jariJari)
     {
-        $dua = 2;
-        return $this->PHI * $dua * $jari_jari;
+        $DUA = 2;
+        return $this->PHI * $DUA * $jariJari;
     }
 
     /**
@@ -58,7 +58,7 @@ class BangunRuang
      * Menghitung Luas Permukaan Persegi Panjang
      * Rumus: Panjang x Lebar
      */
-    function luasPermukaaanPersegiPanjang($panjang,$lebar)
+    function luasPermukaaanPersegiPanjang($panjang, $lebar)
     {
         return $panjang * $lebar;
     }
