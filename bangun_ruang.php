@@ -74,7 +74,7 @@ class BangunRuang
      * Menghitung Luas Permukaan Limas Segi Tiga
      * Rumus: Luas Selubung Limas + Luas Alas
      */
-    public function luaspermukaanLimasSegiTiga($luasAlas, $luasSelubungLimas)
+    public function luasPermukaanLimasSegiTiga($luasAlas, $luasSelubungLimas)
     {
         return $luasAlas + $luasSelubungLimas;
     }
@@ -95,4 +95,4 @@ echo 'Volume Kubus: ' . $bangunRuang->volumeKubus(5);
 echo '<br>';
 echo 'Volume Limas Segi Tiga: ' . $bangunRuang->volumeLimasSegiTiga(30, 10);
 echo '<br>';
-echo 'Luas permukaan Limas Segi Tiga: ' . $bangunRuang->luaspermukaanLimasSegiTiga(30, 40);
+echo 'Luas permukaan Limas Segi Tiga: ' . $bangunRuang->luasPermukaanLimasSegiTiga(30, 40);
