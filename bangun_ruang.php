@@ -88,6 +88,14 @@ class BangunRuang
     {
         return $luasAlas + $luasSelubungLimas;
     }
+    /**
+     * Menghitung Volume Balok
+     * Rumus: panjang x lebar x tinggi
+     */
+    function volumeBalok($panjang, $lebar, $tinggi)
+    {
+        return $panjang * $lebar * $tinggi;
+    }
 }
 
 $bangunRuang = new BangunRuang();
@@ -109,3 +117,5 @@ echo '<br>';
 echo 'Volume Limas Segi Tiga: ' . $bangunRuang->volumeLimasSegiTiga(30, 10);
 echo '<br>';
 echo 'Luas permukaan Limas Segi Tiga: ' . $bangunRuang->luasPermukaanLimasSegiTiga(30, 40);
+echo '<br>';
+echo 'Volume Balok: '.$bangunRuang->volumeBalok(4,5,6);
