@@ -43,6 +43,16 @@ class BangunRuang
         $ENAM_SISI = 6;
         return $ENAM_SISI * $this->kuadrat($sisi);
     }
+
+    /**
+     * Menghitung Volume Limas Segiempat
+     * Rumus: 0.33 * p * l * t
+     */
+    function volumeLimasSegiempat($panjang, $lebar, $tinggi)
+    {
+        $sepertiga = 0.33;
+        return $sepertiga * $panjang * $lebar * $tinggi;
+    }
 }
 
 $bangunRuang = new BangunRuang();
@@ -51,3 +61,5 @@ echo '<br>';
 echo 'Keliling lingkaran: '.$bangunRuang->kelilingLingkaran(8);
 echo '<br>';
 echo 'Luas permukaan kubus: '.$bangunRuang->luasPermukaanKubus(13);
+echo '<br>';
+echo 'Volume Limas Segiempat: '.$bangunRuang->volumeLimasSegiempat(10,8,6);
