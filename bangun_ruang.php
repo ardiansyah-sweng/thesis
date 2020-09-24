@@ -105,7 +105,6 @@ echo '<br>';
 
 echo 'Volume Kubus: ' . $bangunRuang->volumeKubus(5);
 
-=======
 echo 'Volume Kubus: ' . $bangunRuang->volumeKubus(5);
 echo '<br>';
 echo 'Volume Limas Segi Tiga: ' . $bangunRuang->volumeLimasSegiTiga(30, 10);
@@ -113,6 +112,8 @@ echo '<br>';
 echo 'Luas permukaan Limas Segi Tiga: ' . $bangunRuang->luasPermukaanLimasSegiTiga(30, 40);
 echo '<br>';
 echo 'Volume Balok: '.$bangunRuang->volumeBalok(4,5,6);
+
+?>
   
 <html>
 <head></head>
