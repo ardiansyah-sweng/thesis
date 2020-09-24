@@ -53,6 +53,17 @@ class BangunRuang
         $sepertiga = 0.33;
         return $sepertiga * $panjang * $lebar * $tinggi;
     }
+
+    /**
+     * Menghitung Keliling Balok
+     * Rumus: 4 * p * l * t
+     */
+    function kelilingBalok($panjang, $lebar, $tinggi)
+    {
+        $empat = 4;
+        return $empat * $panjang * $lebar * $tinggi;
+    }
+    
 }
 
 $bangunRuang = new BangunRuang();
@@ -63,3 +74,5 @@ echo '<br>';
 echo 'Luas permukaan kubus: '.$bangunRuang->luasPermukaanKubus(13);
 echo '<br>';
 echo 'Volume Limas Segiempat: '.$bangunRuang->volumeLimasSegiempat(10,8,6);
+echo '<br>';
+echo 'Keliling Balok: '.$bangunRuang->kelilingBalok(9,7,5);
