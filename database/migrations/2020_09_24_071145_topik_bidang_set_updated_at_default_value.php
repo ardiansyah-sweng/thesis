@@ -1,11 +1,11 @@
 <?php
 
 use Illuminate\Database\Migrations\Migration;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
-use Illuminate\Support\Facades\DB;
 
-class DosenSetUpdatedAtDefaultValue extends Migration
+class TopikBidangSetUpdatedAtDefaultValue extends Migration
 {
     /**
      * Run the migrations.
@@ -14,7 +14,7 @@ class DosenSetUpdatedAtDefaultValue extends Migration
      */
     public function up()
     {
-        DB::statement("ALTER TABLE dosen CHANGE updated_at updated_at  TIMESTAMP NULL DEFAULT CURRENT_TIMESTAMP");
+        DB::statement("ALTER TABLE topik_bidang CHANGE updated_at updated_at  TIMESTAMP NULL DEFAULT CURRENT_TIMESTAMP");
     }
 
     /**
@@ -24,7 +24,7 @@ class DosenSetUpdatedAtDefaultValue extends Migration
      */
     public function down()
     {
-        Schema::table('dosen', function (Blueprint $table) {
+        Schema::table('topik_bidang', function (Blueprint $table) {
             $table->timestamp('updated_at')->default(NULL)->change();
         });
     }
