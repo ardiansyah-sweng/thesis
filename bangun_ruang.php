@@ -2,6 +2,7 @@
 
 class BangunRuang
 {
+
     private $PHI = 3.14;
 
     /**
@@ -52,6 +53,15 @@ class BangunRuang
     {
         return $sisi * $sisi * $sisi;
     }
+
+    /**
+     * Menghitung Luas Permukaan Persegi Panjang
+     * Rumus: Panjang x Lebar
+     */
+    function luasPermukaaanPersegiPanjang($panjang,$lebar)
+    {
+        return $panjang * $lebar;
+    }
 }
 
 $bangunRuang = new BangunRuang();
@@ -61,4 +71,9 @@ echo 'Keliling lingkaran: ' . $bangunRuang->kelilingLingkaran(8);
 echo '<br>';
 echo 'Luas permukaan kubus: ' . $bangunRuang->luasPermukaanKubus(13);
 echo '<br>';
+echo 'Luas permukaan kubus: '.$bangunRuang->luasPermukaanKubus(13);
+echo '<br>';
+echo 'Luas permukaan persegi panjang: '.$bangunRuang->luasPermukaaanPersegiPanjang(2,4);
+echo '<br>';
 echo 'Volume Kubus: ' . $bangunRuang->volumeKubus(5);
+
