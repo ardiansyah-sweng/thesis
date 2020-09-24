@@ -31,7 +31,7 @@ class BangunRuang
     function kelilingLingkaran($jari_jari)
     {
         $dua = 2;
-        return $this->phi * $dua * $jari_jari;
+        return $this->PHI * $dua * $jari_jari;
     }
 
     /**
@@ -43,6 +43,16 @@ class BangunRuang
         $ENAM_SISI = 6;
         return $ENAM_SISI * $this->kuadrat($sisi);
     }
+    /**
+     * Menghitung Luas Permukaan Bola
+     * Rumus: 4 x PHI x jari-jari Kuadrat
+     */
+    function luasPermukaanBola($jari_jari)
+    {
+        $EMPAT = 4;
+        return $EMPAT *  $this->PHI * $this->kuadrat($jari_jari);
+    }
+
 }
 
 $bangunRuang = new BangunRuang();
@@ -51,3 +61,5 @@ echo '<br>';
 echo 'Keliling lingkaran: '.$bangunRuang->kelilingLingkaran(8);
 echo '<br>';
 echo 'Luas permukaan kubus: '.$bangunRuang->luasPermukaanKubus(13);
+echo '<br>';
+echo 'Luas permukaan bola: '.$bangunRuang->luasPermukaanBola(13);
