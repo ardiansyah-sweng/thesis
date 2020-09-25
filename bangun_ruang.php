@@ -21,8 +21,8 @@ class BangunRuang
      */
     function luasLingkaran($diameter)
     {
-        $seperempat = 0.25;
-        return $seperempat * $this->PHI * $this->kuadrat($diameter);
+        $SEPEREMPAT = 0.25;
+        return $SEPEREMPAT * $this->PHI * $this->kuadrat($diameter);
     }
 
     /**
@@ -69,7 +69,8 @@ class BangunRuang
      */
     function volumeLimasSegiTiga($luasAlas, $tinggi)
     {
-        return (1 / 3 * $luasAlas * $tinggi);
+        $SEPERTIGA = 1 / 3;
+        return $SEPERTIGA * $luasAlas * $tinggi;
     }
 
     /**
@@ -80,6 +81,7 @@ class BangunRuang
     {
         return $luasAlas + $luasSelubungLimas;
     }
+
     /**
      * Menghitung Volume Balok
      * Rumus: panjang x lebar x tinggi
@@ -88,6 +90,7 @@ class BangunRuang
     {
         return $panjang * $lebar * $tinggi;
     }
+
     /**
      * Menghitung Volume Tabung
      * Rumus : PHI x jari-jari Kuadrat x tinggi
@@ -106,13 +109,24 @@ class BangunRuang
         return ($this->PHI * $jarijari * $garisPelukis) + ($this->PHI * $this->kuadrat($jarijari));
     }
 
+<<<<<<< HEAD
     /**
      * Menghitung Volume Bola
      * Rumus Luas : 4/3 * 3.14 * jariJari * jariJari * jariJari
      */
     function volumeBola($jariJari)
     {
-        return 4/3 * $this->PHI * $jariJari * $jariJari * $jariJari;
+        $EMPATPERTIGA = 4 / 3;
+        return $EMPATPERTIGA * $this->PHI * $jariJari * $jariJari * $jariJari;
+=======
+    /**Menghitung Luas Permukaan Bola
+     * Rumus : 4 * PHI * jariJari * jariJari 
+     */
+    function luasPermukaanBola($jariJari)
+    {
+        $EMPAT = 4;
+        return $EMPAT * $this->PHI * $jariJari * $jariJari; 
+>>>>>>> 326465ed6d0617df610010dce0f995e9ffd652b0
     }
 }
 
@@ -139,4 +153,8 @@ echo 'Volume Tabung ' . $bangunRuang->volumeTabung(10, 20);
 echo '<br>';
 echo 'Luas Permukaan Kerucut : ' . $bangunRuang->luasPermukaanKerucut(7, 9);
 echo '<br>';
+<<<<<<< HEAD
 echo 'Volume Bola :' . $bangunRuang->volumeBola(3);
+=======
+echo 'Luas Permukaan permukaan bola : ' . $bangunRuang->luasPermukaanBola(5);
+>>>>>>> 326465ed6d0617df610010dce0f995e9ffd652b0
