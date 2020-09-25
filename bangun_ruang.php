@@ -126,6 +126,16 @@ class BangunRuang
         $EMPATPERTIGA = 1.33;
         return $EMPATPERTIGA * $this->PHI * $jariJari * $jariJari * $jariJari;
     }
+
+    /**
+     * Menghitung Keliling Balok
+     * Rumus: 4 * panjang * lebar * tinggi
+     */
+    function kelilingBalok($panjang, $lebar, $tinggi)
+    {
+        $EMPAT = 4;
+        return $EMPAT * $panjang * $lebar * $tinggi;
+	}
 }
 
 $bangunRuang = new BangunRuang();
@@ -153,4 +163,10 @@ echo 'Volume Tabung ' . $bangunRuang->volumeTabung(10, 20);
 echo '<br>';
 echo 'Luas Permukaan Kerucut : ' . $bangunRuang->luasPermukaanKerucut(7, 9);
 echo '<br>';
-echo 'Volume Bola :' . $bangunRuang->volumeBola(3);
+<<<<<<< HEAD
+echo 'Volume Bola :' . $bangunRuang->volumeBola(5);
+=======
+echo 'Luas Permukaan permukaan bola : ' . $bangunRuang->luasPermukaanBola(5);
+echo '<br>';
+echo 'Keliling Balok: '.$bangunRuang->kelilingBalok(15,10,5);
+>>>>>>> eccb0441d6842f4e7bd388a5467007a618023a58
