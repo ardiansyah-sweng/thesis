@@ -21,8 +21,8 @@ class BangunRuang
      */
     function luasLingkaran($diameter)
     {
-        $seperempat = 0.25;
-        return $seperempat * $this->PHI * $this->kuadrat($diameter);
+        $SEPEREMPAT = 0.25;
+        return $SEPEREMPAT * $this->PHI * $this->kuadrat($diameter);
     }
 
     /**
@@ -62,24 +62,34 @@ class BangunRuang
     {
         return $panjang * $lebar;
     }
-    
+
     /**
      * Menghitung Volume Limas Segi Tiga
      * Rumus: 1/3 * Luas Alas x tinggi
      */
-    public function volumeLimasSegiTiga($luasAlas, $tinggi)
+    function volumeLimasSegiTiga($luasAlas, $tinggi)
     {
-        return (1 / 3 * $luasAlas * $tinggi);
+        $SEPERTIGA = 1 / 3;
+        return $SEPERTIGA * $luasAlas * $tinggi;
     }
 
     /**
      * Menghitung Luas Permukaan Limas Segi Tiga
      * Rumus: Luas Selubung Limas + Luas Alas
      */
-    public function luasPermukaanLimasSegiTiga($luasAlas, $luasSelubungLimas)
+    function luasPermukaanLimasSegiTiga($luasAlas, $luasSelubungLimas)
     {
         return $luasAlas + $luasSelubungLimas;
     }
+
+    /**
+     * Menghitung Luas Permukaan jajar genjang 
+     * Rumus: Luas jajargenjang alas * tinggi
+     */
+    public function luasJajarGenjang($alas, $tinggi)
+    {
+        return $alas * $tinggi;
+}
     /**
      * Menghitung Volume Balok
      * Rumus: panjang x lebar x tinggi
@@ -88,10 +98,56 @@ class BangunRuang
     {
         return $panjang * $lebar * $tinggi;
     }
+
+    /**
+     * Menghitung Volume Tabung
+     * Rumus : PHI x jari-jari Kuadrat x tinggi
+     */
+    function volumeTabung($jariJari, $tinggi)
+    {
+        return $this->PHI * $this->kuadrat($jariJari) * $tinggi;
+    }
+
+    /**
+     * Menghitung Luas Permukaan Kerucut
+     * Rumus : (phi x jarijari x garisPelukis) + (phi x jari x jari)
+     */
+    function luasPermukaanKerucut($jarijari, $garisPelukis)
+    {
+        return ($this->PHI * $jarijari * $garisPelukis) + ($this->PHI * $this->kuadrat($jarijari));
+    }
+
+    /**Menghitung Luas Permukaan Bola
+     * Rumus : 4 * PHI * jariJari * jariJari 
+     */
+    function luasPermukaanBola($jariJari)
+    {
+        $EMPAT = 4;
+        return $EMPAT * $this->PHI * $jariJari * $jariJari; 
+    }
+
+    /**
+     * Menghitung Keliling Balok
+     * Rumus: 4 * panjang * lebar * tinggi
+     */
+    function kelilingBalok($panjang, $lebar, $tinggi)
+    {
+        $EMPAT = 4;
+        return $EMPAT * $panjang * $lebar * $tinggi;
+	}
+	
+	/**
+     * Menghitung Luas Balok
+     * Rumus: 2 * ( panjang * lebar + panjang * tinggi + lebar * tinggi)
+     */
+    function luasBalok($panjang, $lebar, $tinggi)
+    {
+		return (2 * ((panjang * lebar) + (panjang * tinggi) + (lebar * tinggi)));
+	}
+	
 }
 
 $bangunRuang = new BangunRuang();
-
 echo 'Luas lingkaran: ' . $bangunRuang->luasLingkaran(30);
 echo '<br>';
 echo 'Keliling lingkaran: ' . $bangunRuang->kelilingLingkaran(8);
@@ -102,54 +158,22 @@ echo 'Luas permukaan kubus: ' . $bangunRuang->luasPermukaanKubus(13);
 echo '<br>';
 echo 'Luas permukaan persegi panjang: ' . $bangunRuang->luasPermukaaanPersegiPanjang(2, 4);
 echo '<br>';
-
-echo 'Volume Kubus: ' . $bangunRuang->volumeKubus(5);
-
 echo 'Volume Kubus: ' . $bangunRuang->volumeKubus(5);
 echo '<br>';
 echo 'Volume Limas Segi Tiga: ' . $bangunRuang->volumeLimasSegiTiga(30, 10);
 echo '<br>';
 echo 'Luas permukaan Limas Segi Tiga: ' . $bangunRuang->luasPermukaanLimasSegiTiga(30, 40);
 echo '<br>';
-echo 'Volume Balok: '.$bangunRuang->volumeBalok(4,5,6);
-
-?>
-  
-<html>
-<head></head>
-<body>
-  
-<h3> UI Interaktif </h3>
-	<form action="" method="post">
-		Masukkan angka: <input type="text" name="num"><br>
-		<p>ingin cari apa ? : </p>
-		<input type="submit" name="submit" value="Luas Lingkaran">
-		<input type="submit" name="submit" value="Keliling Lingkaran">
-		<input type="submit" name="submit" value="Luas Permukaan Kubus">
-	</form>
-	
-	<?php
-	
-		$angka = 0;
-		if(isset($_POST['num'])){
-			$angka = floatval($_POST['num']);
-		}
-		
-		$state = "";
-		if(isset($_POST['submit'])){
-			$state = $_POST['submit'];
-		}
-		
-		if(strlen($angka) > 0 && $state === "Luas Lingkaran"){
-			echo "hasil : ",$bangunRuang->luasLingkaran($angka);
-		}
-		else if(strlen($angka) > 0 && $state === "Keliling Lingkaran"){
-			echo "hasil : ",$bangunRuang->kelilingLingkaran($angka);
-		}
-		else if(strlen($angka) > 0 && $state === "Luas Permukaan Kubus"){
-			echo "hasil : ",$bangunRuang->luasPermukaanKubus($angka);
-		}
-	?>
-</body>
-
-</html>
+echo 'Luas jajar genjang: ' . $bangunRuang->luasJajarGenjang(10, 10);
+echo '<br>';
+echo 'Volume Balok: ' . $bangunRuang->volumeBalok(4, 5, 6);
+echo '<br>';
+echo 'Volume Tabung ' . $bangunRuang->volumeTabung(10, 20);
+echo '<br>';
+echo 'Luas Permukaan Kerucut : ' . $bangunRuang->luasPermukaanKerucut(7, 9);
+echo '<br>';
+echo 'Luas Permukaan permukaan bola : ' . $bangunRuang->luasPermukaanBola(5);
+echo '<br>';
+echo 'Keliling Balok: '.$bangunRuang->kelilingBalok(15,10,5);
+echo '<br>';
+echo 'Luas Balok: '.$bangunRuang->luasBalok(2,1,7);
