@@ -155,12 +155,6 @@ class DosenSeeder extends Seeder
         ]);
 
         DB::table('dosen')->insert([
-            'nipy' => '023',
-            'nama' => 'Murein Miksa Mardhia, S.T., M.T.',
-            'jabfung' => 'L',
-        ]);
-
-        DB::table('dosen')->insert([
             'nipy' => '024',
             'nama' => 'Kartika Firdausy, S.T., M.T.',
             'jabfung' => 'L',
