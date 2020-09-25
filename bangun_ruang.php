@@ -105,6 +105,14 @@ class BangunRuang
     {
         return 1/3*$this->PHI*$jarijari*$jarijari*$tinggi;
     }
+
+    /**
+     * Menghitung Luas trapesium
+     * Rumus: 1/2 * (jumlah sisi sejajar) * tinggi
+     */
+    function luasTrapesium($a,$b,$tinggi){
+        return 1/2*($a+$b)*$tinggi;
+    }
 }
 
 $bangunRuang = new BangunRuang();
@@ -130,3 +138,5 @@ echo '<br>';
 echo 'Volume Balok: '.$bangunRuang->volumeBalok(4,5,6);
 echo '<br>';
 echo 'Volume Kerucut: '.$bangunRuang->volumeKerucut(7,14);
+echo '<br>';
+echo 'Luas Trapesium: '.$bangunRuang->luasTrapesium(5,7,6);
