@@ -78,14 +78,15 @@ class BangunRuang
     {
         return $luasAlas + $luasSelubungLimas;
     }
-    
+
     /**
-     * Menghitung Luas Permukaan Limas Segi Tiga
-     * Rumus: Luas Selubung Limas + Luas Alas
+     * Menghitung Luas Permukaan jajar genjang 
+     * Rumus: Luas jajar genjang alas * tinggi
      */
     public function luasJajarGenjang($alas, $tinggi)
     {
         return $alas * $tinggi;
+
     }
 }
 
