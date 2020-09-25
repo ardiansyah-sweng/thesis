@@ -134,7 +134,16 @@ class BangunRuang
     {
         $EMPAT = 4;
         return $EMPAT * $panjang * $lebar * $tinggi;
-	}
+    }
+    /**
+     * Menghitung Volume Limas Segi Empat
+     * Rumus: 1/3 * Panjang x Lebar x Tinggi
+     */
+    function volumeLimasSegiEmpat($panjang, $lebar, $tinggi)
+    {
+        $SEPERTIGA = 0.33;
+        return $SEPERTIGA * $panjang * $lebar * $tinggi;
+    }
 }
 
 $bangunRuang = new BangunRuang();
@@ -165,3 +174,5 @@ echo '<br>';
 echo 'Luas Permukaan permukaan bola : ' . $bangunRuang->luasPermukaanBola(5);
 echo '<br>';
 echo 'Keliling Balok: '.$bangunRuang->kelilingBalok(15,10,5);
+echo '<br>';
+echo 'Volume Limas SegiEmpat: '.$bangunRuang->volumeLimasSegiEmpat(20,10,15);
