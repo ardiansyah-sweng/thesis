@@ -123,7 +123,7 @@ class BangunRuang
      */
     function volumeBola($jariJari)
     {
-        $EMPATPERTIGA = 1.33;
+        $EMPATPERTIGA = 4 / 3;
         return $EMPATPERTIGA * $this->PHI * $jariJari * $jariJari * $jariJari;
     }
 
