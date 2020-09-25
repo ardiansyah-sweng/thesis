@@ -92,7 +92,7 @@ class BangunRuang
     public function luasJajarGenjang($alas, $tinggi)
     {
         return $alas * $tinggi;
-}
+    }
     /**
      * Menghitung Volume Balok
      * Rumus: panjang x lebar x tinggi
@@ -126,7 +126,7 @@ class BangunRuang
     function luasPermukaanBola($jariJari)
     {
         $EMPAT = 4;
-        return $EMPAT * $this->PHI * $jariJari * $jariJari; 
+        return $EMPAT * $this->PHI * $jariJari * $jariJari;
     }
 
     /**
@@ -151,6 +151,39 @@ class BangunRuang
     function benar()
     {
         return TRUE;
+    }
+
+    function cekGanjilGenap($nilai)
+    {
+        $DUA = 2;
+        if ($nilai % $DUA == 0) {
+            return "genap";
+        }
+        if ($nilai % $DUA != 0) {
+            return "ganjil";
+        }
+    }
+
+    function cekNULL($nilai)
+    {
+        $array_nilai = $nilai;
+        return $array_nilai;
+    }
+
+    /**
+     * Cek apakah ada nilai di dalam larik
+     */
+    function cekContains()
+    {
+        $array_nilai = array(4, 6, 7, 9);
+        return $array_nilai;
+    }
+
+    /** ada nilai atau tidak */
+    function cekEmpty()
+    {
+        $array_nilai = array();
+        return $array_nilai;
     }
 }
 
@@ -181,6 +214,6 @@ echo 'Luas Permukaan Kerucut : ' . $bangunRuang->luasPermukaanKerucut(7, 9);
 echo '<br>';
 echo 'Luas Permukaan permukaan bola : ' . $bangunRuang->luasPermukaanBola(5);
 echo '<br>';
-echo 'Keliling Balok: '.$bangunRuang->kelilingBalok(15,10,5);
+echo 'Keliling Balok: ' . $bangunRuang->kelilingBalok(15, 10, 5);
 echo '<br>';
-echo 'Volume Limas SegiEmpat: '.$bangunRuang->volumeLimasSegiEmpat(20,10,15);
+echo 'Volume Limas SegiEmpat: ' . $bangunRuang->volumeLimasSegiEmpat(20, 10, 15);
