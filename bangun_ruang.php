@@ -145,13 +145,13 @@ class BangunRuang
         return $SEPERTIGA * $panjang * $lebar * $tinggi;
     }
     /**
-     * Menghitung Volume Bola
-     * Rumus: 4/3 x π x r3
+     * Menghitung Keliling Bola
+     * Rumus: 4/3 x π x r2
      */
-    function volumeBola($jarijari)
+    function kelilingBola($jarijari)
     {
         $EMPATPERTIGA = 4 / 3;
-        return $EMPATPERTIGA * $this->PHI * $jarijari * $jarijari * $jarijari;
+        return $EMPATPERTIGA * $this->PHI * $this->kuadrat($jarijari);
     }
 }
 
@@ -186,4 +186,4 @@ echo 'Keliling Balok: '.$bangunRuang->kelilingBalok(15,10,5);
 echo '<br>';
 echo 'Volume Limas SegiEmpat: '.$bangunRuang->volumeLimasSegiEmpat(20,10,15);
 echo '<br>';
-echo 'Volume Bola: '.$bangunRuang->volumeBola(30);
+echo 'Keliling Bola: '.$bangunRuang->kelilingBola(30);
