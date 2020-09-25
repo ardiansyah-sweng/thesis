@@ -1,10 +1,14 @@
 <?php
-# app/Box.php
+# app/BangunRuang.php
 
 namespace App;
 
-class Box
+class BangunRuang
 {
+    /**
+     * Menghitung nilai pangkat dua
+     * Rumus: nilai x nilai
+     */
     function kuadrat($nilai)
     {
         $PANGKAT_DUA = 2;
