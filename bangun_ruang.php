@@ -21,8 +21,8 @@ class BangunRuang
      */
     function luasLingkaran($diameter)
     {
-        $seperempat = 0.25;
-        return $seperempat * $this->PHI * $this->kuadrat($diameter);
+        $SEPEREMPAT = 0.25;
+        return $SEPEREMPAT * $this->PHI * $this->kuadrat($diameter);
     }
 
     /**
@@ -69,7 +69,8 @@ class BangunRuang
      */
     function volumeLimasSegiTiga($luasAlas, $tinggi)
     {
-        return (1 / 3 * $luasAlas * $tinggi);
+        $SEPERTIGA = 1 / 3;
+        return $SEPERTIGA * $luasAlas * $tinggi;
     }
 
     /**
@@ -80,6 +81,7 @@ class BangunRuang
     {
         return $luasAlas + $luasSelubungLimas;
     }
+
     /**
      * Menghitung Volume Balok
      * Rumus: panjang x lebar x tinggi
@@ -88,6 +90,7 @@ class BangunRuang
     {
         return $panjang * $lebar * $tinggi;
     }
+
     /**
      * Menghitung Volume Tabung
      * Rumus : PHI x jari-jari Kuadrat x tinggi
@@ -109,10 +112,10 @@ class BangunRuang
     /**Menghitung Luas Permukaan Bola
      * Rumus : 4 * PHI * jariJari * jariJari 
      */
-    function luasPermukaanBola($jariJari){
-
-        return 4 * $this->PHI * $jariJari * $jariJari; 
-
+    function luasPermukaanBola($jariJari)
+    {
+        $EMPAT = 4;
+        return $EMPAT * $this->PHI * $jariJari * $jariJari; 
     }
 }
 
