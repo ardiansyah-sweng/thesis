@@ -160,7 +160,7 @@ echo '<br>';
 <<<<<<< HEAD
 echo 'Volume Balok: '.$bangunRuang->volumeBalok(4,5,6);
 echo '<br>';
-echo 'Keliling Balok: '.$bangunRuang->kelilingBalok(7,8,9);
+echo 'Keliling Balok: '.$bangunRuang->kelilingBalok(15,10,5);
 =======
 echo 'Luas jajar genjang: ' . $bangunRuang->luasJajarGenjang(10, 10);
 echo '<br>';
