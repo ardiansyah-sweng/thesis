@@ -83,6 +83,14 @@ class BangunRuang
     }
 
     /**
+     * Menghitung Luas Permukaan jajar genjang 
+     * Rumus: Luas jajargenjang alas * tinggi
+     */
+    public function luasJajarGenjang($alas, $tinggi)
+    {
+        return $alas * $tinggi;
+}
+    /**
      * Menghitung Volume Balok
      * Rumus: panjang x lebar x tinggi
      */
@@ -135,6 +143,8 @@ echo '<br>';
 echo 'Volume Limas Segi Tiga: ' . $bangunRuang->volumeLimasSegiTiga(30, 10);
 echo '<br>';
 echo 'Luas permukaan Limas Segi Tiga: ' . $bangunRuang->luasPermukaanLimasSegiTiga(30, 40);
+echo '<br>';
+echo 'Luas jajar genjang: ' . $bangunRuang->luasJajarGenjang(10, 5);
 echo '<br>';
 echo 'Volume Balok: ' . $bangunRuang->volumeBalok(4, 5, 6);
 echo '<br>';
