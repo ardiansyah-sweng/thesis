@@ -144,7 +144,7 @@ echo 'Volume Limas Segi Tiga: ' . $bangunRuang->volumeLimasSegiTiga(30, 10);
 echo '<br>';
 echo 'Luas permukaan Limas Segi Tiga: ' . $bangunRuang->luasPermukaanLimasSegiTiga(30, 40);
 echo '<br>';
-echo 'Luas jajar genjang: ' . $bangunRuang->luasJajarGenjang(10, 5);
+echo 'Luas jajar genjang: ' . $bangunRuang->luasJajarGenjang(10, 10);
 echo '<br>';
 echo 'Volume Balok: ' . $bangunRuang->volumeBalok(4, 5, 6);
 echo '<br>';
