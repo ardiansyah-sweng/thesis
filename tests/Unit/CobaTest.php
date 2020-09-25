@@ -3,6 +3,7 @@
 namespace Tests\Unit;
 
 use PHPUnit\Framework\TestCase;
+use App\Box;
 
 class CobaTest extends TestCase
 {
@@ -13,6 +14,7 @@ class CobaTest extends TestCase
      */
     public function testExample()
     {
-        $this->assertTrue(true);
+        $box = new Box();
+        $this->assertEquals(8, $box->kuadrat(3));
     }
 }
