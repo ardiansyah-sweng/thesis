@@ -3,7 +3,7 @@
 class BangunRuang
 {
 
-    private $PHI = 3.14;
+    private $phi = 3.14;
 
     /**
      * Menghitung nilai kuadrat pangkat dua
@@ -11,8 +11,8 @@ class BangunRuang
      */
     function kuadrat($nilai)
     {
-        $PANGKAT_DUA = 2;
-        return pow($nilai, $PANGKAT_DUA);
+        $pangkat = 2;
+        return pow($nilai, $pangkat);
     }
 
     /**
@@ -22,17 +22,17 @@ class BangunRuang
     function luasLingkaran($diameter)
     {
         $SEPEREMPAT = 0.25;
-        return $SEPEREMPAT * $this->PHI * $this->kuadrat($diameter);
+        return $SEPEREMPAT * $this->phi * $this->kuadrat($diameter);
     }
 
     /**
      * Menghitung Keliling Lingkaran
      * Rumus: phi x 2 x jari jari
      */
-    function kelilingLingkaran($jariJari)
+    function kelilingLingkaran($r)
     {
-        $DUA = 2;
-        return $this->PHI * $DUA * $jariJari;
+        $dua = 2;
+        return $this->phi * $dua * $r;
     }
 
     /**
@@ -103,27 +103,27 @@ class BangunRuang
      * Menghitung Volume Tabung
      * Rumus : PHI x jari-jari Kuadrat x tinggi
      */
-    function volumeTabung($jariJari, $tinggi)
+    function volumeTabung($r, $tinggi)
     {
-        return $this->PHI * $this->kuadrat($jariJari) * $tinggi;
+        return $this->phi * $this->kuadrat($r) * $tinggi;
     }
 
     /**
      * Menghitung Luas Permukaan Kerucut
      * Rumus : (phi x jarijari x garisPelukis) + (phi x jari x jari)
      */
-    function luasPermukaanKerucut($jarijari, $garisPelukis)
+    function luasPermukaanKerucut($r, $garisPelukis)
     {
-        return ($this->PHI * $jarijari * $garisPelukis) + ($this->PHI * $this->kuadrat($jarijari));
+        return ($this->phi * $r * $garisPelukis) + ($this->phi * $this->kuadrat($r));
     }
 
     /**Menghitung Luas Permukaan Bola
      * Rumus : 4 * PHI * jariJari * jariJari 
      */
-    function luasPermukaanBola($jariJari)
+    function luasPermukaanBola($r)
     {
         $EMPAT = 4;
-        return $EMPAT * $this->PHI * $jariJari * $jariJari; 
+        return $EMPAT * $this->phi * $r * $r; 
     }
 }
 
