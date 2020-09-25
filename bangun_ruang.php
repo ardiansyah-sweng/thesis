@@ -82,8 +82,6 @@ class BangunRuang
         return $luasAlas + $luasSelubungLimas;
     }
 
-<<<<<<< HEAD
-=======
     /**
      * Menghitung Luas Permukaan jajar genjang 
      * Rumus: Luas jajargenjang alas * tinggi
@@ -92,7 +90,6 @@ class BangunRuang
     {
         return $alas * $tinggi;
 }
->>>>>>> 99e74ee7fa60d3c7f3727c34f116964d765b2ae7
     /**
      * Menghitung Volume Balok
      * Rumus: panjang x lebar x tinggi
@@ -103,15 +100,6 @@ class BangunRuang
     }
 
     /**
-<<<<<<< HEAD
-     * Menghitung Keliling Balok
-     * Rumus: 4 * panjang * lebar * tinggi
-     */
-    function kelilingBalok($panjang, $lebar, $tinggi)
-    {
-        $EMPAT = 4;
-        return $EMPAT * $panjang * $lebar * $tinggi;
-=======
      * Menghitung Volume Tabung
      * Rumus : PHI x jari-jari Kuadrat x tinggi
      */
@@ -136,7 +124,6 @@ class BangunRuang
     {
         $EMPAT = 4;
         return $EMPAT * $this->PHI * $jariJari * $jariJari; 
->>>>>>> 99e74ee7fa60d3c7f3727c34f116964d765b2ae7
     }
 }
 
@@ -157,11 +144,6 @@ echo 'Volume Limas Segi Tiga: ' . $bangunRuang->volumeLimasSegiTiga(30, 10);
 echo '<br>';
 echo 'Luas permukaan Limas Segi Tiga: ' . $bangunRuang->luasPermukaanLimasSegiTiga(30, 40);
 echo '<br>';
-<<<<<<< HEAD
-echo 'Volume Balok: '.$bangunRuang->volumeBalok(4,5,6);
-echo '<br>';
-echo 'Keliling Balok: '.$bangunRuang->kelilingBalok(15,10,5);
-=======
 echo 'Luas jajar genjang: ' . $bangunRuang->luasJajarGenjang(10, 10);
 echo '<br>';
 echo 'Volume Balok: ' . $bangunRuang->volumeBalok(4, 5, 6);
@@ -171,4 +153,3 @@ echo '<br>';
 echo 'Luas Permukaan Kerucut : ' . $bangunRuang->luasPermukaanKerucut(7, 9);
 echo '<br>';
 echo 'Luas Permukaan permukaan bola : ' . $bangunRuang->luasPermukaanBola(5);
->>>>>>> 99e74ee7fa60d3c7f3727c34f116964d765b2ae7
