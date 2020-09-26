@@ -135,6 +135,7 @@ class BangunRuang
         $EMPAT = 4;
         return $EMPAT * $panjang * $lebar * $tinggi;
     }
+  
     /**
      * Menghitung Volume Limas Segi Empat
      * Rumus: 1/3 * Panjang x Lebar x Tinggi
@@ -144,6 +145,17 @@ class BangunRuang
         $SEPERTIGA = 0.33;
         return $SEPERTIGA * $panjang * $lebar * $tinggi;
     }
+	
+	  /**
+     * Menghitung Luas Balok
+     * Rumus: 2 * ( panjang * lebar + panjang * tinggi + lebar * tinggi)
+     */
+    function luasBalok($panjang, $lebar, $tinggi)
+    {
+        $DUA = 2;
+		    return ($DUA * (($panjang * $lebar) + ($panjang * $tinggi) + ($lebar * $tinggi)));
+	  }
+
     /**
      * Menghitung Keliling Bola
      * Rumus: 4/3 x π x r2
@@ -186,4 +198,7 @@ echo 'Keliling Balok: '.$bangunRuang->kelilingBalok(15,10,5);
 echo '<br>';
 echo 'Volume Limas SegiEmpat: '.$bangunRuang->volumeLimasSegiEmpat(20,10,15);
 echo '<br>';
+echo 'Luas Balok : '.$bangunRuang->luasBalok(11,22,33);
+echo '<br>';
+echo 'Volume Limas SegiEmpat: '.$bangunRuang->volumeLimasSegiEmpat(20,10,15);
 echo 'Keliling Bola: '.$bangunRuang->kelilingBola(30);
