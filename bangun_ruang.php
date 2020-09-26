@@ -185,6 +185,16 @@ class BangunRuang
         $EMPATPERTIGA = 4 / 3;
         return $EMPATPERTIGA * $this->PHI * $jariJari * $jariJari * $jariJari;
     }
+    /**
+     * Menghitung Luas Permukaan Tabung
+     * Rumus: (2 x luas alas) + (keliling alas x tinggi ) atau (2 x phi x jariJari kuadrat) + (phi x diameter x tinggi)
+     */
+    function luasPermukaanTabung($jariJari, $tinggi)
+    {
+    	$dua = 2;
+    	$diameter = $jariJari + $jariJari;
+        return ($dua * $this->phi * $this->kuadrat($jariJari)) + ($this->phi * $diameter * $tinggi);
+    }
 }
 
 $bangunRuang = new BangunRuang();
@@ -227,3 +237,5 @@ echo '<br>';
 echo 'Volume Kerucut: ' . $bangunRuang->volumeKerucut(10,8);
 echo '<br>';
 echo 'Volume Bola :' . $bangunRuang->volumeBola(3);
+echo '<br>';
+echo 'Luas Permukaan Tabung: '.$bangunRuang->luasPermukaanTabung(5, 10);
