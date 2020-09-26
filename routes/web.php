@@ -17,6 +17,6 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('halo', function () {
+Route::get('/halo', function () {
     return 'hai dunia';
 });

@@ -24,6 +24,8 @@ class DosenSetUpdatedAtDefaultValue extends Migration
      */
     public function down()
     {
-        //
+        Schema::table('dosen', function (Blueprint $table) {
+            $table->timestamp('updated_at')->default(NULL)->change();
+        });
     }
 }
