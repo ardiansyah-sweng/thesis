@@ -51,9 +51,9 @@ class CobaTest extends TestCase
         $this->assertNull($actual_value, 'Null atau tidak');
     }
 
-    /** assertContains untuk mengecek nilai yang dicari ada dalam suatu array */
+    /** assertContains untuk mengecek nilai yang ada dalam suatu array */
     /** @test */
-    public function jika_nilai_ada_PASS_jika_tidak_ada_FAIL()
+    public function jika_nilai_ada_dalam_array()
     {
         $cekContains = new BangunRuang();
         $nilaiHendakDicari = 9;
@@ -61,9 +61,19 @@ class CobaTest extends TestCase
         $this->assertContains($nilaiHendakDicari, $larik);
     }
 
-    /** assertCount untuk mengecek jumlah elemen di dalam array */
+    /** assertNotContains untuk mengecek nilai yang dicari tidak ada dalam suatu array */
     /** @test */
-    public function jika_jumlahElemen_sama_PASS_jika_tidak_FAIL()
+    public function jika_nilai_tidak_ada_dalam_array()
+    {
+        $cekContains = new BangunRuang();
+        $nilaiHendakDicari = 5;
+        $larik = $cekContains->cekContains();
+        $this->assertNotContains($nilaiHendakDicari, $larik);
+    }
+
+    /** assertCount untuk mengecek jumlah elemen di dalam array sesuai */
+    /** @test */
+    public function jika_jumlahElemen_sama()
     {
         $cekCount = new BangunRuang();
         $jumlahElemen = 4;
@@ -71,12 +81,31 @@ class CobaTest extends TestCase
         $this->assertCount($jumlahElemen, $larik);
     }
 
+    /** assertCount untuk mengecek jumlah elemen di dalam array tidak sama */
+    /** @test */
+    public function jika_jumlahElemen_tidak_sama()
+    {
+        $cekCount = new BangunRuang();
+        $jumlahElemen = 2;
+        $larik = $cekCount->cekContains();
+        $this->assertNotCount($jumlahElemen, $larik);
+    }
+
     /** assertCount untuk mengecek jumlah elemen di dalam array */
     /** @test */
-    public function jika_isi_FAIL_jika_kosong_pass()
+    public function jika_isi_array_kosong()
     {
         $cekKosong = new BangunRuang();
-        $nilai = $cekKosong->cekEmpty();
+        $nilai = $cekKosong->arrayKosong();
         $this->assertEmpty($nilai);
+    }
+
+    /** assertCount untuk mengecek jumlah elemen di dalam array */
+    /** @test */
+    public function jika_isi_array_tidak_kosong()
+    {
+        $cekIsi = new BangunRuang();
+        $nilai = $cekIsi->arrayIsi();
+        $this->assertNotEmpty($nilai);
     }
 }
