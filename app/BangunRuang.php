@@ -180,9 +180,16 @@ class BangunRuang
     }
 
     /** ada nilai atau tidak */
-    function cekEmpty()
+    function arrayKosong()
     {
         $array_nilai = array();
+        return $array_nilai;
+    }
+
+    /** ada nilai atau tidak */
+    function arrayIsi()
+    {
+        $array_nilai = array(4,5,6);
         return $array_nilai;
     }
 }

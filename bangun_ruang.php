@@ -89,7 +89,7 @@ class BangunRuang
     public function luasJajarGenjang($alas, $tinggi)
     {
         return $alas * $tinggi;
-}
+    }
     /**
      * Menghitung Volume Balok
      * Rumus: panjang x lebar x tinggi
@@ -123,7 +123,7 @@ class BangunRuang
     function luasPermukaanBola($jariJari)
     {
         $EMPAT = 4;
-        return $EMPAT * $this->PHI * $jariJari * $jariJari; 
+        return $EMPAT * $this->PHI * $jariJari * $jariJari;
     }
 
     /**
@@ -135,7 +135,7 @@ class BangunRuang
         $EMPAT = 4;
         return $EMPAT * $panjang * $lebar * $tinggi;
     }
-  
+
     /**
      * Menghitung Volume Limas Segi Empat
      * Rumus: 1/3 * Panjang x Lebar x Tinggi
@@ -145,16 +145,16 @@ class BangunRuang
         $SEPERTIGA = 0.33;
         return $SEPERTIGA * $panjang * $lebar * $tinggi;
     }
-	
-	  /**
+
+    /**
      * Menghitung Luas Balok
      * Rumus: 2 * ( panjang * lebar + panjang * tinggi + lebar * tinggi)
      */
     function luasBalok($panjang, $lebar, $tinggi)
     {
         $DUA = 2;
-		    return ($DUA * (($panjang * $lebar) + ($panjang * $tinggi) + ($lebar * $tinggi)));
-	  }
+        return ($DUA * (($panjang * $lebar) + ($panjang * $tinggi) + ($lebar * $tinggi)));
+    }
 
     /**
      * Menghitung Keliling Bola
@@ -194,11 +194,12 @@ echo 'Luas Permukaan Kerucut : ' . $bangunRuang->luasPermukaanKerucut(7, 9);
 echo '<br>';
 echo 'Luas Permukaan permukaan bola : ' . $bangunRuang->luasPermukaanBola(5);
 echo '<br>';
-echo 'Keliling Balok: '.$bangunRuang->kelilingBalok(15,10,5);
+echo 'Keliling Balok: ' . $bangunRuang->kelilingBalok(15, 10, 5);
 echo '<br>';
-echo 'Volume Limas SegiEmpat: '.$bangunRuang->volumeLimasSegiEmpat(20,10,15);
+echo 'Volume Limas SegiEmpat: ' . $bangunRuang->volumeLimasSegiEmpat(20, 10, 15);
 echo '<br>';
-echo 'Luas Balok : '.$bangunRuang->luasBalok(11,22,33);
+echo 'Luas Balok : ' . $bangunRuang->luasBalok(11, 22, 33);
 echo '<br>';
-echo 'Volume Limas SegiEmpat: '.$bangunRuang->volumeLimasSegiEmpat(20,10,15);
-echo 'Keliling Bola: '.$bangunRuang->kelilingBola(30);
+echo 'Volume Limas SegiEmpat: ' . $bangunRuang->volumeLimasSegiEmpat(20, 10, 15);
+echo '<br>';
+echo 'Keliling Bola: ' . $bangunRuang->kelilingBola(30);
