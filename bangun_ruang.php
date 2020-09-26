@@ -152,8 +152,19 @@ class BangunRuang
      */
     function luasBalok($panjang, $lebar, $tinggi)
     {
-		    return (2 * (($panjang * $lebar) + ($panjang * $tinggi) + ($lebar * $tinggi)));
+        $DUA = 2;
+		    return ($DUA * (($panjang * $lebar) + ($panjang * $tinggi) + ($lebar * $tinggi)));
 	  }
+
+    /**
+     * Menghitung Keliling Bola
+     * Rumus: 4/3 x π x r2
+     */
+    function kelilingBola($jarijari)
+    {
+        $EMPATPERTIGA = 4 / 3;
+        return $EMPATPERTIGA * $this->PHI * $this->kuadrat($jarijari);
+    }
 }
 
 $bangunRuang = new BangunRuang();
@@ -190,3 +201,4 @@ echo '<br>';
 echo 'Luas Balok : '.$bangunRuang->luasBalok(11,22,33);
 echo '<br>';
 echo 'Volume Limas SegiEmpat: '.$bangunRuang->volumeLimasSegiEmpat(20,10,15);
+echo 'Keliling Bola: '.$bangunRuang->kelilingBola(30);
