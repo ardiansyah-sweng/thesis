@@ -164,6 +164,5 @@ echo '<br>';
 echo 'Luas Permukaan Kerucut : ' . $bangunRuang->luasPermukaanKerucut(7, 9);
 echo '<br>';
 echo 'Volume Bola :' . $bangunRuang->volumeBola(4);
-echo 'Luas Permukaan permukaan bola : ' . $bangunRuang->luasPermukaanBola(5);
 echo '<br>';
 echo 'Keliling Balok: '.$bangunRuang->kelilingBalok(15,10,5);
