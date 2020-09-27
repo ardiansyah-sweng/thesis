@@ -5,13 +5,15 @@ namespace Tests\Unit;
 use PHPUnit\Framework\TestCase;
 use App\BangunRuang;
 
-class CobaTest extends TestCase
+class BangunRuangTest extends TestCase
 {
     /** @test */
     public function nilai_kuadrat_harus_pangkat_dua()
     {
         $pangkatDua = new BangunRuang();
-        $this->assertEquals(9, $pangkatDua->kuadrat(3));
+        $expectedValue = 9;
+        $actualValue = 3;
+        $this->assertEquals($expectedValue, $pangkatDua->kuadrat($actualValue));
     }
 
     /** @test */
