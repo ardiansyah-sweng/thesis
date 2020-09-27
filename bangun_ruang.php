@@ -185,6 +185,16 @@ class BangunRuang
         $EMPATPERTIGA = 4 / 3;
         return $EMPATPERTIGA * $this->PHI * $jariJari * $jariJari * $jariJari;
     }
+    /**
+     * Menghitung keliling jajargenjang
+     * rumus : 2 * (alas + sisiMiring)
+     */
+
+    function kelilingjajargenjang($alas, $sisiMiring)
+    {
+        $DUA = 2;
+        return $DUA * ($alas + $sisiMiring);
+    }
 }
 
 $bangunRuang = new BangunRuang();
@@ -227,3 +237,5 @@ echo '<br>';
 echo 'Volume Kerucut: ' . $bangunRuang->volumeKerucut(10,8);
 echo '<br>';
 echo 'Volume Bola :' . $bangunRuang->volumeBola(3);
+echo '<br>';
+echo 'Keliling Jajar genjang :' . $bangunRuang->kelilingjajargenjang(8, 6);
