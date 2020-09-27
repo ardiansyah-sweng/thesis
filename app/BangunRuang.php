@@ -147,6 +147,15 @@ class BangunRuang
         $SEPERTIGA = 0.33;
         return $SEPERTIGA * $panjang * $lebar * $tinggi;
     }
+    /**
+     * Menghitung Volume Prisma
+     * rumus : luasAlas * Tinggi
+     */
+
+    function volumePrisma($luasAlas, $tinggi)
+    {
+        return $luasAlas * $tinggi;
+    }
 
     function benar()
     {
@@ -224,3 +233,5 @@ echo '<br>';
 echo 'Keliling Balok: ' . $bangunRuang->kelilingBalok(15, 10, 5);
 echo '<br>';
 echo 'Volume Limas SegiEmpat: ' . $bangunRuang->volumeLimasSegiEmpat(20, 10, 15);
+echo '<br>';
+echo 'Volume Prisma : '.$bangunRuang->volumePrisma(50,3);
