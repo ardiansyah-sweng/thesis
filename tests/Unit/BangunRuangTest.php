@@ -134,5 +134,16 @@ class BangunRuangTest extends TestCase
         $actualValue3 = 5;
         $this->assertEquals($expectedValue, $kelilingBalok->kelilingBalok($actualValue1, $actualValue2, $actualValue3));
     }
+  
+    /** @test */
+    public function tes_Volume_Limas_Segiempat()
+    {
+        $volumeLimasSegiEmpat= new BangunRuang();
+        $expectedValue = 297;
+        $actualValue1 = 20;
+        $actualValue2 = 5;
+        $actualValue3 = 9;
+        $this->assertEquals($expectedValue, $volumeLimasSegiEmpat->volumeLimasSegiEmpat($actualValue1, $actualValue2, $actualValue3));
+    }
 
 }

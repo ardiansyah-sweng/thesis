@@ -46,6 +46,15 @@ class BangunRuang
     }
 
     /**
+     * Menghitung Luas salah satu sisi kubus
+     * Rumus: sisi*sisi
+     */
+    function luasPermukaanSalahSatuSisiKubus($sisi)
+    {
+        return $sisi * $sisi;
+    }
+
+    /**
      * Menghitung Volume Kubus
      * Rumus sisi*sisi*sisi
      */
@@ -194,6 +203,16 @@ class BangunRuang
      {
          return $luasAlas * $tinggi;
      }
+     /**
+     * Menghitung Luas Permukaan Tabung
+     * Rumus: (2 x luas alas) + (keliling alas x tinggi ) atau (2 x phi x jariJari kuadrat) + (phi x diameter x tinggi)
+     */
+    function luasPermukaanTabung($jariJari, $tinggi)
+    {
+    	$DUA = 2;
+    	$diameter = $jariJari + $jariJari;
+        return ($DUA * $this->PHI * $this->kuadrat($jariJari)) + ($this->PHI * $diameter * $tinggi);
+    }
 }
 
 $bangunRuang = new BangunRuang();
@@ -204,6 +223,8 @@ echo '<br>';
 echo 'Luas permukaan kubus: ' . $bangunRuang->luasPermukaanKubus(13);
 echo '<br>';
 echo 'Luas permukaan kubus: ' . $bangunRuang->luasPermukaanKubus(13);
+echo '<br>';
+echo 'Luas salah satu sisi kubus: ' . $bangunRuang->luasPermukaanSalahSatuSisiKubus(20);
 echo '<br>';
 echo 'Luas permukaan persegi panjang: ' . $bangunRuang->luasPermukaaanPersegiPanjang(2, 4);
 echo '<br>';
@@ -238,3 +259,5 @@ echo '<br>';
 echo 'Volume Bola :' . $bangunRuang->volumeBola(3);
 echo '<br>';
 echo 'Volume Prisma : '.$bangunRuang->volumePrisma(50,3);
+echo '<br>';
+echo 'Luas Permukaan Tabung: '.$bangunRuang->luasPermukaanTabung(5, 10);
