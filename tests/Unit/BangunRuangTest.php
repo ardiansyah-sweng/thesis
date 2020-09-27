@@ -12,8 +12,9 @@ class BangunRuangTest extends TestCase
     {
         $pangkatDua = new BangunRuang();
         $expectedValue = 9;
-        $actualValue = 3;
-        $this->assertEquals($expectedValue, $pangkatDua->kuadrat($actualValue));
+        $nilai = 3;
+        $actualValue = $pangkatDua->kuadrat($nilai);
+        $this->assertEquals($expectedValue, $actualValue);
     }
 
     /** @test */
