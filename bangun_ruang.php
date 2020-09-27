@@ -213,6 +213,13 @@ class BangunRuang
     	$diameter = $jariJari + $jariJari;
         return ($DUA * $this->PHI * $this->kuadrat($jariJari)) + ($this->PHI * $diameter * $tinggi);
     }
+    /**
+     * Menghitung Luas trapesium
+     * Rumus: 1/2 * (jumlah sisi sejajar) * tinggi
+     */
+    function luasTrapesium($sisiAtas,$sisiBawah,$tinggi){
+        return 1/2*($sisiAtas+$sisiBawah)*$tinggi;
+    }
 }
 
 $bangunRuang = new BangunRuang();
@@ -261,3 +268,5 @@ echo '<br>';
 echo 'Volume Prisma : '.$bangunRuang->volumePrisma(50,3);
 echo '<br>';
 echo 'Luas Permukaan Tabung: '.$bangunRuang->luasPermukaanTabung(5, 10);
+echo '<br>';
+echo 'Luas Trapesium: '.$bangunRuang->luasTrapesium(5,7,6);
