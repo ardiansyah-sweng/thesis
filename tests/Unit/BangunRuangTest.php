@@ -17,10 +17,12 @@ class BangunRuangTest extends TestCase
     }
 
     /** @test */
-    public function luas_lingkaran()
+    public function tes_luas_lingkaran()
     {
         $luasLingkaran = new BangunRuang();
-        $this->assertEquals(706.5, $luasLingkaran->luasLingkaran(30));
+        $expectedValue = 706.5;
+        $actualValue = 30;
+        $this->assertEquals($expectedValue, $luasLingkaran->luasLingkaran($actualValue));
     }
 
     /** @test */
