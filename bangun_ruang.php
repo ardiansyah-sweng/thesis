@@ -55,12 +55,13 @@ class BangunRuang
 }
 
 /**
-     * Menghitung Luas Jajar Genjang
-     * Rumus: Alas * Tinggi
+     * Menghitung Volume Prisma Persegi
+     * Rumus: Luas Persegi * Tinggi
      */
-    function LuasJajarGenjang($Alas, $Tinggi)
+    function VolumePrismaPersegi($Sisi, $Tinggi)
     {
-        return $Alas * $Tinggi;
+        $luas_persegi = $sisi * $sisi;
+        return $luas_persegi * $Tinggi;
     }
 
 
@@ -73,5 +74,5 @@ echo 'Luas permukaan kubus: ' . $bangunRuang->luasPermukaanKubus(13);
 echo '<br>';
 echo 'Volume Kubus: ' . $bangunRuang->volumeKubus(5);
 echo '<br>';
-echo 'Luas Jajar Genjang: '.$bangunRuang->LuasJajarGenjang(20);
+echo 'Volume Prisma Persegi: '.$bangunRuang->VolumePrismaPersegi(20);
 echo '<br>';
