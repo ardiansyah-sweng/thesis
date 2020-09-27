@@ -191,10 +191,18 @@ class BangunRuang
      */
     function luasPermukaanTabung($jariJari, $tinggi)
     {
-    	$dua = 2;
-    	$diameter = $jariJari + $jariJari;
-        return ($dua * $this->phi * $this->kuadrat($jariJari)) + ($this->phi * $diameter * $tinggi);
+    	$DUA = 2;
+    	$DIAMETER = $jariJari + $jariJari;
+        return ($dua * $this->PHI * $this->kuadrat($jariJari)) + ($this->PHI * $diameter * $tinggi);
     }
+     * Menghitung Volume Prisma
+     * rumus : luasAlas * Tinggi
+     */
+
+     function volumePrisma($luasAlas, $tinggi)
+     {
+         return $luasAlas * $tinggi;
+     }
 }
 
 $bangunRuang = new BangunRuang();
@@ -239,3 +247,5 @@ echo '<br>';
 echo 'Volume Bola :' . $bangunRuang->volumeBola(3);
 echo '<br>';
 echo 'Luas Permukaan Tabung: '.$bangunRuang->luasPermukaanTabung(5, 10);
+echo '<br>';
+echo 'Volume Prisma : '.$bangunRuang->volumePrisma(50,3);
