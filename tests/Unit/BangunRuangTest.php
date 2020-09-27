@@ -113,4 +113,15 @@ class BangunRuangTest extends TestCase
         $this->assertNotEmpty($nilai);
     }
 
+    /** @test */
+    public function tes_volume_balok()
+    {
+        $volumeBalok = new BangunRuang();
+        $expectedValue = 120;
+        $actualValue1 = 4;
+        $actualValue2 = 5;
+        $actualValue3 = 6;
+        $this->assertEquals($expectedValue, $volumeBalok->volumeBalok($actualValue1, $actualValue2, $actualValue3));
+    }
+
 }
