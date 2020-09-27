@@ -165,6 +165,35 @@ class BangunRuang
         $EMPATPERTIGA = 4 / 3;
         return $EMPATPERTIGA * $this->PHI * $this->kuadrat($jarijari);
     }
+    /**
+     * Menghitung Volume Kerucut
+     * Rumus 1/3 * PHI * jari-jari * jari-jari * tinggi
+     */
+    function volumeKerucut($jariJari, $tinggi)
+    {
+        $SATUPERTIGA = 0.33;
+        
+        return $SATUPERTIGA * $this->PHI * $this->kuadrat($jariJari) * $tinggi;
+    }
+     /**
+     * Menghitung volume bola
+     * rumus : 4/3 * phi * jariJari * jariJari * jariJari 
+     */
+
+    function volumeBola($jariJari)
+    {
+        $EMPATPERTIGA = 4 / 3;
+        return $EMPATPERTIGA * $this->PHI * $jariJari * $jariJari * $jariJari;
+    }
+    /**
+     * Menghitung Volume Prisma
+     * rumus : luasAlas * Tinggi
+     */
+
+     function volumePrisma($luasAlas, $tinggi)
+     {
+         return $luasAlas * $tinggi;
+     }
 }
 
 $bangunRuang = new BangunRuang();
@@ -203,3 +232,9 @@ echo '<br>';
 echo 'Volume Limas SegiEmpat: ' . $bangunRuang->volumeLimasSegiEmpat(20, 10, 15);
 echo '<br>';
 echo 'Keliling Bola: ' . $bangunRuang->kelilingBola(30);
+echo '<br>';
+echo 'Volume Kerucut: ' . $bangunRuang->volumeKerucut(10,8);
+echo '<br>';
+echo 'Volume Bola :' . $bangunRuang->volumeBola(3);
+echo '<br>';
+echo 'Volume Prisma : '.$bangunRuang->volumePrisma(50,3);
