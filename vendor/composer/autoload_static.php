@@ -553,6 +553,7 @@ class ComposerStaticInit94505f87b1b2a5961373930525ca757a
     );
 
     public static $classMap = array (
+        'App\\BangunRuang' => __DIR__ . '/../..' . '/app/BangunRuang.php',
         'App\\Console\\Commands\\ImportDosenCommand' => __DIR__ . '/../..' . '/app/Console/Commands/ImportDosenCommand.php',
         'App\\Console\\Kernel' => __DIR__ . '/../..' . '/app/Console/Kernel.php',
         'App\\Exceptions\\Handler' => __DIR__ . '/../..' . '/app/Exceptions/Handler.php',
