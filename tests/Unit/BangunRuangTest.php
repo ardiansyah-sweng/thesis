@@ -121,7 +121,8 @@ class BangunRuangTest extends TestCase
         $panjang = 4;
         $lebar = 5;
         $tinggi = 6;
-        $this->assertEquals($expectedValue, $volumeBalok->volumeBalok($panjang, $lebar, $tinggi));
+        $actualValue = $volumeBalok->volumeBalok($panjang, $lebar, $tinggi);
+        $this->assertEquals($expectedValue, $actualValue);
     }
 
     /** @test */
@@ -132,7 +133,8 @@ class BangunRuangTest extends TestCase
         $panjang = 15;
         $lebar = 10;
         $tinggi = 5;
-        $this->assertEquals($expectedValue, $kelilingBalok->kelilingBalok($panjang, $lebar, $tinggi));
+        $actualValue = $kelilingBalok->kelilingBalok($panjang, $lebar, $tinggi);
+        $this->assertEquals($expectedValue, $actualValue);
     }
   
     /** @test */
@@ -143,7 +145,8 @@ class BangunRuangTest extends TestCase
         $panjang = 20;
         $lebar = 5;
         $tinggi = 9;
-        $this->assertEquals($expectedValue, $volumeLimasSegiEmpat->volumeLimasSegiEmpat($panjang, $lebar, $tinggi));
+        $actualValue = $volumeLimasSegiEmpat->volumeLimasSegiEmpat($panjang, $lebar, $tinggi);
+        $this->assertEquals($expectedValue, $actualValue);
     }
 
 }
