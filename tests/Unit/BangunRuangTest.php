@@ -118,10 +118,10 @@ class BangunRuangTest extends TestCase
     {
         $volumeBalok = new BangunRuang();
         $expectedValue = 120;
-        $actualValue1 = 4;
-        $actualValue2 = 5;
-        $actualValue3 = 6;
-        $this->assertEquals($expectedValue, $volumeBalok->volumeBalok($actualValue1, $actualValue2, $actualValue3));
+        $panjang = 4;
+        $lebar = 5;
+        $tinggi = 6;
+        $this->assertEquals($expectedValue, $volumeBalok->volumeBalok($panjang, $lebar, $tinggi));
     }
 
     /** @test */
@@ -129,10 +129,10 @@ class BangunRuangTest extends TestCase
     {
         $kelilingBalok = new BangunRuang();
         $expectedValue = 3000;
-        $actualValue1 = 15;
-        $actualValue2 = 10;
-        $actualValue3 = 5;
-        $this->assertEquals($expectedValue, $kelilingBalok->kelilingBalok($actualValue1, $actualValue2, $actualValue3));
+        $panjang = 15;
+        $lebar = 10;
+        $tinggi = 5;
+        $this->assertEquals($expectedValue, $kelilingBalok->kelilingBalok($panjang, $lebar, $tinggi));
     }
   
     /** @test */
@@ -140,10 +140,10 @@ class BangunRuangTest extends TestCase
     {
         $volumeLimasSegiEmpat= new BangunRuang();
         $expectedValue = 297;
-        $actualValue1 = 20;
-        $actualValue2 = 5;
-        $actualValue3 = 9;
-        $this->assertEquals($expectedValue, $volumeLimasSegiEmpat->volumeLimasSegiEmpat($actualValue1, $actualValue2, $actualValue3));
+        $panjang = 20;
+        $lebar = 5;
+        $tinggi = 9;
+        $this->assertEquals($expectedValue, $volumeLimasSegiEmpat->volumeLimasSegiEmpat($panjang, $lebar, $tinggi));
     }
 
 }
