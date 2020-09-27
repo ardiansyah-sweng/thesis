@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateTopikBidangTable extends Migration
+class CreateDosenTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,9 +13,8 @@ class CreateTopikBidangTable extends Migration
      */
     public function up()
     {
-        Schema::create('topik_bidang', function (Blueprint $table) {
-            $table->bigIncrements('id');
-            $table->string('topik_bidang', 100);
+        Schema::create('dosen', function (Blueprint $table) {
+            $table->id();
             $table->timestamps();
         });
     }
@@ -27,6 +26,6 @@ class CreateTopikBidangTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('topik_bidang');
+        Schema::dropIfExists('dosen');
     }
 }

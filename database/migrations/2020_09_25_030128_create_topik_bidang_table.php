@@ -3,9 +3,8 @@
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
-use Illuminate\Support\Facades\DB;
 
-class DosenSetUpdatedAtDefaultValue extends Migration
+class CreateTopikBidangTable extends Migration
 {
     /**
      * Run the migrations.
@@ -14,7 +13,10 @@ class DosenSetUpdatedAtDefaultValue extends Migration
      */
     public function up()
     {
-        DB::statement("ALTER TABLE dosen CHANGE updated_at updated_at  TIMESTAMP NULL DEFAULT CURRENT_TIMESTAMP");
+        Schema::create('topik_bidang', function (Blueprint $table) {
+            $table->id();
+            $table->timestamps();
+        });
     }
 
     /**
@@ -24,8 +26,6 @@ class DosenSetUpdatedAtDefaultValue extends Migration
      */
     public function down()
     {
-        Schema::table('dosen', function (Blueprint $table) {
-            $table->timestamp('updated_at')->default(NULL)->change();
-        });
+        Schema::dropIfExists('topik_bidang');
     }
 }

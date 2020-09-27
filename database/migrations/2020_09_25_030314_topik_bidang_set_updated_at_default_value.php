@@ -1,7 +1,6 @@
 <?php
 
 use Illuminate\Database\Migrations\Migration;
-use Illuminate\Support\Facades\DB;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
@@ -14,7 +13,7 @@ class TopikBidangSetUpdatedAtDefaultValue extends Migration
      */
     public function up()
     {
-        DB::statement("ALTER TABLE topik_bidang CHANGE updated_at updated_at  TIMESTAMP NULL DEFAULT CURRENT_TIMESTAMP");
+        //
     }
 
     /**
@@ -24,8 +23,6 @@ class TopikBidangSetUpdatedAtDefaultValue extends Migration
      */
     public function down()
     {
-        Schema::table('topik_bidang', function (Blueprint $table) {
-            $table->timestamp('updated_at')->default(NULL)->change();
-        });
+        //
     }
 }

@@ -1,7 +1,6 @@
 <?php
 
 use Illuminate\Database\Migrations\Migration;
-use Illuminate\Support\Facades\DB;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
@@ -14,7 +13,7 @@ class TopikTugasAkhirSetCreatedAtDefaultValue extends Migration
      */
     public function up()
     {
-        DB::statement("ALTER TABLE topik_tugas_akhir CHANGE created_at created_at TIMESTAMP NULL DEFAULT CURRENT_TIMESTAMP");
+        //
     }
 
     /**
@@ -24,8 +23,6 @@ class TopikTugasAkhirSetCreatedAtDefaultValue extends Migration
      */
     public function down()
     {
-        Schema::table('topik_tugas_akhir', function (Blueprint $table) {
-            $table->timestamp('created_at')->default(NULL)->change();
-        });
+        //
     }
 }
