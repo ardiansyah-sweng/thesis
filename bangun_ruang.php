@@ -54,6 +54,18 @@ class BangunRuang
     }
 }
 
+/**
+     * Menghitung Luas Permukaan Tabung
+     * Rumus: (2 x luas alas) + (keliling alas x tinggi ) atau (2 x phi x jariJari kuadrat) + (phi x diameter x tinggi)
+     */
+    function luasPermukaanTabung($jariJari, $tinggi)
+    {
+    	$DUA = 2;
+    	$DIAMETER = $jariJari + $jariJari;
+        return ($DUA * $this->PHI * $this->kuadrat($jariJari)) + ($this->PHI * $DIAMETER * $tinggi);
+    }
+
+
 $bangunRuang = new BangunRuang();
 echo 'Luas lingkaran: ' . $bangunRuang->luasLingkaran(30);
 echo '<br>';
@@ -62,3 +74,6 @@ echo '<br>';
 echo 'Luas permukaan kubus: ' . $bangunRuang->luasPermukaanKubus(13);
 echo '<br>';
 echo 'Volume Kubus: ' . $bangunRuang->volumeKubus(5);
+echo '<br>';
+echo 'Luas Permukaan Tabung: '.$bangunRuang->luasPermukaanTabung(5, 10);
+echo '<br>';
