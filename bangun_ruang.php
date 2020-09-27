@@ -217,8 +217,8 @@ class BangunRuang
      * Menghitung Luas trapesium
      * Rumus: 1/2 * (jumlah sisi sejajar) * tinggi
      */
-    function luasTrapesium($a,$b,$tinggi){
-        return 1/2*($a+$b)*$tinggi;
+    function luasTrapesium($sisiAtas,$sisiBawah,$tinggi){
+        return 1/2*($sisiAtas+$sisiBawah)*$tinggi;
     }
 }
 
