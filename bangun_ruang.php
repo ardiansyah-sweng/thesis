@@ -46,6 +46,15 @@ class BangunRuang
     }
 
     /**
+     * Menghitung Luas salah satu sisi kubus
+     * Rumus: sisi*sisi
+     */
+    function luasPermukaanSalahSatuSisiKubus($sisi)
+    {
+        return $sisi * $sisi;
+    }
+
+    /**
      * Menghitung Volume Kubus
      * Rumus sisi*sisi*sisi
      */
@@ -204,6 +213,8 @@ echo '<br>';
 echo 'Luas permukaan kubus: ' . $bangunRuang->luasPermukaanKubus(13);
 echo '<br>';
 echo 'Luas permukaan kubus: ' . $bangunRuang->luasPermukaanKubus(13);
+echo '<br>';
+echo 'Luas salah satu sisi kubus: ' . $bangunRuang->luasPermukaanSalahSatuSisiKubus(20);
 echo '<br>';
 echo 'Luas permukaan persegi panjang: ' . $bangunRuang->luasPermukaaanPersegiPanjang(2, 4);
 echo '<br>';
