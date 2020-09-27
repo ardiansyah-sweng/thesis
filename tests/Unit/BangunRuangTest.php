@@ -5,20 +5,25 @@ namespace Tests\Unit;
 use PHPUnit\Framework\TestCase;
 use App\BangunRuang;
 
-class CobaTest extends TestCase
+class BangunRuangTest extends TestCase
 {
     /** @test */
     public function nilai_kuadrat_harus_pangkat_dua()
     {
         $pangkatDua = new BangunRuang();
-        $this->assertEquals(9, $pangkatDua->kuadrat(3));
+        $expectedValue = 9;
+        $nilai = 3;
+        $actualValue = $pangkatDua->kuadrat($nilai);
+        $this->assertEquals($expectedValue, $actualValue);
     }
 
     /** @test */
-    public function luas_lingkaran()
+    public function tes_luas_lingkaran()
     {
         $luasLingkaran = new BangunRuang();
-        $this->assertEquals(706.5, $luasLingkaran->luasLingkaran(30));
+        $expectedValue = 706.5;
+        $actualValue = 30;
+        $this->assertEquals($expectedValue, $luasLingkaran->luasLingkaran($actualValue));
     }
 
     /** @test */
@@ -108,4 +113,41 @@ class CobaTest extends TestCase
         $nilai = $cekIsi->arrayIsi();
         $this->assertNotEmpty($nilai);
     }
+
+    /** @test */
+    public function tes_volume_balok()
+    {
+        $volumeBalok = new BangunRuang();
+        $expectedValue = 120;
+        $panjang = 4;
+        $lebar = 5;
+        $tinggi = 6;
+        $actualValue = $volumeBalok->volumeBalok($panjang, $lebar, $tinggi);
+        $this->assertEquals($expectedValue, $actualValue);
+    }
+
+    /** @test */
+    public function tes_keliling_balok()
+    {
+        $kelilingBalok = new BangunRuang();
+        $expectedValue = 3000;
+        $panjang = 15;
+        $lebar = 10;
+        $tinggi = 5;
+        $actualValue = $kelilingBalok->kelilingBalok($panjang, $lebar, $tinggi);
+        $this->assertEquals($expectedValue, $actualValue);
+    }
+  
+    /** @test */
+    public function tes_Volume_Limas_Segiempat()
+    {
+        $volumeLimasSegiEmpat= new BangunRuang();
+        $expectedValue = 297;
+        $panjang = 20;
+        $lebar = 5;
+        $tinggi = 9;
+        $actualValue = $volumeLimasSegiEmpat->volumeLimasSegiEmpat($panjang, $lebar, $tinggi);
+        $this->assertEquals($expectedValue, $actualValue);
+    }
+
 }
