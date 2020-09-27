@@ -201,8 +201,8 @@ class BangunRuang
     function luasPermukaanTabung($jariJari, $tinggi)
     {
     	$DUA = 2;
-    	$DIAMETER = $jariJari + $jariJari;
-        return ($DUA * $this->PHI * $this->kuadrat($jariJari)) + ($this->PHI * $DIAMETER * $tinggi);
+    	$diameter = $jariJari + $jariJari;
+        return ($DUA * $this->PHI * $this->kuadrat($jariJari)) + ($this->PHI * $diameter * $tinggi);
     }
 }
 
