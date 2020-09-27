@@ -185,8 +185,15 @@ class BangunRuang
         $EMPATPERTIGA = 4 / 3;
         return $EMPATPERTIGA * $this->PHI * $jariJari * $jariJari * $jariJari;
     }
-}
-
+    /**
+     * Menghitung volume limas segitiga
+     * rumus : V = 1/3 atas x t
+     */
+    function volumeLimasSegiTiga($luasAlas, $tinggi){
+        $SATUPERTIGA = 0.33;
+        return $SATUPERTIGA * $this->PHI *$luasAlas*$tinggi;
+    }
+}     
 $bangunRuang = new BangunRuang();
 echo 'Luas lingkaran: ' . $bangunRuang->luasLingkaran(30);
 echo '<br>';
@@ -229,33 +236,5 @@ echo '<br>';
 echo 'Volume Bola :' . $bangunRuang->volumeBola(3);
 
 
-    /**
-     * Menghitung Linmas Persegi
-     * rumus :V= (1⁄3).p.l.t
-     * L=(p.t)+4.(1⁄2).a.t
-     */
-    
-    function hitung_limas()
-    {
-        $s = $this->input->post("sisi");
-        $t = $this->input->post("tinggi");
-        $pil = $this->input->post("pilih");
- 
-        if ($pil == "luas") {
-            $pytagoras = ((0.5 * $s) * (0.5 * $s)) + ($t * $t);
-            $tsisi = sqrt($pytagoras); 
-            $hasil = ($s * $s) + (4 * (0.5 * ($s * $tsisi)));
-            $title = "Luas Limas Persegi";
-        } else {
-            $hasil = (($s * $s) * $t)/3;
-            $title = "Volume Limas Persegi";
-        }
- 
-        $data=[
-            'hasil' => $hasil,
-            'title' => $title
-        ];
- 
-        $this->load->view('hasil', $data);
-    }
+   
     
