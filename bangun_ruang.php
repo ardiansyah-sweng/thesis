@@ -203,6 +203,7 @@ class BangunRuang
      {
          return $luasAlas * $tinggi;
      }
+     
      /**
      * Menghitung Luas Permukaan Tabung
      * Rumus: (2 x luas alas) + (keliling alas x tinggi ) atau (2 x phi x jariJari kuadrat) + (phi x diameter x tinggi)
@@ -213,12 +214,14 @@ class BangunRuang
     	$diameter = $jariJari + $jariJari;
         return ($DUA * $this->PHI * $this->kuadrat($jariJari)) + ($this->PHI * $diameter * $tinggi);
     }
+
     /**
      * Menghitung Luas trapesium
      * Rumus: 1/2 * (jumlah sisi sejajar) * tinggi
      */
-    function luasTrapesium($sisiAtas,$sisiBawah,$tinggi){
-        return 1/2*($sisiAtas+$sisiBawah)*$tinggi;
+    function luasTrapesium($sisiAtas, $sisiBawah, $tinggi)
+    {
+        return 1/2 * ($sisiAtas + $sisiBawah) * $tinggi;
     }
 }
 
