@@ -137,11 +137,11 @@ class BangunRuangTest extends TestCase
         $actualValue = $kelilingBalok->kelilingBalok($panjang, $lebar, $tinggi);
         $this->assertEquals($expectedValue, $actualValue);
     }
-  
+
     /** @test */
     public function tes_Volume_Limas_Segiempat()
     {
-        $volumeLimasSegiEmpat= new BangunRuang();
+        $volumeLimasSegiEmpat = new BangunRuang();
         $expectedValue = 297;
         $panjang = 20;
         $lebar = 5;
@@ -150,4 +150,12 @@ class BangunRuangTest extends TestCase
         $this->assertEquals($expectedValue, $actualValue);
     }
 
+    public function tes_Volume_Kubus()
+    {
+        $volumeKubus = new BangunRuang();
+        $expectedValue = 125;
+        $sisi = 5;
+        $actualValue = $volumeKubus->volumeKubus($sisi);
+        $this->assertEquals($expectedValue, $actualValue);
+    }
 }
