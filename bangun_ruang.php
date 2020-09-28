@@ -203,6 +203,7 @@ class BangunRuang
      {
          return $luasAlas * $tinggi;
      }
+     
      /**
      * Menghitung Luas Permukaan Tabung
      * Rumus: (2 x luas alas) + (keliling alas x tinggi ) atau (2 x phi x jariJari kuadrat) + (phi x diameter x tinggi)
@@ -213,16 +214,27 @@ class BangunRuang
     	$diameter = $jariJari + $jariJari;
         return ($DUA * $this->PHI * $this->kuadrat($jariJari)) + ($this->PHI * $diameter * $tinggi);
     }
-     /**
+
+    /**
+     * Menghitung Luas trapesium
+     * Rumus: 1/2 * (jumlah sisi sejajar) * tinggi
+     */
+    function luasTrapesium($sisiAtas, $sisiBawah, $tinggi)
+    {
+        return 1/2 * ($sisiAtas + $sisiBawah) * $tinggi;
+    }
+    /**
      * Menghitung volume keliling alas pada tabung
-     * rumus : 2 x π x r
+     * rumus : 2 x phi x r
      */
     function volumeKelilingAlasTabung($PHI, $jariJari)
 	{
-	$DUA = 2;
-        return $this->$DUA *$PHI * $jariJari;
-    }  
+	$DUA =2;
+        return $DUA *$PHI*$jariJari;
+    }
+
 }
+
 $bangunRuang = new BangunRuang();
 echo 'Luas lingkaran: ' . $bangunRuang->luasLingkaran(30);
 echo '<br>';
@@ -269,5 +281,7 @@ echo '<br>';
 echo 'Volume Prisma : '.$bangunRuang->volumePrisma(50,3);
 echo '<br>';
 echo 'Luas Permukaan Tabung: '.$bangunRuang->luasPermukaanTabung(5, 10);
-echo 'volume Keliling Alas Tabung : '.$bangunRuang->volumeKelilingAlasTabung(20,15);
-echo '<br>'; 
+echo '<br>';
+echo 'Luas Trapesium: '.$bangunRuang->luasTrapesium(5,7,6);
+echo '<br>';
+echo 'volume Keliling AlasTabung: '.$bangunRuang->volumeKelilingAlasTabung(5,10);
