@@ -246,10 +246,10 @@ class BangunRuang
      * Menghitung luas permukaan prisma segitiga
      * rumus : (keliling alas x t) + (2 x luas alas
      */
-    function luasPermukaanPrismaSegitiga($kAlas, $tinggi, $lAlas)
+    function luasPermukaanPrismaSegitiga($kelilingAlas, $tinggi, $luasAlasSegitiga)
     {
         $DUA = 2;
-        return ($kAlas * $tinggi) + ($DUA * $lAlas);
+        return ($kelilingAlas * $tinggi) + ($DUA * $luasAlasSegitiga);
     }
 
 }
