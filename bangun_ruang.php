@@ -74,5 +74,5 @@ echo 'Luas permukaan kubus: ' . $bangunRuang->luasPermukaanKubus(13);
 echo '<br>';
 echo 'Volume Kubus: ' . $bangunRuang->volumeKubus(5);
 echo '<br>';
-echo 'Volume Prisma Persegi: '.$bangunRuang->VolumePrismaPersegi(20);
+echo 'Volume Prisma Persegi : '.$bangunRuang->VolumePrismaPersegi(20);
 echo '<br>';
