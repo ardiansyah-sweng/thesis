@@ -232,6 +232,16 @@ class BangunRuang
 	$DUA =2;
         return $DUA *$PHI*$jariJari;
     }
+     /**
+     * Menghitung Keliling Persegi
+     * Rumus: 4 x sisi
+     */
+    function kelilingPersegi($sisi)
+    {
+        $EMPAT = 4;
+        return $EMPAT *  $sisi;
+    
+    }
 
 }
 
@@ -285,3 +295,5 @@ echo '<br>';
 echo 'Luas Trapesium: '.$bangunRuang->luasTrapesium(5,7,6);
 echo '<br>';
 echo 'volume Keliling AlasTabung: '.$bangunRuang->volumeKelilingAlasTabung(5,10);
+echo '<br>';
+echo 'Keliling Persegi: '. $bangunRuang->kelilingPersegi(9);
