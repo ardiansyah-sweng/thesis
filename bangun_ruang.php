@@ -223,6 +223,16 @@ class BangunRuang
     {
         return 1/2 * ($sisiAtas + $sisiBawah) * $tinggi;
     }
+    /**
+     * Menghitung volume keliling alas pada tabung
+     * rumus : 2 x phi x r
+     */
+    function volumeKelilingAlasTabung($PHI, $jariJari)
+	{
+	$DUA =2;
+        return $DUA *$PHI*$jariJari;
+    }
+
 }
 
 $bangunRuang = new BangunRuang();
@@ -273,3 +283,5 @@ echo '<br>';
 echo 'Luas Permukaan Tabung: '.$bangunRuang->luasPermukaanTabung(5, 10);
 echo '<br>';
 echo 'Luas Trapesium: '.$bangunRuang->luasTrapesium(5,7,6);
+echo '<br>';
+echo 'volume Keliling AlasTabung: '.$bangunRuang->volumeKelilingAlasTabung(5,10);
