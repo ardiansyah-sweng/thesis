@@ -181,4 +181,15 @@ class BangunRuangTest extends TestCase
         $actualValue = $volumeLimasSegiTiga->luasPermukaanLimasSegiTiga($luasAlas, $luasSelubungLimasSegiTiga);
         $this->assertEquals($expectedValue, $actualValue);
     }
+     /** @test */
+     public function tes_Luas_Trapesium()
+     {
+         $luasTrapesium = new BangunRuang();
+         $expectedValue = 36;
+         $sisiAtas = 5;
+         $sisiBawah = 7;
+         $tinggi = 6;
+         $actualValue = $luasTrapesium->luasTrapesium($sisiAtas, $sisiBawah, $tinggi);
+         $this->assertEquals($expectedValue, $actualValue);
+     }
 }
