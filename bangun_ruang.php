@@ -248,8 +248,8 @@ class BangunRuang
      */
     function luasPermukaanPrismaSegitiga($kAlas, $tinggi, $lAlas)
     {
-        $dua = 2;
-        return ($kAlas * $tinggi) + ($dua * $lAlas);
+        $DUA = 2;
+        return ($kAlas * $tinggi) + ($DUA * $lAlas);
     }
 
 }
