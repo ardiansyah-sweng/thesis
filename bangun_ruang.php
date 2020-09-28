@@ -9,6 +9,11 @@ class BangunRuang
      * Menghitung nilai kuadrat pangkat dua
      * pangkat = nilai^pangkat dua
      */
+
+    function tambah($nilai){
+        return $nilai+$nilai;
+    }
+    
     function kuadrat($nilai)
     {
         $PANGKAT_DUA = 2;
