@@ -223,6 +223,7 @@ class BangunRuang
     {
         return 1/2 * ($sisiAtas + $sisiBawah) * $tinggi;
     }
+  
     /**
      * Menghitung volume keliling alas pada tabung
      * rumus : 2 x phi x r
@@ -242,6 +243,7 @@ class BangunRuang
         return $EMPAT *  $sisi;
     
     }
+  
     /**
      * Menghitung luas permukaan prisma segitiga
      * rumus : (keliling alas x t) + (2 x luas alas
@@ -251,11 +253,11 @@ class BangunRuang
         $DUA = 2;
         return ($kelilingAlas * $tinggi) + ($DUA * $luasAlasSegitiga);
     }
+
     /**
      * Menghitung keliling jajargenjang
      * rumus : 2 * (alas + sisi)
      */
-
     function kelilingJajarGenjang($alas, $sisi)
     {
         $DUA = 2;
@@ -316,6 +318,7 @@ echo '<br>';
 echo 'volume Keliling AlasTabung: '.$bangunRuang->volumeKelilingAlasTabung(5,10);
 echo '<br>';
 echo 'Keliling Persegi: '. $bangunRuang->kelilingPersegi(9);
+echo '<br>';
 echo 'luas permukaan prisma segitiga : '.$bangunRuang->luasPermukaanPrismaSegitiga(20,5,10);
 echo '<br>';
 echo 'Keliling Jajar genjang :' . $bangunRuang->kelilingJajarGenjang(8, 6);
