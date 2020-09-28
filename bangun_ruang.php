@@ -187,13 +187,13 @@ class BangunRuang
     }
     /**
      * Menghitung keliling jajargenjang
-     * rumus : 2 * (alas + sisiMiring)
+     * rumus : 2 * (alas + sisi)
      */
 
-    function kelilingjajargenjang($alas, $sisiMiring)
+    function kelilingJajarGenjang($alas, $sisi)
     {
         $DUA = 2;
-        return $DUA * ($alas + $sisiMiring);
+        return $DUA * ($alas + $sisi);
     }
 }
 
@@ -238,4 +238,4 @@ echo 'Volume Kerucut: ' . $bangunRuang->volumeKerucut(10,8);
 echo '<br>';
 echo 'Volume Bola :' . $bangunRuang->volumeBola(3);
 echo '<br>';
-echo 'Keliling Jajar genjang :' . $bangunRuang->kelilingjajargenjang(8, 6);
+echo 'Keliling Jajar genjang :' . $bangunRuang->kelilingJajarGenjang(8, 6);
