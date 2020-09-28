@@ -242,6 +242,15 @@ class BangunRuang
         return $EMPAT *  $sisi;
     
     }
+    /**
+     * Menghitung luas permukaan prisma segitiga
+     * rumus : (keliling alas x t) + (2 x luas alas
+     */
+    function luasPermukaanPrismaSegitiga($kAlas, $tinggi, $lAlas)
+    {
+        $dua = 2;
+        return ($kAlas * $tinggi) + ($dua * $lAlas);
+    }
 
 }
 
@@ -297,3 +306,4 @@ echo '<br>';
 echo 'volume Keliling AlasTabung: '.$bangunRuang->volumeKelilingAlasTabung(5,10);
 echo '<br>';
 echo 'Keliling Persegi: '. $bangunRuang->kelilingPersegi(9);
+echo 'luas permukaan prisma segitiga : '.$bangunRuang->luasPermukaanPrismaSegitiga(20,5,10);
