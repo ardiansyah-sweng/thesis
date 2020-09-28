@@ -6,6 +6,7 @@ $vendorDir = dirname(dirname(__FILE__));
 $baseDir = dirname($vendorDir);
 
 return array(
+    'App\\BangunRuang' => $baseDir . '/app/BangunRuang.php',
     'App\\Console\\Commands\\ImportDosenCommand' => $baseDir . '/app/Console/Commands/ImportDosenCommand.php',
     'App\\Console\\Kernel' => $baseDir . '/app/Console/Kernel.php',
     'App\\Exceptions\\Handler' => $baseDir . '/app/Exceptions/Handler.php',
