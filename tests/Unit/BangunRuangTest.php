@@ -183,7 +183,7 @@ class BangunRuangTest extends TestCase
     }
 
     /** @test */
-    public function tes_Luas_Permukaan_Jajar_Genjang()
+    public function test_Luas_Permukaan_Jajar_Genjang()
     {
         $luasJajarGenjang = new BangunRuang();
         $expectedValue = 100;
