@@ -9,5 +9,4 @@ return array(
     'Mockery' => array($vendorDir . '/mockery/mockery/library'),
     'Highlight\\' => array($vendorDir . '/scrivo/highlight.php'),
     'HighlightUtilities\\' => array($vendorDir . '/scrivo/highlight.php'),
-    'Behat\\Gherkin' => array($vendorDir . '/behat/gherkin/src'),
 );
