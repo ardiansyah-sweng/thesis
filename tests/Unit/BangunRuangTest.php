@@ -149,7 +149,8 @@ class BangunRuangTest extends TestCase
         $actualValue = $volumeLimasSegiEmpat->volumeLimasSegiEmpat($panjang, $lebar, $tinggi);
         $this->assertEquals($expectedValue, $actualValue);
     }
-
+    
+    /** @test */    
     public function tes_Volume_Kubus()
     {
         $volumeKubus = new BangunRuang();
