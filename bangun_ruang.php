@@ -64,16 +64,6 @@ class BangunRuang
     }
 
     /**
-     * Menghitung keliling Persegi Panjang
-     * Rumus: 2 x (Panjang + Lebar)
-     */
-    function kelilingPersegiPanjang($panjang, $lebar)
-    {
-        $DUA = 2;
-        return $DUA * ($panjang + $lebar);
-    }
-
-    /**
      * Menghitung Volume Limas Segi Tiga
      * Rumus: 1/3 * Luas Alas x tinggi
      */
@@ -183,8 +173,6 @@ echo '<br>';
 echo '3 Luas permukaan kubus: ' . $bangunRuang->luasPermukaanKubus(13);
 echo '<br>';
 echo '4 Luas permukaan persegi panjang: ' . $bangunRuang->luasPermukaaanPersegiPanjang(2, 4);
-echo '<br>';
-echo '5 Keliling persegi panjang: ' . $bangunRuang->kelilingPersegiPanjang(3, 6);
 echo '<br>';
 echo '6 Volume Kubus: ' . $bangunRuang->volumeKubus(5);
 echo '<br>';
