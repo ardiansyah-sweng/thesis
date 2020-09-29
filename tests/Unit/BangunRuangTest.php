@@ -189,18 +189,18 @@ class BangunRuangTest extends TestCase
         $expectedValue = 100;
         $alas = 10;
         $tinggi = 10;
-        $actual_value = $luasJajarGenjang->luasJajarGenjang($alas, $tinggi);
-        $this->assertEquals($expectedValue, $actual_value);
+        $actualValue = $luasJajarGenjang->luasJajarGenjang($alas, $tinggi);
+        $this->assertEquals($expectedValue, $actualValue);
+    
     }
-
-     /** @test */
+    /** @test */
      public function tes_Luas_Permukaan_Persegi_Panjang()
      {
          $luasPermukaaanPersegiPanjang = new BangunRuang();
          $expectedValue = 8;
          $panjang = 2;
          $lebar = 4;
-         $actual_value = $luasPermukaaanPersegiPanjang->luasPermukaaanPersegiPanjang($panjang, $lebar);
-         $this->assertEquals($expectedValue, $actual_value);
+         $actualValue = $luasPermukaaanPersegiPanjang->luasPermukaaanPersegiPanjang($panjang, $lebar);
+         $this->assertEquals($expectedValue, $actualValue);
      }
 }
