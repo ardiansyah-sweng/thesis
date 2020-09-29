@@ -263,7 +263,15 @@ class BangunRuang
         $DUA = 2;
         return $DUA * ($alas + $sisi);
     }
-
+    /**
+     * Menghitung volume tabung + bola
+     * rumus: (phi x r2 x t) + (4/3 x phi x r3)
+     */
+    function volumeTabungBola($jariJari, $tinggi)
+    {
+        $EMPATPERTIGA = 4/3;
+        return ($this->PHI * ($jariJari * $jariJari) * $tinggi) + ($EMPATPERTIGA * $this->PHI * ($jariJari*$jariJari*$jariJari));
+    }    
 }
 
 $bangunRuang = new BangunRuang();
@@ -322,3 +330,6 @@ echo '<br>';
 echo 'luas permukaan prisma segitiga : '.$bangunRuang->luasPermukaanPrismaSegitiga(20,5,10);
 echo '<br>';
 echo 'Keliling Jajar genjang :' . $bangunRuang->kelilingJajarGenjang(8, 6);
+echo 'br';
+echo 'Volume Tabung Bola: '.$bangunRuang->volumeTabungBola(14,25);
+echo 'br';
