@@ -181,6 +181,7 @@ class BangunRuangTest extends TestCase
         $actualValue = $volumeLimasSegiTiga->luasPermukaanLimasSegiTiga($luasAlas, $luasSelubungLimasSegiTiga);
         $this->assertEquals($expectedValue, $actualValue);
     }
+    
      /** @test */
      public function tes_Luas_Trapesium()
      {
@@ -192,4 +193,15 @@ class BangunRuangTest extends TestCase
          $actualValue = $luasTrapesium->luasTrapesium($sisiAtas, $sisiBawah, $tinggi);
          $this->assertEquals($expectedValue, $actualValue);
      }
+
+     /** @test */
+    public function tes_Luas_Permukaan_Kerucut()
+    {
+        $luasPermukaanKerucut = new BangunRuang();
+        $expectedValue = 351.68;
+        $jarijari = 7;
+        $garisPelukis = 9;
+        $actualValue = $luasPermukaanKerucut->luasPermukaanKerucut($jarijari,$garisPelukis);
+        $this->assertEquals($expectedValue, $actualValue);
+    }
 }
