@@ -243,6 +243,16 @@ class BangunRuang
         return $EMPAT *  $sisi;
     
     }
+
+     /**
+     * Menghitung Luas Persegi
+     * Rumus: sisi x sisi
+     */
+    function luasPersegi($sisi)
+    {
+        return $sisi *  $sisi;
+    
+    }
   
     /**
      * Menghitung luas permukaan prisma segitiga
@@ -318,6 +328,8 @@ echo '<br>';
 echo 'volume Keliling AlasTabung: '.$bangunRuang->volumeKelilingAlasTabung(5,10);
 echo '<br>';
 echo 'Keliling Persegi: '. $bangunRuang->kelilingPersegi(9);
+echo '<br>';
+echo 'Luas Persegi: '. $bangunRuang->luasPersegi(5);
 echo '<br>';
 echo 'luas permukaan prisma segitiga : '.$bangunRuang->luasPermukaanPrismaSegitiga(20,5,10);
 echo '<br>';
