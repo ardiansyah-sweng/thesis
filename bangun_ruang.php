@@ -155,13 +155,13 @@ class BangunRuang
     }
 
     /**
-     * Menghitung Luas Segitiga
-     * Rumus: 1/2 x alas x tinggi
+     * Menghitung Volume Kerucut
+     * Rumus : 1/3 x π x r2 x tinggi
      */
-    function luasSegitiga($alas, $tinggi)
+    function volumeKerucut($jariJari, $tinggi)
     {
-        $SATUPERDUA = 1 / 2;
-        return $SATUPERDUA * $alas * $tinggi;
+        $SATUPERTIGA = 1 / 3;
+        return $SATUPERTIGA * $this->PHI * $this->kuadrat($jariJari) * $tinggi;
     }
 }
 
@@ -196,4 +196,4 @@ echo '15 Volume Limas SegiEmpat: ' . $bangunRuang->volumeLimasSegiEmpat(20, 10, 
 echo '<br>';
 echo '16 Keliling Bola: ' . $bangunRuang->kelilingBola(30);
 echo '<br>';
-echo '17 Luas Segitiga: ' . $bangunRuang->luasSegitiga(4, 6);
+echo '17 Luas Segitiga: ' . $bangunRuang->volumeKerucut(7, 6);
