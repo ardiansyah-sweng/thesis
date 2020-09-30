@@ -215,6 +215,7 @@ class BangunRuangTest extends TestCase
         $actualValue = $volumeKerucut->volumeKerucut($jariJari, $tinggi);
         $this->assertEquals($expectedValue, $actualValue);
     }
+
     /** @test */
     public function tes_Keliling_Jajar_Genjang()
     {
@@ -225,4 +226,24 @@ class BangunRuangTest extends TestCase
         $actualValue = $kelilingJajarGenjsng->kelilingJajarGenjang($alas, $sisi);
         $this->assertEquals($expectedValue, $actualValue);
     }
+
+    /** @test */
+    public function tes_Keliling_Bola()
+    {
+        $kelilingBola = new BangunRuang();
+        $expectedValue = 3768;
+        $jarijari = 30;
+        $actualValue = $kelilingBola->kelilingBola($jarijari);
+        $this->assertEquals($expectedValue, $actualValue);
+    }
+
+    /** @test */
+    public function tes_Volume_Bola()
+    {
+        $volumeBola = new BangunRuang();
+        $expectedValue = 113.04;
+        $jariJari = 3;
+        $actualValue = $volumeBola->volumeBola($jariJari);
+        $this->assertEquals($expectedValue, $actualValue);
+    } 
 }
