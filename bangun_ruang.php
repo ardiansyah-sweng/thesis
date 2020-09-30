@@ -150,7 +150,6 @@ class BangunRuang
      */
     function VolumeSilinder($jariJari, $tinggi)
     {
-
     return $this->PHI * $jariJari * $jariJari * $tinggi;     
 
     }
