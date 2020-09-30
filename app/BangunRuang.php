@@ -210,6 +210,15 @@ class BangunRuang
         
         return $SATUPERTIGA * $this->PHI * $this->kuadrat($jariJari) * $tinggi;
     }
+    /**
+     * Menghitung keliling jajargenjang
+     * rumus : 2 * (alas + sisi)
+     */
+    function kelilingJajarGenjang($alas, $sisi)
+    {
+        $DUA = 2;
+        return $DUA * ($alas + $sisi);
+    }
 }
 
 $bangunRuang = new BangunRuang();
@@ -246,3 +255,5 @@ echo '<br>';
 echo 'Luas Trapesium: '.$bangunRuang->luasTrapesium(5,7,6);
 echo '<br>';
 echo 'Volume Kerucut: ' . $bangunRuang->volumeKerucut(10,8);
+echo '<br>';
+echo 'Keliling Jajar genjang :' . $bangunRuang->kelilingJajarGenjang(8, 6);

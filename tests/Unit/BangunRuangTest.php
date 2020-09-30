@@ -215,4 +215,14 @@ class BangunRuangTest extends TestCase
         $actualValue = $volumeKerucut->volumeKerucut($jariJari, $tinggi);
         $this->assertEquals($expectedValue, $actualValue);
     }
+    /** @test */
+    public function tes_Keliling_Jajar_Genjang()
+    {
+        $kelilingJajarGenjsng = new BangunRuang();
+        $expectedValue = 28;
+        $alas = 8;
+        $sisi = 6;
+        $actualValue = $kelilingJajarGenjsng->kelilingJajarGenjang($alas, $sisi);
+        $this->assertEquals($expectedValue, $actualValue);
+    }
 }
