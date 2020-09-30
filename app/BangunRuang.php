@@ -200,6 +200,16 @@ class BangunRuang
     {
         return 1/2 * ($sisiAtas + $sisiBawah) * $tinggi;
     }
+    /**
+     * Menghitung Volume Kerucut
+     * Rumus 1/3 * PHI * jari-jari * jari-jari * tinggi
+     */
+    function volumeKerucut($jariJari, $tinggi)
+    {
+        $SATUPERTIGA = 0.33;
+        
+        return $SATUPERTIGA * $this->PHI * $this->kuadrat($jariJari) * $tinggi;
+    }
 }
 
 $bangunRuang = new BangunRuang();
@@ -234,3 +244,5 @@ echo '<br>';
 echo 'Volume Limas SegiEmpat: ' . $bangunRuang->volumeLimasSegiEmpat(20, 10, 15);
 echo '<br>';
 echo 'Luas Trapesium: '.$bangunRuang->luasTrapesium(5,7,6);
+echo '<br>';
+echo 'Volume Kerucut: ' . $bangunRuang->volumeKerucut(10,8);
