@@ -263,6 +263,15 @@ class BangunRuang
         $DUA = 2;
         return $DUA * ($alas + $sisi);
     }
+    /**
+     * Menghitung Luas Selimut Tabung
+     * rumus : 2 * PHI * jariJari * tinggi
+     */
+    function luasSelimutTabung($jariJari, $tinggi)
+    {
+        $DUA = 2;
+        return $DUA * $this->PHI * $jariJari * $tinggi;
+    }
 
 }
 
@@ -322,3 +331,5 @@ echo '<br>';
 echo 'luas permukaan prisma segitiga : '.$bangunRuang->luasPermukaanPrismaSegitiga(20,5,10);
 echo '<br>';
 echo 'Keliling Jajar genjang :' . $bangunRuang->kelilingJajarGenjang(8, 6);
+echo '<br>';
+echo 'Luas Selimut Tabung: ' . $bangunRuang->luasSelimutTabung(8,4);
