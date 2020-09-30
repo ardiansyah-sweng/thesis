@@ -147,6 +147,16 @@ class BangunRuang
         $SEPERTIGA = 0.33;
         return $SEPERTIGA * $panjang * $lebar * $tinggi;
     }
+     /**
+     * Menghitung volume bola
+     * rumus : 4/3 * phi * jariJari * jariJari * jariJari 
+     */
+
+    function volumeBola($jariJari)
+    {
+        $EMPATPERTIGA = 4 / 3;
+        return $EMPATPERTIGA * $this->PHI * $jariJari * $jariJari * $jariJari;
+    }
 
     function benar()
     {
@@ -257,4 +267,6 @@ echo '<br>';
 echo 'Volume Kerucut: ' . $bangunRuang->volumeKerucut(10,8);
 echo '<br>';
 echo 'Keliling Bola: ' . $bangunRuang->kelilingBola(30);
+echo '<br>';
+echo 'Volume Bola :' . $bangunRuang->volumeBola(3);
 echo '<br>';
