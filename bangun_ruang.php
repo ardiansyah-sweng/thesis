@@ -310,8 +310,6 @@ echo 'Volume Limas SegiEmpat: ' . $bangunRuang->volumeLimasSegiEmpat(20, 10, 15)
 echo '<br>';
 echo 'Luas Balok : ' . $bangunRuang->luasBalok(11, 22, 33);
 echo '<br>';
-echo 'Volume Limas SegiEmpat: ' . $bangunRuang->volumeLimasSegiEmpat(20, 10, 15);
-echo '<br>';
 echo 'Keliling Bola: ' . $bangunRuang->kelilingBola(30);
 echo '<br>';
 echo 'Volume Kerucut: ' . $bangunRuang->volumeKerucut(10,8);
