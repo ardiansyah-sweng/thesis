@@ -217,6 +217,16 @@ class BangunRuangTest extends TestCase
     }
 
     /** @test */
+    public function tes_Keliling_Bola()
+    {
+        $kelilingBola = new BangunRuang();
+        $expectedValue = 3768;
+        $jarijari = 30;
+        $actualValue = $kelilingBola->kelilingBola($jarijari);
+        $this->assertEquals($expectedValue, $actualValue);
+    }
+
+    /** @test */
     public function tes_Volume_Bola()
     {
         $volumeBola = new BangunRuang();

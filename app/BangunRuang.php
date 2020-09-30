@@ -220,6 +220,15 @@ class BangunRuang
         
         return $SATUPERTIGA * $this->PHI * $this->kuadrat($jariJari) * $tinggi;
     }
+    /**
+     * Menghitung Keliling Bola
+     * Rumus: 4/3 x π x r2
+     */
+    function kelilingBola($jarijari)
+    {
+        $EMPATPERTIGA = 4 / 3;
+        return $EMPATPERTIGA * $this->PHI * $this->kuadrat($jarijari);
+    }
 }
 
 $bangunRuang = new BangunRuang();
@@ -256,6 +265,8 @@ echo '<br>';
 echo 'Luas Trapesium: '.$bangunRuang->luasTrapesium(5,7,6);
 echo '<br>';
 echo 'Volume Kerucut: ' . $bangunRuang->volumeKerucut(10,8);
+echo '<br>';
+echo 'Keliling Bola: ' . $bangunRuang->kelilingBola(30);
 echo '<br>';
 echo 'Volume Bola :' . $bangunRuang->volumeBola(3);
 echo '<br>';
