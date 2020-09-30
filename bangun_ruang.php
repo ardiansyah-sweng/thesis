@@ -272,7 +272,7 @@ class BangunRuang
         $DUA = 2;
         return $DUA * $this->PHI * $jariJari * $tinggi;
     }
-
+    
 }
 
 $bangunRuang = new BangunRuang();
