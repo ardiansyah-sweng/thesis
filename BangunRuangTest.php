@@ -151,13 +151,13 @@ class BangunRuangTest extends TestCase
     }
 
        /** @test */
-       public function tes_volume_Keliling_AlasTabung(){
+       public function tes_volume_Keliling_Alas_Tabung(){
         $volumeKelilingAlasTabung = new BangunRuang();
         $expectedValue = 31.4;
         $PHI = 3.14;
         $jariJari = 10;
-        $actualValue =$volumeKelilingAlasTabung->volumeKelilingAlasTabung($PHI, $jariJari);
-        $this->assertEquals(expectedValue, $actualValue);
+        $actualValue = $volumeKelilingAlasTabung->volumeKelilingAlasTabung($PHI, $jariJari);
+        $this->assertEquals($expectedValue, $actualValue);
 
     }
 
