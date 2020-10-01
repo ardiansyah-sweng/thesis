@@ -147,6 +147,16 @@ class BangunRuang
         $SEPERTIGA = 0.33;
         return $SEPERTIGA * $panjang * $lebar * $tinggi;
     }
+     /**
+     * Menghitung volume bola
+     * rumus : 4/3 * phi * jariJari * jariJari * jariJari 
+     */
+
+    function volumeBola($jariJari)
+    {
+        $EMPATPERTIGA = 4 / 3;
+        return $EMPATPERTIGA * $this->PHI * $jariJari * $jariJari * $jariJari;
+    }
 
     function benar()
     {
@@ -192,6 +202,44 @@ class BangunRuang
         $array_nilai = array(4,5,6);
         return $array_nilai;
     }
+    /**
+     * Menghitung Luas trapesium
+     * Rumus: 1/2 * (jumlah sisi sejajar) * tinggi
+     */
+    function luasTrapesium($sisiAtas, $sisiBawah, $tinggi)
+    {
+        return 1/2 * ($sisiAtas + $sisiBawah) * $tinggi;
+    }
+    /**
+     * Menghitung Volume Kerucut
+     * Rumus 1/3 * PHI * jari-jari * jari-jari * tinggi
+     */
+    function volumeKerucut($jariJari, $tinggi)
+    {
+        $SATUPERTIGA = 0.33;
+        
+        return $SATUPERTIGA * $this->PHI * $this->kuadrat($jariJari) * $tinggi;
+    }
+  
+    /**
+     * Menghitung keliling jajargenjang
+     * rumus : 2 * (alas + sisi)
+     */
+    function kelilingJajarGenjang($alas, $sisi)
+    {
+        $DUA = 2;
+        return $DUA * ($alas + $sisi);
+    }
+  
+    /**
+     * Menghitung Keliling Bola
+     * Rumus: 4/3 x π x r2
+     */
+    function kelilingBola($jarijari)
+    {
+        $EMPATPERTIGA = 4 / 3;
+        return $EMPATPERTIGA * $this->PHI * $this->kuadrat($jarijari);
+    }
 }
 
 $bangunRuang = new BangunRuang();
@@ -224,3 +272,13 @@ echo '<br>';
 echo 'Keliling Balok: ' . $bangunRuang->kelilingBalok(15, 10, 5);
 echo '<br>';
 echo 'Volume Limas SegiEmpat: ' . $bangunRuang->volumeLimasSegiEmpat(20, 10, 15);
+echo '<br>';
+echo 'Luas Trapesium: '.$bangunRuang->luasTrapesium(5,7,6);
+echo '<br>';
+echo 'Volume Kerucut: ' . $bangunRuang->volumeKerucut(10,8);
+echo '<br>';
+echo 'Keliling Bola: ' . $bangunRuang->kelilingBola(30);
+echo '<br>';
+echo 'Volume Bola :' . $bangunRuang->volumeBola(3);
+=======
+echo 'Keliling Jajar genjang :' . $bangunRuang->kelilingJajarGenjang(8, 6);

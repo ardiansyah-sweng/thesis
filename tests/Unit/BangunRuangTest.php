@@ -12,8 +12,9 @@ class BangunRuangTest extends TestCase
     {
         $pangkatDua = new BangunRuang();
         $expectedValue = 9;
-        $actualValue = 3;
-        $this->assertEquals($expectedValue, $pangkatDua->kuadrat($actualValue));
+        $nilai = 3;
+        $actualValue = $pangkatDua->kuadrat($nilai);
+        $this->assertEquals($expectedValue, $actualValue);
     }
 
     /** @test */
@@ -113,4 +114,136 @@ class BangunRuangTest extends TestCase
         $this->assertNotEmpty($nilai);
     }
 
+    /** @test */
+    public function tes_volume_balok()
+    {
+        $volumeBalok = new BangunRuang();
+        $expectedValue = 120;
+        $panjang = 4;
+        $lebar = 5;
+        $tinggi = 6;
+        $actualValue = $volumeBalok->volumeBalok($panjang, $lebar, $tinggi);
+        $this->assertEquals($expectedValue, $actualValue);
+    }
+
+    /** @test */
+    public function tes_keliling_balok()
+    {
+        $kelilingBalok = new BangunRuang();
+        $expectedValue = 3000;
+        $panjang = 15;
+        $lebar = 10;
+        $tinggi = 5;
+        $actualValue = $kelilingBalok->kelilingBalok($panjang, $lebar, $tinggi);
+        $this->assertEquals($expectedValue, $actualValue);
+    }
+
+    /** @test */
+    public function tes_Volume_Limas_Segiempat()
+    {
+        $volumeLimasSegiEmpat = new BangunRuang();
+        $expectedValue = 297;
+        $panjang = 20;
+        $lebar = 5;
+        $tinggi = 9;
+        $actualValue = $volumeLimasSegiEmpat->volumeLimasSegiEmpat($panjang, $lebar, $tinggi);
+        $this->assertEquals($expectedValue, $actualValue);
+    }
+
+    /** @test */
+    public function tes_Volume_Kubus()
+    {
+        $volumeKubus = new BangunRuang();
+        $expectedValue = 125;
+        $sisi = 5;
+        $actualValue = $volumeKubus->volumeKubus($sisi);
+        $this->assertEquals($expectedValue, $actualValue);
+    }
+    
+    /** @test */
+    public function tes_Volume_Limas_Segitiga()
+    {
+        $volumeLimasSegiTiga = new BangunRuang();
+        $expectedValue = 100;
+        $luasAlas = 30;
+        $tinggi = 10;
+        $actualValue = $volumeLimasSegiTiga->volumeLimasSegiTiga($luasAlas, $tinggi);
+        $this->assertEquals($expectedValue, $actualValue);
+    }
+    
+    /** @test */
+    public function tes_Luas_Permukaan_Limas_Segitiga()
+    {
+        $volumeLimasSegiTiga = new BangunRuang();
+        $expectedValue = 70;
+        $luasAlas = 30;
+        $luasSelubungLimasSegiTiga = 40;
+        $actualValue = $volumeLimasSegiTiga->luasPermukaanLimasSegiTiga($luasAlas, $luasSelubungLimasSegiTiga);
+        $this->assertEquals($expectedValue, $actualValue);
+    }
+    
+     /** @test */
+     public function tes_Luas_Trapesium()
+     {
+         $luasTrapesium = new BangunRuang();
+         $expectedValue = 36;
+         $sisiAtas = 5;
+         $sisiBawah = 7;
+         $tinggi = 6;
+         $actualValue = $luasTrapesium->luasTrapesium($sisiAtas, $sisiBawah, $tinggi);
+         $this->assertEquals($expectedValue, $actualValue);
+     }
+
+     /** @test */
+    public function tes_Luas_Permukaan_Kerucut()
+    {
+        $luasPermukaanKerucut = new BangunRuang();
+        $expectedValue = 351.68;
+        $jarijari = 7;
+        $garisPelukis = 9;
+        $actualValue = $luasPermukaanKerucut->luasPermukaanKerucut($jarijari,$garisPelukis);
+        $this->assertEquals($expectedValue, $actualValue);
+    }
+
+    /** @test */
+    public function tes_Volume_Kerucut()
+    {
+        $volumeKerucut = new BangunRuang();
+        $expectedValue = 828.96;
+        $jariJari = 10;
+        $tinggi = 8;
+        $actualValue = $volumeKerucut->volumeKerucut($jariJari, $tinggi);
+        $this->assertEquals($expectedValue, $actualValue);
+    }
+
+    /** @test */
+    public function tes_Keliling_Jajar_Genjang()
+    {
+        $kelilingJajarGenjsng = new BangunRuang();
+        $expectedValue = 28;
+        $alas = 8;
+        $sisi = 6;
+        $actualValue = $kelilingJajarGenjsng->kelilingJajarGenjang($alas, $sisi);
+        $this->assertEquals($expectedValue, $actualValue);
+    }
+
+    /** @test */
+    public function tes_Keliling_Bola()
+    {
+        $kelilingBola = new BangunRuang();
+        $expectedValue = 3768;
+        $jarijari = 30;
+        $actualValue = $kelilingBola->kelilingBola($jarijari);
+        $this->assertEquals($expectedValue, $actualValue);
+    }
+
+    /** @test */
+    public function tes_Volume_Bola()
+    {
+        $volumeBola = new BangunRuang();
+        $expectedValue = 113.04;
+        $jariJari = 3;
+        $actualValue = $volumeBola->volumeBola($jariJari);
+        $this->assertEquals($expectedValue, $actualValue);
+    } 
 }
