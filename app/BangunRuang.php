@@ -277,9 +277,8 @@ echo 'Luas Trapesium: '.$bangunRuang->luasTrapesium(5,7,6);
 echo '<br>';
 echo 'Volume Kerucut: ' . $bangunRuang->volumeKerucut(10,8);
 echo '<br>';
-echo 'Keliling Jajar genjang :' . $bangunRuang->kelilingJajarGenjang(8, 6);
-echo '<br>';
 echo 'Keliling Bola: ' . $bangunRuang->kelilingBola(30);
 echo '<br>';
 echo 'Volume Bola :' . $bangunRuang->volumeBola(3);
-echo '<br>';
+=======
+echo 'Keliling Jajar genjang :' . $bangunRuang->kelilingJajarGenjang(8, 6);
