@@ -1,5 +1,2 @@
-/vendor
-.env
-.gitattributes
-.gitignore
-.phpunit.result.cache
+vendor
+public/vendor
