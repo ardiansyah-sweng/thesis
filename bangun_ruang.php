@@ -283,6 +283,16 @@ class BangunRuang
         $EMPATPERTIGA = 4 / 3;
         return $SATUPERDUA * $EMPATPERTIGA * $this->PHI * $jariJari * $jariJari * $jariJari;
     }
+
+    /**
+     * Menghitung Luas Persegi 
+     * rumus : s * s
+     */
+
+    function luasPersegi($sisi)
+    {
+        return  $this->kuadrat($sisi);
+    }
 }
 
 $bangunRuang = new BangunRuang();
@@ -345,3 +355,5 @@ echo '<br>';
 echo 'Luas Selimut Tabung: ' . $bangunRuang->luasSelimutTabung(8, 4);
 echo '<br>';
 echo 'Volume Setengah Bola: ' . $bangunRuang->volumeSetengahBola(7);
+echo '<br>';
+echo 'Luas Persegi: ' . $bangunRuang->luasPersegi(7);
