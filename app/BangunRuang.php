@@ -240,6 +240,16 @@ class BangunRuang
         $EMPATPERTIGA = 4 / 3;
         return $EMPATPERTIGA * $this->PHI * $this->kuadrat($jarijari);
     }
+
+    /**
+     * Luas Balok
+     * Rumus: 2 x (panjang x lebar + panjang x tinggi + lebar x tinggi)
+     */
+    function luasBalok($panjang, $lebar, $tinggi)
+    {
+        $DUA = 2;
+        return $DUA * ($panjang * $lebar + $panjang * $tinggi + $lebar * $tinggi);
+    }
 }
 
 $bangunRuang = new BangunRuang();
@@ -280,5 +290,7 @@ echo '<br>';
 echo 'Keliling Bola: ' . $bangunRuang->kelilingBola(30);
 echo '<br>';
 echo 'Volume Bola :' . $bangunRuang->volumeBola(3);
-=======
+echo '<br>';
 echo 'Keliling Jajar genjang :' . $bangunRuang->kelilingJajarGenjang(8, 6);
+echo '<br>';
+echo 'Luas Balok :' . $bangunRuang->luasBalok(8, 6, 3);
