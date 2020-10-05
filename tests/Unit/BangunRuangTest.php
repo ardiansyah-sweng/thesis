@@ -250,11 +250,11 @@ class BangunRuangTest extends TestCase
 	/** @test */
     public function tes_luasBalok()
     {
-		$luasBola = new BangunRuang();
-		$expectedValue = 2662;
-		$panjang = 11;
-		$lebar = 22;
-		$tinggai = 33;
+		$luasBalok = new BangunRuang();
+		$expectedValue = 376;
+		$panjang = 8;
+		$lebar = 6;
+		$tinggi = 10;
         $actualValue = $luasBalok->luasBalok($panjang, $lebar, $tinggi);
         $this->assertEquals($expectedValue, $actualValue);
     }
