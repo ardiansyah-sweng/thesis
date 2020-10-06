@@ -35,6 +35,16 @@ class BangunRuang
         return $this->PHI * $DUA * $jariJari;
     }
 
+        /**
+     * Menghitung Keliling Lingkaran
+     * Rumus: phi x diameter
+     */
+    function kelilingLingkaranbyDiameter($diameter)
+    {
+        return $this->PHI * $diameter;
+    }
+
+
     /**
      * Menghitung Luas Permukaan Kubus
      * Rumus: 6 x sisi^kuadrat
@@ -288,7 +298,7 @@ class BangunRuang
 $bangunRuang = new BangunRuang();
 echo 'Luas lingkaran: ' . $bangunRuang->luasLingkaran(30);
 echo '<br>';
-echo 'Keliling lingkaran: ' . $bangunRuang->kelilingLingkaran(8);
+echo 'Keliling lingkaran: ' . $bangunRuang->kelilingLingkaran(21);
 echo '<br>';
 echo 'Luas permukaan kubus: ' . $bangunRuang->luasPermukaanKubus(13);
 echo '<br>';
@@ -345,3 +355,5 @@ echo '<br>';
 echo 'Luas Selimut Tabung: ' . $bangunRuang->luasSelimutTabung(8, 4);
 echo '<br>';
 echo 'Volume Setengah Bola: ' . $bangunRuang->volumeSetengahBola(7);
+echo '<br>';
+echo 'Keliling lingkaran (diameter): ' . $bangunRuang->kelilingLingkaranbyDiameter(30);
