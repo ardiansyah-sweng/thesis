@@ -36,11 +36,11 @@
                             <div class="form-group">
                               <label>Topik</label>
                                 <select class="form-control select2" style="width: 100%;">
-                                  <option selected="selected">Data mining</option>
-                                  <option>Pengolahan Citra</option>
-                                  <option>Keamanan</option>
-                                  <option>Web</option>
-                                  <option>Komputer Vision</option>
+                                  <option selected="selected">--Pilih--/option>
+                                  <option>Topik A</option>
+                                  <option>Topik B</option>
+                                  <option>Topik C</option>
+                                  <option>Topik C</option>
                                 </select>
                             </div>
                             <div class="form-group">
