@@ -52,6 +52,14 @@
               </li>
             </ul>
           </li>
+          <li class="nav-item has-treeview">
+            <a href="{{ url('/Topik/Add') }}" class="nav-link">
+              <i class="nav-icon fas fa-edit"></i>
+              <p>
+                Add Topik
+              </p>
+            </a>
+          </li>
           <li class="nav-item">
             <a href="pages/widgets.html" class="nav-link">
               <i class="nav-icon fas fa-th"></i>

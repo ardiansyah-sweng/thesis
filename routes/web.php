@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\DashboardController;
+use App\Http\Controllers\TopikController;
 
 /*
 |--------------------------------------------------------------------------
@@ -15,6 +16,7 @@ use App\Http\Controllers\DashboardController;
 */
 
 Route::get('/',[DashboardController::class, 'index']);
+Route::get('/Topik/Add',[TopikController::class, 'index']);
 
 Route::get('/halo', function () {
     return 'hai dunia';
