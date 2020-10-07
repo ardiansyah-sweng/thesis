@@ -83,7 +83,7 @@ class BangunRuang
     }
 
     /**
-     * Menghitung Luas Permukaan jajar genjang 
+     * Menghitung Luas Permukaan jajar genjang
      * Rumus: Luas jajargenjang alas * tinggi
      */
     public function luasJajarGenjang($alas, $tinggi)
@@ -118,7 +118,7 @@ class BangunRuang
     }
 
     /**Menghitung Luas Permukaan Bola
-     * Rumus : 4 * PHI * jariJari * jariJari 
+     * Rumus : 4 * PHI * jariJari * jariJari
      */
     function luasPermukaanBola($jariJari)
     {
@@ -144,14 +144,124 @@ class BangunRuang
         $SEPERTIGA = 0.33;
         return $SEPERTIGA * $panjang * $lebar * $tinggi;
     }
-    /**
-     * menghitung volume silinder
-     * L= (PHI x Jari-jari * jarijari * tinggi
-     */
-    function VolumeSilinder($jariJari, $tinggi)
-    {
-    return $this->PHI * $jariJari * $jariJari * $tinggi;     
 
+    /**
+     * Menghitung Luas Balok
+     * Rumus: 2 * ( panjang * lebar + panjang * tinggi + lebar * tinggi)
+     */
+    function luasBalok($panjang, $lebar, $tinggi)
+    {
+        $DUA = 2;
+        return ($DUA * (($panjang * $lebar) + ($panjang * $tinggi) + ($lebar * $tinggi)));
+    }
+
+    /**
+     * Menghitung Keliling Bola
+     * Rumus: 4/3 x π x r2
+     */
+    function kelilingBola($jarijari)
+    {
+        $EMPATPERTIGA = 4 / 3;
+        return $EMPATPERTIGA * $this->PHI * $this->kuadrat($jarijari);
+    }
+    /**
+     * Menghitung Volume Kerucut
+     * Rumus 1/3 * PHI * jari-jari * jari-jari * tinggi
+     */
+    function volumeKerucut($jariJari, $tinggi)
+    {
+        $SATUPERTIGA = 0.33;
+
+        return $SATUPERTIGA * $this->PHI * $this->kuadrat($jariJari) * $tinggi;
+    }
+    /**
+     * Menghitung volume bola
+     * rumus : 4/3 * phi * jariJari * jariJari * jariJari
+     */
+
+    function volumeBola($jariJari)
+    {
+        $EMPATPERTIGA = 4 / 3;
+        return $EMPATPERTIGA * $this->PHI * $jariJari * $jariJari * $jariJari;
+    }
+    /**
+     * Menghitung Volume Prisma
+     * rumus : luasAlas * Tinggi
+     */
+
+    function volumePrisma($luasAlas, $tinggi)
+    {
+        return $luasAlas * $tinggi;
+    }
+
+    /**
+     * Menghitung Luas Permukaan Tabung
+     * Rumus: (2 x luas alas) + (keliling alas x tinggi ) atau (2 x phi x jariJari kuadrat) + (phi x diameter x tinggi)
+     */
+    function luasPermukaanTabung($jariJari, $tinggi)
+    {
+        $DUA = 2;
+        $diameter = $jariJari + $jariJari;
+        return ($DUA * $this->PHI * $this->kuadrat($jariJari)) + ($this->PHI * $diameter * $tinggi);
+    }
+
+    /**
+     * Menghitung Luas trapesium
+     * Rumus: 1/2 * (jumlah sisi sejajar) * tinggi
+     */
+    function luasTrapesium($sisiAtas, $sisiBawah, $tinggi)
+    {
+        return 1 / 2 * ($sisiAtas + $sisiBawah) * $tinggi;
+    }
+
+    /**
+     * Menghitung volume keliling alas pada tabung
+     * rumus : 2 x phi x r
+     */
+    function volumeKelilingAlasTabung($PHI, $jariJari)
+    {
+        $DUA = 2;
+        return $DUA * $PHI * $jariJari;
+    }
+    /**
+     * Menghitung Keliling Persegi
+     * Rumus: 4 x sisi
+     */
+    function kelilingPersegi($sisi)
+    {
+        $EMPAT = 4;
+        return $EMPAT *  $sisi;
+    }
+    /**
+     * menghitung Prisma Segitiga Sikusiku
+     * V= (1/2 x alas * tinggisegitiga * tinggiprisma
+     */
+    function volumePrismaSegitigaSikusiku($alas, $tinggisegitiga, $tinggiprisma)
+    {
+        $SATUPERDUA = 1/2;
+    return ($SATUPERDUA * $alas * $tinggisegitiga) * $tinggiprisma;
+    }
+
+    /**
+     * Menghitung Luas Selimut Tabung
+     * rumus : 2 * PHI * jariJari * tinggi
+     */
+    function luasSelimutTabung($jariJari, $tinggi)
+    {
+        $DUA = 2;
+        return $DUA * $this->PHI * $jariJari * $tinggi;
+    }
+
+    /**
+     * Menghitung volume setengah bola
+     * rumus : 1/2 * 4/3 * phi * jariJari * jariJari * jariJari
+     */
+
+    function volumeSetengahBola($jariJari)
+    {
+        $SATUPERDUA = 1 / 2;
+        $EMPATPERTIGA = 4 / 3;
+        return $SATUPERDUA * $EMPATPERTIGA * $this->PHI * $jariJari * $jariJari * $jariJari;
     }
 }
 
@@ -183,7 +293,37 @@ echo '<br>';
 echo 'Luas Permukaan permukaan bola : ' . $bangunRuang->luasPermukaanBola(5);
 echo '<br>';
 echo 'Keliling Balok: '.$bangunRuang->kelilingBalok(15,10,5);
+
+echo 'Keliling Balok: ' . $bangunRuang->kelilingBalok(15, 10, 5);
 echo '<br>';
+echo 'Volume Limas SegiEmpat: ' . $bangunRuang->volumeLimasSegiEmpat(20, 10, 15);
+echo '<br>';
+echo 'Luas Balok : ' . $bangunRuang->luasBalok(11, 22, 33);
+echo '<br>';
+echo 'Volume Limas SegiEmpat: ' . $bangunRuang->volumeLimasSegiEmpat(20, 10, 15);
+echo '<br>';
+echo 'Keliling Bola: ' . $bangunRuang->kelilingBola(30);
+echo '<br>';
+echo 'Volume Kerucut: ' . $bangunRuang->volumeKerucut(10, 8);
+echo '<br>';
+echo 'Volume Bola :' . $bangunRuang->volumeBola(3);
+echo '<br>';
+echo 'Volume Prisma : ' . $bangunRuang->volumePrisma(50, 3);
+echo '<br>';
+echo 'Luas Permukaan Tabung: ' . $bangunRuang->luasPermukaanTabung(5, 10);
+echo '<br>';
+echo 'Luas Trapesium: ' . $bangunRuang->luasTrapesium(5, 7, 6);
+echo '<br>';
+echo 'volume Keliling AlasTabung: ' . $bangunRuang->volumeKelilingAlasTabung(5, 10);
+echo '<br>';
+echo 'Keliling Persegi: ' . $bangunRuang->kelilingPersegi(9);
+echo '<br>';
+/**echo 'luas permukaan prisma segitiga : ' . $bangunRuang->luasPermukaanPrismaSegitiga(20, 5, 10);
+echo '<br>';*/
 echo 'Volume Limas SegiEmpat: '.$bangunRuang->volumeLimasSegiEmpat(20,10,15);
 echo '<br>';
-echo 'Volume Silinder: '.$bangunRuang->VolumeSilinder(6,10);
+echo 'volume Prisma Segitiga Sikusiku: '.$bangunRuang->volumePrismaSegitigaSikusiku(6,8,11);
+echo '<br>';
+echo 'Luas Selimut Tabung: ' . $bangunRuang->luasSelimutTabung(8, 4);
+echo '<br>';
+echo 'Volume Setengah Bola: ' . $bangunRuang->volumeSetengahBola(7);
