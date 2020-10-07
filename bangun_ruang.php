@@ -26,6 +26,15 @@ class BangunRuang
     }
 
     /**
+     * Menghitung Luas Lingkaran by Jari_jari
+     * Rumus: Phir x jari-jari x jari-jari
+     */
+    function luasLingkaranByJariJari($jariJari)
+    {
+        return $this->PHI * $jariJari * $jariJari;
+    }
+
+    /**
      * Menghitung Keliling Lingkaran
      * Rumus: phi x 2 x jari jari
      */
@@ -357,3 +366,5 @@ echo '<br>';
 echo 'Volume Setengah Bola: ' . $bangunRuang->volumeSetengahBola(7);
 echo '<br>';
 echo 'Keliling lingkaran (diameter): ' . $bangunRuang->kelilingLingkaranbyDiameter(30);
+echo '<br>';
+echo 'Luas lingkaran (jari jari): ' . $bangunRuang->luasLingkaranByJariJari(22);
