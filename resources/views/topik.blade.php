@@ -36,11 +36,11 @@
                             <div class="form-group">
                               <label>Topik</label>
                                 <select class="form-control select2" style="width: 100%;">
-                                  <option selected="selected">---Pilih Topik---</option>
-                                  <option>Topik A</option>
-                                  <option>Topik B</option>
-                                  <option>Topik C</option>
-                                  <option>Topik C</option>
+                                  <option selected="selected">--- Pilih Topik ---</option>
+                                  <option>Topik A (ambil TopikBidangSeeder)</option>
+                                  <option>Topik B (ambil TopikBidangSeeder)</option>
+                                  <option>Topik C (ambil TopikBidangSeeder)</option>
+                                  <option>Topik D (ambil TopikBidangSeeder)</option>
                                 </select>
                             </div>
                             <div class="form-group">
