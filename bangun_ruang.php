@@ -16,6 +16,16 @@ class BangunRuang
     }
 
     /**
+     * Menghitung nilai kuadrat pangkat tiga
+     * pangkat = nilai^pangkat tiga
+     */
+    function kubik($nilai)
+    {
+        $PANGKAT_TIGA = 3;
+        return pow($nilai, $PANGKAT_TIGA);
+    }
+
+    /**
      * Menghitung Luas Lingkaran
      * Rumus: 0.25 * 3.14 * diameter kuadrat
      */
