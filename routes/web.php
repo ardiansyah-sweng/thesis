@@ -16,6 +16,7 @@ use App\Http\Controllers\TopikController;
 */
 
 Route::get('/',[DashboardController::class, 'index']);
+Route::post('/Topik',[TopikController::class, 'store']);
 Route::get('/Topik/Add',[TopikController::class, 'index']);
 
 Route::get('/halo', function () {

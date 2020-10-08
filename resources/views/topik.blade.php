@@ -31,25 +31,34 @@
                         </div>
                         <!-- /.card-header -->
                         <!-- form start -->
-                        <form role="form">
+                        <form role="form" method="POST" action="/Topik" >
+                          @csrf
                         <div class="card-body">
                             <div class="form-group">
                               <label>Topik</label>
-                                <select class="form-control select2" style="width: 100%;">
+                                <select class="form-control select2 @error('judul') is-invalid @enderror" style="width: 100%;" name="topik_bidang">
                                   <option selected="selected">--- Pilih Topik ---</option>
-                                  <option>Topik A (ambil TopikBidangSeeder)</option>
-                                  <option>Topik B (ambil TopikBidangSeeder)</option>
-                                  <option>Topik C (ambil TopikBidangSeeder)</option>
-                                  <option>Topik D (ambil TopikBidangSeeder)</option>
+                                  @foreach ($topik as $item)                                     
+                                    <option value="{{ $item->topik_bidang}}">{{ $item->topik_bidang}}</option>
+                                  @endforeach
                                 </select>
+                                @error('topik_bidang')
+                                    <div class="invalid-feedback">{{ $message }}</div>
+                                @enderror
                             </div>
                             <div class="form-group">
                                 <label for="exampleInputPassword1">Judul</label>
-                                <input type="text" class="form-control" id="exampleInputPassword1" placeholder="Judul">
+                                <input type="text" class="form-control @error('judul') is-invalid @enderror" id="exampleInputPassword1" name="judul" placeholder="Judul">
+                                @error('judul')
+                                    <div class="invalid-feedback">{{ $message }}</div>
+                                @enderror
                             </div>
                             <div class="form-group">
                               <label>Deskripsi</label>
-                              <textarea class="form-control" rows="3" placeholder="Deskripsi...."></textarea>
+                              <textarea name="deskripsi" class="form-control @error('deskripsi') is-invalid @enderror" rows="3" placeholder="Deskripsi...."></textarea>
+                              @error('deskripsi')
+                                  <div class="invalid-feedback">{{ $message }}</div>
+                               @enderror
                             </div>
                         </div>
                         <!-- /.card-body -->
