@@ -36,10 +36,10 @@
                         <div class="card-body">
                             <div class="form-group">
                               <label>Topik</label>
-                                <select class="form-control select2 @error('judul') is-invalid @enderror" style="width: 100%;" name="topik_bidang">
+                                <select class="form-control select2 @error('topik_bidang') is-invalid @enderror" style="width: 100%;" name="topik_bidang">
                                   <option selected="selected">--- Pilih Topik ---</option>
                                   @foreach ($topik as $item)                                     
-                                    <option value="{{ $item->topik_bidang}}">{{ $item->topik_bidang}}</option>
+                                    <option value="{{ $item->topik_bidang}}" {{ (old("topik_bidang") == $item->topik_bidang ? "selected":"") }}>{{ $item->topik_bidang}}</option>
                                   @endforeach
                                 </select>
                                 @error('topik_bidang')
@@ -48,14 +48,14 @@
                             </div>
                             <div class="form-group">
                                 <label for="exampleInputPassword1">Judul</label>
-                                <input type="text" class="form-control @error('judul') is-invalid @enderror" id="exampleInputPassword1" name="judul" placeholder="Judul">
+                                <input type="text" class="form-control @error('judul') is-invalid @enderror" value="{{ old('judul') }}" id="exampleInputPassword1" name="judul" placeholder="Judul">
                                 @error('judul')
                                     <div class="invalid-feedback">{{ $message }}</div>
                                 @enderror
                             </div>
                             <div class="form-group">
                               <label>Deskripsi</label>
-                              <textarea name="deskripsi" class="form-control @error('deskripsi') is-invalid @enderror" rows="3" placeholder="Deskripsi...."></textarea>
+                              <textarea name="deskripsi" class="form-control @error('deskripsi') is-invalid @enderror" rows="3" placeholder="Deskripsi....">{{ old('deskripsi') }}</textarea>
                               @error('deskripsi')
                                   <div class="invalid-feedback">{{ $message }}</div>
                                @enderror
