@@ -268,4 +268,14 @@ class BangunRuangTest extends TestCase
         $actualValue = $volumeSetengahBola->volumeSetengahBola($jariJari);
         $this->assertEquals($expectedValue, $actualValue);
     }
+    /** @test */
+    public function tes_luas_selimut_tabung()
+    {
+        $luasSelimutTabung = new BangunRuang();
+        $expectedValue = 200.96;
+        $jariJari = 8;
+        $tinggi = 4;
+        $actualValue = $luasSelimutTabung->luasSelimutTabung($jariJari, $tinggi);
+        $this->assertEquals($expectedValue, $actualValue);
+    }
 }
