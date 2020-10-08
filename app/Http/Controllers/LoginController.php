@@ -26,8 +26,7 @@ class LoginController extends Controller
         if ($data == true) {
             return redirect('Dashboard');
         } else {
-
-            session()->flash('msg', 'NIPY Tidka terdaftar');
+            session()->flash('msg', 'NIPY tidak terdaftar');
             return redirect('/');
         }
     }
