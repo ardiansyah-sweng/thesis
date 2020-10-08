@@ -8,7 +8,7 @@ use Illuminate\Http\Request;
 class TopikController extends Controller
 {
     public function index(){
-        $topik = Topik::orderBy('topik_bidang','desc')->get();
+        $topik = Topik::orderBy('topik_bidang','asc')->get();
         return view('topik',compact('topik'));
     }
 
