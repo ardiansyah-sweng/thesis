@@ -38,8 +38,8 @@
                               <label>Topik</label>
                                 <select class="form-control select2 @error('topik_bidang') is-invalid @enderror" style="width: 100%;" name="topik_bidang">
                                   <option selected="selected">--- Pilih Topik ---</option>
-                                  @foreach ($topik as $item)                                     
-                                    <option value="{{ $item->topik_bidang}}" {{ (old("topik_bidang") == $item->topik_bidang ? "selected":"") }}>{{ $item->topik_bidang}}</option>
+                                  @foreach ($topik as $item)                             
+                                    <option value="{{ $item->id}}" {{ (old("topik_bidang") == $item->topik_bidang ? "selected":"") }}>{{ $item->topik_bidang}}</option>
                                   @endforeach
                                 </select>
                                 @error('topik_bidang')
