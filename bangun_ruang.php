@@ -305,7 +305,7 @@ class BangunRuang
 }
 
 $bangunRuang = new BangunRuang();
-echo 'Luas lingkaran: ' . $bangunRuang->luasLingkaran(30);
+echo 'Luas lingkaran by diameter: ' . $bangunRuang->luasLingkaran(25);
 echo '<br>';
 echo 'Keliling lingkaran: ' . $bangunRuang->kelilingLingkaran(21);
 echo '<br>';
@@ -365,6 +365,6 @@ echo 'Luas Selimut Tabung: ' . $bangunRuang->luasSelimutTabung(8, 4);
 echo '<br>';
 echo 'Volume Setengah Bola: ' . $bangunRuang->volumeSetengahBola(7);
 echo '<br>';
-echo 'Keliling lingkaran (diameter): ' . $bangunRuang->kelilingLingkaranbyDiameter(30);
+echo 'Keliling lingkaran (diameter): ' . $bangunRuang->kelilingLingkaranbyDiameter(50);
 echo '<br>';
-echo 'Luas lingkaran (jari jari): ' . $bangunRuang->luasLingkaranByJariJari(22);
+echo 'Luas lingkaran (jari jari): ' . $bangunRuang->luasLingkaranByJariJari(35);
