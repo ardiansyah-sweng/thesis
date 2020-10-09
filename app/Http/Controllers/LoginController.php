@@ -4,6 +4,9 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Dosen;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Session;
+
 
 class LoginController extends Controller
 {
@@ -17,16 +20,17 @@ class LoginController extends Controller
     public function aksiLogin(Request $request)
     {
         $request->validate([
-            'nipy' => 'required|numeric',
+            'nipy' => 'required|numeric|',
         ]);
 
         $nipy = $request->nipy;
         $data = Dosen::where('nipy', $nipy)->first();
 
-        if ($data == true) {
+        if ($data) {
+            Session::put('nama', $data->nama);
             return redirect('Dashboard');
         } else {
-            session()->flash('msg', 'NIPY tidak terdaftar');
+            session()->flash('msg', 'NIPY Tidak Terdaftar');
             return redirect('/');
         }
     }
