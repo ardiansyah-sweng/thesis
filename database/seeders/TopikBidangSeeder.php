@@ -45,5 +45,41 @@ class TopikBidangSeeder extends Seeder
         DB::table('topik_bidang')->insert([
             'topik_bidang' => 'Pengembangan Perangkat Lunak',
         ]);
+
+        DB::table('topik_bidang')->insert([
+            'topik_bidang' => 'Augmented Reality',
+        ]);
+
+        DB::table('topik_bidang')->insert([
+            'topik_bidang' => 'Interaksi Manusia dan Komputer',
+        ]);
+
+        DB::table('topik_bidang')->insert([
+            'topik_bidang' => 'Social Network and Graph',
+        ]);
+
+        DB::table('topik_bidang')->insert([
+            'topik_bidang' => 'Multimedia',
+        ]);
+
+        DB::table('topik_bidang')->insert([
+            'topik_bidang' => 'Forensik Digital',
+        ]);
+
+        DB::table('topik_bidang')->insert([
+            'topik_bidang' => 'Kriptografi',
+        ]);
+
+        DB::table('topik_bidang')->insert([
+            'topik_bidang' => 'Keamanan Komputer',
+        ]);
+
+        DB::table('topik_bidang')->insert([
+            'topik_bidang' => 'Sistem Pendukung Keputusan',
+        ]);
+
+        DB::table('topik_bidang')->insert([
+            'topik_bidang' => 'Machine Learning dan Data Mining',
+        ]);
     }
 }
