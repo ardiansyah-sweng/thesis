@@ -30,6 +30,7 @@ class CreateTopikTaTable extends Migration
 
             $table->string('judul_topik');
             $table->text('deskripsi');
+            $table->tinyInteger('status')->default(0);
             $table->timestamps();
         });
     }
