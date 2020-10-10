@@ -7,8 +7,9 @@ use Illuminate\Support\Facades\Schema;
 class CreateTopikTaTable extends Migration
 {
     /**
-     * Run the migrations.
-     *
+     * Membuat tabel topik_tugas_akhir
+     * Kolom: id (PK), topik_bidang_fk_id, judul_topik, deskripsi, dan status
+     * 
      * @return void
      */
     public function up()
