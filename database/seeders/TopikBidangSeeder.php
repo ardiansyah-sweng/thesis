@@ -47,7 +47,7 @@ class TopikBidangSeeder extends Seeder
         ]);
 
         DB::table('topik_bidang')->insert([
-            'topik_bidang' => 'Augmented Reality',
+            'topik_bidang' => 'Augmented dan Virtual Reality',
         ]);
 
         DB::table('topik_bidang')->insert([
@@ -59,7 +59,7 @@ class TopikBidangSeeder extends Seeder
         ]);
 
         DB::table('topik_bidang')->insert([
-            'topik_bidang' => 'Multimedia',
+            'topik_bidang' => 'Multimedia dan Grafika',
         ]);
 
         DB::table('topik_bidang')->insert([
@@ -80,6 +80,10 @@ class TopikBidangSeeder extends Seeder
 
         DB::table('topik_bidang')->insert([
             'topik_bidang' => 'Machine Learning dan Data Mining',
+        ]);
+
+        DB::table('topik_bidang')->insert([
+            'topik_bidang' => 'Network dan Sistem Terdistribusi',
         ]);
     }
 }
