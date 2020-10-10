@@ -28,6 +28,7 @@ class LoginController extends Controller
 
         if ($data) {
             Session::put('nama', $data->nama);
+            Session::put('nipy', $data->nipy);
             return redirect('Dashboard');
         } else {
             session()->flash('msg', 'NIPY Tidak Terdaftar');
