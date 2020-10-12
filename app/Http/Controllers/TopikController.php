@@ -27,9 +27,10 @@ class TopikController extends Controller
             $store->topik_bidang_fk_id = $request->topik_bidang;
             $store->judul_topik = $request->judul;
             $store->deskripsi = $request->deskripsi;
+            $store->nim_terpilih_fk;
             $store->save();
 
-            return back()->with('success', 'Data sudah tersimpan kedalam database');
+            return back()->with('success', 'Topik tugas akhir berhasil di tambahkan');
 
             /*
             setelah halaman view all topik tugas akhir jadi, bisa langsung
