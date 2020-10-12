@@ -302,6 +302,16 @@ class BangunRuang
         $EMPATPERTIGA = 4 / 3;
         return $SATUPERDUA * $EMPATPERTIGA * $this->PHI * $jariJari * $jariJari * $jariJari;
     }
+
+    /**
+     * Menghitung luas selimut kerucut
+     * rumus : phi * jari-jari * sisi
+     */
+
+    function LuasSelimutKerucut($PHI, $jariJari, $sisi)
+    {
+       return $PHI * $jariJari * $sisi;
+    }
 }
 
 $bangunRuang = new BangunRuang();
@@ -368,3 +378,4 @@ echo '<br>';
 echo 'Keliling lingkaran (diameter): ' . $bangunRuang->kelilingLingkaranbyDiameter(30);
 echo '<br>';
 echo 'Luas lingkaran (jari jari): ' . $bangunRuang->luasLingkaranByJariJari(22);
+echo 'Luas Selimut Kerucut: ' . $bangunRuang->LuasSelimutKerucut(15);
