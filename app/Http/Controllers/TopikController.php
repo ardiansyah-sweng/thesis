@@ -21,12 +21,23 @@ class TopikController extends Controller
             'deskripsi' => 'required|min:5',
         ]);
         
-        $store = new TopikTugasAkhir;
-        $store->nipy_fk_nipy = Session::get('nipy');
-        $store->topik_bidang_fk_id = $request->topik_bidang;
-        $store->judul_topik = $request->judul;
-        $store->deskripsi = $request->deskripsi;
-        $store->save();
-        
+        if($request){
+            $store = new TopikTugasAkhir;
+            $store->nipy_fk_nipy = Session::get('nipy');
+            $store->topik_bidang_fk_id = $request->topik_bidang;
+            $store->judul_topik = $request->judul;
+            $store->deskripsi = $request->deskripsi;
+            $store->save();
+
+            return back()->with('success', 'Data sudah tersimpan kedalam database');
+
+            /*
+            setelah halaman view all topik tugas akhir jadi, bisa langsung
+            return redirect(#halaman view)->with('success', ''Message');
+            */
+        }
+        else{
+            return redirect('/Topik/Add');
+        }
     }
 }

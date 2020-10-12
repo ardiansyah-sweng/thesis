@@ -21,6 +21,7 @@
 
 
     <section class="content">
+    @include('flash-message')
         <div class="container-fluid">
             <div class="row">
                 <!-- left column -->
