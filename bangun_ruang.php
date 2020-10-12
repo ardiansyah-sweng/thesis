@@ -310,7 +310,8 @@ class BangunRuang
 
     function LuasSelimutKerucut($PHI, $jariJari, $sisi)
     {
-       return $PHI * $jariJari * $sisi;
+        $DUA = 2;
+       return $DUA * $this->$PHI * $jariJari * $sisi;
     }
 }
 
@@ -378,4 +379,4 @@ echo '<br>';
 echo 'Keliling lingkaran (diameter): ' . $bangunRuang->kelilingLingkaranbyDiameter(30);
 echo '<br>';
 echo 'Luas lingkaran (jari jari): ' . $bangunRuang->luasLingkaranByJariJari(22);
-echo 'Luas Selimut Kerucut: ' . $bangunRuang->LuasSelimutKerucut(20);
+echo 'Luas Selimut Kerucut: ' . $bangunRuang->LuasSelimutKerucut(5, 5, 5);
