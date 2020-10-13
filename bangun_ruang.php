@@ -308,10 +308,9 @@ class BangunRuang
      * rumus : phi * jari-jari * sisi
      */
 
-    function LuasSelimutKerucut($PHI, $jariJari, $sisi)
+    function LuasSelimutKerucut($jariJari, $sisi)
     {
-        $DUA = 2;
-       return $DUA * $this->$PHI * $jariJari * $sisi;
+       return $this->PHI * $jariJari * $sisi;
     }
 }
 
