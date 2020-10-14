@@ -49,26 +49,25 @@
         <td>{{ $item->nama }}</td>
         <td>
           <?php  
-          # Konversi default nim terpilih menjadi label {0 = Ambil topik ini, nim = Nama mahasiswa}
-          if ($item->nim_terpilih_fk == 0){ $mahasiswaTerpilih = 'Ambil topik ini'; }
+            # Konversi default nim terpilih menjadi label {0 = Belum ada, nim = Nama mahasiswa}
+            if ($item->nim_terpilih_fk == 0){ $mahasiswaTerpilih = 'Belum ada'; }
           ?>
           {{ $item->topik_bidang }}</td>
         <td>{{ $item->jumlah_pendaftar }}</td>
         <td>
           <?php
-          # Konversi status menjadi label {0 = Open, 1 = Closed}
-             $varStatus=$item->status;
-                  if($varStatus==1){
+             # Konversi status menjadi label {0 = Open, 1 = Closed}
+             $varStatus = $item->status;
+                  if ($varStatus == 0){
                     ?>
                       <span class="badge badge-success"> Open </span>
                     <?php  
-                  }else{
+                  } else {
                     ?>
                     <span class="badge badge-danger">Closed</span>
                     <?php 
                   }
-             
-                  ?>
+          ?>
         </td>
         <td>{{ $mahasiswaTerpilih }}</td>
         <td>
