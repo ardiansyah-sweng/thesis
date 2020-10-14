@@ -117,7 +117,5 @@
   });
 </script>
 
-<!-- AdminLTE App -->
-<script src="{{ url('adminLTE/dist/js/adminlte.min.js')}}"></script>
 </body>
 </html>
