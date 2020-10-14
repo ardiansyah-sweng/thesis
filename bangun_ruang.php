@@ -302,10 +302,17 @@ class BangunRuang
         $EMPATPERTIGA = 4 / 3;
         return $SATUPERDUA * $EMPATPERTIGA * $this->PHI * $jariJari * $jariJari * $jariJari;
     }
+    function luassetengahLingkaran($diameter)
+    {
+        $SEPEREMPAT = 0.25;
+        $setengah   = 0.5;
+        return $setengah * $SEPEREMPAT * $this->PHI * $this->kuadrat($diameter);
+    }
+    
 }
 
 $bangunRuang = new BangunRuang();
-echo 'Luas lingkaran by diameter: ' . $bangunRuang->luasLingkaran(25);
+echo 'Luas lingkaran: ' . $bangunRuang->luasLingkaran(30);
 echo '<br>';
 echo 'Keliling lingkaran: ' . $bangunRuang->kelilingLingkaran(21);
 echo '<br>';
@@ -365,6 +372,11 @@ echo 'Luas Selimut Tabung: ' . $bangunRuang->luasSelimutTabung(8, 4);
 echo '<br>';
 echo 'Volume Setengah Bola: ' . $bangunRuang->volumeSetengahBola(7);
 echo '<br>';
-echo 'Keliling lingkaran (diameter): ' . $bangunRuang->kelilingLingkaranbyDiameter(50);
+echo 'Keliling lingkaran (diameter): ' . $bangunRuang->kelilingLingkaranbyDiameter(30);
 echo '<br>';
-echo 'Luas lingkaran (jari jari): ' . $bangunRuang->luasLingkaranByJariJari(35);
+echo 'Luas lingkaran (jari jari): ' . $bangunRuang->luasLingkaranByJariJari(22);
+echo '<br>';
+echo 'Luas setengah lingkaran: ' . $bangunRuang->luassetengahLingkaran(30);
+echo '<br>';
+
+
