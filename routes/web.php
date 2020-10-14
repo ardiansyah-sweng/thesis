@@ -22,10 +22,11 @@ Route::post('/Topik', [TopikController::class, 'store']);
 
 Route::get('/Topik/Add', [TopikController::class, 'index']);
 
+Route::get('/Topik/All', [TopikController::class, 'all']);
+
 Route::get('/', [LoginController::class, 'index']);
 
 Route::post('/aksiLogin', [LoginController::class, 'aksiLogin']);
 
-Route::get('/halo', function () {
-    return 'hai dunia';
-});
+//latihan Ardiansyah
+Route::get('/Topik/test', [TopikController::class, 'test']);
