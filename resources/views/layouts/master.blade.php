@@ -26,6 +26,9 @@
   <link rel="stylesheet" href="{{ url('adminLTE/plugins/summernote/summernote-bs4.css')}}">
   <!-- Google Font: Source Sans Pro -->
   <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700" rel="stylesheet">
+  <!-- DataTables -->
+  <link rel="stylesheet" href="{{ url('adminLTE/plugins/datatables-bs4/css/dataTables.bootstrap4.min.css')}}">
+  <link rel="stylesheet" href="{{ url('adminLTE/plugins/datatables-responsive/css/responsive.bootstrap4.min.css')}}">
 </head>
 <body class="hold-transition sidebar-mini layout-fixed">
 <div class="wrapper">
@@ -90,5 +93,31 @@
 <script src="{{ url('adminLTE/dist/js/pages/dashboard.js')}}"></script>
 <!-- AdminLTE for demo purposes -->
 <script src="{{ url('adminLTE/dist/js/demo.js')}}"></script>
+
+<!-- DataTables -->
+<script src="{{ url('adminLTE/plugins/datatables/jquery.dataTables.min.js')}}"></script>
+<script src="{{ url('adminLTE/plugins/datatables-bs4/js/dataTables.bootstrap4.min.js')}}"></script>
+<script src="{{ url('adminLTE/plugins/datatables-responsive/js/dataTables.responsive.min.js')}}"></script>
+<script src="{{ url('adminLTE/plugins/datatables-responsive/js/responsive.bootstrap4.min.js')}}"></script>
+<script>
+  $(function () {
+    $("#example1").DataTable({
+      "responsive": true,
+      "autoWidth": false,
+    });
+    $('#example2').DataTable({
+      "paging": true,
+      "lengthChange": false,
+      "searching": false,
+      "ordering": true,
+      "info": true,
+      "autoWidth": false,
+      "responsive": true,
+    });
+  });
+</script>
+
+<!-- AdminLTE App -->
+<script src="{{ url('adminLTE/dist/js/adminlte.min.js')}}"></script>
 </body>
 </html>

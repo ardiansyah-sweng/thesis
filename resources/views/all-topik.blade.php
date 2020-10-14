@@ -19,23 +19,68 @@
       </div><!-- /.container-fluid -->
     </section>
 
-<a href="/Topik/Add">[Tambah topik]</a>
-<br>
-@foreach($allTopikTA as $item)
-  <?php 
-      # Konversi status menjadi label {0 = Open, 1 = Closed}
-      # Konversi default nim terpilih menjadi label {0 = Ambil topik ini, nim = Nama mahasiswa}
-      if ($item->status == 0){ $status = 'Open'; }
-      if ($item->status == 1){ $status = 'Closed'; }
-      if ($item->nim_terpilih_fk == 0){ $mahasiswaTerpilih = 'Ambil topik ini'; }
-  ?>
-  Judul: {{ $item->judul_topik }} &nbsp; 
-  Dosen: {{ $item->nama }} &nbsp; 
-  Bidang: {{ $item->topik_bidang }} &nbsp; 
-  Pendaftar: {{ $item->jumlah_pendaftar }} &nbsp; 
-  Status: {{ $status }} &nbsp; 
-  Terpilih: {{ $mahasiswaTerpilih }} &nbsp; 
-  Aksi: view | edit | hapus <br>
-@endforeach
+{{-- <a href="/Topik/Add">[Tambah topik]</a>
+<br> --}}
+
+<div class="card">
+  <div class="card-header">
+    <a href="/Topik/Add" type="submit" class="btn btn-primary"><span class="fa fa-plus"> Tambah Topik</span></a>
+  </div>
+  <!-- /.card-header -->
+  <div class="card-body">
+    <table id="example1" class="table table-bordered table-striped">
+      <thead>
+      <tr>
+        <th>No</th>
+        <th>Judul</th>
+        <th>Dosen</th>
+        <th width="10%">Bidang</th>
+        <th>Pendaftar</th>
+        <th>Status</th>
+        <th>Terpilih</th>
+        <th width="15%">Aksi</th>
+      </tr>
+      </thead>
+      <tbody>
+        @foreach($allTopikTA as $item)
+      <tr>
+        <td>{{ $loop->iteration}}</td>
+        <td>{{ $item->judul_topik }}</td>
+        <td>{{ $item->nama }}</td>
+        <td>
+          <?php  
+          # Konversi default nim terpilih menjadi label {0 = Ambil topik ini, nim = Nama mahasiswa}
+          if ($item->nim_terpilih_fk == 0){ $mahasiswaTerpilih = 'Ambil topik ini'; }
+          ?>
+          {{ $item->topik_bidang }}</td>
+        <td>{{ $item->jumlah_pendaftar }}</td>
+        <td>
+          <?php
+          # Konversi status menjadi label {0 = Open, 1 = Closed}
+             $varStatus=$item->status;
+                  if($varStatus==1){
+                    ?>
+                      <span class="badge badge-success"> Open </span>
+                    <?php  
+                  }else{
+                    ?>
+                    <span class="badge badge-danger">Closed</span>
+                    <?php 
+                  }
+             
+                  ?>
+        </td>
+        <td>{{ $mahasiswaTerpilih }}</td>
+        <td>
+          <a class="btn btn-primary" href=""><span class="fa fa-pencil"></span>Edit</a>
+          <a class="btn btn-danger" href=""><span class="fa fa-pencil"></span>Hapus</a>
+        </td>
+      </tr>
+      @endforeach
+      </tbody>
+    </table>
+  </div>
+  <!-- /.card-body -->
+</div>
 
 @endsection
