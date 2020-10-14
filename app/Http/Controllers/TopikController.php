@@ -29,7 +29,7 @@ class TopikController extends Controller
             LEFT OUTER JOIN ambil_topik_tugas_akhir ambil ON ambil.topik_tugas_akhir_id = topik.id
             GROUP BY topik.id
             ORDER BY dosen.nipy = '.$nipy.' DESC');
-
+        // dd($allTopikTA);
         return view('all-topik')->with("allTopikTA", $allTopikTA);
     }
 
