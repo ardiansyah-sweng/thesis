@@ -19,10 +19,10 @@ use App\Http\Controllers\LoginController;
 Route::get('/Dashboard', [DashboardController::class, 'index']);
 
 Route::post('/Topik', [TopikController::class, 'store']);
-
 Route::get('/Topik/Add', [TopikController::class, 'index']);
-
 Route::get('/Topik/All', [TopikController::class, 'all']);
+Route::get('/Topik/Details/{id}', [TopikController::class, 'details']);
+Route::get('/Topik/Ambil', [TopikController::class, 'ambil']);
 
 Route::get('/', [LoginController::class, 'index']);
 
