@@ -18,6 +18,7 @@
           <center>
             <a href="{{ url('/logout')}}"><button type="button" class="btn btn-primary">Logout</button></a>
           </center>
+          <a href="#" class="d-block">{{ Session::get('nama') }}</a>
         </div>
       </div>
 
@@ -54,6 +55,14 @@
                 </a>
               </li>
             </ul>
+          </li>
+          <li class="nav-item has-treeview">
+            <a href="{{ url('/Topik/All') }}" class="nav-link">
+              <i class="nav-icon fas fa-edit"></i>
+              <p>
+                Topik Skripsi
+              </p>
+            </a>
           </li>
           <li class="nav-item">
             <a href="pages/widgets.html" class="nav-link">
