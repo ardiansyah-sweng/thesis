@@ -15,6 +15,9 @@
         </div>
         <div class="info">
           <a href="#" class="d-block">Alexander Pierce</a>
+          <center>
+            <a href="{{ url('/logout')}}"><button type="button" class="btn btn-primary">Logout</button></a>
+          </center>
         </div>
       </div>
 

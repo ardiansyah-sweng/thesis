@@ -14,7 +14,8 @@ use App\Http\Controllers\DashboardController;
 |
 */
 
-Route::get('/',[DashboardController::class, 'index']);
+Route::get('/',[DashboardController::class, 'index'])->name('/');
+Route::get('/logout',[DashboardController::class, 'logout'])->name('/logout');;
 
 Route::get('/halo', function () {
     return 'hai dunia';
