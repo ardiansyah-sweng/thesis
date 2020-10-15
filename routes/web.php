@@ -26,6 +26,7 @@ Route::get('/dashboardMahasiswa', [DashboardController::class, 'mahasiswa']);
 
 
 Route::post('/Topik', [TopikController::class, 'store']);
+Route::post('/Topik/Decision', [TopikController::class, 'decision']);
 Route::get('/Topik/Add', [TopikController::class, 'index']);
 Route::get('/Topik/All', [TopikController::class, 'all']);
 Route::get('/Topik/Details/{id}', [TopikController::class, 'details']);
