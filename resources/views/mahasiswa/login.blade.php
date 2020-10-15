@@ -26,20 +26,20 @@
       <!-- /.login-logo -->
       <div class="card">
         <div class="card-body login-card-body p-3">
-          <p class="login-box-msg">Login Sebagai Dosen</p>
+          <p class="login-box-msg">Login Sebagai Mahasiswa</p>
     @if (session()->has('msg'))
           <div class="alert alert-danger">{{ session()->get('msg') }}</div>
       @endif
-          <form action="/aksiLoginDosen" method="post">
+          <form action="aksiLoginMahasiswa" method="post">
             @csrf
             <div class="input-group mb-3">
-              <input type="password" class="form-control  @error('nipy') is-invalid @enderror" placeholder="Masukan NIPY Dosen" name="nipy">
+              <input type="password" class="form-control  @error('nim') is-invalid @enderror" placeholder="Masukan NIM Mahasiswa" name="nim">
               <div class="input-group-append">
                   <div class="input-group-text">
                       <span class="fas fa-user"></span>
                     </div>
                 </div>
-                @error('nipy')
+                @error('nim')
                       <div class="invalid-feedback">{{ $message }}</div>
                 @enderror
             </div>

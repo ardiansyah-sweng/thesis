@@ -302,6 +302,12 @@ class BangunRuang
         $EMPATPERTIGA = 4 / 3;
         return $SATUPERDUA * $EMPATPERTIGA * $this->PHI * $jariJari * $jariJari * $jariJari;
     }
+
+    /**
+     * Menghitung Luas Setengah Lingkaran
+     * rumus : 1/2 * 1/4 * phi * diameter
+     */
+
     function LuasSetengahLingkaran($diameter)
     {
         $SEPEREMPAT = 0.25;
