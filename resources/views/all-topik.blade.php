@@ -45,12 +45,14 @@
         @foreach($allTopikTA as $item)
       <tr>
         <td>{{ $loop->iteration}}</td>
-        <td><a href='/Topik/Details/{{ $item->id}}'> {{ $item->judul_topik }} </a></td>
+        <td><a href='/Topik/Details/{{ $item->id }}'> {{ $item->judul_topik }} </a></td>
         <td>{{ $item->nama }}</td>
         <td>
           <?php  
             # Konversi default nim terpilih menjadi label {0 = Belum ada, nim = Nama mahasiswa}
-            if ($item->nim_terpilih_fk == 0){ $mahasiswaTerpilih = 'Belum ada'; }
+            $mahasiswaTerpilih = $item->nim_terpilih_fk;
+            if ($mahasiswaTerpilih == 0){ $mahasiswaTerpilih = 'Belum ada'; }
+            if ($mahasiswaTerpilih != 0){ $mahasiswaTerpilih = $item->nama_mahasiswa; }
           ?>
           {{ $item->topik_bidang }}</td>
         <td>{{ $item->jumlah_pendaftar }}</td>

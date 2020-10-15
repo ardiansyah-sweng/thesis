@@ -15,52 +15,55 @@ class MahasiswaSeeder extends Seeder
     public function run()
     {
         DB::table('mahasiswa')->insert([
-            'nim' => '001',
+            'nim' => '17001',
             'nama_mahasiswa' => 'Eko Rilo Pambudi',
+            'email_mahasiswa' => '17001@tif.uad.ac.id'
         ]);
 
         DB::table('mahasiswa')->insert([
-            'nim' => '002',
+            'nim' => '17002',
             'nama_mahasiswa' => 'Muhadi',
+            'email_mahasiswa' => '17002@tif.uad.ac.id'
         ]);
 
         DB::table('mahasiswa')->insert([
-            'nim' => '003',
+            'nim' => '17003',
             'nama_mahasiswa' => 'Maria Trisnawati',
+            'email_mahasiswa' => '17003@tif.uad.ac.id'
         ]);
 
         DB::table('mahasiswa')->insert([
-            'nim' => '004',
+            'nim' => '17004',
             'nama_mahasiswa' => 'Muhammad Yamin',
         ]);
 
         DB::table('mahasiswa')->insert([
-            'nim' => '005',
+            'nim' => '17005',
             'nama_mahasiswa' => 'Elon Musk',
         ]);
 
         DB::table('mahasiswa')->insert([
-            'nim' => '006',
+            'nim' => '17006',
             'nama_mahasiswa' => 'Armala',
         ]);
 
         DB::table('mahasiswa')->insert([
-            'nim' => '007',
+            'nim' => '17007',
             'nama_mahasiswa' => 'Ibrohim',
         ]);
 
         DB::table('mahasiswa')->insert([
-            'nim' => '008',
+            'nim' => '17008',
             'nama_mahasiswa' => 'Tibroni',
         ]);
 
         DB::table('mahasiswa')->insert([
-            'nim' => '009',
+            'nim' => '17009',
             'nama_mahasiswa' => 'Guntur Aprilyanto',
         ]);
 
         DB::table('mahasiswa')->insert([
-            'nim' => '010',
+            'nim' => '17010',
             'nama_mahasiswa' => 'Heni Dian Novita',
         ]);
     }

@@ -26,32 +26,18 @@
       <!-- /.login-logo -->
       <div class="card">
         <div class="card-body login-card-body p-3">
-          <p class="login-box-msg">Login Sebagai Dosen</p>
-    @if (session()->has('msg'))
-          <div class="alert alert-danger">{{ session()->get('msg') }}</div>
-      @endif
-          <form action="/aksiLoginDosen" method="post">
-            @csrf
-            <div class="input-group mb-3">
-              <input type="password" class="form-control  @error('nipy') is-invalid @enderror" placeholder="Masukan NIPY Dosen" name="nipy">
-              <div class="input-group-append">
-                  <div class="input-group-text">
-                      <span class="fas fa-user"></span>
-                    </div>
-                </div>
-                @error('nipy')
-                      <div class="invalid-feedback">{{ $message }}</div>
-                @enderror
-            </div>
-            <div class="row">
+          <h4 class="login-box-msg mb-3">Login Sebagai</h4>
+            <div class="row mb-3">
               <div class="col">
-                <button type="submit" class="btn btn-primary btn-block">Masuk</button>
+                <a href="dosen"  class="btn btn-primary btn-block ">Dosen</a>
+              </div>
+              <div class="col">
+                <a href="mahasiswa"  class="btn btn-success btn-block">Mahasiswa</a>
               </div>
             </div>
           </form>
         </div>
       </div>
     </div>
-    
     </body>
 

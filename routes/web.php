@@ -15,20 +15,33 @@ use App\Http\Controllers\LoginController;
 | contains the "web" middleware group. Now create something great!
 |
 */
+//Route Index sistem
+Route::get('/', [LoginController::class, 'index']);
+
+
+// Dashboard dosen
+Route::get('/dashboardDosen', [DashboardController::class, 'dosen']);
+//Dashboard mahasiswa
+Route::get('/dashboardMahasiswa', [DashboardController::class, 'mahasiswa']);
 
 Route::get('/',[DashboardController::class, 'index'])->name('/');
-Route::get('/logout',[DashboardController::class, 'logout'])->name('/logout');;
+Route::get('/logout',[DashboardController::class, 'logout'])->name('/logout');
 Route::get('/Dashboard', [DashboardController::class, 'index']);
 
 Route::post('/Topik', [TopikController::class, 'store']);
+Route::post('/Topik/Decision', [TopikController::class, 'decision']);
 Route::get('/Topik/Add', [TopikController::class, 'index']);
 Route::get('/Topik/All', [TopikController::class, 'all']);
 Route::get('/Topik/Details/{id}', [TopikController::class, 'details']);
 Route::get('/Topik/Ambil', [TopikController::class, 'ambil']);
 
-Route::get('/', [LoginController::class, 'index']);
+//Route Tampil view login dosen dan mahasiswa
+Route::get('/dosen', [LoginController::class, 'dosen']);
+Route::get('/mahasiswa', [LoginController::class, 'mahasiswa']);
 
-Route::post('/aksiLogin', [LoginController::class, 'aksiLogin']);
+//Route aksi login
+Route::post('/aksiLoginDosen', [LoginController::class, 'aksiLoginDosen']);
+Route::post('/aksiLoginMahasiswa', [LoginController::class, 'aksiLoginMahasiswa']);
 
 //latihan Ardiansyah
 Route::get('/Topik/test', [TopikController::class, 'test']);
