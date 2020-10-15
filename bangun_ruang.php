@@ -302,11 +302,11 @@ class BangunRuang
         $EMPATPERTIGA = 4 / 3;
         return $SATUPERDUA * $EMPATPERTIGA * $this->PHI * $jariJari * $jariJari * $jariJari;
     }
-    function LuasSetengahLingkaran($diameter)
+    function LuasSetengahLingkaran($Diameter)
     {
-        $SEPEREMPAT = 0.25;
+        $Seperempat = 0.25;
         $Setengah   = 0.5;
-        return $Setengah * $SEPEREMPAT * $this->PHI * $this->kuadrat($diameter);
+        return $Setengah * $Seperempat * $this->PHI * $this->kuadrat($Diameter);
     }
     
 }
