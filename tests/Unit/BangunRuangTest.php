@@ -278,4 +278,15 @@ class BangunRuangTest extends TestCase
         $actualValue = $luasSelimutTabung->luasSelimutTabung($jariJari, $tinggi);
         $this->assertEquals($expectedValue, $actualValue);
     }
+    /** @test */
+    public function test_luas_permukaan_prisma_segitiga()
+    {
+        $luasPermukaanPrismaSegitiga = new BangunRuang();
+        $expectedValue = 120;
+        $kelilingAlas = 20;
+        $tinggi = 5;
+        $luasAlasSegitiga = 10;
+        $actualValue = $luasPermukaanPrismaSegitiga->luasPermukaanPrismaSegitiga($kelilingAlas, $tinggi, $luasAlasSegitiga);
+        $this->assertEquals($expectedValue, $actualValue);
+    }
 }
