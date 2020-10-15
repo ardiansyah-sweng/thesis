@@ -11,10 +11,6 @@ class DashboardController extends Controller
     {
         return view('index');
     }
-    
-    public function logout(){
-        return view('logout');
-    }
 
     public function mahasiswa()
     {

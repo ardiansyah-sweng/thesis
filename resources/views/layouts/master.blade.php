@@ -11,7 +11,7 @@
   <!-- Ionicons -->
   <link rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
   <!-- Tempusdominus Bbootstrap 4 -->
-  <link rel="stylesheet" href="{{ url('css/bootstrap.min.css')}}">
+  <link rel="stylesheet" href="{{ url('adminLTE/plugins/tempusdominus-bootstrap-4/css/tempusdominus-bootstrap-4.min.css')}}">
   <!-- iCheck -->
   <link rel="stylesheet" href="{{ url('adminLTE/plugins/icheck-bootstrap/icheck-bootstrap.min.css')}}">
   <!-- JQVMap -->
@@ -26,8 +26,6 @@
   <link rel="stylesheet" href="{{ url('adminLTE/plugins/summernote/summernote-bs4.css')}}">
   <!-- Google Font: Source Sans Pro -->
   <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700" rel="stylesheet">
-  <!-- refaldi_a_1700018013 logout css -->
-  <link rel="stylesheet" href="{{ url('css/logout.css')}}">
   <!-- DataTables -->
   <link rel="stylesheet" href="{{ url('adminLTE/plugins/datatables-bs4/css/dataTables.bootstrap4.min.css')}}">
   <link rel="stylesheet" href="{{ url('adminLTE/plugins/datatables-responsive/css/responsive.bootstrap4.min.css')}}">
@@ -70,7 +68,7 @@
   $.widget.bridge('uibutton', $.ui.button)
 </script>
 <!-- Bootstrap 4 -->
-<script src="{{ url('js/bootstrap.min.js')}}"></script>
+<script src="{{ url('adminLTE/plugins/bootstrap/js/bootstrap.bundle.min.js')}}"></script>
 <!-- ChartJS -->
 <script src="{{ url('adminLTE/plugins/chart.js/Chart.min.js')}}"></script>
 <!-- Sparkline -->

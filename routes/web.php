@@ -24,9 +24,6 @@ Route::get('/dashboardDosen', [DashboardController::class, 'dosen']);
 //Dashboard mahasiswa
 Route::get('/dashboardMahasiswa', [DashboardController::class, 'mahasiswa']);
 
-Route::get('/',[DashboardController::class, 'index'])->name('/');
-Route::get('/logout',[DashboardController::class, 'logout'])->name('/logout');
-Route::get('/Dashboard', [DashboardController::class, 'index']);
 
 Route::post('/Topik', [TopikController::class, 'store']);
 Route::post('/Topik/Decision', [TopikController::class, 'decision']);
@@ -34,6 +31,9 @@ Route::get('/Topik/Add', [TopikController::class, 'index']);
 Route::get('/Topik/All', [TopikController::class, 'all']);
 Route::get('/Topik/Details/{id}', [TopikController::class, 'details']);
 Route::get('/Topik/Ambil', [TopikController::class, 'ambil']);
+
+
+
 
 //Route Tampil view login dosen dan mahasiswa
 Route::get('/dosen', [LoginController::class, 'dosen']);
