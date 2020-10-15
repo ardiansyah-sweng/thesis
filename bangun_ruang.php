@@ -379,4 +379,4 @@ echo 'Keliling lingkaran (diameter): ' . $bangunRuang->kelilingLingkaranbyDiamet
 echo '<br>';
 echo 'Luas lingkaran (jari jari): ' . $bangunRuang->luasLingkaranByJariJari(22);
 echo '<br>';
-echo 'Luas Selimut Kerucut: ' . $bangunRuang->LuasSelimutKerucut(5, 5)
+echo 'Luas Selimut Kerucut: ' . $bangunRuang->LuasSelimutKerucut(5, 5);
