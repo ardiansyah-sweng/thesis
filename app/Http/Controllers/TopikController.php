@@ -40,7 +40,9 @@ class TopikController extends Controller
     # Query list mahasiswa yang ambil/mendaftar topik tugas akhir tersebut
     public function details($id)
     {
-        $detailsTopikTA = DB::select('SELECT topik_bidang.topik_bidang, dosen.nama, dosen.email_dosen, mhs.email_mahasiswa, topik.id, topik.judul_topik, topik.deskripsi, topik.status, topik.nim_terpilih_fk, mhs.nama_mahasiswa, COUNT(ambil.topik_tugas_akhir_id) AS jumlah_pendaftar
+        $detailsTopikTA = DB::select('SELECT topik_bidang.topik_bidang, dosen.nama, dosen.email_dosen, mhs.email_mahasiswa, topik.id, topik.judul_topik, topik.deskripsi, topik.status, mhs.nama_mahasiswa, 
+        IF (topik.nim_terpilih_fk = 0, "Belum ada", topik.nim_terpilih_fk) AS mahasiswa_terpilih,
+        IF (COUNT(ambil.topik_tugas_akhir_id) = 0, "Belum ada", COUNT(ambil.topik_tugas_akhir_id)) AS jumlah_pendaftar
             FROM topik_tugas_akhir topik
             JOIN dosen ON dosen.nipy = topik.nipy_fk_nipy
             JOIN topik_bidang ON topik_bidang.id = topik.topik_bidang_fk_id
@@ -83,6 +85,7 @@ class TopikController extends Controller
                 JOIN topik_bidang bidang ON bidang.id=topik.topik_bidang_fk_id
                 WHERE topik.id=' . $request->idTopikTugasAkhir);
 
+            # data untuk kirim email
             foreach ($mailData as $data){
                 $mailData['nama_mahasiswa'] = $data->nama_mahasiswa;
                 $mailData['nim'] = $data->nim;
@@ -91,7 +94,7 @@ class TopikController extends Controller
                 $mailData['judul_topik'] = $data->judul_topik;
                 $mailData['nama_dosen'] = $data->nama_dosen;
                 $mailData['topik_bidang'] = $data->topik_bidang;
-                Mail::to($data->email_mahasiswa)->send(new EmailMahasiswaTerpilih($mailData));
+                Mail::to($data->email_mahasiswa)->send(new EmailMahasiswaTerpilih($mailData)); // technical debt: nama penerima
             }
 
             return redirect('/Topik/All')->with('success', 'Berhasil menetapkan mahasiswa terpilih.');

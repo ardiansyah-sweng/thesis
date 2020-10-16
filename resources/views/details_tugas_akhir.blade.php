@@ -1,10 +1,5 @@
 @foreach($detailsTopikTA as $item)
 <?php
-    $jumlahPendaftar = $item->jumlah_pendaftar;
-    if ($jumlahPendaftar == 0) { $jumlahPendaftar = 'Belum ada'; }
-    $mahasiswaTerpilih = $item->nim_terpilih_fk;
-    if ($mahasiswaTerpilih == 0) { $mahasiswaTerpilih = 'Belum ada'; }
-    if ($mahasiswaTerpilih != 0) { $mahasiswaTerpilih = $item->nama_mahasiswa; }
     $idTopikTA = $item->id;
     $judulTopikTA = $item->judul_topik;
     $namaDosen = $item->nama;
@@ -14,9 +9,9 @@ Judul: {{ $judulTopikTA }} <br>
 Dosen: {{ $namaDosen }} <br>
 Bidang: {{ $topikBidang }} <br>
 Deskripsi: {{ $item->deskripsi }} <br>
-Terpilih: {{ $mahasiswaTerpilih }} <br>
+Terpilih: {{ $item->mahasiswa_terpilih }} <br>
 @endforeach
-Pendaftar: {{ $jumlahPendaftar }} mahasiswa <br>
+Pendaftar: {{ $item->jumlah_pendaftar }} mahasiswa <br>
 <!-- form start -->
 <form role="form" method="POST" action="/Topik/Decision/">
     @csrf
