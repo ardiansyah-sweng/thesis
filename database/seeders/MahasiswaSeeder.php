@@ -35,11 +35,13 @@ class MahasiswaSeeder extends Seeder
         DB::table('mahasiswa')->insert([
             'nim' => '17004',
             'nama_mahasiswa' => 'Muhammad Yamin',
+            'email_mahasiswa' => '17004@tif.uad.ac.id'
         ]);
 
         DB::table('mahasiswa')->insert([
             'nim' => '17005',
             'nama_mahasiswa' => 'Elon Musk',
+            'email_mahasiswa' => '17005@tif.uad.ac.id'
         ]);
 
         DB::table('mahasiswa')->insert([
