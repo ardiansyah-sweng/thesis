@@ -305,7 +305,7 @@ class BangunRuang
 
     /**
      * Menghitung Luas Setengah Lingkaran
-     * rumus : 1/2 * 1/4 * phi * diameter
+     * rumus : 1/2 * 1/4 * phi * jari-jari kuadrat (diameter)
      */
 
     function LuasSetengahLingkaran($diameter)
