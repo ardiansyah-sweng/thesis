@@ -1,7 +1,7 @@
 @component('mail::message')
 {{ $mailData['title'] }}
 <p>
-Saudara/i <b>{{ $mailData['nama_mahasiswa'] }}</b> (NIM: {{ $mailData['nim'] }}), Anda <b>terpilih</b> untuk mengerjakan topik tugas akhir berikut:<br>
+Saudara/i <b>{{ $mailData['nama_mahasiswa'] }}</b> (NIM: {{ $mailData['nim'] }}), Anda <b>{{ $mailData['keputusan'] }}</b> untuk mengerjakan topik tugas akhir berikut:<br>
 <b>Judul</b><br>
 {{ $mailData['judul_topik'] }}<br>
 <b>Pembimbing</b><br>

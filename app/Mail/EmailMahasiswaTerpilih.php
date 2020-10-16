@@ -30,7 +30,6 @@ class EmailMahasiswaTerpilih extends Mailable
     public function build()
     {
         return $this->markdown('Email.EmailMahasiswaTerpilih')
-            ->to($this->mailData['email_mahasiswa'], $this->mailData['nama_mahasiswa'])
             ->subject('Mahasiswa Terpilih Mengambil Topik TA')
             ->with('mailData', $this->mailData);
     }
