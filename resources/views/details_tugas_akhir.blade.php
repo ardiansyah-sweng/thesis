@@ -20,15 +20,15 @@ Pendaftar: {{ $jumlahPendaftar }} mahasiswa <br>
 <!-- form start -->
 <form role="form" method="POST" action="/Topik/Decision/">
     @csrf
-    @foreach($listMahasiswa as $item)
-    <input class="form-check-input" type="radio" name="nim" value="{{ $item->nim }}">
+    @foreach($listMahasiswa as $val)
+    <input class="form-check-input" type="radio" name="nim" value="{{ $val->nim }}">
+    <label class="form-check-label">{{ $val->nama_mahasiswa }}</label>
     {{ Form::hidden('idTopikTugasAkhir', $idTopikTA) }}
-    {{ Form::hidden('emailMahasiswa', $item->email_mahasiswa) }}
-    {{ Form::hidden('namaMahasiswa', $item->nama_mahasiswa) }}
+    {{ Form::hidden('email_mahasiswa', $val->email_mahasiswa) }}
+    {{ Form::hidden('namaMahasiswa', $val->nama_mahasiswa) }}
     {{ Form::hidden('namaDosen', $namaDosen) }}
     {{ Form::hidden('judulTopikTA', $judulTopikTA) }}
     {{ Form::hidden('topikBidang', $topikBidang) }}
-    <label class="form-check-label">{{ $item->nama_mahasiswa }}</label>
     <br>
     @endforeach
     <button type="submit" class="btn btn-primary">Submit</button>

@@ -3,7 +3,6 @@
 namespace App\Http\Controllers;
 
 use App\Mail\EmailMahasiswaTerpilih;
-use App\Mail\ThesisEmail;
 use Illuminate\Support\Facades\Mail;
 use App\Models\Topik;
 use App\Models\TopikTugasAkhir;
@@ -25,7 +24,7 @@ class TopikController extends Controller
     {
         $nipy = Session::get('nipy');
 
-        $allTopikTA = DB::select('SELECT topik.id, topik_bidang.topik_bidang, dosen.nama, topik.judul_topik, topik.deskripsi, topik.status, topik.nim_terpilih_fk, mhs.nama_mahasiswa, COUNT(ambil.topik_tugas_akhir_id) AS jumlah_pendaftar
+        $allTopikTA = DB::select('SELECT topik.id, topik_bidang.topik_bidang, dosen.nama, topik.judul_topik, mhs.nama_mahasiswa, topik.deskripsi, topik.status, topik.nim_terpilih_fk, COUNT(ambil.topik_tugas_akhir_id) AS jumlah_pendaftar
             FROM topik_tugas_akhir topik
             JOIN dosen ON dosen.nipy = topik.nipy_fk_nipy
             LEFT OUTER JOIN mahasiswa mhs ON mhs.nim=topik.nim_terpilih_fk
@@ -75,18 +74,25 @@ class TopikController extends Controller
                 updated_at = ' . $curr . ' 
             WHERE id = ' . $request->idTopikTugasAkhir);
 
-            # kirim email ke mahasiswa terpilih
-            $mailData = [
-                'title' => 'Mahasiswa Terpilih Mengambil Topik Skripsi',
-                'nim' => $request->nim,
-                'nama_mahasiswa' => $request->namaMahasiswa,
-                'nama_dosen' => $request->namaDosen,
-                'judul_topik' => $request->judulTopikTA,
-                'topik_bidang' => $request->topikBidang,
-                'url' => 'https://siatif.uad.ac.id',
-                'email_mahasiswa' => $request->emailMahasiswa
-            ];
-            Mail::send(new EmailMahasiswaTerpilih($mailData));
+            $mailData = DB::select('SELECT mhs.nama_mahasiswa, mhs.nim, mhs.email_mahasiswa, topik.judul_topik, dosen.nama AS nama_dosen, bidang.topik_bidang,
+            IF (mhs.nim = '.$request->nim.', "terpilih", "tidak terpilih") AS keputusan 
+                FROM ambil_topik_tugas_akhir ambil
+                JOIN mahasiswa mhs ON mhs.nim=ambil.nim_fk_nim
+                JOIN topik_tugas_akhir topik ON topik.id=ambil.topik_tugas_akhir_id
+                JOIN dosen ON dosen.nipy=topik.nipy_fk_nipy
+                JOIN topik_bidang bidang ON bidang.id=topik.topik_bidang_fk_id
+                WHERE topik.id=' . $request->idTopikTugasAkhir);
+
+            foreach ($mailData as $data){
+                $mailData['nama_mahasiswa'] = $data->nama_mahasiswa;
+                $mailData['nim'] = $data->nim;
+                $mailData['title'] = 'Penetapan Topik Tugas Akhir Mahasiswa';
+                $mailData['keputusan'] = $data->keputusan;
+                $mailData['judul_topik'] = $data->judul_topik;
+                $mailData['nama_dosen'] = $data->nama_dosen;
+                $mailData['topik_bidang'] = $data->topik_bidang;
+                Mail::to($data->email_mahasiswa)->send(new EmailMahasiswaTerpilih($mailData));
+            }
 
             return redirect('/Topik/All')->with('success', 'Berhasil menetapkan mahasiswa terpilih.');
         } else {
