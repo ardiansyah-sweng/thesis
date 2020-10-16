@@ -17,16 +17,19 @@ class MahasiswaSeeder extends Seeder
         DB::table('mahasiswa')->insert([
             'nim' => '17001',
             'nama_mahasiswa' => 'Eko Rilo Pambudi',
+            'email_mahasiswa' => '17001@tif.uad.ac.id'
         ]);
 
         DB::table('mahasiswa')->insert([
             'nim' => '17002',
             'nama_mahasiswa' => 'Muhadi',
+            'email_mahasiswa' => '17002@tif.uad.ac.id'
         ]);
 
         DB::table('mahasiswa')->insert([
             'nim' => '17003',
             'nama_mahasiswa' => 'Maria Trisnawati',
+            'email_mahasiswa' => '17003@tif.uad.ac.id'
         ]);
 
         DB::table('mahasiswa')->insert([

@@ -20,54 +20,63 @@ class DosenSeeder extends Seeder
             'nipy' => '001',
             'nama' => 'Eko Aribowo, S.T., M.Kom.',
             'jabfung' => 'LK',
+            'email_dosen' => '001@tif.uad.ac.id'
         ]);
         
         DB::table('dosen')->insert([
             'nipy' => '002',
             'nama' => 'Ali Tarmuji, S.T., M. Cs.',
             'jabfung' => 'AA',
+            'email_dosen' => '002@tif.uad.ac.id'
         ]);
 
         DB::table('dosen')->insert([
             'nipy' => '003',
             'nama' => 'Fiftin Noviyanto S.T., M. Cs.',
             'jabfung' => 'L',
+            'email_dosen' => '003@tif.uad.ac.id'
         ]);
 
         DB::table('dosen')->insert([
             'nipy' => '004',
             'nama' => 'Nur Rochmah Dyah Pujiastuti, S.T, M.Kom.',
             'jabfung' => 'L',
+            'email_dosen' => '004@tif.uad.ac.id'
         ]);
 
         DB::table('dosen')->insert([
             'nipy' => '005',
             'nama' => 'Bambang Robi\'in, S.T.,M.T.',
             'jabfung' => 'L',
+            'email_dosen' => '005@tif.uad.ac.id'
         ]);
 
         DB::table('dosen')->insert([
             'nipy' => '006',
             'nama' => 'Drs. Tedy Setiadi, M.T.',
             'jabfung' => 'L',
+            'email_dosen' => '006@tif.uad.ac.id'
         ]);
 
         DB::table('dosen')->insert([
             'nipy' => '007',
             'nama' => 'Dwi Normawati, S.T., M.Eng.',
             'jabfung' => 'AA',
+            'email_dosen' => '007@tif.uad.ac.id'
         ]);
 
         DB::table('dosen')->insert([
             'nipy' => '008',
             'nama' => 'Drs. Wahyu Pujiono, M.Kom',
             'jabfung' => 'LK',
+            'email_dosen' => '008@tif.uad.ac.id'
         ]);
 
         DB::table('dosen')->insert([
             'nipy' => '009',
             'nama' => 'Andri Pranolo, S.Kom., M. Cs.',
             'jabfung' => 'AA',
+            'email_dosen' => '009@tif.uad.ac.id'
         ]);
 
         DB::table('dosen')->insert([

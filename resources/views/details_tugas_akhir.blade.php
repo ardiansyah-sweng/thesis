@@ -6,10 +6,13 @@
     if ($mahasiswaTerpilih == 0) { $mahasiswaTerpilih = 'Belum ada'; }
     if ($mahasiswaTerpilih != 0) { $mahasiswaTerpilih = $item->nama_mahasiswa; }
     $idTopikTA = $item->id;
+    $judulTopikTA = $item->judul_topik;
+    $namaDosen = $item->nama;
+    $topikBidang = $item->topik_bidang;
 ?>
-Judul: {{ $item->judul_topik }} <br>
-Dosen: {{ $item->nama }} <br>
-Bidang: {{ $item->topik_bidang }} <br>
+Judul: {{ $judulTopikTA }} <br>
+Dosen: {{ $namaDosen }} <br>
+Bidang: {{ $topikBidang }} <br>
 Deskripsi: {{ $item->deskripsi }} <br>
 Terpilih: {{ $mahasiswaTerpilih }} <br>
 @endforeach
@@ -20,6 +23,11 @@ Pendaftar: {{ $jumlahPendaftar }} mahasiswa <br>
     @foreach($listMahasiswa as $item)
     <input class="form-check-input" type="radio" name="nim" value="{{ $item->nim }}">
     {{ Form::hidden('idTopikTugasAkhir', $idTopikTA) }}
+    {{ Form::hidden('emailMahasiswa', $item->email_mahasiswa) }}
+    {{ Form::hidden('namaMahasiswa', $item->nama_mahasiswa) }}
+    {{ Form::hidden('namaDosen', $namaDosen) }}
+    {{ Form::hidden('judulTopikTA', $judulTopikTA) }}
+    {{ Form::hidden('topikBidang', $topikBidang) }}
     <label class="form-check-label">{{ $item->nama_mahasiswa }}</label>
     <br>
     @endforeach
