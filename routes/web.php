@@ -16,13 +16,14 @@ use App\Http\Controllers\LoginController;
 |
 */
 //Route Index sistem
-Route::get('/', [LoginController::class, 'index']);
+Route::get('/', [LoginController::class, 'index'])->name('index');;
 
-
+//CATATAN : ROURTE HARUS PUNYA NAMA BIAR BISA REDIRECT TAMBAHKAN DI AKHIR cnth : ... ->name('dashboardDosen');
 // Dashboard dosen
-Route::get('/dashboardDosen', [DashboardController::class, 'dosen']);
+Route::get('/dashboardDosen', [DashboardController::class, 'dosen'])->name('dashboardDosen');
 //Dashboard mahasiswa
-Route::get('/dashboardMahasiswa', [DashboardController::class, 'mahasiswa']);
+Route::get('/dashboardMahasiswa', [DashboardController::class, 'mahasiswa'])->name('dashboardMahasiswa');
+Route::get('/logout', [LoginController::class, 'logout'])->name('logout');
 
 
 Route::post('/Topik', [TopikController::class, 'store']);
@@ -36,8 +37,8 @@ Route::get('/Topik/Ambil', [TopikController::class, 'ambil']);
 
 
 //Route Tampil view login dosen dan mahasiswa
-Route::get('/dosen', [LoginController::class, 'dosen']);
-Route::get('/mahasiswa', [LoginController::class, 'mahasiswa']);
+Route::get('/dosen', [LoginController::class, 'dosen'])->name('dosen');
+Route::get('/mahasiswa', [LoginController::class, 'mahasiswa'])->name('mahasiswa');
 
 //Route aksi login
 Route::post('/aksiLoginDosen', [LoginController::class, 'aksiLoginDosen']);

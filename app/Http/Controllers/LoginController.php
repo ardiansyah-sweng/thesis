@@ -67,4 +67,14 @@ class LoginController extends Controller
             return redirect('mahasiswa');
         }
     }
+    
+    public function logout(){
+        ob_start();
+        session_start();
+        unset ($_SESSION['nama_mahasiswa']);
+        unset ($_SESSION['nim']);
+        session_destroy();
+        return redirect('/');
+        exit();
+    }
 }
