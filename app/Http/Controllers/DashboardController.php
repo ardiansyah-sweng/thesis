@@ -16,4 +16,5 @@ class DashboardController extends Controller
     {
         return view('mahasiswa/index');
     }
+    
 }
