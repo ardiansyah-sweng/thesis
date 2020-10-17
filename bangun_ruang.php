@@ -144,6 +144,17 @@ class BangunRuang
         $SEPERTIGA = 0.33;
         return $SEPERTIGA * $panjang * $lebar * $tinggi;
     }
+
+      /**
+     * Menghitung Luas Segi Enam
+     * Rumus: 2,598 X sisi X sisi
+     */
+    function luasSegiEnam($sisi)
+    {
+        $SEGIENAM = 2.598;
+        return $SEGIENAM * $sisi * $sisi;
+    }
+
 }
 
 $bangunRuang = new BangunRuang();
@@ -176,3 +187,5 @@ echo '<br>';
 echo 'Keliling Balok: '.$bangunRuang->kelilingBalok(15,10,5);
 echo '<br>';
 echo 'Volume Limas SegiEmpat: '.$bangunRuang->volumeLimasSegiEmpat(20,10,15);
+echo '<br>';
+echo 'Luas Segi Enam: '.$SEGIENAM->luasSegiEnam(18);
