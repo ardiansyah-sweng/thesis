@@ -17,13 +17,15 @@ class MahasiswaSeeder extends Seeder
         DB::table('mahasiswa')->insert([
             'nim' => '17001',
             'nama_mahasiswa' => 'Eko Rilo Pambudi',
-            'email_mahasiswa' => '17001@tif.uad.ac.id'
+            'email_mahasiswa' => '17001@tif.uad.ac.id',
+            'status' => 1
         ]);
 
         DB::table('mahasiswa')->insert([
             'nim' => '17002',
             'nama_mahasiswa' => 'Muhadi',
-            'email_mahasiswa' => '17002@tif.uad.ac.id'
+            'email_mahasiswa' => '17002@tif.uad.ac.id',
+            'status' => 1
         ]);
 
         DB::table('mahasiswa')->insert([
@@ -41,7 +43,8 @@ class MahasiswaSeeder extends Seeder
         DB::table('mahasiswa')->insert([
             'nim' => '17005',
             'nama_mahasiswa' => 'Elon Musk',
-            'email_mahasiswa' => '17005@tif.uad.ac.id'
+            'email_mahasiswa' => '17005@tif.uad.ac.id',
+            'status' => 1
         ]);
 
         DB::table('mahasiswa')->insert([
