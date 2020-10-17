@@ -32,7 +32,7 @@ class TopikController extends Controller
             LEFT OUTER JOIN ambil_topik_tugas_akhir ambil ON ambil.topik_tugas_akhir_id = topik.id
             GROUP BY topik.id
             ORDER BY dosen.nipy = ' . $nipy . ' DESC');
-        // dd($allTopikTA);
+
         return view('all-topik')->with("allTopikTA", $allTopikTA);
     }
 
@@ -40,9 +40,10 @@ class TopikController extends Controller
     # Query list mahasiswa yang ambil/mendaftar topik tugas akhir tersebut
     public function details($id)
     {
-        $detailsTopikTA = DB::select('SELECT topik_bidang.topik_bidang, dosen.nama, dosen.email_dosen, mhs.email_mahasiswa, topik.id, topik.judul_topik, topik.deskripsi, topik.status, mhs.nama_mahasiswa, 
-        IF (topik.nim_terpilih_fk = 0, "Belum ada", topik.nim_terpilih_fk) AS mahasiswa_terpilih,
-        IF (COUNT(ambil.topik_tugas_akhir_id) = 0, "Belum ada", COUNT(ambil.topik_tugas_akhir_id)) AS jumlah_pendaftar
+        $detailsTopikTA = DB::select('SELECT topik_bidang.topik_bidang, dosen.nama, dosen.email_dosen, 
+            mhs.email_mahasiswa, topik.id, topik.judul_topik, topik.deskripsi, topik.status, mhs.nama_mahasiswa, 
+            IF (topik.nim_terpilih_fk = 0, "Belum ada", mhs.nama_mahasiswa) AS mahasiswa_terpilih,
+            IF (COUNT(ambil.topik_tugas_akhir_id) = 0, "Belum ada", COUNT(ambil.topik_tugas_akhir_id)) AS jumlah_pendaftar
             FROM topik_tugas_akhir topik
             JOIN dosen ON dosen.nipy = topik.nipy_fk_nipy
             JOIN topik_bidang ON topik_bidang.id = topik.topik_bidang_fk_id
@@ -66,18 +67,20 @@ class TopikController extends Controller
     # Menetapkan mahasiswa terpilih
     public function decision(Request $request)
     {
-        $STATUS = 1;
+        $STATUS_TUGAS_AKHIR = 1; // 0 = open, 1 = closed
+        $STATUS_MAHASISWA = 0;  // 0 = open, 1 = blocked, 2 = metopen, 3 = skripsi
         $curr = 'CURRENT_TIMESTAMP';
 
         if ($request) {
             DB::update('UPDATE topik_tugas_akhir
             SET nim_terpilih_fk = ' . $request->nim . ', 
-                status = ' . $STATUS . ',
+                status = ' . $STATUS_TUGAS_AKHIR . ',
                 updated_at = ' . $curr . ' 
             WHERE id = ' . $request->idTopikTugasAkhir);
 
-            $mailData = DB::select('SELECT mhs.nama_mahasiswa, mhs.nim, mhs.email_mahasiswa, topik.judul_topik, dosen.nama AS nama_dosen, bidang.topik_bidang,
-            IF (mhs.nim = '.$request->nim.', "terpilih", "tidak terpilih") AS keputusan 
+            $mailData = DB::select('SELECT mhs.nama_mahasiswa, mhs.nim, mhs.email_mahasiswa, 
+                topik.judul_topik, dosen.nama AS nama_dosen, bidang.topik_bidang,
+                IF (mhs.nim = '.$request->nim.', "terpilih", "tidak terpilih") AS keputusan 
                 FROM ambil_topik_tugas_akhir ambil
                 JOIN mahasiswa mhs ON mhs.nim=ambil.nim_fk_nim
                 JOIN topik_tugas_akhir topik ON topik.id=ambil.topik_tugas_akhir_id
@@ -94,6 +97,13 @@ class TopikController extends Controller
                 $mailData['judul_topik'] = $data->judul_topik;
                 $mailData['nama_dosen'] = $data->nama_dosen;
                 $mailData['topik_bidang'] = $data->topik_bidang;
+
+                DB::update('UPDATE mahasiswa mhs 
+                            JOIN ambil_topik_tugas_akhir ambil ON ambil.nim_fk_nim=mhs.nim 
+                            SET mhs.status = '.$STATUS_MAHASISWA.',
+                                mhs.updated_at = '.$curr.' 
+                            WHERE mhs.nim <> '.$request->nim);
+
                 Mail::to($data->email_mahasiswa)->send(new EmailMahasiswaTerpilih($mailData)); // technical debt: nama penerima
             }
 

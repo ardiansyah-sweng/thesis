@@ -17,6 +17,8 @@ class CreateMahasiswaTable extends Migration
             $table->string('nim', 10)->primary();
             $table->string('nama_mahasiswa', 100);
             $table->string('email_mahasiswa');
+            $table->tinyInteger('status')->default(0);
+            $table->timestamps();
         });
     }
 
