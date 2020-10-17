@@ -68,7 +68,9 @@ class TopikController extends Controller
     public function decision(Request $request)
     {
         $STATUS_TUGAS_AKHIR = 1; // 0 = open, 1 = closed
-        $STATUS_MAHASISWA = 0;  // 0 = open, 1 = blocked, 2 = metopen, 3 = skripsi
+        $STATUS_MAHASISWA_OPEN = 0;  // 0 = open, 1 = blocked, 2 = metopen, 3 = skripsi, 4 = lulus
+        $STATUS_MAHASISWA_METOPEN = 2;
+
         $curr = 'CURRENT_TIMESTAMP';
 
         if ($request) {
@@ -100,11 +102,16 @@ class TopikController extends Controller
 
                 DB::update('UPDATE mahasiswa mhs 
                             JOIN ambil_topik_tugas_akhir ambil ON ambil.nim_fk_nim=mhs.nim 
-                            SET mhs.status = '.$STATUS_MAHASISWA.',
+                            SET mhs.status = '.$STATUS_MAHASISWA_OPEN.',
                                 mhs.updated_at = '.$curr.' 
                             WHERE mhs.nim <> '.$request->nim);
+                 DB::update('UPDATE mahasiswa mhs 
+                            JOIN ambil_topik_tugas_akhir ambil ON ambil.nim_fk_nim=mhs.nim 
+                            SET mhs.status = '.$STATUS_MAHASISWA_METOPEN.',
+                                mhs.updated_at = '.$curr.' 
+                            WHERE mhs.nim = '.$request->nim);                           
 
-                Mail::to($data->email_mahasiswa)->send(new EmailMahasiswaTerpilih($mailData)); // technical debt: nama penerima
+                Mail::to($data->email_mahasiswa)->send(new EmailMahasiswaTerpilih($mailData)); // technical debt: 1. nama penerima, 2. gunakan job queue khusus email
             }
 
             return redirect('/Topik/All')->with('success', 'Berhasil menetapkan mahasiswa terpilih.');
