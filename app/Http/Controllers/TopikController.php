@@ -177,13 +177,37 @@ class TopikController extends Controller
         session()->flash('msg', 'Topik TA berhasil di update');
         return redirect('/Topik/All');
     }
-  
-    # menampilkan view page pendaftaran topik dengan data listTopik
-    public function ambil()
+
+    # menampilkan detail topik untuk page mendaftar topik
+    public function daftarDetailTopik($id)
     {
-        $listTopik = DB::select('SELECT topik.id,topik.judul_topik,topik.nim_terpilih_fk
-            FROM topik_tugas_akhir topik 
-            WHERE topik.nim_terpilih_fk = 0');
-        return view('mahasiswa/pendaftaran-topik')->with('listTopik', $listTopik);
+        $nim = Session::get('nim');
+        $detailTopik = DB::select('SELECT topik_bidang.topik_bidang, dosen.nama, 
+            topik.id, topik.judul_topik, topik.deskripsi
+            FROM topik_tugas_akhir topik
+            JOIN dosen ON dosen.nipy = topik.nipy_fk_nipy
+            JOIN topik_bidang ON topik_bidang.id = topik.topik_bidang_fk_id
+            LEFT OUTER JOIN mahasiswa mhs ON mhs.nim=topik.nim_terpilih_fk
+            LEFT OUTER JOIN ambil_topik_tugas_akhir ambil ON ambil.topik_tugas_akhir_id = topik.id
+            WHERE topik.id = ' . $id . '
+            GROUP BY topik.id');
+
+        $listMahasiswaByTopik = DB::select('SELECT mhs.nama_mahasiswa, mhs.nim, mhs.email_mahasiswa, topik.judul_topik
+            FROM ambil_topik_tugas_akhir ambil
+            JOIN mahasiswa mhs ON mhs.nim=ambil.nim_fk_nim
+            JOIN topik_tugas_akhir topik ON topik.id=ambil.topik_tugas_akhir_id
+            WHERE topik.id=' . $id);
+
+        $ruleAmbilTopik = DB::select('SELECT mhs.nama_mahasiswa, mhs.nim, mhs.email_mahasiswa, topik.judul_topik, COUNT(ambil.topik_tugas_akhir_id) as jumlah_topik
+        FROM ambil_topik_tugas_akhir ambil
+        JOIN mahasiswa mhs ON mhs.nim=ambil.nim_fk_nim
+        JOIN topik_tugas_akhir topik ON topik.id=ambil.topik_tugas_akhir_id
+        WHERE mhs.nim=' . $nim . ' AND ambil.topik_tugas_akhir_id =' . $id);
+
+        return view('mahasiswa/pendaftaran-topik', [
+            'detailTopik' => $detailTopik,
+            'listMahasiswa' => $listMahasiswaByTopik,
+            'ruleTopik' => $ruleAmbilTopik
+        ]);
     }
 }

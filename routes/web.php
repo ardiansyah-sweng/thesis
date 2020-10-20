@@ -31,9 +31,9 @@ Route::post('/Topik/Decision', [TopikController::class, 'decision']);
 Route::get('/Topik/Add', [TopikController::class, 'index']);
 Route::get('/Topik/All', [TopikController::class, 'all']);
 Route::get('/Topik/Details/{id}', [TopikController::class, 'details']);
-Route::get('/Topik/Ambil', [TopikController::class, 'ambil']);
+Route::get('/Topik/Ambil', [TopikController::class, 'ambil'])->name('daftarTopikMahasiswa');
 
-
+Route::get('/Topik/Ambil/{id}', [TopikController::class, 'daftarDetailTopik'])->name('detailTopik');
 
 
 //Route Tampil view login dosen dan mahasiswa
