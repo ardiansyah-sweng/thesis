@@ -46,3 +46,9 @@ Route::post('/aksiLoginMahasiswa', [LoginController::class, 'aksiLoginMahasiswa'
 
 //latihan Ardiansyah
 Route::get('/Topik/test', [TopikController::class, 'test']);
+
+
+//Route tampil Update Topik TA 
+Route::get('/Topik/updateTopikTA/{id}', [TopikController::class, 'updateTopikTA']);
+//Route aksi update Topik TA
+Route::patch('/Topik/aksiUpdateTA/{id}', [TopikController::class, 'aksiUpdateTA'])->name('aksiUpdateTA');

@@ -144,6 +144,40 @@ class TopikController extends Controller
         }
     }
 
+    #function tampil data yang akan di update where data yang di pilih
+    #selectOne menambil data 1 array by id
+    public function updateTopikTA($id)
+    {
+        $topik = Topik::orderBy('topik_bidang', 'asc')->get();
+
+        $data = DB::selectOne('SELECT topik_bidang.topik_bidang , topik_tugas_akhir.judul_topik , topik_tugas_akhir.deskripsi ,
+        topik_tugas_akhir.topik_bidang_fk_id,topik_tugas_akhir.id 
+        FROM topik_bidang JOIN topik_tugas_akhir
+        ON topik_bidang.id = topik_tugas_akhir.topik_bidang_fk_id 
+        where topik_tugas_akhir.id =' . $id);
+
+        return view('edit_TA', compact('data', 'topik'));
+        // dd($data);
+    }
+
+    #Function proses menyimpan data yang telah di edit
+    public function aksiUpdateTA(Request $request, $id)
+    {
+        $request->validate([
+            'topik_bidang_fk_id' => 'required',
+            'judul_topik' => 'required|min:5',
+            'deskripsi' => 'required|min:5',
+        ]);
+
+        TopikTugasAkhir::where('id', $id)->update([
+            'topik_bidang_fk_id' => $request->topik_bidang_fk_id,
+            'judul_topik'        => $request->judul_topik,
+            'deskripsi'          => $request->deskripsi
+        ]);
+        session()->flash('msg', 'Topik TA berhasil di update');
+        return redirect('/Topik/All');
+    }
+  
     # menampilkan view page pendaftaran topik dengan data listTopik
     public function ambil()
     {

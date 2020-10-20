@@ -22,7 +22,10 @@
 {{-- <a href="/Topik/Add">[Tambah topik]</a>
 <br> --}}
 
-<div class="card">
+<div class="card m-2">
+  @if (session()->has('msg'))
+  <div class="alert alert-success mb-2 mt-2 m-2">{{ session()->get('msg') }}</div>
+@endif
   <div class="card-header">
     <a href="/Topik/Add" type="submit" class="btn btn-primary"><span class="fa fa-plus"> Tambah Topik</span></a>
   </div>
@@ -73,7 +76,7 @@
         </td>
         <td>{{ $mahasiswaTerpilih }}</td>
         <td>
-          <a class="btn btn-primary" href=""><span class="fa fa-pencil"></span>Edit</a>
+        <a class="btn btn-primary" href="/Topik/updateTopikTA/{{$item->id}}"><span class="fa fa-pencil"></span>Edit</a>
           <a class="btn btn-danger" href=""><span class="fa fa-pencil"></span>Hapus</a>
         </td>
       </tr>
