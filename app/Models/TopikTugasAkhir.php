@@ -8,4 +8,5 @@ use Illuminate\Database\Eloquent\Model;
 class TopikTugasAkhir extends Model
 {
     protected $table = 'topik_tugas_akhir';
+    protected $fillable = ['judul_topik', 'deskripsi'];
 }

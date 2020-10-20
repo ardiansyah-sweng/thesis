@@ -82,7 +82,7 @@ class TopikController extends Controller
 
             $mailData = DB::select('SELECT mhs.nama_mahasiswa, mhs.nim, mhs.email_mahasiswa, 
                 topik.judul_topik, dosen.nama AS nama_dosen, bidang.topik_bidang,
-                IF (mhs.nim = '.$request->nim.', "terpilih", "tidak terpilih") AS keputusan 
+                IF (mhs.nim = ' . $request->nim . ', "terpilih", "tidak terpilih") AS keputusan 
                 FROM ambil_topik_tugas_akhir ambil
                 JOIN mahasiswa mhs ON mhs.nim=ambil.nim_fk_nim
                 JOIN topik_tugas_akhir topik ON topik.id=ambil.topik_tugas_akhir_id
@@ -91,7 +91,7 @@ class TopikController extends Controller
                 WHERE topik.id=' . $request->idTopikTugasAkhir);
 
             # data untuk kirim email
-            foreach ($mailData as $data){
+            foreach ($mailData as $data) {
                 $mailData['nama_mahasiswa'] = $data->nama_mahasiswa;
                 $mailData['nim'] = $data->nim;
                 $mailData['title'] = 'Penetapan Topik Tugas Akhir Mahasiswa';
@@ -102,14 +102,14 @@ class TopikController extends Controller
 
                 DB::update('UPDATE mahasiswa mhs 
                             JOIN ambil_topik_tugas_akhir ambil ON ambil.nim_fk_nim=mhs.nim 
-                            SET mhs.status = '.$STATUS_MAHASISWA_OPEN.',
-                                mhs.updated_at = '.$curr.' 
-                            WHERE mhs.nim <> '.$request->nim);
-                 DB::update('UPDATE mahasiswa mhs 
+                            SET mhs.status = ' . $STATUS_MAHASISWA_OPEN . ',
+                                mhs.updated_at = ' . $curr . ' 
+                            WHERE mhs.nim <> ' . $request->nim);
+                DB::update('UPDATE mahasiswa mhs 
                             JOIN ambil_topik_tugas_akhir ambil ON ambil.nim_fk_nim=mhs.nim 
-                            SET mhs.status = '.$STATUS_MAHASISWA_METOPEN.',
-                                mhs.updated_at = '.$curr.' 
-                            WHERE mhs.nim = '.$request->nim);                           
+                            SET mhs.status = ' . $STATUS_MAHASISWA_METOPEN . ',
+                                mhs.updated_at = ' . $curr . ' 
+                            WHERE mhs.nim = ' . $request->nim);
 
                 Mail::to($data->email_mahasiswa)->send(new EmailMahasiswaTerpilih($mailData)); // technical debt: 1. nama penerima, 2. gunakan job queue khusus email
             }
@@ -142,5 +142,39 @@ class TopikController extends Controller
         } else {
             return redirect('/Topik/Add');
         }
+    }
+
+
+    #function tampil data yang akan di update where data yang di pilih
+    #selectOne menambil data 1 array by id
+    public function updateTopikTA($id)
+    {
+        $topik = Topik::orderBy('topik_bidang', 'asc')->get();
+
+        $data = DB::selectOne('SELECT topik_bidang.topik_bidang , topik_tugas_akhir.judul_topik , topik_tugas_akhir.deskripsi ,
+        topik_tugas_akhir.topik_bidang_fk_id,topik_tugas_akhir.id 
+        FROM topik_bidang JOIN topik_tugas_akhir
+        ON topik_bidang.id = topik_tugas_akhir.topik_bidang_fk_id 
+        where topik_tugas_akhir.id =' . $id);
+
+        return view('edit_TA', compact('data', 'topik'));
+        // dd($data);
+    }
+
+    public function aksiUpdateTA(Request $request, $id)
+    {
+        $request->validate([
+            'topik_bidang_fk_id' => 'required',
+            'judul_topik' => 'required|min:5',
+            'deskripsi' => 'required|min:5',
+        ]);
+
+        TopikTugasAkhir::where('id', $id)->update([
+            'topik_bidang_fk_id' => $request->topik_bidang_fk_id,
+            'judul_topik'        => $request->judul_topik,
+            'deskripsi'          => $request->deskripsi
+        ]);
+        session()->flash('msg', 'Topik TA berhasil di update');
+        return redirect('/Topik/All');
     }
 }
