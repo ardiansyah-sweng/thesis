@@ -24,7 +24,7 @@ class TopikController extends Controller
     {
         $nipy = Session::get('nipy');
 
-        $allTopikTA = DB::select('SELECT topik.id, topik_bidang.topik_bidang, dosen.nama, topik.judul_topik, mhs.nama_mahasiswa, topik.deskripsi, topik.status, topik.nim_terpilih_fk, COUNT(ambil.topik_tugas_akhir_id) AS jumlah_pendaftar
+        $allTopikTA = DB::select('SELECT dosen.nipy, topik.id, topik_bidang.topik_bidang, dosen.nama, topik.judul_topik, mhs.nama_mahasiswa, topik.deskripsi, topik.status, topik.nim_terpilih_fk, COUNT(ambil.topik_tugas_akhir_id) AS jumlah_pendaftar
             FROM topik_tugas_akhir topik
             JOIN dosen ON dosen.nipy = topik.nipy_fk_nipy
             LEFT OUTER JOIN mahasiswa mhs ON mhs.nim=topik.nim_terpilih_fk

@@ -81,10 +81,22 @@
           ?>
         </td>
         <td>{{ $mahasiswaTerpilih }}</td>
-        <td>
-        <a class="btn btn-primary" href="/Topik/updateTopikTA/{{$item->id}}"><span class="fa fa-pencil"></span>Edit</a>
-          <a class="btn btn-danger" href=""><span class="fa fa-pencil"></span>Hapus</a>
-        </td>
+      <?php
+        if (Session::get('nipy') != $item->nipy){ ?>
+          <td>
+          <a class="btn btn-primary disabled" href="/Topik/updateTopikTA/{{$item->id}}" ><span class="fa fa-pencil"></span>Edit</a>
+            <a class="btn btn-danger disabled" href=""><span class="fa fa-pencil"></span>Hapus</a>
+          </td>
+       <?php } ?>
+
+       <?php
+        if (Session::get('nipy') == $item->nipy){ ?>
+          <td>
+          <a class="btn btn-primary" href="/Topik/updateTopikTA/{{$item->id}}"><span class="fa fa-pencil"></span>Edit</a>
+            <a class="btn btn-danger" href=""><span class="fa fa-pencil"></span>Hapus</a>
+          </td>
+       <?php } ?>
+
       </tr>
       @endforeach
       </tbody>

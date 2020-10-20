@@ -33,7 +33,7 @@
           <form action="/aksiLoginDosen" method="post">
             @csrf
             <div class="input-group mb-3">
-              <input type="password" class="form-control  @error('nipy') is-invalid @enderror" placeholder="Masukan NIPY Dosen" name="nipy">
+              <input type="password" class="form-control  @error('nipy') is-invalid @enderror" placeholder="Masukkan NIPY Dosen" name="nipy" autofocus>
               <div class="input-group-append">
                   <div class="input-group-text">
                       <span class="fas fa-user"></span>
