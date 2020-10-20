@@ -136,7 +136,7 @@ class BangunRuangTest extends TestCase
         $actualValue = $volumePrisma->volumePrisma($luasAlas,$tinggi);
         $this->assertEquals($expectedValue, $actualValue);
     }
-
+    
     /** @test */
     public function tes_keliling_balok()
     {

@@ -147,6 +147,7 @@ class BangunRuang
         $SEPERTIGA = 0.33;
         return $SEPERTIGA * $panjang * $lebar * $tinggi;
     }
+
     /**
      * Menghitung Volume Prisma
      * rumus : luasAlas * Tinggi
@@ -156,7 +157,7 @@ class BangunRuang
     {
         return $luasAlas * $tinggi;
     }
-
+    
     /**
      * Menghitung volume bola
      * rumus : 4/3 * phi * jariJari * jariJari * jariJari
