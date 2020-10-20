@@ -144,7 +144,6 @@ class TopikController extends Controller
         }
     }
 
-
     #function tampil data yang akan di update where data yang di pilih
     #selectOne menambil data 1 array by id
     public function updateTopikTA($id)
@@ -161,7 +160,7 @@ class TopikController extends Controller
         // dd($data);
     }
 
-    #Fucntion proses menyimpan data yang telah di edit
+    #Function proses menyimpan data yang telah di edit
     public function aksiUpdateTA(Request $request, $id)
     {
         $request->validate([
@@ -177,5 +176,14 @@ class TopikController extends Controller
         ]);
         session()->flash('msg', 'Topik TA berhasil di update');
         return redirect('/Topik/All');
+    }
+  
+    # menampilkan view page pendaftaran topik dengan data listTopik
+    public function ambil()
+    {
+        $listTopik = DB::select('SELECT topik.id,topik.judul_topik,topik.nim_terpilih_fk
+            FROM topik_tugas_akhir topik 
+            WHERE topik.nim_terpilih_fk = 0');
+        return view('mahasiswa/pendaftaran-topik')->with('listTopik', $listTopik);
     }
 }
