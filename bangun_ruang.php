@@ -314,6 +314,15 @@ class BangunRuang
         $SETENGAH   = 0.5;
         return $SETENGAH * $SEPEREMPAT * $this->PHI * $this->kuadrat($diameter);
     }
+     /**
+     * menghitung Prisma Segitiga Sikusiku
+     * V= (1/2 x alas * tinggisegitiga * tinggiprisma
+     */
+    function volumePrismaSegitigaSikusiku($alas, $tinggisegitiga, $tinggiprisma)
+    {
+        $SATUPERDUA = 1/2;
+    return ($SATUPERDUA * $alas * $tinggisegitiga) * $tinggiprisma;
+    }
     
 }
 
@@ -383,6 +392,8 @@ echo '<br>';
 echo 'Luas lingkaran (jari jari): ' . $bangunRuang->luasLingkaranByJariJari(22);
 echo '<br>';
 echo 'Luas Setengah Lingkaran: ' . $bangunRuang->LuasSetengahLingkaran(30);
+echo '<br>';
+echo 'volume Prisma Segitiga Sikusiku: '.$bangunRuang->volumePrismaSegitigaSikusiku(6,8,11);
 echo '<br>';
 
 
