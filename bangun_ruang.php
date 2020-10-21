@@ -393,7 +393,7 @@ echo 'Luas lingkaran (jari jari): ' . $bangunRuang->luasLingkaranByJariJari(22);
 echo '<br>';
 echo 'Luas Setengah Lingkaran: ' . $bangunRuang->LuasSetengahLingkaran(30);
 echo '<br>';
-echo 'volume Prisma Segitiga Sikusiku: '.$bangunRuang->volumePrismaSegitigaSikusiku(6,8,11);
+echo 'volume Prisma Segitiga Sikusiku: '.$bangunRuang->volumePrismaSegitigaSikusiku(6,8,10);
 echo '<br>';
 
 
