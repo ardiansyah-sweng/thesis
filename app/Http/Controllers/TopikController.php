@@ -13,6 +13,8 @@ use Illuminate\Support\Facades\DB;
 
 class TopikController extends Controller
 {
+    public $curr = 'CURRENT_TIMESTAMP';
+
     public function index()
     {
         $topik = Topik::orderBy('topik_bidang', 'asc')->get();
@@ -71,13 +73,11 @@ class TopikController extends Controller
         $STATUS_MAHASISWA_OPEN = 0;  // 0 = open, 1 = blocked, 2 = metopen, 3 = skripsi, 4 = lulus
         $STATUS_MAHASISWA_METOPEN = 2;
 
-        $curr = 'CURRENT_TIMESTAMP';
-
         if ($request) {
             DB::update('UPDATE topik_tugas_akhir
             SET nim_terpilih_fk = ' . $request->nim . ', 
                 status = ' . $STATUS_TUGAS_AKHIR . ',
-                updated_at = ' . $curr . ' 
+                updated_at = ' . $this->curr . ' 
             WHERE id = ' . $request->idTopikTugasAkhir);
 
             $mailData = DB::select('SELECT mhs.nama_mahasiswa, mhs.nim, mhs.email_mahasiswa, 
@@ -103,12 +103,12 @@ class TopikController extends Controller
                 DB::update('UPDATE mahasiswa mhs 
                             JOIN ambil_topik_tugas_akhir ambil ON ambil.nim_fk_nim=mhs.nim 
                             SET mhs.status = ' . $STATUS_MAHASISWA_OPEN . ',
-                                mhs.updated_at = ' . $curr . ' 
+                                mhs.updated_at = ' . $this->curr . ' 
                             WHERE mhs.nim <> ' . $request->nim);
                 DB::update('UPDATE mahasiswa mhs 
                             JOIN ambil_topik_tugas_akhir ambil ON ambil.nim_fk_nim=mhs.nim 
                             SET mhs.status = ' . $STATUS_MAHASISWA_METOPEN . ',
-                                mhs.updated_at = ' . $curr . ' 
+                                mhs.updated_at = ' . $this->curr . ' 
                             WHERE mhs.nim = ' . $request->nim);
 
                 Mail::to($data->email_mahasiswa)->send(new EmailMahasiswaTerpilih($mailData)); // technical debt: 1. nama penerima, 2. gunakan job queue khusus email
@@ -172,7 +172,8 @@ class TopikController extends Controller
         TopikTugasAkhir::where('id', $id)->update([
             'topik_bidang_fk_id' => $request->topik_bidang_fk_id,
             'judul_topik'        => $request->judul_topik,
-            'deskripsi'          => $request->deskripsi
+            'deskripsi'          => $request->deskripsi,
+            'updated_at' => $this->curr 
         ]);
         session()->flash('msg', 'Topik TA berhasil di update');
         return redirect('/Topik/All');
