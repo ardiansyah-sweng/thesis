@@ -318,10 +318,10 @@ class BangunRuang
      * menghitung Prisma Segitiga Sikusiku
      * V= (1/2 x alas * tinggisegitiga * tinggiprisma
      */
-    function volumePrismaSegitigaSikusiku($alas, $tinggisegitiga, $tinggiprisma)
+    function volumePrismaSegitigaSikusiku($alas, $tinggiSegitiga, $tinggiPrisma)
     {
         $SATUPERDUA = 1/2;
-    return ($SATUPERDUA * $alas * $tinggisegitiga) * $tinggiprisma;
+    return ($SATUPERDUA * $alas * $tinggiSegitiga) * $tinggiPrisma;
     }
     
 }
