@@ -16,6 +16,9 @@
         <div class="info">
           <a href="#" class="d-block">{{ Session::get('nama_mahasiswa') }}</a>
         </div>
+        <center>
+            <a href="{{url('/logout')}}"><button type="button" class="btn btn-primary">Logout</button></a>
+        </center>
       </div>
 
       <!-- Sidebar Menu -->
@@ -48,6 +51,14 @@
                 <a href="./index3.html" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
                   <p>Dashboard v3</p>
+                </a>
+              </li>
+              <li class="nav-item has-treeview">
+                <a href="{{ url('/Topik/All/Mahasiswa') }}" class="nav-link">
+                  <i class="nav-icon fas fa-edit"></i>
+                  <p>
+                    Topik Skripsi
+                  </p>
                 </a>
               </li>
             </ul>

@@ -1,4 +1,4 @@
-@extends('layouts.master')
+@extends('mahasiswa.master')
 @section('content')
 <div class="content-wrapper">
     <!-- Content Header (Page header) -->
@@ -32,9 +32,6 @@
   </div>
   @endif
 
-  <div class="card-header">
-    <a href="/Topik/Add" type="submit" class="btn btn-primary"><span class="fa fa-plus"> Tambah Topik</span></a>
-  </div>
   <!-- /.card-header -->
   <div class="card-body">
     <table id="example1" class="table table-bordered table-striped">
@@ -51,10 +48,10 @@
       </tr>
       </thead>
       <tbody>
-        @foreach($allTopikTA as $item)
+        @foreach($allTopikTAMahasiswa as $item)
       <tr>
         <td>{{ $loop->iteration}}</td>
-        <td><a href='/Topik/Details/{{ $item->id }}'> {{ $item->judul_topik }} </a></td>
+        <td><a href='/Topik/Ambil/{{ $item->id }}'> {{ $item->judul_topik }} </a></td>
         <td>{{ $item->nama }}</td>
         <td>
           <?php  
@@ -81,20 +78,17 @@
           ?>
         </td>
         <td>{{ $mahasiswaTerpilih }}</td>
+
       <?php
-        if (Session::get('nipy') != $item->nipy){ ?>
+        if (Session::get('nim') != $item->nim_fk_nim){ ?>
           <td>
-          <a class="btn btn-primary disabled" href="/Topik/updateTopikTA/{{$item->id}}"><span class="fa fa-pencil"></span>Edit</a>
-            <a class="btn btn-danger disabled" href=""><span class="fa fa-pencil"></span>Hapus</a>
-          </td>
+          <a class="btn btn-primary" href="/Topik/updateTopikTA/{{$item->id}}" ><span class="fa fa-pencil"></span>Ambil topik ini</a>
        <?php } ?>
 
        <?php
-        if (Session::get('nipy') == $item->nipy){ ?>
+        if (Session::get('nim') == $item->nim_fk_nim){ ?>
           <td>
-          <a class="btn btn-primary" href="/Topik/updateTopikTA/{{$item->id}}"><span class="fa fa-pencil"></span>Edit</a>
-            <a class="btn btn-danger" href=""><span class="fa fa-pencil"></span>Hapus</a>
-          </td>
+          <a class="btn btn-danger disabled" href="/Topik/updateTopikTA/{{$item->id}}" ><span class="fa fa-pencil"></span>Terdaftar</a>
        <?php } ?>
 
       </tr>

@@ -28,5 +28,10 @@ class AmbilTopikTugasAkhirSeeder extends Seeder
             'nim_fk_nim' => '17003',
             'topik_tugas_akhir_id' => '2',
         ]);
+
+        DB::table('ambil_topik_tugas_akhir')->insert([
+            'nim_fk_nim' => '17005',
+            'topik_tugas_akhir_id' => '1',
+        ]);
     }
 }

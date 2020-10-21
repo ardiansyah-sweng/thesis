@@ -18,5 +18,6 @@ class DatabaseSeeder extends Seeder
         $this->call(MahasiswaSeeder::class);
         $this->call(TopikTugasAkhirSeeder::class);
         $this->call(AmbilTopikTugasAkhirSeeder::class);
+        $this->call(JadwalSeeder::class);
     }
 }

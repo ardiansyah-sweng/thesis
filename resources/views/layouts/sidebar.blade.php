@@ -16,6 +16,9 @@
         <div class="info">
           <a href="#" class="d-block">{{ Session::get('nama') }}</a>
         </div>
+        <center>
+            <a href="{{url('/logout')}}"><button type="button" class="btn btn-primary">Logout</button></a>
+        </center>
       </div>
 
       <!-- Sidebar Menu -->

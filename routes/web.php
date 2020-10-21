@@ -16,28 +16,30 @@ use App\Http\Controllers\LoginController;
 |
 */
 //Route Index sistem
-Route::get('/', [LoginController::class, 'index']);
+Route::get('/', [LoginController::class, 'index'])->name('index');;
 
-
+//CATATAN : ROURTE HARUS PUNYA NAMA BIAR BISA REDIRECT TAMBAHKAN DI AKHIR cnth : ... ->name('dashboardDosen');
 // Dashboard dosen
-Route::get('/dashboardDosen', [DashboardController::class, 'dosen']);
+Route::get('/dashboardDosen', [DashboardController::class, 'dosen'])->name('dashboardDosen');
 //Dashboard mahasiswa
-Route::get('/dashboardMahasiswa', [DashboardController::class, 'mahasiswa']);
+Route::get('/dashboardMahasiswa', [DashboardController::class, 'mahasiswa'])->name('dashboardMahasiswa');
+Route::get('/logout', [LoginController::class, 'logout'])->name('logout');
 
 
 Route::post('/Topik', [TopikController::class, 'store']);
 Route::post('/Topik/Decision', [TopikController::class, 'decision']);
 Route::get('/Topik/Add', [TopikController::class, 'index']);
-Route::get('/Topik/All', [TopikController::class, 'all']);
+Route::get('/Topik/All', [TopikController::class, 'all'])->name('allTopikTA');
+Route::get('/Topik/All/Mahasiswa', [TopikController::class, 'allTopikTAMahasiswa'])->name('allTopikTAMahasiswa');
 Route::get('/Topik/Details/{id}', [TopikController::class, 'details']);
-Route::get('/Topik/Ambil', [TopikController::class, 'ambil']);
 
-
+Route::get('/Topik/Ambil/', [TopikController::class, 'daftarDetailTopik'])->name('daftarTopikMahasiswa');
+Route::get('/Topik/Ambil/{id}', [TopikController::class, 'daftarDetailTopik'])->name('detailTopik');
 
 
 //Route Tampil view login dosen dan mahasiswa
-Route::get('/dosen', [LoginController::class, 'dosen']);
-Route::get('/mahasiswa', [LoginController::class, 'mahasiswa']);
+Route::get('/dosen', [LoginController::class, 'dosen'])->name('dosen');
+Route::get('/mahasiswa', [LoginController::class, 'mahasiswa'])->name('mahasiswa');
 
 //Route aksi login
 Route::post('/aksiLoginDosen', [LoginController::class, 'aksiLoginDosen']);
@@ -62,3 +64,7 @@ Route::any('/email-templates', function () {
     ];
     return view('email.index', $data);
 });
+//Route tampil Update Topik TA 
+Route::get('/Topik/updateTopikTA/{id}', [TopikController::class, 'updateTopikTA']);
+//Route aksi update Topik TA
+Route::patch('/Topik/aksiUpdateTA/{id}', [TopikController::class, 'aksiUpdateTA'])->name('aksiUpdateTA');

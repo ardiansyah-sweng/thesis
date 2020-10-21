@@ -304,18 +304,30 @@ class BangunRuang
     }
 
     /**
-     * Menghitung luas selimut kerucut
-     * rumus : phi * jari-jari * sisi
+     * Menghitung Luas Setengah Lingkaran
+     * rumus : 1/2 * 1/4 * phi * jari-jari kuadrat
      */
 
-    function LuasSelimutKerucut($jariJari, $sisi)
+    function LuasSetengahLingkaran($diameter)
     {
-       return $this->PHI * $jariJari * $sisi;
+        $SEPEREMPAT = 0.25;
+        $SETENGAH   = 0.5;
+        return $SETENGAH * $SEPEREMPAT * $this->PHI * $this->kuadrat($diameter);
     }
+     /**
+     * menghitung Prisma Segitiga Sikusiku
+     * V= (1/2 x alas * tinggisegitiga * tinggiprisma
+     */
+    function volumePrismaSegitigaSikusiku($alas, $tinggiSegitiga, $tinggiPrisma)
+    {
+        $SATUPERDUA = 1/2;
+    return ($SATUPERDUA * $alas * $tinggiSegitiga) * $tinggiPrisma;
+    }
+    
 }
 
 $bangunRuang = new BangunRuang();
-echo 'Luas lingkaran by diameter: ' . $bangunRuang->luasLingkaran(25);
+echo 'Luas lingkaran: ' . $bangunRuang->luasLingkaran(30);
 echo '<br>';
 echo 'Keliling lingkaran: ' . $bangunRuang->kelilingLingkaran(21);
 echo '<br>';
@@ -375,8 +387,13 @@ echo 'Luas Selimut Tabung: ' . $bangunRuang->luasSelimutTabung(8, 4);
 echo '<br>';
 echo 'Volume Setengah Bola: ' . $bangunRuang->volumeSetengahBola(7);
 echo '<br>';
-echo 'Keliling lingkaran (diameter): ' . $bangunRuang->kelilingLingkaranbyDiameter(50);
+echo 'Keliling lingkaran (diameter): ' . $bangunRuang->kelilingLingkaranbyDiameter(30);
 echo '<br>';
 echo 'Luas lingkaran (jari jari): ' . $bangunRuang->luasLingkaranByJariJari(22);
 echo '<br>';
-echo 'Luas Selimut Kerucut: ' . $bangunRuang->LuasSelimutKerucut(5, 5);
+echo 'Luas Setengah Lingkaran: ' . $bangunRuang->LuasSetengahLingkaran(30);
+echo '<br>';
+echo 'volume Prisma Segitiga Sikusiku: '.$bangunRuang->volumePrismaSegitigaSikusiku(6,8,10);
+echo '<br>';
+
+
