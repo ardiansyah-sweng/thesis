@@ -17,7 +17,7 @@ class BangunRuangTest extends TestCase
         $this->assertEquals($expectedValue, $actualValue);
     }
 
-    /** @test */
+   /** @test */
     public function tes_luas_lingkaran()
     {
         $luasLingkaran = new BangunRuang();
@@ -126,6 +126,17 @@ class BangunRuangTest extends TestCase
         $this->assertEquals($expectedValue, $actualValue);
     }
 
+    /** @test */
+    public function tes_volume_prisma()
+    {
+        $volumePrisma = new BangunRuang();
+        $expectedValue = 150;
+        $luasAlas = 50;
+        $tinggi = 3;
+        $actualValue = $volumePrisma->volumePrisma($luasAlas,$tinggi);
+        $this->assertEquals($expectedValue, $actualValue);
+    }
+    
     /** @test */
     public function tes_keliling_balok()
     {
