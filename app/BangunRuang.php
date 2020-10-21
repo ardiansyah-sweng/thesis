@@ -147,6 +147,17 @@ class BangunRuang
         $SEPERTIGA = 0.33;
         return $SEPERTIGA * $panjang * $lebar * $tinggi;
     }
+
+    /**
+     * Menghitung Volume Prisma
+     * rumus : luasAlas * Tinggi
+     */
+
+    function volumePrisma($luasAlas, $tinggi)
+    {
+        return $luasAlas * $tinggi;
+    }
+    
     /**
      * Menghitung volume bola
      * rumus : 4/3 * phi * jariJari * jariJari * jariJari
@@ -313,6 +324,8 @@ echo 'Keliling Balok: ' . $bangunRuang->kelilingBalok(15, 10, 5);
 echo '<br>';
 echo 'Volume Limas SegiEmpat: ' . $bangunRuang->volumeLimasSegiEmpat(20, 10, 15);
 echo '<br>';
+echo 'Volume Prisma : '.$bangunRuang->volumePrisma(50,3);
+echo '<br>';
 echo 'Luas Trapesium: ' . $bangunRuang->luasTrapesium(5, 7, 6);
 echo '<br>';
 echo 'Volume Kerucut: ' . $bangunRuang->volumeKerucut(10, 8);
@@ -329,4 +342,3 @@ echo 'Volume Setengah Bola: ' . $bangunRuang->volumeSetengahBola(7);
 echo '<br>';
 echo 'Luas Selimut Tabung: ' . $bangunRuang->luasSelimutTabung(8, 4);
 echo 'luas permukaan prisma segitiga : ' . $bangunRuang->luasPermukaanPrismaSegitiga(20, 5, 10);
-
