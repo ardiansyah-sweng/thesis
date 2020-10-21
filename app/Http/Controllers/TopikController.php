@@ -200,7 +200,7 @@ class TopikController extends Controller
     }
 
     # menampilkan detail topik untuk page mendaftar topik buat mahasiswa
-    public function daftarDetailTopik($id)
+    public function daftarDetailTopik($id       )
     {
         $nim = Session::get('nim');
         $detailTopik = DB::select('SELECT topik_bidang.topik_bidang, dosen.nama, 

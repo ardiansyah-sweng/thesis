@@ -30,7 +30,7 @@ Route::post('/Topik', [TopikController::class, 'store']);
 Route::post('/Topik/Decision', [TopikController::class, 'decision']);
 Route::get('/Topik/Add', [TopikController::class, 'index']);
 Route::get('/Topik/All', [TopikController::class, 'all'])->name('allTopikTA');
-Route::get('/Topik/All', [TopikController::class, 'allTopikTAMahasiswa'])->name('allTopikTAMahasiswa');
+Route::get('/Topik/All/Mahasiswa', [TopikController::class, 'allTopikTAMahasiswa'])->name('allTopikTAMahasiswa');
 Route::get('/Topik/Details/{id}', [TopikController::class, 'details']);
 
 Route::get('/Topik/Ambil/', [TopikController::class, 'daftarDetailTopik'])->name('daftarTopikMahasiswa');
