@@ -43,17 +43,24 @@ class TopikController extends Controller
     # Query seluruh topik untuk mahasiswa
     public function allTopikTAMahasiswa()
     {
-        $allTopikTAMahasiswa = DB::select('SELECT dosen.nipy, topik.id, topik_bidang.topik_bidang, dosen.nama, topik.judul_topik, mhs.nama_mahasiswa, topik.deskripsi, topik.status, topik.nim_terpilih_fk, COUNT(ambil.topik_tugas_akhir_id) AS jumlah_pendaftar
-        FROM topik_tugas_akhir topik
-        JOIN dosen ON dosen.nipy = topik.nipy_fk_nipy
-        LEFT OUTER JOIN mahasiswa mhs ON mhs.nim=topik.nim_terpilih_fk
-        JOIN topik_bidang ON topik_bidang.id = topik.topik_bidang_fk_id
-        LEFT OUTER JOIN ambil_topik_tugas_akhir ambil ON ambil.topik_tugas_akhir_id = topik.id
-        GROUP BY topik.id
-        ORDER BY topik.updated_at');
+        $nim = Session::get('nim');
+
+        $allTopikTAMahasiswa = DB::select('SELECT dosen.nipy, topik.id, topik_bidang.topik_bidang, dosen.nama, topik.judul_topik, mhs.nama_mahasiswa, ambil.nim_fk_nim, topik.deskripsi, topik.status, topik.nim_terpilih_fk, COUNT(ambil.topik_tugas_akhir_id) AS jumlah_pendaftar
+            FROM topik_tugas_akhir topik
+            JOIN dosen ON dosen.nipy = topik.nipy_fk_nipy
+            LEFT OUTER JOIN mahasiswa mhs ON mhs.nim=topik.nim_terpilih_fk
+            JOIN topik_bidang ON topik_bidang.id = topik.topik_bidang_fk_id
+            LEFT OUTER JOIN ambil_topik_tugas_akhir ambil ON ambil.topik_tugas_akhir_id = topik.id
+            GROUP BY topik.id
+            ORDER BY topik.updated_at');
+
+        $isAmbil = DB::select('SELECT ambil.nim_fk_nim 
+            FROM ambil_topik_tugas_akhir ambil
+            WHERE ambil.nim_fk_nim = '.$nim);
 
         return view('mahasiswa/all-topik', [
-        'allTopikTAMahasiswa' => $allTopikTAMahasiswa
+        'allTopikTAMahasiswa' => $allTopikTAMahasiswa,
+        'isAmbil' => $isAmbil
         ]);
 
     }
