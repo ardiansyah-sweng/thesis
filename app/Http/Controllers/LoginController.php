@@ -69,12 +69,24 @@ class LoginController extends Controller
     }
     
     public function logout(){
-        ob_start();
-        session_start();
-        unset ($_SESSION['nama_mahasiswa']);
-        unset ($_SESSION['nim']);
-        session_destroy();
-        return redirect('/');
-        exit();
+        $nim = Session::get('nim');
+        if($nim){
+            ob_start();
+            session_start();
+            unset ($_SESSION['nama_mahasiswa']);
+            unset ($_SESSION['nim']);
+            session_destroy();
+            return redirect('/');
+            exit();
+        } else {
+            ob_start();
+            session_start();
+            unset ($_SESSION['nama']);
+            unset ($_SESSION['nipy']);
+            session_destroy();
+            return redirect('/');
+            exit();
+        }
+
     }
 }
