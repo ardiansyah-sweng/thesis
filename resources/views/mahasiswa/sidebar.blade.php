@@ -54,10 +54,10 @@
                 </a>
               </li>
               <li class="nav-item has-treeview">
-                <a href="{{ url('/Topik/Ambil') }}" class="nav-link">
+                <a href="{{ url('/Topik/All') }}" class="nav-link">
                   <i class="nav-icon fas fa-edit"></i>
                   <p>
-                    Pendaftaran Topik
+                    Topik Skripsi
                   </p>
                 </a>
               </li>

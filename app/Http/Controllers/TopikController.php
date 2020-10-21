@@ -35,7 +35,27 @@ class TopikController extends Controller
             GROUP BY topik.id
             ORDER BY dosen.nipy = ' . $nipy . ' DESC');
 
-        return view('all-topik')->with("allTopikTA", $allTopikTA);
+            return view('all-topik', [
+                'allTopikTA' => $allTopikTA
+                ]);
+    }
+
+    # Query seluruh topik untuk mahasiswa
+    public function allTopikTAMahasiswa()
+    {
+        $allTopikTAMahasiswa = DB::select('SELECT dosen.nipy, topik.id, topik_bidang.topik_bidang, dosen.nama, topik.judul_topik, mhs.nama_mahasiswa, topik.deskripsi, topik.status, topik.nim_terpilih_fk, COUNT(ambil.topik_tugas_akhir_id) AS jumlah_pendaftar
+        FROM topik_tugas_akhir topik
+        JOIN dosen ON dosen.nipy = topik.nipy_fk_nipy
+        LEFT OUTER JOIN mahasiswa mhs ON mhs.nim=topik.nim_terpilih_fk
+        JOIN topik_bidang ON topik_bidang.id = topik.topik_bidang_fk_id
+        LEFT OUTER JOIN ambil_topik_tugas_akhir ambil ON ambil.topik_tugas_akhir_id = topik.id
+        GROUP BY topik.id
+        ORDER BY topik.updated_at');
+
+        return view('mahasiswa/all-topik', [
+        'allTopikTAMahasiswa' => $allTopikTAMahasiswa
+        ]);
+
     }
 
     # Query detail satu topik tugas akhir berdasarkan ID
@@ -173,13 +193,13 @@ class TopikController extends Controller
             'topik_bidang_fk_id' => $request->topik_bidang_fk_id,
             'judul_topik'        => $request->judul_topik,
             'deskripsi'          => $request->deskripsi,
-            'updated_at' => $this->curr 
+            'updated_at' => $this->curr
         ]);
         session()->flash('msg', 'Topik TA berhasil di update');
         return redirect('/Topik/All');
     }
 
-    # menampilkan detail topik untuk page mendaftar topik
+    # menampilkan detail topik untuk page mendaftar topik buat mahasiswa
     public function daftarDetailTopik($id)
     {
         $nim = Session::get('nim');
@@ -200,10 +220,10 @@ class TopikController extends Controller
             WHERE topik.id=' . $id);
 
         $ruleAmbilTopik = DB::select('SELECT mhs.nama_mahasiswa, mhs.nim, mhs.email_mahasiswa, topik.judul_topik, COUNT(ambil.topik_tugas_akhir_id) as jumlah_topik
-        FROM ambil_topik_tugas_akhir ambil
-        JOIN mahasiswa mhs ON mhs.nim=ambil.nim_fk_nim
-        JOIN topik_tugas_akhir topik ON topik.id=ambil.topik_tugas_akhir_id
-        WHERE mhs.nim=' . $nim . ' AND ambil.topik_tugas_akhir_id =' . $id);
+            FROM ambil_topik_tugas_akhir ambil
+            JOIN mahasiswa mhs ON mhs.nim=ambil.nim_fk_nim
+            JOIN topik_tugas_akhir topik ON topik.id=ambil.topik_tugas_akhir_id
+            WHERE mhs.nim=' . $nim . ' AND ambil.topik_tugas_akhir_id =' . $id);
 
         return view('mahasiswa/pendaftaran-topik', [
             'detailTopik' => $detailTopik,

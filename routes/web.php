@@ -29,10 +29,11 @@ Route::get('/logout', [LoginController::class, 'logout'])->name('logout');
 Route::post('/Topik', [TopikController::class, 'store']);
 Route::post('/Topik/Decision', [TopikController::class, 'decision']);
 Route::get('/Topik/Add', [TopikController::class, 'index']);
-Route::get('/Topik/All', [TopikController::class, 'all']);
+Route::get('/Topik/All', [TopikController::class, 'all'])->name('allTopikTA');
+Route::get('/Topik/All', [TopikController::class, 'allTopikTAMahasiswa'])->name('allTopikTAMahasiswa');
 Route::get('/Topik/Details/{id}', [TopikController::class, 'details']);
-Route::get('/Topik/Ambil', [TopikController::class, 'ambil'])->name('daftarTopikMahasiswa');
 
+Route::get('/Topik/Ambil/', [TopikController::class, 'daftarDetailTopik'])->name('daftarTopikMahasiswa');
 Route::get('/Topik/Ambil/{id}', [TopikController::class, 'daftarDetailTopik'])->name('detailTopik');
 
 
@@ -43,10 +44,6 @@ Route::get('/mahasiswa', [LoginController::class, 'mahasiswa'])->name('mahasiswa
 //Route aksi login
 Route::post('/aksiLoginDosen', [LoginController::class, 'aksiLoginDosen']);
 Route::post('/aksiLoginMahasiswa', [LoginController::class, 'aksiLoginMahasiswa']);
-
-//latihan Ardiansyah
-Route::get('/Topik/test', [TopikController::class, 'test']);
-
 
 //Route tampil Update Topik TA 
 Route::get('/Topik/updateTopikTA/{id}', [TopikController::class, 'updateTopikTA']);
