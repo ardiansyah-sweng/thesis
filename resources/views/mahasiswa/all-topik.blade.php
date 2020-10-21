@@ -78,16 +78,17 @@
           ?>
         </td>
         <td>{{ $mahasiswaTerpilih }}</td>
+
       <?php
-        if (Session::get('nim') != $item->nipy){ ?>
+        if (Session::get('nim') != $item->nim_fk_nim){ ?>
           <td>
-          <button type="submit" class="btn btn-primary"  disabled href="/Topik/updateTopikTA/{{$item->id}}" ><span class="fa fa-pencil"></span>Ambil topik ini</button>
+          <a class="btn btn-primary" href="/Topik/updateTopikTA/{{$item->id}}" ><span class="fa fa-pencil"></span>Ambil topik ini</a>
        <?php } ?>
 
        <?php
-        if (Session::get('nim') == $item->nipy){ ?>
+        if (Session::get('nim') == $item->nim_fk_nim){ ?>
           <td>
-          <a class="btn btn-primary" href="/Topik/updateTopikTA/{{$item->id}}"><span class="fa fa-pencil"></span>Edit</a>
+          <a class="btn btn-danger disabled" href="/Topik/updateTopikTA/{{$item->id}}" ><span class="fa fa-pencil"></span>Terdaftar</a>
        <?php } ?>
 
       </tr>
