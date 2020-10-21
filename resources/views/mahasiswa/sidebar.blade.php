@@ -54,7 +54,7 @@
                 </a>
               </li>
               <li class="nav-item has-treeview">
-                <a href="{{ url('/Topik/All') }}" class="nav-link">
+                <a href="{{ url('/Topik/All/Mahasiswa') }}" class="nav-link">
                   <i class="nav-icon fas fa-edit"></i>
                   <p>
                     Topik Skripsi
