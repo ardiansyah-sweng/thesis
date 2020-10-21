@@ -45,3 +45,20 @@ Route::post('/aksiLoginMahasiswa', [LoginController::class, 'aksiLoginMahasiswa'
 
 //latihan Ardiansyah
 Route::get('/Topik/test', [TopikController::class, 'test']);
+
+// Route Hanya untuk melihan template email
+Route::any('/email-templates', function () {
+    // Data yang dikirim berupa array
+    $data = [
+        'judul' => "Verifikasi Akun", // Judul Header Email
+        // Deskripsi untuk pesan yang ingin disampaikan
+        'deskripsi' => "Mohon klik tombol dibawah untuk verifikasi alamat email anda. Verifikasi email anda dapat meningkatkan lapisan ekstra keamanan akun yang anda gunakan, Memiliki info yang akurat akan membantu jika Anda memerlukan bantuan.",
+        'nama' => "Adhymas Fajar Sudrajad", // Nama Penerima
+        'statusButton' => [
+            'button' => 1, // apabila button 1 berarti akan muncul button
+            'link' => "http://127.0.0.1:8000/email-templates", // link url yang akan dituju ketika button di klik
+            'buttonText' => "Verifikasi Email", // text dalam isian button
+        ]
+    ];
+    return view('email.index', $data);
+});
