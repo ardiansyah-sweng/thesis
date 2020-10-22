@@ -63,6 +63,14 @@
               </p>
             </a>
           </li>
+          <li class="nav-item has-treeview">
+            <a href="{{ url('/Jadwal') }}" class="nav-link">
+              <i class="nav-icon fas fa-edit"></i>
+              <p>
+                Jadwal
+              </p>
+            </a>
+          </li>
           <li class="nav-item">
             <a href="pages/widgets.html" class="nav-link">
               <i class="nav-icon fas fa-th"></i>
