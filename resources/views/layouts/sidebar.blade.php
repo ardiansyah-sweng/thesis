@@ -16,9 +16,6 @@
         <div class="info">
           <a href="#" class="d-block">{{ Session::get('nama') }}</a>
         </div>
-        <center>
-            <a href="{{url('/logout')}}"><button type="button" class="btn btn-primary">Logout</button></a>
-        </center>
       </div>
 
       <!-- Sidebar Menu -->
@@ -63,6 +60,11 @@
               </p>
             </a>
           </li>
+            <li>
+            <center>
+                <a href="{{url('/logout')}}"><button type="button" class="btn btn-warning">Logout</button></a>
+            </center>
+            </li>
           <li class="nav-item">
             <a href="pages/widgets.html" class="nav-link">
               <i class="nav-icon fas fa-th"></i>
