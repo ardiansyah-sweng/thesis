@@ -466,5 +466,264 @@ class JadwalSeeder extends Seeder
             'mulai' => '2020-11-26 14:15:00',
             'selesai' => '2020-11-26 16:05:00'
         ]);
+
+        DB::table('jadwal')->insert([
+            'nipy_fk' => '029',
+            'senin' => 1,
+            'mulai' => '2020-10-26 10:30:00',
+            'selesai' => '2020-10-26 12:10:00'
+        ]);
+        DB::table('jadwal')->insert([
+            'nipy_fk' => '029',
+            'senin' => 1,
+            'mulai' => '2020-11-02 10:30:00',
+            'selesai' => '2020-11-02 12:10:00'
+        ]);
+        DB::table('jadwal')->insert([
+            'nipy_fk' => '029',
+            'senin' => 1,
+            'mulai' => '2020-11-09 10:30:00',
+            'selesai' => '2020-11-09 12:10:00'
+        ]);
+        DB::table('jadwal')->insert([
+            'nipy_fk' => '029',
+            'senin' => 1,
+            'mulai' => '2020-11-15 10:30:00',
+            'selesai' => '2020-11-15 12:10:00'
+        ]);
+        DB::table('jadwal')->insert([
+            'nipy_fk' => '029',
+            'senin' => 1,
+            'mulai' => '2020-11-22 10:30:00',
+            'selesai' => '2020-11-22 12:10:00'
+        ]);
+        DB::table('jadwal')->insert([
+            'nipy_fk' => '029',
+            'senin' => 1,
+            'mulai' => '2020-11-29 10:30:00',
+            'selesai' => '2020-11-29 12:10:00'
+        ]);
+
+        DB::table('jadwal')->insert([
+            'nipy_fk' => '029',
+            'selasa' => 1,
+            'mulai' => '2020-10-27 07:00:00',
+            'selesai' => '2020-10-27 09:35:00'
+        ]);
+        DB::table('jadwal')->insert([
+            'nipy_fk' => '029',
+            'selasa' => 1,
+            'mulai' => '2020-11-03 07:00:00',
+            'selesai' => '2020-11-03 09:35:00'
+        ]);
+        DB::table('jadwal')->insert([
+            'nipy_fk' => '029',
+            'selasa' => 1,
+            'mulai' => '2020-11-10 07:00:00',
+            'selesai' => '2020-11-10 09:35:00'
+        ]);
+        DB::table('jadwal')->insert([
+            'nipy_fk' => '029',
+            'selasa' => 1,
+            'mulai' => '2020-11-17 07:00:00',
+            'selesai' => '2020-11-17 09:35:00'
+        ]);
+        DB::table('jadwal')->insert([
+            'nipy_fk' => '029',
+            'selasa' => 1,
+            'mulai' => '2020-11-24 07:00:00',
+            'selesai' => '2020-11-24 09:35:00'
+        ]);
+        DB::table('jadwal')->insert([
+            'nipy_fk' => '029',
+            'selasa' => 1,
+            'mulai' => '2020-12-01 07:00:00',
+            'selesai' => '2020-12-01 09:35:00'
+        ]);
+
+        DB::table('jadwal')->insert([
+            'nipy_fk' => '029',
+            'rabu' => 1,
+            'mulai' => '2020-10-28 15:15:00',
+            'selesai' => '2020-10-28 17:50:00'
+        ]);
+        DB::table('jadwal')->insert([
+            'nipy_fk' => '029',
+            'rabu' => 1,
+            'mulai' => '2020-11-04 15:15:00',
+            'selesai' => '2020-11-04 17:50:00'
+        ]);
+        DB::table('jadwal')->insert([
+            'nipy_fk' => '029',
+            'rabu' => 1,
+            'mulai' => '2020-11-11 15:15:00',
+            'selesai' => '2020-11-11 17:50:00'
+        ]);
+        DB::table('jadwal')->insert([
+            'nipy_fk' => '029',
+            'rabu' => 1,
+            'mulai' => '2020-11-18 15:15:00',
+            'selesai' => '2020-11-18 17:50:00'
+        ]);
+        DB::table('jadwal')->insert([
+            'nipy_fk' => '029',
+            'rabu' => 1,
+            'mulai' => '2020-11-25 15:15:00',
+            'selesai' => '2020-11-25 17:50:00'
+        ]);
+        DB::table('jadwal')->insert([
+            'nipy_fk' => '029',
+            'rabu' => 1,
+            'mulai' => '2020-12-02 15:15:00',
+            'selesai' => '2020-12-02 17:50:00'
+        ]);
+
+        DB::table('jadwal')->insert([
+            'nipy_fk' => '029',
+            'kamis' => 1,
+            'mulai' => '2020-10-29 15:15:00',
+            'selesai' => '2020-10-29 17:00:00'
+        ]);
+        DB::table('jadwal')->insert([
+            'nipy_fk' => '029',
+            'kamis' => 1,
+            'mulai' => '2020-11-05 15:15:00',
+            'selesai' => '2020-11-05 17:00:00'
+        ]);
+        DB::table('jadwal')->insert([
+            'nipy_fk' => '029',
+            'kamis' => 1,
+            'mulai' => '2020-11-12 15:15:00',
+            'selesai' => '2020-11-12 17:00:00'
+        ]);
+        DB::table('jadwal')->insert([
+            'nipy_fk' => '029',
+            'kamis' => 1,
+            'mulai' => '2020-11-19 15:15:00',
+            'selesai' => '2020-11-19 17:00:00'
+        ]);
+        DB::table('jadwal')->insert([
+            'nipy_fk' => '029',
+            'kamis' => 1,
+            'mulai' => '2020-11-26 15:15:00',
+            'selesai' => '2020-11-26 17:00:00'
+        ]);
+        DB::table('jadwal')->insert([
+            'nipy_fk' => '029',
+            'kamis' => 1,
+            'mulai' => '2020-12-03 15:15:00',
+            'selesai' => '2020-12-03 17:00:00'
+        ]);
+
+        DB::table('jadwal')->insert([
+            'nipy_fk' => '029',
+            'jumat' => 1,
+            'mulai' => '2020-10-30 12:30:00',
+            'selesai' => '2020-10-30 14:10:00'
+        ]);
+        DB::table('jadwal')->insert([
+            'nipy_fk' => '029',
+            'jumat' => 1,
+            'mulai' => '2020-11-06 12:30:00',
+            'selesai' => '2020-11-06 14:10:00'
+        ]);
+        DB::table('jadwal')->insert([
+            'nipy_fk' => '029',
+            'jumat' => 1,
+            'mulai' => '2020-11-13 12:30:00',
+            'selesai' => '2020-11-13 14:10:00'
+        ]);
+        DB::table('jadwal')->insert([
+            'nipy_fk' => '029',
+            'jumat' => 1,
+            'mulai' => '2020-11-20 12:30:00',
+            'selesai' => '2020-11-20 14:10:00'
+        ]);
+        DB::table('jadwal')->insert([
+            'nipy_fk' => '029',
+            'jumat' => 1,
+            'mulai' => '2020-11-27 12:30:00',
+            'selesai' => '2020-11-27 14:10:00'
+        ]);
+        DB::table('jadwal')->insert([
+            'nipy_fk' => '029',
+            'jumat' => 1,
+            'mulai' => '2020-12-04 12:30:00',
+            'selesai' => '2020-12-04 14:10:00'
+        ]);
+
+        DB::table('jadwal')->insert([
+            'nipy_fk' => '029',
+            'jumat' => 1,
+            'mulai' => '2020-10-30 14:15:00',
+            'selesai' => '2020-10-30 16:05:00'
+        ]);
+        DB::table('jadwal')->insert([
+            'nipy_fk' => '029',
+            'jumat' => 1,
+            'mulai' => '2020-11-06 14:15:00',
+            'selesai' => '2020-11-06 16:05:00'
+        ]);
+        DB::table('jadwal')->insert([
+            'nipy_fk' => '029',
+            'jumat' => 1,
+            'mulai' => '2020-11-13 14:15:00',
+            'selesai' => '2020-11-13 16:05:00'
+        ]);
+        DB::table('jadwal')->insert([
+            'nipy_fk' => '029',
+            'jumat' => 1,
+            'mulai' => '2020-11-20 14:15:00',
+            'selesai' => '2020-11-20 16:05:00'
+        ]);
+        DB::table('jadwal')->insert([
+            'nipy_fk' => '029',
+            'jumat' => 1,
+            'mulai' => '2020-11-27 14:15:00',
+            'selesai' => '2020-11-27 16:05:00'
+        ]);
+        DB::table('jadwal')->insert([
+            'nipy_fk' => '029',
+            'jumat' => 1,
+            'mulai' => '2020-12-04 14:15:00',
+            'selesai' => '2020-12-04 16:05:00'
+        ]);
+
+        DB::table('jadwal')->insert([
+            'nipy_fk' => '029',
+            'sabtu' => 1,
+            'mulai' => '2020-10-31 12:30:00',
+            'selesai' => '2020-10-31 15:05:00'
+        ]);
+        DB::table('jadwal')->insert([
+            'nipy_fk' => '029',
+            'sabtu' => 1,
+            'mulai' => '2020-11-07 12:30:00',
+            'selesai' => '2020-11-07 15:05:00'
+        ]);
+        DB::table('jadwal')->insert([
+            'nipy_fk' => '029',
+            'sabtu' => 1,
+            'mulai' => '2020-11-14 14:15:00',
+            'selesai' => '2020-11-14 16:05:00'
+        ]);
+        DB::table('jadwal')->insert([
+            'nipy_fk' => '029',
+            'sabtu' => 1,
+            'mulai' => '2020-11-21 14:15:00',
+            'selesai' => '2020-11-21 16:05:00'
+        ]);
+        DB::table('jadwal')->insert([
+            'nipy_fk' => '029',
+            'sabtu' => 1,
+            'mulai' => '2020-11-28 14:15:00',
+            'selesai' => '2020-11-28 16:05:00'
+        ]);
+        DB::table('jadwal')->insert([
+            'nipy_fk' => '029',
+            'sabtu' => 1,
+            'mulai' => '2020-12-05 14:15:00',
+            'selesai' => '2020-12-05 16:05:00'
+        ]);
     }
 }

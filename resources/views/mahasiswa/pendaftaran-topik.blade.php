@@ -85,7 +85,7 @@
                 @forelse ($listMahasiswa as $item)
                     <li>{{ $item->nama_mahasiswa }}</li>
                 @empty
-                    Data Not Available                
+                    Belum ada pendaftar              
                 @endforelse
                 </ol>
             </div>
