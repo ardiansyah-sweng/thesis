@@ -323,6 +323,17 @@ class BangunRuang
         $SATUPERDUA = 1/2;
     return ($SATUPERDUA * $alas * $tinggiSegitiga) * $tinggiPrisma;
     }
+
+    /**
+     * menghitung Volume prisma segi empat 
+     *
+     * V = (panjang × lebar) × tinggi prisma
+     */
+    function volumePrismaSegiEmpat($panjang, $lebar, $tinggiPrisma)
+    {
+    return ($panjang * $lebar) * $tinggiPrisma;
+    }
+
     
 }
 
@@ -394,6 +405,8 @@ echo '<br>';
 echo 'Luas Setengah Lingkaran: ' . $bangunRuang->LuasSetengahLingkaran(30);
 echo '<br>';
 echo 'volume Prisma Segitiga Sikusiku: '.$bangunRuang->volumePrismaSegitigaSikusiku(6,8,10);
+echo '<br>';
+echo 'volume prisma segi empat: '.$bangunRuang->volumePrismaSegiEmpat(19,2,5);
 echo '<br>';
 
 
