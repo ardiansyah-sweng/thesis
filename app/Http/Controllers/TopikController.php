@@ -35,9 +35,9 @@ class TopikController extends Controller
             GROUP BY topik.id
             ORDER BY dosen.nipy = ' . $nipy . ' DESC');
 
-            return view('all-topik', [
-                'allTopikTA' => $allTopikTA
-                ]);
+        return view('all-topik', [
+            'allTopikTA' => $allTopikTA
+        ]);
     }
 
     # Query seluruh topik untuk mahasiswa
@@ -56,13 +56,12 @@ class TopikController extends Controller
 
         $isAmbil = DB::select('SELECT ambil.nim_fk_nim 
             FROM ambil_topik_tugas_akhir ambil
-            WHERE ambil.nim_fk_nim = '.$nim);
+            WHERE ambil.nim_fk_nim = ' . $nim);
 
         return view('mahasiswa/all-topik', [
-        'allTopikTAMahasiswa' => $allTopikTAMahasiswa,
-        'isAmbil' => $isAmbil
+            'allTopikTAMahasiswa' => $allTopikTAMahasiswa,
+            'isAmbil' => $isAmbil
         ]);
-
     }
 
     # Query detail satu topik tugas akhir berdasarkan ID
@@ -226,7 +225,8 @@ class TopikController extends Controller
             JOIN topik_tugas_akhir topik ON topik.id=ambil.topik_tugas_akhir_id
             WHERE topik.id=' . $id);
 
-        $ruleAmbilTopik = DB::select('SELECT mhs.nama_mahasiswa, mhs.nim, mhs.email_mahasiswa, topik.judul_topik, COUNT(ambil.topik_tugas_akhir_id) as jumlah_topik
+        $ruleAmbilTopik = DB::select('SELECT mhs.nama_mahasiswa, mhs.nim, mhs.email_mahasiswa, topik.judul_topik, COUNT(ambil.topik_tugas_akhir_id) as jumlah_topik,
+            (SELECT DATEDIFF(CURRENT_DATE(), created_at) AS DateDiff from ambil_topik_tugas_akhir WHERE nim_fk_nim = ' . $nim . ' ORDER by created_at DESC LIMIT 1) as masa_blocking
             FROM ambil_topik_tugas_akhir ambil
             JOIN mahasiswa mhs ON mhs.nim=ambil.nim_fk_nim
             JOIN topik_tugas_akhir topik ON topik.id=ambil.topik_tugas_akhir_id
