@@ -59,15 +59,15 @@
                         </div>
                         <div class="card-footer">
                             @foreach ($ruleTopik as $item)
-                                @if ($item->jumlah_topik == 0)
-                                <button type="submit" class="btn btn-primary mr-3" data-toggle="modal"
-                                data-target="#exampleModal">Mendaftar topik ini</button>
+                                @if ($item->jumlah_topik == 0 and ($item->masa_blocking > 7 or $item->masa_blocking == null))
+                                        <button type="submit" class="btn btn-primary mr-3" data-toggle="modal"
+                                        data-target="#exampleModal">Mendaftar topik ini</button>
                                 @else
                                 <button type="submit" class="btn btn-primary mr-3" data-toggle="modal"
                                 data-target="#exampleModal" disabled>Mendaftar topik ini</button>    
                                 @endif
                             @endforeach
-                            <a href="{{ route('daftarTopikMahasiswa') }}" class="btn btn-secondary">Batal</a>
+                            <a href="{{ route('allTopikTAMahasiswa') }}" class="btn btn-secondary">Batal</a>
                         </div>
                         @empty
                         <div class="row card-body">
