@@ -6,6 +6,7 @@ use App\Mail\EmailMahasiswaTerpilih;
 use Illuminate\Support\Facades\Mail;
 use App\Models\Topik;
 use App\Models\TopikTugasAkhir;
+use App\Models\AmbilTopikTugasAkhir;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Session;
 use Illuminate\Support\Facades\DB;
@@ -237,5 +238,24 @@ class TopikController extends Controller
             'listMahasiswa' => $listMahasiswaByTopik,
             'ruleTopik' => $ruleAmbilTopik
         ]);
+    }
+
+     # menyimpan topik tugas akhir yang di ambil oleh mahasiswa 
+     public function saveTopikMahasiswa(Request $request){
+        $request->validate([
+            'id_topik' => 'required'
+        ]);
+
+        if ($request) {
+            $store = new AmbilTopikTugasAkhir;
+            $store->nim_fk_nim = Session::get('nim');
+            $store->topik_tugas_akhir_id = $request->id_topik;
+            $store->save();
+
+            return redirect('/Topik/All/Mahasiswa')->with('success', 'Selamat, Anda berhasil mendaftar topik tugas akhir ');;
+        } else {
+            return redirect('/Topik/All/Mahasiswa');
+        }
+  
     }
 }
