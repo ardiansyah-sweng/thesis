@@ -39,7 +39,7 @@ Route::get('/Topik/Details/{id}', [TopikController::class, 'details']);
 
 Route::get('/Topik/Ambil/', [TopikController::class, 'daftarDetailTopik'])->name('daftarTopikMahasiswa');
 Route::get('/Topik/Ambil/{id}', [TopikController::class, 'daftarDetailTopik'])->name('detailTopik');
-
+Route::post('/Topik/PendaftaranTopik',[TopikController::class, 'saveTopikMahasiswa']);
 
 //Route Tampil view login dosen dan mahasiswa
 Route::get('/dosen', [LoginController::class, 'dosen'])->name('dosen');
