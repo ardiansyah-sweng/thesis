@@ -48,22 +48,46 @@ Route::post('/aksiLoginMahasiswa', [LoginController::class, 'aksiLoginMahasiswa'
 //latihan Ardiansyah
 Route::get('/Topik/test', [TopikController::class, 'test']);
 
-// Route Hanya untuk melihan template email
-Route::any('/email-templates', function () {
-    // Data yang dikirim berupa array
-    $data = [
-        'judul' => "Verifikasi Akun", // Judul Header Email
-        // Deskripsi untuk pesan yang ingin disampaikan
-        'deskripsi' => "Mohon klik tombol dibawah untuk verifikasi alamat email anda. Verifikasi email anda dapat meningkatkan lapisan ekstra keamanan akun yang anda gunakan, Memiliki info yang akurat akan membantu jika Anda memerlukan bantuan.",
-        'nama' => "Adhymas Fajar Sudrajad", // Nama Penerima
-        'statusButton' => [
-            'button' => 1, // apabila button 1 berarti akan muncul button
-            'link' => "http://127.0.0.1:8000/email-templates", // link url yang akan dituju ketika button di klik
-            'buttonText' => "Verifikasi Email", // text dalam isian button
-        ]
-    ];
-    return view('email.index', $data);
+// Route Hanya untuk melihan template email-verifikasi
+Route::get('email-verify', function () {
+    // Data yang didapatkan berdasakan tabel dosen WHERE nipy=001 menjadi array
+    $data = App\Models\Dosen::where('nipy', "001")->get()->toArray()[0];
+    // Penentuan Judul Email
+    $data['judul'] = "Verifikasi Akun";
+    // Penentuan Isi Email
+    $data['isiEmail'] = "Mohon klik tombol dibawah untuk verifikasi alamat email anda. Verifikasi email anda dapat meningkatkan lapisan ekstra keamanan akun yang anda gunakan, Memiliki info yang akurat akan membantu jika Anda memerlukan bantuan.";
+    // Penentuan Alamat Button yang dituju
+    $data['url'] = "#";
+    // Penentuan Warna Button, didapat(3) : blue,red,green
+    $data['color'] = "blue"; // contoh : blue
+    // run
+    return new App\Mail\VerifyAccount($data);
 });
+// Route Hanya untuk melihan template email mahasiswa terpilih
+Route::get('email-mhs', function () {
+    $data['nama_dosen'] = "Eko Aribowo, S.T., M.Kom.";
+    $data['title'] = "Mahasiswa Terpilih Mengambil Topik TA";
+    $data['nama_mahasiswa'] = "Anugrah H.";
+    $data['nim'] = "1700018000";
+    $data['nipy'] = "001";
+    $data['keputusan'] = "Mengambil";
+    $data['judul_topik'] = "test";
+    $data['topik_bidang'] = "Pembangunan Perangkat Lunak";
+    return new App\Mail\EmailMahasiswaTerpilih($data);
+});
+// Route Hanya untuk melihan template email dosen terpilih
+Route::get('email-dosen', function () {
+    $data['nama_dosen'] = "Eko Aribowo, S.T., M.Kom.";
+    $data['title'] = "Dosen Terpilih Mengambil Topik TA";
+    $data['nama_mahasiswa'] = "Anugrah H.";
+    $data['nim'] = "1700018000";
+    $data['nipy'] = "001";
+    $data['keputusan'] = "Terpilih";
+    $data['judul_topik'] = "test";
+    $data['topik_bidang'] = "Pembangunan Perangkat Lunak";
+    return new App\Mail\EmailDosenTerpilih($data);
+});
+
 //Route tampil Update Topik TA 
 Route::get('/Topik/updateTopikTA/{id}', [TopikController::class, 'updateTopikTA']);
 //Route aksi update Topik TA
