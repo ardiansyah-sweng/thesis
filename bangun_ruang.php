@@ -422,6 +422,6 @@ echo 'volume Prisma Segitiga Sikusiku: '.$bangunRuang->volumePrismaSegitigaSikus
 echo '<br>';
 echo 'volume prisma segi empat: '.$bangunRuang->volumePrismaSegiEmpat(19,2,5);
 echo '<br>';
-echo 'Volume Setengah Kerucut: ' . $bangunRuang->volumeSetengahKerucut(10, 8);
-
+echo 'Volume Setengah Kerucut: ' . $bangunRuang->volumeSetengahKerucut(10, 10);
+echo '<br>';
 
