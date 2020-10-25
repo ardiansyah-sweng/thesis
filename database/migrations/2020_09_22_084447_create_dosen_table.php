@@ -17,6 +17,7 @@ class CreateDosenTable extends Migration
             $table->string('nipy', 3)->primary();
             $table->string('nama', 100);
             $table->string('jabfung', 2);
+            $table->string('email_dosen');
             $table->timestamps();
         });
     }

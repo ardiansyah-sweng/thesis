@@ -7,8 +7,9 @@ use Illuminate\Support\Facades\Schema;
 class CreateTopikTaTable extends Migration
 {
     /**
-     * Run the migrations.
-     *
+     * Membuat tabel topik_tugas_akhir
+     * Kolom: id (PK), topik_bidang_fk_id, judul_topik, deskripsi, dan status
+     * 
      * @return void
      */
     public function up()
@@ -30,6 +31,8 @@ class CreateTopikTaTable extends Migration
 
             $table->string('judul_topik');
             $table->text('deskripsi');
+            $table->string('nim_terpilih_fk', 10)->default(0);
+            $table->tinyInteger('status')->default(0);
             $table->timestamps();
         });
     }
