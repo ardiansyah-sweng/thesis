@@ -300,4 +300,15 @@ class BangunRuangTest extends TestCase
         $actualValue = $luasPermukaanPrismaSegitiga->luasPermukaanPrismaSegitiga($kelilingAlas, $tinggi, $luasAlasSegitiga);
         $this->assertEquals($expectedValue, $actualValue);
     }
+    //** @test */
+    public function test_volume_prisma_segitiga_sikusiku()
+    {
+        $VolumePrismaSegitigaSikusiku = new BangunRuang();
+        $expectedValue = 240;
+        $alas = 6;
+        $tinggisegitiga = 8;
+        $tinggiprisma = 10;
+        $actualValue = $VolumePrismaSegitigaSikusiku->VolumePrismasegitigaSikusiku($alas, $tinggisegitiga, $tinggiprisma);
+        $this->assertEquals($expectedValue, $actualValue);
+    }
 }

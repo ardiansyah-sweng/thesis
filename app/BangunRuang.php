@@ -291,6 +291,15 @@ class BangunRuang
         $DUA = 2;
         return ($kelilingAlas * $tinggi) + ($DUA * $luasAlasSegitiga);
     }
+     /**
+     * menghitung Prisma Segitiga Sikusiku
+     * V= (1/2 x alas * tinggisegitiga * tinggiprisma
+     */
+    function volumePrismaSegitigaSikusiku($alas, $tinggiSegitiga, $tinggiPrisma)
+    {
+        $SATUPERDUA = 1/2;
+    return ($SATUPERDUA * $alas * $tinggiSegitiga) * $tinggiPrisma;
+    }
 }
 
 $bangunRuang = new BangunRuang();
@@ -342,3 +351,6 @@ echo 'Volume Setengah Bola: ' . $bangunRuang->volumeSetengahBola(7);
 echo '<br>';
 echo 'Luas Selimut Tabung: ' . $bangunRuang->luasSelimutTabung(8, 4);
 echo 'luas permukaan prisma segitiga : ' . $bangunRuang->luasPermukaanPrismaSegitiga(20, 5, 10);
+echo '<br>';
+echo 'volume Prisma Segitiga Sikusiku: '.$bangunRuang->volumePrismaSegitigaSikusiku(6,8,10);
+
