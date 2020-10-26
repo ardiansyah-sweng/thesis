@@ -334,6 +334,18 @@ class BangunRuang
     return ($panjang * $lebar) * $tinggiPrisma;
     }
 
+    /**
+     * Menghitung Volume Setengah Kerucut
+     * Rumus 1/2 * 1/3 * PHI * jari-jari * jari-jari * tinggi
+     */
+    function volumeSetengahKerucut($jariJari, $tinggi)
+    {
+        $SATUPERDUA = 0.5;
+        $SATUPERTIGA = 0.33;
+
+        return $SATUPERDUA * $SATUPERTIGA * $this->PHI * $this->kuadrat($jariJari) * $tinggi;
+    }
+
     
 }
 
@@ -394,7 +406,9 @@ echo 'luas permukaan prisma segitiga : ' . $bangunRuang->luasPermukaanPrismaSegi
 echo '<br>';
 echo 'Keliling Jajar genjang :' . $bangunRuang->kelilingJajarGenjang(8, 6);
 echo '<br>';
-echo 'Luas Selimut Tabung: ' . $bangunRuang->luasSelimutTabung(8, 4);
+echo 'Luas Persegi: '. $bangunRuang->luasPersegi(5);
+echo '<br>';
+echo 'luas permukaan prisma segitiga : '.$bangunRuang->luasPermukaanPrismaSegitiga(20,5,10);
 echo '<br>';
 echo 'Volume Setengah Bola: ' . $bangunRuang->volumeSetengahBola(7);
 echo '<br>';
@@ -408,5 +422,6 @@ echo 'volume Prisma Segitiga Sikusiku: '.$bangunRuang->volumePrismaSegitigaSikus
 echo '<br>';
 echo 'volume prisma segi empat: '.$bangunRuang->volumePrismaSegiEmpat(19,2,5);
 echo '<br>';
-
+echo 'Volume Setengah Kerucut: ' . $bangunRuang->volumeSetengahKerucut(10, 10);
+echo '<br>';
 
