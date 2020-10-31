@@ -21,7 +21,8 @@ class CreateAmbilTopikTugasAkhirTable extends Migration
             $table->unsignedBigInteger('topik_tugas_akhir_id');
             
             $table->primary(['nim_fk_nim', 'topik_tugas_akhir_id']);
-            
+           
+            $table->index('nim_fk_nim');
             $table->foreign('nim_fk_nim')
                 ->references('nim')
                 ->on('mahasiswa');    

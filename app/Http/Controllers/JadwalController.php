@@ -1,7 +1,10 @@
 <?php
+//date_default_timezone_set('Asia/Jakarta');
 
 namespace App\Http\Controllers;
 
+use App\Models\AmbilTopikTugasAkhir;
+use App\Models\TopikTugasAkhir;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use DateTime;
@@ -10,7 +13,8 @@ class JadwalController extends Controller
 {
     public $AWAL_JAM_KERJA = '07:00:00';
     public $AKHIR_JAM_KERJA = '17:00:00';
-    public $LAMA_SIDANG = 7200;
+    public $LAMA_SIDANG = 7200; //detik
+    public $curr = 'CURRENT_TIMESTAMP';
 
     /**
      * Merekomendasikan jadwal yang tersedia
@@ -76,10 +80,16 @@ class JadwalController extends Controller
         }
     }
 
+    function selisihFullDay($tanggal)
+    {
+        return strtotime($tanggal . ' ' . $this->AKHIR_JAM_KERJA) - strtotime($tanggal . ' ' . $this->AWAL_JAM_KERJA);
+    }
+
     function cariSlotKosong($allJadwal, $tanggal)
     {
         if ($allJadwal == "fullday") {
-            return $ret['mulai'] = $tanggal . ' ' . $this->AWAL_JAM_KERJA;
+            $ret[0]['selisih'] = $this->selisihFullDay($tanggal);
+            $ret[0]['mulai'] = $tanggal . ' ' . $this->AWAL_JAM_KERJA;
         } else {
             //print_r($allJadwal);
             //echo '<p>';
@@ -101,9 +111,7 @@ class JadwalController extends Controller
             //echo '<p>';
 
             for ($i = 0; $i <= count($allJadwal) - 2; $i++) {
-                //echo $allJadwal[$i + 1]['mulai'] . '  ' . $allJadwal[$i]['selesai'] . '<br>';
                 $selisih = strtotime($allJadwal[$i + 1]['mulai']) - strtotime($allJadwal[$i]['selesai']);
-                //echo $selisih . '<br>';
                 if ($this->LAMA_SIDANG <= $selisih) {
                     $ret[$i + 1]['selisih'] = $selisih;
                     $ret[$i + 1]['mulai'] = $allJadwal[$i]['selesai'];
@@ -112,15 +120,12 @@ class JadwalController extends Controller
             $jum = count($allJadwal);
             $ret[$jum]['selisih'] = $akhir;
             $ret[$jum]['mulai'] = $akhirJadwal;
-            //return $ret;
-            //echo '<p>';
-            //print_r($ret);
         }
 
         foreach ($ret as $key => $val) {
             //echo $val['selisih'].'<br>';
             if ($this->LAMA_SIDANG <= $val['selisih']) {
-                echo $val['selisih'] . '<br>';
+                //echo $val['selisih'] . '<br>';
                 $ret[$key]['selisih'] = $val['selisih'];
                 $ret[$key]['mulai'] = $val['mulai'];
             }
@@ -132,18 +137,21 @@ class JadwalController extends Controller
         return $ret;
     }
 
+    function getNamaDosen($nidn)
+    {
+        $nama = DB::table('dosen')->where('nidn', $nidn)->value('nama');
+        return $nama;
+    }
+
     public function details(Request $request)
     {
         $tanggal = $request->inputTanggal;
-        $awalJamKerja = '07:00:00';
-        $akhirJamKerja = '17:00:00';
-        $DURASI_SIDANG = 7200; //detik
-        $jamAwalKerja = $tanggal . ' ' . $awalJamKerja;
-        $jamAkhirKerja = $tanggal . ' ' . $akhirJamKerja;
-        $nipy1 = '030';
-        $nipy2 = '002';
-        $nipy3 = '029';
+        $judul = $request->inputJudul;
+        $nipy1 = '002'; // diganti inputan dari page admin. direfaktor agar bisa dinamis sesuai kebutuhan prodi masing-masing.
+        $nipy2 = '029'; // diganti inputan dari page admin
+        $nipy3 = '030'; // diganti inputan dari page admin
 
+        // Bagian jadwal satu kalendar penuh sesuai bulan yang dipilih pada tanggal
         $jumlahHari = $this->getJumlahHariDalamSatuBulan($tanggal);
         $month = $this->getAngkaBulan($tanggal);
         $year = $this->getTahun($tanggal);
@@ -151,71 +159,170 @@ class JadwalController extends Controller
         for ($i = 1; $i <= $jumlahHari; $i++) {
             if ($i < 10) {
                 $tanggalInkremen = $year . '-' . $month . '-0' . $i;
-                $hari = $this->getNamaHari($tanggalInkremen);
-                if($tanggal == $tanggalInkremen){
-                    echo '<b><font color="blue">' . $hari . ' ' . $tanggalInkremen . '</font></b><br>';
-                } else {
-                    echo '<b>' . $hari . ' ' . $tanggalInkremen . '</b><br>';
-                }
-                if ($hari == 'Sun') {
-                    $hasil = 'libur';
-                }
-                if ($hari != 'Sun') {
-                    $allJadwal = $this->getAllJadwal($tanggalInkremen, $nipy1, $nipy2, $nipy3);
-                    //print_r($allJadwal);
-                    $kosong = $this->cariSlotKosong($allJadwal, $tanggalInkremen);
-                    //echo '<p>';
-                    if (empty($kosong)) {
-                        $hasil = 'Full booked';
-                    } else {
-                        $hasil = $kosong;
-                    }
-                }
-                print_r($hasil);
-            } else {
-                $tanggalInkremen = $year . '-' . $month . '-' . $i;
-                $hari = $this->getNamaHari($tanggalInkremen);
-                if($tanggal == $tanggalInkremen){
-                    echo '<b><font color="blue">' . $hari . ' ' . $tanggalInkremen . '</font></b><br>';
-                } else {
-                    echo '<b>' . $hari . ' ' . $tanggalInkremen . '</b><br>';
-                }
-                if ($hari == 'Sun') {
-                    $hasil = 'libur';
-                }
-                if ($hari != 'Sun') {
-                    $allJadwal = $this->getAllJadwal($tanggalInkremen, $nipy1, $nipy2, $nipy3);
-                    //print_r($allJadwal);
-                    $kosong = $this->cariSlotKosong($allJadwal, $tanggalInkremen);
-                    if (empty($kosong)) {
-                        $hasil = 'Full booked';
-                    } else {
-                        $hasil = $kosong;
-                    }
-                }
-                print_r($hasil);
-                echo '<br>';
             }
-            echo '<p>';
+            if ($i >= 10) {
+                $tanggalInkremen = $year . '-' . $month . '-' . $i;
+            }
+
+            $hari = $this->getNamaHari($tanggalInkremen);
+            if ($tanggal == $tanggalInkremen) {
+                //echo '<b><font color="blue">' . $hari . ' ' . $tanggalInkremen . '</font></b>';
+            }
+            if ($tanggal != $tanggalInkremen) {
+                //echo $hari . ' ' . $tanggalInkremen;
+            }
+            if ($hari == 'Sun') {
+                $hasil[0]['selisih'] = 0;
+                $hasil[0]['mulai'] = 'libur';
+            }
+            if ($hari != 'Sun') {
+                $allJadwal = $this->getAllJadwal($tanggalInkremen, $nipy1, $nipy2, $nipy3);
+                $kosong = $this->cariSlotKosong($allJadwal, $tanggalInkremen);
+                if (empty($kosong)) {
+                    $hasil[0]['selisih'] = 1;
+                    $hasil[0]['mulai'] = 'penuh';
+                }
+                if (!empty($kosong)) {
+                    foreach ($kosong as $key => $val) {
+                        if ($val['selisih'] < $this->LAMA_SIDANG) {
+                            unset($kosong[$key]);
+                        }
+                        if ($val['selisih'] == 0 && $val['mulai'] != 'libur') {
+                            unset($kosong[$key]);
+                        }
+                    }
+                }
+                if (empty($kosong)) {
+                    //echo ' penuh';
+                }
+                $hasil = $kosong;
+                //echo '<br>';
+            }
+
+            foreach ($hasil as $key => $val) {
+                if ($hari == "Sun" && $val['mulai'] == 'libur') {
+                    //echo " <font color='red'>Libur</font><br>";
+                }
+                if ($val['selisih'] >= $this->LAMA_SIDANG) {
+                    //echo '<font color="green">' . substr($val['mulai'], 10) . '</font><br>';
+                }
+            }
+            //echo '<p>';
         }
 
+        // Bagian detail sesuai tanggal yang dipilih
         $hari = $this->getNamaHari($tanggal);
-        echo '<font color="blue">'.$hari . ' ' . $tanggal . '</font><br>';
+        //echo '<font color="blue">' . $hari . ' ' . $tanggal . '</font><br>';
 
         if ($hari == 'Sun') {
-            $hasil = 'libur';
+            $hasil[0]['selisih'] = 0;
+            $hasil[0]['mulai'] = 'libur';
         }
         if ($hari != 'Sun') {
             $allJadwal = $this->getAllJadwal($tanggal, $nipy1, $nipy2, $nipy3);
             $kosong = $this->cariSlotKosong($allJadwal, $tanggal);
             if (empty($kosong)) {
-                $hasil = 'Full booked';
-            } else {
-                $hasil = $kosong;
+                $hasil[0]['selisih'] = 1;
+                $hasil[0]['mulai'] = 'penuh';
+            }
+            if (!empty($kosong)) {
+                foreach ($kosong as $key => $val) {
+                    if ($val['selisih'] < $this->LAMA_SIDANG) {
+                        unset($kosong[$key]);
+                    }
+                    if ($val['selisih'] == 0 && $val['mulai'] != 'libur') {
+                        unset($kosong[$key]);
+                    }
+                }
+            }
+            if (empty($kosong)) {
+                //echo ' penuh';
+            }
+            $hasil = $kosong;
+            //echo '<br>';
+        }
+        //print_r($hasil);
+        foreach ($hasil as $key => $val) {
+            if ($hari == "Sun" && $val['mulai'] == 'libur') {
+                //echo " <font color='red'>Libur</font><br>";
+            }
+            if ($val['selisih'] >= $this->LAMA_SIDANG) {
+                //echo '<font color="green">' . substr($val['mulai'], 10) . '</font><br>';
             }
         }
-        print_r($hasil);
+
+        // Bagian mengambil API dari search engine rekomendasi penguji
+        //$judul = DB::table('topik_tugas_akhir')->pluck('judul_topik');
+
+        //foreach ($judul as $judul) {
+        
+            echo '<p> Judul: <i><b>' . $judul . '</i></b><p>';
+
+            $client = new \GuzzleHttp\Client();
+            $result = $client->post('http://localhost:8800/inverted', [
+                'form_params' => [
+                    'query' => $judul,
+                ]
+            ]);
+
+            $body = json_decode($result->getBody()->getContents(), true);
+            unset($body['error']);
+            unset($body['message']['timeExecution']);
+
+            foreach ($body as $key => $val) {
+                $x[] = json_decode(json_encode($val), true);
+            }
+
+            echo '<p>';
+            echo '<table>';
+            echo '<tr><td><b>Skor</b></td><td><b> Rekomendasi Penguji</b></td><td><b>Judul TA bimbingan sebelumnya</b></td></tr>';
+            //$temp = [];
+            foreach ($x as $x => $y) {
+                foreach ($y as $z) {
+                    rsort($z);
+                    foreach ($z as $key => $a) {
+                        //if (!array_search($a['pembimbing'], $temp)){ // refaktor, buat fungsi tersendiri
+                            if ($key <= 9){
+                                echo '<tr><td>'.round($a['cosim'], 3).'</td><td><font color="red"><b>'.$this->getNamaDosen($a['pembimbing']).'</b></font></td><td>'.$a['judul'].'</td></tr>';
+                            } else {
+                                echo '<tr><td>'.round($a['cosim'], 3).'</td><td>'.$this->getNamaDosen($a['pembimbing']).'</td><td>'.$a['judul'].'</td></tr>';
+                            }
+
+                            $rekomendasi[$key]['cosim'] = round($a['cosim'], 3);
+                            $rekomendasi[$key]['pembimbing'] = $a['pembimbing'];
+                            $rekomendasi[$key]['judul'] = $a['judul'];
+                            //$temp[] = $a['pembimbing'];
+                        //}
+                    }
+                }
+            }
+            echo '</table>';
+        //}
+
+        //=========================================
+        // 1. update kolom rekomendasi (JSON) 
+        // $data = json_encode($rekomendasi, TRUE);
+        // TopikTugasAkhir::where('topik_bidang_fk_id', 13)->update(['rekomendasi_penguji' => $data]);
+
+        // 2. baca kolom rekomendasi JSON
+        // $data = DB::select('SELECT judul_topik, rekomendasi_penguji FROM topik_tugas_akhir');
+        // echo '<p>';
+
+        // foreach ($data as $indeks => $val) {
+        //     echo '<b>Judul TA: '.$val->judul_topik.'</b><br>';
+        //     $opt1 = json_decode(json_encode($data[$indeks]));
+        //     $hasil =  json_decode($opt1->{'rekomendasi_penguji'});
+        //     foreach ($hasil as $subkey => $subval) {
+        //         if ($subkey <= 10 && $subval->pembimbing != $subval->pembimbing){
+        //             echo 'Cosim: ' . $subval->cosim . ' Dosen: ' . $subval->pembimbing . ' Judul: ' . $subval->judul . '<br>';
+        //         }
+        //     }
+        //     echo '<p>';
+        // }
+        //===========================================
     }
+
+
 
     // return view('tanggal', [
     //     'tanggal' => $inputTanggal

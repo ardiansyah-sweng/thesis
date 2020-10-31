@@ -39,7 +39,7 @@
       <tr>
         <th>No</th>
         <th>Judul</th>
-        <th>Dosen</th>
+        <th>Dosbing</th>
         <th width="10%">Bidang</th>
         <th>Pendaftar</th>
         <th>Status</th>
@@ -48,11 +48,11 @@
       </tr>
       </thead>
       <tbody>
-        @foreach($allTopikTAMahasiswa as $item)
+        @foreach($allTopikSkripsiMahasiswa as $item)
       <tr>
         <td>{{ $loop->iteration}}</td>
         <td><a href='/Topik/Ambil/{{ $item->id }}'> {{ $item->judul_topik }} </a></td>
-        <td>{{ $item->nama }}</td>
+        <td><img src="{{ url('adminLTE/dist/img/dosen/'.$item->avatarPembimbing) }}" style="width:40px;height:40px;" class="img-circle elevation-2" alt="{{ $item->nama }}" data-toggle="tooltip" data-placement="top" title="{{ $item->nama }}"></td>
         <td>
           <?php  
             # Konversi default nim terpilih menjadi label {0 = Belum ada, nim = Nama mahasiswa}
@@ -80,15 +80,16 @@
         <td>{{ $mahasiswaTerpilih }}</td>
 
       <?php
+        
         if (Session::get('nim') != $item->nim_fk_nim){ ?>
           <td>
-          <a class="btn btn-primary" href="/Topik/updateTopikTA/{{$item->id}}" ><span class="fa fa-pencil"></span>Ambil topik ini</a>
+          <a class="btn btn-primary" href="/Topik/Ambil/{{ $item->id }}" ><span class="fa fa-pencil"></span>Ambil topik ini</a>
        <?php } ?>
 
        <?php
         if (Session::get('nim') == $item->nim_fk_nim){ ?>
           <td>
-          <a class="btn btn-danger disabled" href="/Topik/updateTopikTA/{{$item->id}}" ><span class="fa fa-pencil"></span>Terdaftar</a>
+          <a class="btn btn-danger disabled" ><span class="fa fa-pencil"></span>Terdaftar</a>
        <?php } ?>
 
       </tr>

@@ -19,5 +19,6 @@ class DatabaseSeeder extends Seeder
         $this->call(TopikTugasAkhirSeeder::class);
         $this->call(AmbilTopikTugasAkhirSeeder::class);
         $this->call(JadwalSeeder::class);
+        $this->call(UjianSeeder::class);
     }
 }
