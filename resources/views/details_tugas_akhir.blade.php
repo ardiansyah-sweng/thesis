@@ -8,7 +8,7 @@
         <div class="container-fluid">
             <div class="row mb-2">
                 <div class="col-sm-6">
-                    <h1>Mendaftar Topik Tugas Akhir</h1>
+                    <h1>Detail Topik Skripsi</h1>
                 </div> 
             </div>
         </div><!-- /.container-fluid -->
@@ -22,7 +22,7 @@
                 <!-- left column -->
                 <div class="col-md-9">
                     <div class="card card-primary">
-                        @forelse ($detailsTopikTA as $detail)
+                        @forelse ($detailsTopikSkripsi as $detail)
                         <div class="card-body">
                             <div class="row">
                                 <div class="col-12 col-md-2">
@@ -57,8 +57,11 @@
                                 </div>
                             </div>
                         </div>
+                        <form action="/Topik/Decision/" method="post">
+                        @csrf       
                         <div class="card-footer">
-                            <a href="{{ route('allTopikTA') }}" class="btn btn-secondary">Batal</a>
+                            <a href="{{ route('allTopikSkripsi') }}" class="btn btn-secondary">Batal</a>     
+                            <button type="submit" class="btn btn-primary">Proses</button></form>
                         </div>
                         @empty
                         <div class="row card-body">
@@ -93,7 +96,7 @@
             <form role="form" method="POST" action="/Topik/PendaftaranTopik">
                 @csrf
                 <div class="modal-body">
-                    @foreach ($detailsTopikTA as $item)
+                    @foreach ($detailsTopikSkripsi as $item)
                     <div class="form-group">
                         <input type="hidden" class="form-control" name="id_topik" value="{{ $item->id }}">
                         <p>Dengan mendaftar topik TA ini, maka 7 hari ke depan saya tidak bisa mendaftar topik TA lain.

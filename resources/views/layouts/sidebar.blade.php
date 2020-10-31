@@ -10,7 +10,7 @@
     <!-- Sidebar user panel (optional) -->
     <div class="user-panel mt-3 pb-3 mb-3 d-flex">
       <div class="image">
-        <img src="{{ url('adminLTE/dist/img/user2-160x160.jpg')}}" class="img-circle elevation-2" alt="User Image">
+        <img src="{{ url('adminLTE/dist/img/dosen/'.Session::get('avatar')) }}" class="img-circle elevation-2" alt="User Image">
       </div>
       <div class="info">
         <a href="#" class="d-block">{{ Session::get('nama') }}</a>
@@ -51,11 +51,21 @@
             </li>
           </ul>
         </li>
+
         <li class="nav-item has-treeview">
           <a href="{{ url('/Topik/All') }}" class="nav-link">
             <i class="nav-icon fas fa-edit"></i>
             <p>
               Topik Skripsi
+            </p>
+          </a>
+        </li>
+
+        <li class="nav-item has-treeview">
+          <a href="{{ url('/Bimbingan') }}" class="nav-link">
+            <i class="nav-icon fas fa-edit"></i>
+            <p>
+              Bimbinganku
             </p>
           </a>
         </li>

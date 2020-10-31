@@ -16,94 +16,54 @@ class TopikController extends Controller
 {
     public $curr = 'CURRENT_TIMESTAMP';
 
+    public function __construct(TopikTugasAkhir $model)
+    {
+        $this->model = $model;
+    }
+
     public function index()
     {
         $topik = Topik::orderBy('topik_bidang', 'asc')->get();
         return view('topik', compact('topik'));
     }
 
-    # Query seluruh topik tugas akhir
+    # Menampilkan seluruh topik skripsi buat Dosen
     public function all()
     {
         $nipy = Session::get('nipy');
 
-        $allTopikTA = DB::select('SELECT dosen.nipy, topik.id, topik_bidang.topik_bidang, dosen.nama, topik.judul_topik, mhs.nama_mahasiswa, topik.deskripsi, topik.status, topik.nim_terpilih_fk, COUNT(ambil.topik_tugas_akhir_id) AS jumlah_pendaftar
-            FROM topik_tugas_akhir topik
-            JOIN dosen ON dosen.nipy = topik.nipy_fk_nipy
-            LEFT OUTER JOIN mahasiswa mhs ON mhs.nim=topik.nim_terpilih_fk
-            JOIN topik_bidang ON topik_bidang.id = topik.topik_bidang_fk_id
-            LEFT OUTER JOIN ambil_topik_tugas_akhir ambil ON ambil.topik_tugas_akhir_id = topik.id
-            GROUP BY topik.id
-            ORDER BY dosen.nipy = ' . $nipy . ' DESC');
-
         return view('all-topik', [
-            'allTopikTA' => $allTopikTA
+            'allTopikSkripsi' => $this->model->getAllTopikSkripsi($nipy)
         ]);
     }
 
-    # Query seluruh topik untuk mahasiswa
-    public function allTopikTAMahasiswa()
+    # Menampilkan seluruh topik skripsi buat mahasiswa
+    public function allTopikSkripsiMahasiswa()
     {
         $nim = Session::get('nim');
 
-        $allTopikTAMahasiswa = DB::select('SELECT dosen.nipy, topik.id, topik_bidang.topik_bidang, dosen.nama, topik.judul_topik, mhs.nama_mahasiswa, ambil.nim_fk_nim, topik.deskripsi, topik.status, topik.nim_terpilih_fk, COUNT(ambil.topik_tugas_akhir_id) AS jumlah_pendaftar
-            FROM topik_tugas_akhir topik
-            JOIN dosen ON dosen.nipy = topik.nipy_fk_nipy
-            LEFT OUTER JOIN mahasiswa mhs ON mhs.nim=topik.nim_terpilih_fk
-            JOIN topik_bidang ON topik_bidang.id = topik.topik_bidang_fk_id
-            LEFT OUTER JOIN ambil_topik_tugas_akhir ambil ON ambil.topik_tugas_akhir_id = topik.id
-            GROUP BY topik.id
-            ORDER BY topik.updated_at');
-
-        $isAmbil = DB::select('SELECT ambil.nim_fk_nim 
-            FROM ambil_topik_tugas_akhir ambil
-            WHERE ambil.nim_fk_nim = ' . $nim);
-
         return view('mahasiswa/all-topik', [
-            'allTopikTAMahasiswa' => $allTopikTAMahasiswa,
-            'isAmbil' => $isAmbil
+            'allTopikSkripsiMahasiswa' => $this->model->getAllTopikSkripsiBuatMahasiswa(),
+            'isAmbil' => $this->model->getMahasiswaAmbilTopikSkripsi($nim)
         ]);
     }
 
-    # Query detail satu topik tugas akhir berdasarkan ID
-    # Query list mahasiswa yang ambil/mendaftar topik tugas akhir tersebut
+    # Menampilkan detail topik skripsi tertentu
     public function details($id)
     {
-        $detailsTopikTA = DB::select('SELECT topik_bidang.topik_bidang, dosen.nama, dosen.email_dosen, 
-            mhs.email_mahasiswa, topik.id, topik.judul_topik, topik.deskripsi, topik.status, mhs.nama_mahasiswa, 
-            IF (topik.nim_terpilih_fk = 0, "Belum ada", mhs.nama_mahasiswa) AS mahasiswa_terpilih,
-            IF (COUNT(ambil.topik_tugas_akhir_id) = 0, "Belum ada", COUNT(ambil.topik_tugas_akhir_id)) AS jumlah_pendaftar
-            FROM topik_tugas_akhir topik
-            JOIN dosen ON dosen.nipy = topik.nipy_fk_nipy
-            JOIN topik_bidang ON topik_bidang.id = topik.topik_bidang_fk_id
-            LEFT OUTER JOIN mahasiswa mhs ON mhs.nim=topik.nim_terpilih_fk
-            LEFT OUTER JOIN ambil_topik_tugas_akhir ambil ON ambil.topik_tugas_akhir_id = topik.id
-            WHERE topik.id = ' . $id . '
-            GROUP BY topik.id');
-
-        $listMahasiswa = DB::select('SELECT mhs.nama_mahasiswa, mhs.nim, mhs.email_mahasiswa, topik.judul_topik
-            FROM ambil_topik_tugas_akhir ambil
-            JOIN mahasiswa mhs ON mhs.nim=ambil.nim_fk_nim
-            JOIN topik_tugas_akhir topik ON topik.id=ambil.topik_tugas_akhir_id
-            WHERE topik.id=' . $id);
-
         return view('details_tugas_akhir', [
-            'detailsTopikTA' => $detailsTopikTA,
-            'listMahasiswa' => $listMahasiswa
+            'detailsTopikSkripsi' => $this->model->getDetailTopikSkripsiByID($id),
+            'listMahasiswa' => $this->model->getAllMahasiswaMendaftarTopikSkripsiByID($id)
         ]);
     }
 
     # Menetapkan mahasiswa terpilih
     public function decision(Request $request)
     {
-        $STATUS_TUGAS_AKHIR = 1; // 0 = open, 1 = closed
-        $STATUS_MAHASISWA_OPEN = 0;  // 0 = open, 1 = blocked, 2 = metopen, 3 = skripsi, 4 = lulus
-        $STATUS_MAHASISWA_METOPEN = 2;
-
         if ($request) {
             DB::update('UPDATE topik_tugas_akhir
             SET nim_terpilih_fk = ' . $request->nim . ', 
-                status = ' . $STATUS_TUGAS_AKHIR . ',
+                status = ' . config('constants.status_topik_skripsi.closed') . ',
                 updated_at = ' . $this->curr . ' 
             WHERE id = ' . $request->idTopikTugasAkhir);
 
@@ -129,16 +89,16 @@ class TopikController extends Controller
 
                 DB::update('UPDATE mahasiswa mhs 
                             JOIN ambil_topik_tugas_akhir ambil ON ambil.nim_fk_nim=mhs.nim 
-                            SET mhs.status = ' . $STATUS_MAHASISWA_OPEN . ',
+                            SET mhs.status = ' . config('constants.status_mahasiswa.open') . ',
                                 mhs.updated_at = ' . $this->curr . ' 
                             WHERE mhs.nim <> ' . $request->nim);
                 DB::update('UPDATE mahasiswa mhs 
                             JOIN ambil_topik_tugas_akhir ambil ON ambil.nim_fk_nim=mhs.nim 
-                            SET mhs.status = ' . $STATUS_MAHASISWA_METOPEN . ',
+                            SET mhs.status = ' . config('constants.status_mahasiswa.metopen'). ',
                                 mhs.updated_at = ' . $this->curr . ' 
                             WHERE mhs.nim = ' . $request->nim);
-
-                Mail::to($data->email_mahasiswa)->send(new EmailMahasiswaTerpilih($mailData)); // technical debt: 1. nama penerima, 2. gunakan job queue khusus email
+                
+                //Mail::to($data->email_mahasiswa)->send(new EmailMahasiswaTerpilih($mailData)); // technical debt: 1. nama penerima, 2. gunakan job queue khusus email
             }
 
             return redirect('/Topik/All')->with('success', 'Berhasil menetapkan mahasiswa terpilih.');
@@ -171,20 +131,13 @@ class TopikController extends Controller
         }
     }
 
-    #function tampil data yang akan di update where data yang di pilih
-    #selectOne menambil data 1 array by id
+    # function tampil data yang akan di update where data yang di pilih
+    # selectOne menambil data 1 array by id
     public function updateTopikTA($id)
     {
         $topik = Topik::orderBy('topik_bidang', 'asc')->get();
-
-        $data = DB::selectOne('SELECT topik_bidang.topik_bidang , topik_tugas_akhir.judul_topik , topik_tugas_akhir.deskripsi ,
-        topik_tugas_akhir.topik_bidang_fk_id,topik_tugas_akhir.id 
-        FROM topik_bidang JOIN topik_tugas_akhir
-        ON topik_bidang.id = topik_tugas_akhir.topik_bidang_fk_id 
-        where topik_tugas_akhir.id =' . $id);
-
+        $data = $this->model->getTopikSkripsiByID($id);
         return view('edit_TA', compact('data', 'topik'));
-        // dd($data);
     }
 
     #Function proses menyimpan data yang telah di edit
@@ -210,33 +163,11 @@ class TopikController extends Controller
     public function daftarDetailTopik($id)
     {
         $nim = Session::get('nim');
-        $detailTopik = DB::select('SELECT topik_bidang.topik_bidang, dosen.nama, 
-            topik.id, topik.judul_topik, topik.deskripsi
-            FROM topik_tugas_akhir topik
-            JOIN dosen ON dosen.nipy = topik.nipy_fk_nipy
-            JOIN topik_bidang ON topik_bidang.id = topik.topik_bidang_fk_id
-            LEFT OUTER JOIN mahasiswa mhs ON mhs.nim=topik.nim_terpilih_fk
-            LEFT OUTER JOIN ambil_topik_tugas_akhir ambil ON ambil.topik_tugas_akhir_id = topik.id
-            WHERE topik.id = ' . $id . '
-            GROUP BY topik.id');
-
-        $listMahasiswaByTopik = DB::select('SELECT mhs.nama_mahasiswa, mhs.nim, mhs.email_mahasiswa, topik.judul_topik
-            FROM ambil_topik_tugas_akhir ambil
-            JOIN mahasiswa mhs ON mhs.nim=ambil.nim_fk_nim
-            JOIN topik_tugas_akhir topik ON topik.id=ambil.topik_tugas_akhir_id
-            WHERE topik.id=' . $id);
-
-        $ruleAmbilTopik = DB::select('SELECT mhs.nama_mahasiswa, mhs.nim, mhs.email_mahasiswa, topik.judul_topik, COUNT(ambil.topik_tugas_akhir_id) as jumlah_topik,
-            (SELECT DATEDIFF(CURRENT_DATE(), created_at) AS DateDiff from ambil_topik_tugas_akhir WHERE nim_fk_nim = ' . $nim . ' ORDER by created_at DESC LIMIT 1) as masa_blocking
-            FROM ambil_topik_tugas_akhir ambil
-            JOIN mahasiswa mhs ON mhs.nim=ambil.nim_fk_nim
-            JOIN topik_tugas_akhir topik ON topik.id=ambil.topik_tugas_akhir_id
-            WHERE mhs.nim=' . $nim . ' AND ambil.topik_tugas_akhir_id =' . $id);
 
         return view('mahasiswa/pendaftaran-topik', [
-            'detailTopik' => $detailTopik,
-            'listMahasiswa' => $listMahasiswaByTopik,
-            'ruleTopik' => $ruleAmbilTopik
+            'detailTopik' => $this->model->getDetailTopikSkripsiByID($id),
+            'listMahasiswa' => $this->model->getAllMahasiswaMendaftarTopikSkripsiByID($id),
+            'ruleTopik' => $this->model->ruleAmbilTopik($nim, $id)
         ]);
     }
 

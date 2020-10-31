@@ -42,7 +42,7 @@
       <tr>
         <th>No</th>
         <th>Judul</th>
-        <th>Dosen</th>
+        <th>Dosbing</th>
         <th width="10%">Bidang</th>
         <th>Pendaftar</th>
         <th>Status</th>
@@ -51,11 +51,11 @@
       </tr>
       </thead>
       <tbody>
-        @foreach($allTopikTA as $item)
+        @foreach($allTopikSkripsi as $item)
       <tr>
         <td>{{ $loop->iteration}}</td>
         <td><a href='/Topik/Details/{{ $item->id }}'> {{ $item->judul_topik }} </a></td>
-        <td>{{ $item->nama }}</td>
+        <td><img src="{{ url('adminLTE/dist/img/dosen/'.$item->avatarPembimbing) }}" style="width:40px;height:40px;" class="img-circle elevation-2" alt="{{ $item->nama }}" data-toggle="tooltip" data-placement="top" title="{{ $item->nama }}"></td>
         <td>
           <?php  
             # Konversi default nim terpilih menjadi label {0 = Belum ada, nim = Nama mahasiswa}

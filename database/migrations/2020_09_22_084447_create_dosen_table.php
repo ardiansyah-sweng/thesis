@@ -15,9 +15,11 @@ class CreateDosenTable extends Migration
     {
         Schema::create('dosen', function (Blueprint $table) {
             $table->string('nipy', 3)->primary();
+            $table->string('nidn', 15);
             $table->string('nama', 100);
             $table->string('jabfung', 2);
             $table->string('email_dosen');
+            $table->string('avatar', 15)->default('avatar.png');
             $table->timestamps();
         });
     }
