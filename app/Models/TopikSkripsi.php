@@ -36,11 +36,12 @@ class TopikSkripsi extends Model
             JOIN topik_bidang ON topik_bidang.id = topik.topik_bidang_fk_id
             LEFT OUTER JOIN ambil_topik_tugas_akhir ambil ON ambil.topik_tugas_akhir_id = topik.id
             GROUP BY topik.id
-            ORDER BY topik.created_at');
+            ORDER BY topik.created_at DESC');
     }
 
     /**
      * Mendapatkan detail satu topik skripsi berdasarkan ID tertentu
+     * 
      * Kolom yang dihasilkan:
      * - idTopikSkripsi
      * - topik_bidang
@@ -60,10 +61,10 @@ class TopikSkripsi extends Model
      * - mahasiswa_terpilih
      * - jumlahPendaftarTopikSkripsi
      */
-    public function getDetailTopikSkripsiByID($id)
+    public function getDetailTopikSkripsiByID($idTopikSkripsi)
     {
         return DB::select('SELECT topik_bidang.topik_bidang, dosen.nama AS namaDosbing, dosen.email_dosen AS emailDosbing, topik.nipy_fk_nipy AS nipyDosbing,
-            mhs.email_mahasiswa AS emailMahasiswaTerpilih, topik.id AS idTopikSkripsi, topik.judul_topik AS judulTopikSkripsi, topik.deskripsi AS deskripsiTopikSkripsi, topik.status AS statusTopikSkripsi, mhs.nama_mahasiswa AS namaMahasiswaTerpilih, penguji1.nama AS namaPenguji1, penguji2.nama AS namaPenguji2, dosen.avatar AS avatarDosbing, penguji1.avatar AS avatarPenguji1, penguji2.avatar AS avatarPenguji2,
+            mhs.email_mahasiswa AS emailMahasiswaTerpilih, topik.id AS idTopikSkripsi, topik.judul_topik AS judulTopikSkripsi, topik.deskripsi AS deskripsiTopikSkripsi, topik.status AS statusTopikSkripsi, mhs.nama_mahasiswa AS namaMahasiswaTerpilih, penguji1.nama AS namaPenguji1, penguji2.nama AS namaPenguji2, dosen.avatar AS avatarDosbing, penguji1.avatar AS avatarPenguji1, penguji2.avatar AS avatarPenguji2, topik.rekomendasi_penguji, 
             IF (topik.nim_terpilih_fk = 0, "Belum ada", mhs.nama_mahasiswa) AS mahasiswa_terpilih,
             IF (COUNT(ambil.topik_tugas_akhir_id) = 0, "Belum ada", COUNT(ambil.topik_tugas_akhir_id)) AS jumlahPendaftarTopikSkripsi
             FROM topik_tugas_akhir topik
@@ -74,9 +75,16 @@ class TopikSkripsi extends Model
             LEFT OUTER JOIN dosen penguji2 ON penguji2.nipy = ujian.nipyPenguji2
             LEFT OUTER JOIN mahasiswa mhs ON mhs.nim=topik.nim_terpilih_fk
             LEFT OUTER JOIN ambil_topik_tugas_akhir ambil ON ambil.topik_tugas_akhir_id = topik.id
-            WHERE topik.id = ' . $id . '
+            WHERE topik.id = ' . $idTopikSkripsi . '
             GROUP BY topik.id');
-    }    
+    }
+    
+    public function getRekomendasiPengujiByID($idTopikSkripsi)
+    {
+        return DB::select('SELECT rekomendasi_penguji 
+            FROM topik_tugas_akhir
+            WHERE id = '.$idTopikSkripsi);
+    }
 
     # Get mahasiswa yang mengambil/mendaftar topik skripsi
     public function getMahasiswaAmbilTopikSkripsi($nim)

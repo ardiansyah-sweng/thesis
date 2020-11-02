@@ -60,16 +60,17 @@
                         <div class="card-footer">
                             <!-- @foreach ($ruleTopik as $item) -->
                             @foreach($listMahasiswa as $mhs)
-                            @if ($detail->statusTopikSkripsi == config('constants.status_topik_skripsi.closed') OR Session::get('nim') == $mhs->nimMahasiswaMendaftarTopikSkripsi)
-                            <button type="submit" class="btn btn-primary mr-3" data-toggle="modal" data-target="#exampleModal" data-toggle="tooltip" data-placement="top" title="Topik skripsi sudah ditutup" disabled>Mendaftar topik ini</button>
+                            <!-- @if ($detail->statusTopikSkripsi == config('constants.status_topik_skripsi.closed') OR Session::get('nim') == $mhs->nimMahasiswaMendaftarTopikSkripsi)
+                            <button type="submit" class="btn btn-primary mr-3" data-toggle="modal" data-target="#exampleModal" data-toggle="tooltip" data-placement="top" title="Topik skripsi sudah ditutup" >Mendaftar topik ini</button>
                             @elseif ($detail->statusTopikSkripsi == config('constants.status_topik_skripsi.closed'))
-                            <button type="submit" class="btn btn-primary mr-3" data-toggle="modal" data-target="#exampleModal" data-toggle="tooltip" data-placement="top" title="Topik skripsi sudah ditutup" disabled>Mendaftar topik ini</button>
-                            @else
-                            <button type="submit" class="btn btn-primary mr-3" data-toggle="modal" data-target="#exampleModal">Mendaftar topik ini</button>
+                            <button type="submit" class="btn btn-primary mr-3" data-toggle="modal" data-target="#exampleModal" data-toggle="tooltip" data-placement="top" title="Topik skripsi sudah ditutup" >Mendaftar topik ini</button>
+                            @else -->
+                            
 
-                            @endif
+                            <!-- @endif -->
                             @endforeach
                             <!-- @endforeach -->
+                            <button type="submit" class="btn btn-primary mr-3" data-toggle="modal" data-target="#exampleModal">Mendaftar topik ini</button>
                             <a href="{{ route('allTopikTAMahasiswa') }}" class="btn btn-secondary">Batal</a>
                         </div>
                         @empty
