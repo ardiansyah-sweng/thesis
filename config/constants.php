@@ -35,4 +35,20 @@ return array(
      * Jam awal dan akhir kerja tiap hari
      */
     'jam_kerja' => array('awal' => '07:00:00', 'akhir' => '17:00:00'),
+
+    /**
+     * Jenis ujian 
+     */
+    'jenis_ujian' => array('seminar_proposal' => 0, 'pendadaran' => 1),
+
+    /**
+     * Durasi ujian pendadaran dalam detik
+     */
+    'durasi_pendadaran' => 7200,
+
+    /**
+     * Lama seorang mahasiswa diblock dalam hari, sehingga tidak bisa memilih/mendaftar suatu topik skripsi
+     */
+    'blocking_time' => 3,
+
 );

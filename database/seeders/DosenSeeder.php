@@ -129,7 +129,7 @@ class DosenSeeder extends Seeder
             'nidn' => '0509038402',
             'nama' => 'Guntur Maulana Zamroni, B.Sc., M.Kom.',
             'jabfung' => 'AA',
-            'email_dosen' => 'guntur.zamroni[at]tif.uad.ac.id',
+            'email_dosen' => 'guntur.zamroni@tif.uad.ac.id',
             'avatar' => 'guntur.jpeg'
         ]);
 
@@ -138,7 +138,7 @@ class DosenSeeder extends Seeder
             'nidn' => '0509048901',
             'nama' => 'Nuril Anwar, S.T.,M.Kom.',
             'jabfung' => 'AA',
-            'email_dosen' => 'nuril.anwar[at]tif.uad.ac.id',
+            'email_dosen' => 'nuril.anwar@tif.uad.ac.id',
             'avatar' => 'nuril.jpeg'
         ]);
 
@@ -237,7 +237,7 @@ class DosenSeeder extends Seeder
             'nidn' => '0520098702',
             'nama' => 'Ika Arfiani, S.T., M.Cs.',
             'jabfung' => 'AA',
-            'email_dosen' => 'ika.arfiani[at]tif.uad.ac.id',
+            'email_dosen' => 'ika.arfiani@tif.uad.ac.id',
             'avatar' => 'ika.jpg'
         ]);
 
@@ -246,7 +246,7 @@ class DosenSeeder extends Seeder
             'nidn' => '0521127303',
             'nama' => 'Taufiq Ismail, S.T., M.Cs.',
             'jabfung' => 'AA',
-            'email_dosen' => 'taufiq[at]tif.uad.ac.id',
+            'email_dosen' => 'taufiq@tif.uad.ac.id',
             'avatar' => 'taufik.jpg'
         ]);
 
@@ -255,7 +255,7 @@ class DosenSeeder extends Seeder
             'nidn' => '0521128502',
             'nama' => 'Dewi Pramudi Ismi, S.T., M.CompSc',
             'jabfung' => 'AA',
-            'email_dosen' => 'dewi.ismi[at]tif.uad.ac.id',
+            'email_dosen' => 'dewi.ismi@tif.uad.ac.id',
             'avatar' => 'ismi.jpg'
         ]);
 
@@ -264,7 +264,7 @@ class DosenSeeder extends Seeder
             'nidn' => '0522018302',
             'nama' => 'Anna Hendri Soleliza Jones, S. Kom, M.Cs.',
             'jabfung' => 'AA',
-            'email_dosen' => 'annahendri[at]tif.uad.ac.id',
+            'email_dosen' => 'annahendri@tif.uad.ac.id',
             'avatar' => 'anna.jpg'
         ]);
 
@@ -273,7 +273,7 @@ class DosenSeeder extends Seeder
             'nidn' => '0523068801',
             'nama' => 'Supriyanto, S.T., M.T.',
             'jabfung' => 'AA',
-            'email_dosen' => 'supriyanto[at]tif.uad.ac.id',
+            'email_dosen' => 'supriyanto@tif.uad.ac.id',
             'avatar' => 'supri.jpg'
         ]);
 
@@ -291,7 +291,7 @@ class DosenSeeder extends Seeder
             'nidn' => '0524118801',
             'nama' => 'Adhi Prahara, S.Si., M.Cs.',
             'jabfung' => 'AA',
-            'email_dosen' => 'adhi.prahara[at]tif.uad.ac.id',
+            'email_dosen' => 'adhi.prahara@tif.uad.ac.id',
             'avatar' => 'adhi.jpg'
         ]);
 
@@ -300,7 +300,7 @@ class DosenSeeder extends Seeder
             'nidn' => '0526018502',
             'nama' => 'Arfiani Nur Khusna, S.T., M.Kom.',
             'jabfung' => 'L',
-            'email_dosen' => 'arfiani.khusna[at]tif.uad.ac.id',
+            'email_dosen' => 'arfiani.khusna@tif.uad.ac.id',
             'avatar' => 'arfiani.jpg'
         ]);
 
@@ -309,7 +309,7 @@ class DosenSeeder extends Seeder
             'nidn' => '0528058401',
             'nama' => 'Jefree Fahana, ST., M.Kom.',
             'jabfung' => 'AA',
-            'email_dosen' => 'jefree.fahana[at]tif.uad.ac.id',
+            'email_dosen' => 'jefree.fahana@tif.uad.ac.id',
             'avatar' => 'jefree.jpg'
         ]);
 
@@ -318,7 +318,7 @@ class DosenSeeder extends Seeder
             'nidn' => '0529056601',
             'nama' => 'Dr. Ir. Ardi Pujiyanta, M.T.',
             'jabfung' => 'L',
-            'email_dosen' => 'ardipujiyanta[at]tif.uad.ac.id',
+            'email_dosen' => 'ardipujiyanta@tif.uad.ac.id',
             'avatar' => 'ardi.jpg'
         ]);
 
@@ -327,7 +327,7 @@ class DosenSeeder extends Seeder
             'nidn' => '0530077601',
             'nama' => 'Dewi Soyusiawati, S.T., M.T.',
             'jabfung' => 'L',
-            'email_dosen' => 'dewi.soyusiawati[at]tif.uad.ac.id',
+            'email_dosen' => 'dewi.soyusiawati@tif.uad.ac.id',
             'avatar' => 'dewi.jpg'
         ]);
 
@@ -336,7 +336,7 @@ class DosenSeeder extends Seeder
             'nidn' => '0515069001',
             'nama' => 'Miftahurrahma Rosyda, S.Kom, M.Eng.',
             'jabfung' => 'AA',
-            'email_dosen' => 'miftahurrahma.rosyda[at]tif.uad.ac.id',
+            'email_dosen' => 'miftahurrahma.rosyda@tif.uad.ac.id',
             'avatar' => 'miftah.jpeg'
         ]);
 
@@ -345,7 +345,7 @@ class DosenSeeder extends Seeder
             'nidn' => '0506079301',
             'nama' => 'Faisal Fajri Rahani S.Si., M.Cs',
             'jabfung' => 'AA',
-            'email_dosen' => 'faisal.fajri[at]tif.uad.ac.id',
+            'email_dosen' => 'faisal.fajri@tif.uad.ac.id',
             'avatar' => 'faisal.jpeg'
         ]);
 
@@ -354,7 +354,7 @@ class DosenSeeder extends Seeder
             'nidn' => '0514079201',
             'nama' => 'Dinan Yulianto, S.T., M.Eng',
             'jabfung' => 'AA',
-            'email_dosen' => 'dinan.yulianto[at]tif.uad.ac.id',
+            'email_dosen' => 'dinan.yulianto@tif.uad.ac.id',
             'avatar' => 'dinan.jpeg'
         ]);
 
@@ -363,7 +363,7 @@ class DosenSeeder extends Seeder
             'nidn' => '0530077701',
             'nama' => 'Sri Handayaningsih, S.T., M.T.',
             'jabfung' => 'AA',
-            'email_dosen' => 'sriningsih[at]is.uad.ac.id',
+            'email_dosen' => 'sriningsih@is.uad.ac.id',
             'avatar' => 'nining.jpg'
         ]);
 
@@ -372,7 +372,7 @@ class DosenSeeder extends Seeder
             'nidn' => '0516017701',
             'nama' => 'Muhammad Aziz, S.T., M.Cs',
             'jabfung' => 'AA',
-            'email_dosen' => 'moch.aziz[at]tif.uad.ac.id',
+            'email_dosen' => 'moch.aziz@tif.uad.ac.id',
             'avatar' => 'aziz.jpg'
         ]);
     }

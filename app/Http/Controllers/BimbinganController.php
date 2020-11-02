@@ -18,7 +18,7 @@ class BimbinganController extends Controller
     public function index()
     {
         $nipy = Session::get('nipy');
-
+        //dd($this->model->getAllMahasiswaBimbingan($nipy));
         return view('bimbinganku', [
             'bimbinganku' => $this->model->getAllMahasiswaBimbingan($nipy)
         ]);

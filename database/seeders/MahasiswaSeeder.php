@@ -482,5 +482,12 @@ class MahasiswaSeeder extends Seeder
             'email_mahasiswa' => 'sawungbgz@gmail.com',
             'status' => 4
         ]);
+
+        DB::table('mahasiswa')->insert([
+            'nim' => '1600018001',
+            'nama_mahasiswa' => 'Muhammad Riyadhi',
+            'email_mahasiswa' => 'muhammad1600018001@webmail.uad.ac.id',
+            'status' => config('constants.status_mahasiswa.metopen')
+        ]);
     }
 }
