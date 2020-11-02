@@ -49,6 +49,16 @@ return array(
     /**
      * Lama seorang mahasiswa diblock dalam hari, sehingga tidak bisa memilih/mendaftar suatu topik skripsi
      */
-    'blocking_time' => 3,
+    'blocking_time' => 5,
+
+    /**
+     * Jumlah penguji
+     */
+    'jumlah_penguji' => 2,
+
+    /**
+     * Susunan penguji sudah fixed atau belum
+     */
+    'isFixed' => 1,
 
 );

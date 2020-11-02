@@ -40,10 +40,11 @@ Route::post('/Jadwal/Details/', [JadwalController::class, 'details']);
 Route::get('/Topik/All', [TopikController::class, 'allTopikSkripsi'])->name('allTopikSkripsi'); // oke
 Route::get('/Topik/Details/{id}/{dosenMahasiswa}', [TopikController::class, 'detailTopikSkripsiByID'])->name('detailsTopikSkripsi'); // oke
 Route::post('/Topik/PendaftaranTopik/',[TopikController::class, 'saveTopikMahasiswa']);
+Route::get('/Topik/Add', [TopikController::class, 'addTopikSkripsi']);
 
 Route::post('/Topik', [TopikController::class, 'store']);
 Route::post('/Topik/Decision', [TopikController::class, 'decision']);
-Route::get('/Topik/Add', [TopikController::class, 'index']);
+
 
 Route::get('/Topik/All/Mahasiswa', [TopikController::class, 'allTopikSkripsiMahasiswa'])->name('allTopikTAMahasiswa');
 

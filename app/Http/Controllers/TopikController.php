@@ -6,6 +6,7 @@ use App\Mail\EmailMahasiswaTerpilih;
 use Illuminate\Support\Facades\Mail;
 use App\Models\Topik;
 use App\Models\TopikSkripsi;
+use App\Models\Dosen;
 use App\Models\AmbilTopikTugasAkhir;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Session;
@@ -19,6 +20,12 @@ class TopikController extends Controller
     public function __construct(TopikSkripsi $model)
     {
         $this->model = $model;
+    }
+
+    public function addTopikSkripsi()
+    {
+        $topik = Topik::orderBy('topik_bidang', 'asc')->get();
+        return view('topik', compact('topik'));
     }
 
     /**
@@ -43,13 +50,14 @@ class TopikController extends Controller
                 }
             }
         }
+
         if (!empty($this->model->getMahasiswaAmbilTopikSkripsi($nim))) {
             foreach ($this->model->getMahasiswaAmbilTopikSkripsi($nim) as $value) {
                 $ambilTopikSkripsi['idTopikSkripsi'] = $value->idTopikSkripsi;
                 $ambilTopikSkripsi['sisaBlockingDay'] = $value->sisaBlockingDay;
             }
         }
-        //dd($this->model->getAllTopikSkripsi());
+
         return view('mahasiswa/all-topik', [
             'allTopikSkripsiMahasiswa' => $this->model->getAllTopikSkripsi(),
             'isAmbil' => $ambilTopikSkripsi
@@ -79,10 +87,34 @@ class TopikController extends Controller
         }
     }
 
+    /**
+     * Mengambil n terbaik rekomendasi penguji
+     */
+    public function getDosenPenguji($idTopikSkripsi)
+    {
+        $data = $this->model->getDetailTopikSkripsiByID($idTopikSkripsi);
+
+        foreach ($data as $indeks => $val) {
+            $opt1 = json_decode(json_encode($data[$indeks]));
+            $hasil =  json_decode($opt1->{'rekomendasi_penguji'}); //Refaktor dengan memfilter seluruh NIDN agar semuanya unik. karena kalau tidak maka ada peluang memberikan penguji 1 dan 2 yang sama.
+            
+            foreach ($hasil as $subkey => $subval) {
+                if ($subkey <= 1) {
+                    $temp[] = DB::table('dosen')->where('nidn', $subval->pembimbing)->value('nipy');
+                }
+            }
+        }
+        //Refaktor tabel ujian dengan memberi kolom baru yang menunjukkan bahwa pengujinya baru sebatas rekomendasi atau sudah fixed
+        DB::table('ujian')->insert(
+            ['idTopikSkripsiFK' => $idTopikSkripsi, 'nipyPenguji1' => $temp[0], 'nipyPenguji2' => $temp[1]]
+        );
+    }
+
     # Menetapkan mahasiswa terpilih
     public function decision(Request $request)
     {
         if ($request) {
+            $this->getDosenPenguji($request->inputHiddenIDTopikTugasAkhir);
             DB::update('UPDATE topik_tugas_akhir
             SET nim_terpilih_fk = ' . $request->radioNIM . ', 
                 status = ' . config('constants.status_topik_skripsi.closed') . ',
@@ -130,6 +162,72 @@ class TopikController extends Controller
         }
     }
 
+    function getNamaDosen($nidn)
+    {
+        $nama = DB::table('dosen')->where('nidn', $nidn)->value('nama');
+        return $nama;
+    }
+
+    function getNIDNDosbing()
+    {
+        return DB::table('dosen')->where('nipy', Session::get('nipy'))->value('nidn');
+    }
+
+    /**
+     * Memfilter nama rekomendasi tidak sama dengan nama Dosbing
+     */
+    public function buangNamaDosbing($nidnDosbing, $nidnRekomendasi)
+    {
+        if ($nidnDosbing != $nidnRekomendasi) {
+            return 1;
+        }
+        if ($nidnDosbing == $nidnRekomendasi) {
+            return 0;
+        }
+    }
+
+    /**
+     * Memproses rekomendasi penguji 1 dan 2
+     */
+    public function rekomendasiPengujiSkripsi($judulTopikSkripsi)
+    {
+        $nidnDosbing = $this->getNIDNDosbing();
+
+        $client = new \GuzzleHttp\Client();
+        $result = $client->post('http://localhost:8800/inverted', [
+            'form_params' => [
+                'query' => $judulTopikSkripsi,
+            ]
+        ]);
+
+        $body = json_decode($result->getBody()->getContents(), true);
+        unset($body['error']);
+        unset($body['message']['timeExecution']);
+
+        foreach ($body as $key => $val) {
+            $x[] = json_decode(json_encode($val), true);
+        }
+
+        foreach ($x as $x => $y) {
+            foreach ($y as $z) {
+                rsort($z);
+                foreach ($z as $key => $a) {
+                    //echo $a['pembimbing'] .' == '. $nidnDosbing.'<br>';
+                    if ($a['pembimbing'] != $nidnDosbing) {
+                        $rekomendasi[$key]['cosim'] = round($a['cosim'], 3);
+                        $rekomendasi[$key]['pembimbing'] = $a['pembimbing'];
+                        $rekomendasi[$key]['judul'] = $a['judul'];
+                    }
+                }
+            }
+        }
+
+        $data = json_encode($rekomendasi, TRUE);
+
+        return $data;
+    }
+
+
     # Menambah topik tugas akhir baru
     public function store(Request $request)
     {
@@ -146,9 +244,10 @@ class TopikController extends Controller
             $store->judul_topik = $request->judul;
             $store->deskripsi = $request->deskripsi;
             $store->nim_terpilih_fk;
+            $store->rekomendasi_penguji = $this->rekomendasiPengujiSkripsi($request->judul);
             $store->save();
 
-            return redirect('/Topik/All')->with('success', 'Topik tugas akhir berhasil di tambahkan');;
+            return redirect('/Topik/All')->with('success', 'Topik tugas akhir berhasil di tambahkan');
         } else {
             return redirect('/Topik/Add');
         }

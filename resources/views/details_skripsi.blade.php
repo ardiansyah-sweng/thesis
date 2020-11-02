@@ -120,15 +120,15 @@
             @endforeach
                 <ol>
                 @forelse ($listMahasiswa as $item)
-                        <div class="custom-control custom-radio">
-                          <input class="custom-control-input" type="radio" id="radioNIM" name="radioNIM" value="{{ $item->nimMahasiswaMendaftarTopikSkripsi }}">
-                          <label for="customRadio1" class="custom-control-label">{{ $item->namaMahasiswaMendaftarTopikSkripsi }}</label>
+                        <div class="form-check">
+                          <input class="form-check-input" type="radio" name="radioNIM" value="{{ $item->nimMahasiswaMendaftarTopikSkripsi }}">
+                          <label class="form-check-label">{{ $item->namaMahasiswaMendaftarTopikSkripsi }}</label>
                         </div>
                     {{ Form::hidden('inputHiddenIDTopikTugasAkhir', $detail->idTopikSkripsi) }}
-                    </form>
                 @empty
                     Belum ada pendaftar              
                 @endforelse
+                </form>
                 </ol>
             </div>
         </div>
