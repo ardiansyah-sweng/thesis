@@ -18,11 +18,13 @@ class DashboardController extends Controller
     {
         $nipy = Session::get('nipy');
 
+        $persentaseTepatWaktu = $this->model->persentaseBimbinganTepatWaktu($nipy) * 100;
+
         return view('index', [
             'jumlahBimbinganSkripsiMetopen' => $this->model->getJumlahBimbinganAktif($nipy),
             'rerataLamaSkripsi' => $this->model->rerataLamaSkripsi($nipy),
             'jumlahBimbinganSepanjangMasa' => $this->model->getJumlahAllBimbingan($nipy),
-            'persentaseBimbinganTepatWaktu' => $this->model->persentaseBimbinganTepatWaktu($nipy)
+            'persentaseBimbinganTepatWaktu' => $persentaseTepatWaktu
         ]);
     }
 

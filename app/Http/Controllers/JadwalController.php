@@ -11,9 +11,6 @@ use DateTime;
 
 class JadwalController extends Controller
 {
-    public $AWAL_JAM_KERJA = '07:00:00';
-    public $AKHIR_JAM_KERJA = '17:00:00';
-    public $LAMA_SIDANG = 7200; //detik
     public $curr = 'CURRENT_TIMESTAMP';
 
     /**
@@ -72,24 +69,25 @@ class JadwalController extends Controller
 
     function awalAkhirJamKerja($tanggalDalamString, $awalAkhir)
     {
+        
         if ($awalAkhir == 'awal') {
-            return strtotime($tanggalDalamString . ' ' . $this->AWAL_JAM_KERJA);
+            return strtotime($tanggalDalamString . ' ' . config('constants.jam_kerja.awal'));
         }
         if ($awalAkhir == 'akhir') {
-            return strtotime($tanggalDalamString . ' ' . $this->AKHIR_JAM_KERJA);
+            return strtotime($tanggalDalamString . ' ' . config('constants.jam_kerja.akhir'));
         }
     }
 
     function selisihFullDay($tanggal)
     {
-        return strtotime($tanggal . ' ' . $this->AKHIR_JAM_KERJA) - strtotime($tanggal . ' ' . $this->AWAL_JAM_KERJA);
+        return strtotime($tanggal . ' ' . config('constants.jam_kerja.akhir')) - strtotime($tanggal . ' ' . config('constants.jam_kerja.awal'));
     }
 
     function cariSlotKosong($allJadwal, $tanggal)
     {
         if ($allJadwal == "fullday") {
             $ret[0]['selisih'] = $this->selisihFullDay($tanggal);
-            $ret[0]['mulai'] = $tanggal . ' ' . $this->AWAL_JAM_KERJA;
+            $ret[0]['mulai'] = $tanggal . ' ' . config('constants.jam_kerja.awal');
         } else {
             //print_r($allJadwal);
             //echo '<p>';
@@ -104,15 +102,15 @@ class JadwalController extends Controller
             $awal = strtotime($awalJadwal) - $awalJamKerjaInteger;
             $akhir = $akhirJamKerjaInteger - strtotime($akhirJadwal);
 
-            if ($this->LAMA_SIDANG <= $awal) {
+            if (config('constants.durasi_pendadaran') <= $awal) {
                 $ret[0]['selisih'] = $awal;
-                $ret[0]['mulai'] = $tanggal . ' ' . $this->AWAL_JAM_KERJA;
+                $ret[0]['mulai'] = $tanggal . ' ' . config('constants.jam_kerja.awal');
             }
             //echo '<p>';
 
             for ($i = 0; $i <= count($allJadwal) - 2; $i++) {
                 $selisih = strtotime($allJadwal[$i + 1]['mulai']) - strtotime($allJadwal[$i]['selesai']);
-                if ($this->LAMA_SIDANG <= $selisih) {
+                if (config('constants.durasi_pendadaran') <= $selisih) {
                     $ret[$i + 1]['selisih'] = $selisih;
                     $ret[$i + 1]['mulai'] = $allJadwal[$i]['selesai'];
                 }
@@ -124,7 +122,7 @@ class JadwalController extends Controller
 
         foreach ($ret as $key => $val) {
             //echo $val['selisih'].'<br>';
-            if ($this->LAMA_SIDANG <= $val['selisih']) {
+            if (config('constants.durasi_pendadaran') <= $val['selisih']) {
                 //echo $val['selisih'] . '<br>';
                 $ret[$key]['selisih'] = $val['selisih'];
                 $ret[$key]['mulai'] = $val['mulai'];
@@ -166,10 +164,10 @@ class JadwalController extends Controller
 
             $hari = $this->getNamaHari($tanggalInkremen);
             if ($tanggal == $tanggalInkremen) {
-                //echo '<b><font color="blue">' . $hari . ' ' . $tanggalInkremen . '</font></b>';
+                echo '<b><font color="blue">' . $hari . ' ' . $tanggalInkremen . '</font></b>';
             }
             if ($tanggal != $tanggalInkremen) {
-                //echo $hari . ' ' . $tanggalInkremen;
+                echo $hari . ' ' . $tanggalInkremen;
             }
             if ($hari == 'Sun') {
                 $hasil[0]['selisih'] = 0;
@@ -184,7 +182,7 @@ class JadwalController extends Controller
                 }
                 if (!empty($kosong)) {
                     foreach ($kosong as $key => $val) {
-                        if ($val['selisih'] < $this->LAMA_SIDANG) {
+                        if ($val['selisih'] < config('constants.durasi_pendadaran')) {
                             unset($kosong[$key]);
                         }
                         if ($val['selisih'] == 0 && $val['mulai'] != 'libur') {
@@ -193,7 +191,7 @@ class JadwalController extends Controller
                     }
                 }
                 if (empty($kosong)) {
-                    //echo ' penuh';
+                    echo ' penuh';
                 }
                 $hasil = $kosong;
                 //echo '<br>';
@@ -201,18 +199,18 @@ class JadwalController extends Controller
 
             foreach ($hasil as $key => $val) {
                 if ($hari == "Sun" && $val['mulai'] == 'libur') {
-                    //echo " <font color='red'>Libur</font><br>";
+                    echo " <font color='red'>Libur</font><br>";
                 }
-                if ($val['selisih'] >= $this->LAMA_SIDANG) {
-                    //echo '<font color="green">' . substr($val['mulai'], 10) . '</font><br>';
+                if ($val['selisih'] >= config('constants.durasi_pendadaran')) {
+                    echo '<font color="green">' . substr($val['mulai'], 10) . '</font><br>';
                 }
             }
-            //echo '<p>';
+            echo '<p>';
         }
 
         // Bagian detail sesuai tanggal yang dipilih
         $hari = $this->getNamaHari($tanggal);
-        //echo '<font color="blue">' . $hari . ' ' . $tanggal . '</font><br>';
+        echo '<font color="blue">' . $hari . ' ' . $tanggal . '</font><br>';
 
         if ($hari == 'Sun') {
             $hasil[0]['selisih'] = 0;
@@ -227,7 +225,7 @@ class JadwalController extends Controller
             }
             if (!empty($kosong)) {
                 foreach ($kosong as $key => $val) {
-                    if ($val['selisih'] < $this->LAMA_SIDANG) {
+                    if ($val['selisih'] < config('constants.durasi_pendadaran')) {
                         unset($kosong[$key]);
                     }
                     if ($val['selisih'] == 0 && $val['mulai'] != 'libur') {
@@ -236,7 +234,7 @@ class JadwalController extends Controller
                 }
             }
             if (empty($kosong)) {
-                //echo ' penuh';
+                echo ' penuh';
             }
             $hasil = $kosong;
             //echo '<br>';
@@ -244,10 +242,10 @@ class JadwalController extends Controller
         //print_r($hasil);
         foreach ($hasil as $key => $val) {
             if ($hari == "Sun" && $val['mulai'] == 'libur') {
-                //echo " <font color='red'>Libur</font><br>";
+                echo " <font color='red'>Libur</font><br>";
             }
-            if ($val['selisih'] >= $this->LAMA_SIDANG) {
-                //echo '<font color="green">' . substr($val['mulai'], 10) . '</font><br>';
+            if ($val['selisih'] >= config('constants.durasi_pendadaran')) {
+                echo '<font color="green">' . substr($val['mulai'], 10) . '</font><br>';
             }
         }
 

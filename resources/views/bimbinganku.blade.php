@@ -69,37 +69,43 @@
 
             <td> {{ $item->periode }} </a></td>
             <?php
-            if ($item->statusSkripsiMahasiswa == "lulus" && $item->lamaSkripsiHinggaLulusDalamBulan > config('constants.lama_skripsi_ideal')) {
+            $lulus = config('constants.status_mahasiswa.lulus');
+            $metopen = config('constants.status_mahasiswa.metopen');
+            $skripsi = config('constants.status_mahasiswa.skripsi');
+            $open = config('constants.status_mahasiswa.open');
+            $blocked = config('constants.status_mahasiswa.blocked');
+
+            if ($item->statusSkripsiMahasiswa == $lulus && $item->lamaSkripsiHinggaLulusDalamBulan > config('constants.lama_skripsi_ideal')) {
               echo "<td><span class='badge badge-danger'>$item->lamaSkripsiHinggaLulusDalamBulan bulan</td>";
             }
-            if ($item->statusSkripsiMahasiswa == "lulus" && $item->lamaSkripsiHinggaLulusDalamBulan <= config('constants.lama_skripsi_ideal')) {
+            if ($item->statusSkripsiMahasiswa == $lulus && $item->lamaSkripsiHinggaLulusDalamBulan <= config('constants.lama_skripsi_ideal')) {
               echo "<td><span class='badge badge-success'>$item->lamaSkripsiHinggaLulusDalamBulan bulan</td>";
             }
-            if ($item->statusSkripsiMahasiswa == "skripsi" && $item->lamaProsesSedangSkripsiDalamBulan <= config('constants.lama_skripsi_ideal')) {
+            if ($item->statusSkripsiMahasiswa == $skripsi && $item->lamaProsesSedangSkripsiDalamBulan <= config('constants.lama_skripsi_ideal')) {
               echo "<td><span class='badge badge-primary'>$item->lamaProsesSedangSkripsiDalamBulan bulan</td>";
             }
-            if ($item->statusSkripsiMahasiswa == "skripsi" && $item->lamaProsesSedangSkripsiDalamBulan > config('constants.lama_skripsi_ideal')) {
+            if ($item->statusSkripsiMahasiswa == $skripsi && $item->lamaProsesSedangSkripsiDalamBulan > config('constants.lama_skripsi_ideal')) {
               echo "<td><span class='badge badge-danger'>$item->lamaProsesSedangSkripsiDalamBulan bulan</td>";
             }
-            if ($item->statusSkripsiMahasiswa == "metopen") {
+            if ($item->statusSkripsiMahasiswa == $metopen) {
               echo "<td><span class='badge badge-secondary'>belum dihitung</td>";
             }
+
+            if ($item->statusSkripsiMahasiswa == $metopen) {
+              echo '<td><span class="badge badge-warning">metopen</span> </td>';
+            }
+            if ($item->statusSkripsiMahasiswa == $skripsi) {
+              echo '<form action="/jadwal" method="post">';
+              echo '<td><span class="badge badge-primary">Skripsi</span> <button type="submit" class="btn btn-primary btn-sm">Pendadaran</button></td>';
+            }
+            if ($item->statusSkripsiMahasiswa == $lulus) {
+              echo "<td><span class='badge badge-success'>Lulus</span></td>";
+            }
+            if ($item->statusSkripsiMahasiswa == $open) {
+              echo "<td><span class='badge badge-info'>Open</span></td>";
+            }
             ?>
-
-            <?php
-            if ($item->statusSkripsiMahasiswa == "metopen") {
-              echo "<td><span class='badge badge-warning'>";
-            }
-            if ($item->statusSkripsiMahasiswa == "skripsi") {
-              echo "<td><span class='badge badge-primary'>";
-            }
-            if ($item->statusSkripsiMahasiswa == "lulus") {
-              echo "<td><span class='badge badge-success'>";
-            }
-            ?>
-            {{ $item->statusSkripsiMahasiswa }} </span></td>
-
-
+           
           </tr>
           @endforeach
         </tbody>

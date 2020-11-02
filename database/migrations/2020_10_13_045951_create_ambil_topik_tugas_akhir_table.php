@@ -31,6 +31,7 @@ class CreateAmbilTopikTugasAkhirTable extends Migration
                 ->references('id')
                 ->on('topik_tugas_akhir');
 
+            $table->tinyInteger('blocking_time');
             $table->timestamps();
         });
     }

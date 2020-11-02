@@ -49,7 +49,7 @@
           <!-- small box -->
           <div class="small-box bg-success" data-toggle="tooltip" data-placement="top" title="Lama skripsi ideal adalah maksimal {{ config('constants.lama_skripsi_ideal') }} bulan">
             <div class="inner">
-              <h3>{{ number_format($persentaseBimbinganTepatWaktu * 100, 1) }}<sup style="font-size: 20px">%</sup></h3>
+              <h3>{{ number_format($persentaseBimbinganTepatWaktu, 1) }}<sup style="font-size: 20px">%</sup></h3>
               <p>Mahasiswa Skripsi Tepat Waktu</p>
             </div>
             <div class="icon">

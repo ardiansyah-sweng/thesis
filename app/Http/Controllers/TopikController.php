@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use App\Mail\EmailMahasiswaTerpilih;
 use Illuminate\Support\Facades\Mail;
 use App\Models\Topik;
-use App\Models\TopikTugasAkhir;
+use App\Models\TopikSkripsi;
 use App\Models\AmbilTopikTugasAkhir;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Session;
@@ -16,25 +16,18 @@ class TopikController extends Controller
 {
     public $curr = 'CURRENT_TIMESTAMP';
 
-    public function __construct(TopikTugasAkhir $model)
+    public function __construct(TopikSkripsi $model)
     {
         $this->model = $model;
     }
 
-    public function index()
-    {
-        $topik = Topik::orderBy('topik_bidang', 'asc')->get();
-        return view('topik', compact('topik'));
-    }
-
-    # Menampilkan seluruh topik skripsi buat Dosen
-    public function all()
+    /**
+     * Menampilkan seluruh topik skripsi
+     */
+    public function allTopikSkripsi()
     {
         $nipy = Session::get('nipy');
-
-        return view('all-topik', [
-            'allTopikSkripsi' => $this->model->getAllTopikSkripsi($nipy)
-        ]);
+        return view('all-topik', ['allTopikSkripsi' => $this->model->getAllTopikSkripsi()]);
     }
 
     # Menampilkan seluruh topik skripsi buat mahasiswa
@@ -42,19 +35,48 @@ class TopikController extends Controller
     {
         $nim = Session::get('nim');
 
+        if (empty($this->model->getMahasiswaAmbilTopikSkripsi($nim))) {
+            $ambilTopikSkripsi['idTopikSkripsi'] = 0;
+            foreach ($this->model->getAllTopikSkripsi() as $value) {
+                if ($value->sisaBlockingDay) {
+                    $ambilTopikSkripsi['sisaBlockingDay'] = $value->sisaBlockingDay;
+                }
+            }
+        }
+        if (!empty($this->model->getMahasiswaAmbilTopikSkripsi($nim))) {
+            foreach ($this->model->getMahasiswaAmbilTopikSkripsi($nim) as $value) {
+                $ambilTopikSkripsi['idTopikSkripsi'] = $value->idTopikSkripsi;
+                $ambilTopikSkripsi['sisaBlockingDay'] = $value->sisaBlockingDay;
+            }
+        }
+        //dd($this->model->getAllTopikSkripsi());
         return view('mahasiswa/all-topik', [
-            'allTopikSkripsiMahasiswa' => $this->model->getAllTopikSkripsiBuatMahasiswa(),
-            'isAmbil' => $this->model->getMahasiswaAmbilTopikSkripsi($nim)
+            'allTopikSkripsiMahasiswa' => $this->model->getAllTopikSkripsi(),
+            'isAmbil' => $ambilTopikSkripsi
         ]);
     }
 
     # Menampilkan detail topik skripsi tertentu
-    public function details($id)
+    public function detailTopikSkripsiByID($id, $dosenMahasiswa)
     {
-        return view('details_tugas_akhir', [
-            'detailsTopikSkripsi' => $this->model->getDetailTopikSkripsiByID($id),
-            'listMahasiswa' => $this->model->getAllMahasiswaMendaftarTopikSkripsiByID($id)
-        ]);
+        $nim = Session::get('nim');
+
+        if ($dosenMahasiswa == "dosen") {
+            return view('details_skripsi', [
+                'detailsTopikSkripsi' => $this->model->getDetailTopikSkripsiByID($id),
+                'listMahasiswa' => $this->model->getAllMahasiswaMendaftarTopikSkripsiByID($id),
+                'allTopikSkripsi' => $this->model->getAllTopikSkripsi()
+            ]);
+        }
+        if ($dosenMahasiswa == "mahasiswa") {
+            //dd($this->model->ruleAmbilTopik($nim, $id));
+            return view('mahasiswa/pendaftaran-topik', [
+                'detailsTopikSkripsi' => $this->model->getDetailTopikSkripsiByID($id),
+                'listMahasiswa' => $this->model->getAllMahasiswaMendaftarTopikSkripsiByID($id),
+                'allTopikSkripsi' => $this->model->getAllTopikSkripsi(),
+                'ruleTopik' => $this->model->ruleAmbilTopik($nim, $id)
+            ]);
+        }
     }
 
     # Menetapkan mahasiswa terpilih
@@ -62,20 +84,20 @@ class TopikController extends Controller
     {
         if ($request) {
             DB::update('UPDATE topik_tugas_akhir
-            SET nim_terpilih_fk = ' . $request->nim . ', 
+            SET nim_terpilih_fk = ' . $request->radioNIM . ', 
                 status = ' . config('constants.status_topik_skripsi.closed') . ',
-                updated_at = ' . $this->curr . ' 
-            WHERE id = ' . $request->idTopikTugasAkhir);
+                updated_at = CURRENT_TIMESTAMP
+            WHERE id = ' . $request->inputHiddenIDTopikTugasAkhir);
 
             $mailData = DB::select('SELECT mhs.nama_mahasiswa, mhs.nim, mhs.email_mahasiswa, 
                 topik.judul_topik, dosen.nama AS nama_dosen, bidang.topik_bidang,
-                IF (mhs.nim = ' . $request->nim . ', "terpilih", "tidak terpilih") AS keputusan 
+                IF (mhs.nim = ' . $request->radioNIM . ', "terpilih", "tidak terpilih") AS keputusan 
                 FROM ambil_topik_tugas_akhir ambil
                 JOIN mahasiswa mhs ON mhs.nim=ambil.nim_fk_nim
                 JOIN topik_tugas_akhir topik ON topik.id=ambil.topik_tugas_akhir_id
                 JOIN dosen ON dosen.nipy=topik.nipy_fk_nipy
                 JOIN topik_bidang bidang ON bidang.id=topik.topik_bidang_fk_id
-                WHERE topik.id=' . $request->idTopikTugasAkhir);
+                WHERE topik.id=' . $request->inputHiddenIDTopikTugasAkhir);
 
             # data untuk kirim email
             foreach ($mailData as $data) {
@@ -91,13 +113,14 @@ class TopikController extends Controller
                             JOIN ambil_topik_tugas_akhir ambil ON ambil.nim_fk_nim=mhs.nim 
                             SET mhs.status = ' . config('constants.status_mahasiswa.open') . ',
                                 mhs.updated_at = ' . $this->curr . ' 
-                            WHERE mhs.nim <> ' . $request->nim);
+                            WHERE mhs.nim <> ' . $request->radioNIM);
                 DB::update('UPDATE mahasiswa mhs 
                             JOIN ambil_topik_tugas_akhir ambil ON ambil.nim_fk_nim=mhs.nim 
-                            SET mhs.status = ' . config('constants.status_mahasiswa.metopen'). ',
+                            SET mhs.status = ' . config('constants.status_mahasiswa.metopen') . ',
                                 mhs.updated_at = ' . $this->curr . ' 
-                            WHERE mhs.nim = ' . $request->nim);
-                
+                            WHERE mhs.nim = ' . $request->radioNIM);
+
+                // hidup matikan ketika hendak dicoba
                 //Mail::to($data->email_mahasiswa)->send(new EmailMahasiswaTerpilih($mailData)); // technical debt: 1. nama penerima, 2. gunakan job queue khusus email
             }
 
@@ -117,7 +140,7 @@ class TopikController extends Controller
         ]);
 
         if ($request) {
-            $store = new TopikTugasAkhir;
+            $store = new TopikSkripsi();
             $store->nipy_fk_nipy = Session::get('nipy');
             $store->topik_bidang_fk_id = $request->topik_bidang;
             $store->judul_topik = $request->judul;
@@ -149,13 +172,13 @@ class TopikController extends Controller
             'deskripsi' => 'required|min:5',
         ]);
 
-        TopikTugasAkhir::where('id', $id)->update([
+        TopikSkripsi::where('id', $id)->update([
             'topik_bidang_fk_id' => $request->topik_bidang_fk_id,
             'judul_topik'        => $request->judul_topik,
             'deskripsi'          => $request->deskripsi,
             'updated_at' => $this->curr
         ]);
-        session()->flash('msg', 'Topik TA berhasil di update');
+        session()->flash('msg', 'Topik Skripsi berhasil di-update');
         return redirect('/Topik/All');
     }
 
@@ -171,22 +194,23 @@ class TopikController extends Controller
         ]);
     }
 
-     # menyimpan topik tugas akhir yang di ambil oleh mahasiswa 
-     public function saveTopikMahasiswa(Request $request){
+    # menyimpan topik tugas akhir yang di ambil oleh mahasiswa 
+    public function saveTopikMahasiswa(Request $request)
+    {
         $request->validate([
-            'id_topik' => 'required'
+            'inputHiddenIDTopikSkripsi' => 'required'
         ]);
 
         if ($request) {
             $store = new AmbilTopikTugasAkhir;
             $store->nim_fk_nim = Session::get('nim');
-            $store->topik_tugas_akhir_id = $request->id_topik;
+            $store->topik_tugas_akhir_id = $request->inputHiddenIDTopikSkripsi;
+            $store->blocking_time = config('constants.blocking_time');
             $store->save();
 
             return redirect('/Topik/All/Mahasiswa')->with('success', 'Selamat, Anda berhasil mendaftar topik tugas akhir ');;
         } else {
             return redirect('/Topik/All/Mahasiswa');
         }
-  
     }
 }
