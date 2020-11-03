@@ -90,9 +90,12 @@
             <?php  }
             }
             if ($isAmbil['idTopikSkripsi'] != 0) {
-              if ($isAmbil['idTopikSkripsi'] == $item->idTopikSkripsi) {
+              if ($isAmbil['idTopikSkripsi'] == $item->idTopikSkripsi && $item->statusTopikSkripsi != config('constants.status_topik_skripsi.closed')) {
                 echo '<td><span class="badge badge-warning"> Sedang terdaftar </span> <br>';
                 echo '<span class="badge badge-warning">' . $isAmbil['sisaBlockingDay'] . ' hari menuju penepatan</span></td>';
+              }
+              if ($isAmbil['idTopikSkripsi'] == $item->idTopikSkripsi && $item->statusTopikSkripsi == config('constants.status_topik_skripsi.closed')) {
+                echo '<td><span class="badge badge-success">Topik Skripsi/Metopen Anda</td>';
               }
               if ($isAmbil['idTopikSkripsi'] != $item->idTopikSkripsi) {
                 echo '<td><a class="btn btn-primary btn-sm disabled"><span class="fa fa-pencil"></span>Ambil topik ini</a></td>';

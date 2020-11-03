@@ -58,19 +58,17 @@
                             </div>
                         </div>
                         <div class="card-footer">
-                            <!-- @foreach ($ruleTopik as $item) -->
-                            @foreach($listMahasiswa as $mhs)
-                            <!-- @if ($detail->statusTopikSkripsi == config('constants.status_topik_skripsi.closed') OR Session::get('nim') == $mhs->nimMahasiswaMendaftarTopikSkripsi)
-                            <button type="submit" class="btn btn-primary mr-3" data-toggle="modal" data-target="#exampleModal" data-toggle="tooltip" data-placement="top" title="Topik skripsi sudah ditutup" >Mendaftar topik ini</button>
-                            @elseif ($detail->statusTopikSkripsi == config('constants.status_topik_skripsi.closed'))
-                            <button type="submit" class="btn btn-primary mr-3" data-toggle="modal" data-target="#exampleModal" data-toggle="tooltip" data-placement="top" title="Topik skripsi sudah ditutup" >Mendaftar topik ini</button>
-                            @else -->
-                            
-
-                            <!-- @endif -->
-                            @endforeach
-                            <!-- @endforeach -->
-                            <button type="submit" class="btn btn-primary mr-3" data-toggle="modal" data-target="#exampleModal">Mendaftar topik ini</button>
+                            <?php
+                            if ($isAmbil['idTopikSkripsi'] == 0 && $detail->statusTopikSkripsi == config('constants.status_topik_skripsi.open')) {
+                                echo '<button type="submit" class="btn btn-primary mr-3" data-toggle="modal" data-target="#exampleModal">Mendaftar topik ini</button>';
+                            }
+                            if ($isAmbil['idTopikSkripsi'] != 0 && $detail->statusTopikSkripsi == config('constants.status_topik_skripsi.open')) {
+                                echo '<button type="submit" class="btn btn-warning mr-3" disabled data-toggle="modal" data-target="#exampleModal">Anda sedang terdaftar di salah satu topik skripsi</button>';
+                            }
+                            if ($detail->statusTopikSkripsi == config('constants.status_topik_skripsi.closed')){
+                                echo '<button type="submit" class="btn btn-danger mr-3" disabled data-toggle="modal" data-target="#exampleModal">Topik ini sudah ditutup</button>';
+                            }                           
+                            ?>
                             <a href="{{ route('allTopikTAMahasiswa') }}" class="btn btn-secondary">Batal</a>
                         </div>
                         @empty
