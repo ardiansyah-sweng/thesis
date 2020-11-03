@@ -37,11 +37,12 @@ class TopikController extends Controller
         return view('all-topik', ['allTopikSkripsi' => $this->model->getAllTopikSkripsi()]);
     }
 
-    # Menampilkan seluruh topik skripsi buat mahasiswa
-    public function allTopikSkripsiMahasiswa()
+    /**
+     * Mengetahui apakah mahasiswa sedang mendaftar suatu topik skripsi atau tidak
+     * Return array
+     */
+    public function isAmbilTopikSkripsi($nim)
     {
-        $nim = Session::get('nim');
-
         if (empty($this->model->getMahasiswaAmbilTopikSkripsi($nim))) {
             $ambilTopikSkripsi['idTopikSkripsi'] = 0;
             foreach ($this->model->getAllTopikSkripsi() as $value) {
@@ -58,68 +59,124 @@ class TopikController extends Controller
             }
         }
 
+        return $ambilTopikSkripsi;
+    }
+
+
+    # Menampilkan seluruh topik skripsi buat mahasiswa
+    public function allTopikSkripsiMahasiswa()
+    {
+        $nim = Session::get('nim');
+
         return view('mahasiswa/all-topik', [
             'allTopikSkripsiMahasiswa' => $this->model->getAllTopikSkripsi(),
-            'isAmbil' => $ambilTopikSkripsi
+            'isAmbil' => $this->isAmbilTopikSkripsi($nim)
         ]);
     }
 
-    # Menampilkan detail topik skripsi tertentu
+    /**
+     * Menampilkan detail topik skripsi berdasarkan ID Topik Skripsi
+     */
+
     public function detailTopikSkripsiByID($id, $dosenMahasiswa)
     {
         $nim = Session::get('nim');
 
-        if ($dosenMahasiswa == "dosen") {
+        if ($dosenMahasiswa == "dosen" && $this->getRekomendasiDosenPenguji($id) == 0) {
             return view('details_skripsi', [
                 'detailsTopikSkripsi' => $this->model->getDetailTopikSkripsiByID($id),
                 'listMahasiswa' => $this->model->getAllMahasiswaMendaftarTopikSkripsiByID($id),
                 'allTopikSkripsi' => $this->model->getAllTopikSkripsi()
             ]);
         }
+
+        if ($dosenMahasiswa == "dosen" && $this->getRekomendasiDosenPenguji($id) != 0) {
+            return view('details_skripsi', [
+                'detailsTopikSkripsi' => $this->model->getDetailTopikSkripsiByID($id),
+                'listMahasiswa' => $this->model->getAllMahasiswaMendaftarTopikSkripsiByID($id),
+                'allTopikSkripsi' => $this->model->getAllTopikSkripsi(),
+                'judulSkripsiBimbinganSebelumnya' => $this->getRekomendasiDosenPenguji($id)
+            ]);
+        }
+        
         if ($dosenMahasiswa == "mahasiswa") {
-            //dd($this->model->ruleAmbilTopik($nim, $id));
             return view('mahasiswa/pendaftaran-topik', [
                 'detailsTopikSkripsi' => $this->model->getDetailTopikSkripsiByID($id),
                 'listMahasiswa' => $this->model->getAllMahasiswaMendaftarTopikSkripsiByID($id),
                 'allTopikSkripsi' => $this->model->getAllTopikSkripsi(),
+                'isAmbil' => $this->isAmbilTopikSkripsi($nim),
                 'ruleTopik' => $this->model->ruleAmbilTopik($nim, $id)
             ]);
         }
     }
 
     /**
-     * Mengambil n terbaik rekomendasi penguji
+     * Membuat array jadi unik, tanpa ada nilai NIDN yang sama
+     * Return array [nipy, nidn, cosim, judul skripsi sebelumnya]
      */
-    public function getDosenPenguji($idTopikSkripsi)
+    public function membuatNIDNUnik($dataNIDN)
     {
-        $data = $this->model->getDetailTopikSkripsiByID($idTopikSkripsi);
-
-        foreach ($data as $indeks => $val) {
-            $opt1 = json_decode(json_encode($data[$indeks]));
-            $hasil =  json_decode($opt1->{'rekomendasi_penguji'}); //Refaktor dengan memfilter seluruh NIDN agar semuanya unik. karena kalau tidak maka ada peluang memberikan penguji 1 dan 2 yang sama.
-            
-            foreach ($hasil as $subkey => $subval) {
-                if ($subkey <= 1) {
-                    $temp[] = DB::table('dosen')->where('nidn', $subval->pembimbing)->value('nipy');
-                }
+        foreach ($dataNIDN as $subkey => $subval) {
+            if ($subval->pembimbing) {
+                $nipy = DB::table('dosen')->where('nidn', $subval->pembimbing)->value('nipy');
+                $ret[$subkey]['nipy'] = $nipy;
+                $ret[$subkey]['cosim'] = $subval->cosim;
+                $ret[$subkey]['nidn'] = $subval->pembimbing;
+                $ret[$subkey]['judul'] = $subval->judul;
             }
         }
-        //Refaktor tabel ujian dengan memberi kolom baru yang menunjukkan bahwa pengujinya baru sebatas rekomendasi atau sudah fixed
-        DB::table('ujian')->insert(
-            ['idTopikSkripsiFK' => $idTopikSkripsi, 'nipyPenguji1' => $temp[0], 'nipyPenguji2' => $temp[1]]
-        );
+        $unik = array_unique(array_column($ret, 'nidn'));
+        return array_intersect_key($ret, $unik);
+    }
+
+    /**
+     * Insert sebanyak n rekomendasi penguji
+     * Return array n rekomendasi penguji
+     */
+    public function insertRekomendasiPenguji($daftarRekomendasiPenguji)
+    {
+        foreach ($daftarRekomendasiPenguji as $subkey => $subval) {
+            if ($subkey <= config('constants.jumlah_penguji') - 1) {
+                $ret[] = $subval;
+            }
+        }
+        return $ret;
+    }
+
+    /**
+     * Mengambil n terbaik rekomendasi penguji
+     */
+    public function getRekomendasiDosenPenguji($idTopikSkripsi)
+    {
+        $data = $this->model->getDetailTopikSkripsiByID($idTopikSkripsi);
+        if (empty($data[0]->rekomendasi_penguji)){
+            $ret = 0;
+        } else {
+            foreach ($data as $indeks => $val) {
+                $dataDecode = json_decode(json_encode($data[$indeks]));
+                $hasil =  json_decode($dataDecode->{'rekomendasi_penguji'});
+                $NIDNUnik = $this->membuatNIDNUnik($hasil);
+                $ret = $this->insertRekomendasiPenguji($NIDNUnik);
+            }
+        }
+        return $ret;
     }
 
     # Menetapkan mahasiswa terpilih
     public function decision(Request $request)
     {
         if ($request) {
-            $this->getDosenPenguji($request->inputHiddenIDTopikTugasAkhir);
+            $dosenPenguji = $this->getRekomendasiDosenPenguji($request->inputHiddenIDTopikSkripsi);
+
+            DB::table('ujian')->insert(
+                ['idTopikSkripsiFK' => $request->inputHiddenIDTopikSkripsi, 'nipyPenguji1' => $dosenPenguji[0]['nipy'], 'nipyPenguji2' => $dosenPenguji[1]['nipy']]
+            );
+
             DB::update('UPDATE topik_tugas_akhir
             SET nim_terpilih_fk = ' . $request->radioNIM . ', 
                 status = ' . config('constants.status_topik_skripsi.closed') . ',
                 updated_at = CURRENT_TIMESTAMP
-            WHERE id = ' . $request->inputHiddenIDTopikTugasAkhir);
+            WHERE id = ' . $request->inputHiddenIDTopikSkripsi);
 
             $mailData = DB::select('SELECT mhs.nama_mahasiswa, mhs.nim, mhs.email_mahasiswa, 
                 topik.judul_topik, dosen.nama AS nama_dosen, bidang.topik_bidang,
@@ -129,7 +186,7 @@ class TopikController extends Controller
                 JOIN topik_tugas_akhir topik ON topik.id=ambil.topik_tugas_akhir_id
                 JOIN dosen ON dosen.nipy=topik.nipy_fk_nipy
                 JOIN topik_bidang bidang ON bidang.id=topik.topik_bidang_fk_id
-                WHERE topik.id=' . $request->inputHiddenIDTopikTugasAkhir);
+                WHERE topik.id=' . $request->inputHiddenIDTopikSkripsi);
 
             # data untuk kirim email
             foreach ($mailData as $data) {
@@ -221,9 +278,7 @@ class TopikController extends Controller
                 }
             }
         }
-
         $data = json_encode($rekomendasi, TRUE);
-
         return $data;
     }
 

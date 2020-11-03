@@ -53,7 +53,7 @@
             <td>{{ $loop->iteration}}</td>
             <td>{{ $item->nim }}</td>
             <td>{{ $item->nama_mahasiswa }}</td>
-            <td><a href='/Topik/Details/{{ $item->id }}'> {{ $item->judul_topik }} </a></td>
+            <td><a href='/Topik/Details/{{ $item->id }}/dosen'> {{ $item->judul_topik }} </a></td>
 
             <?php
             $avatarDefault = 'avatar.png';
@@ -96,7 +96,7 @@
             }
             if ($item->statusSkripsiMahasiswa == $skripsi) {
               echo '<form action="/jadwal" method="post">';
-              echo '<td><span class="badge badge-primary">Skripsi</span> <button type="submit" class="btn btn-primary btn-sm">Pendadaran</button></td>';
+              echo '<td><span class="badge badge-primary">Skripsi</span> </td>';
             }
             if ($item->statusSkripsiMahasiswa == $lulus) {
               echo "<td><span class='badge badge-success'>Lulus</span></td>";

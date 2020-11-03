@@ -54,6 +54,8 @@ class TopikSkripsi extends Model
      * - nipyDosbing
      * - namaMahasiswaTerpilih
      * - emailMahasiswaTerpilih
+     * - nipyPenguji1
+     * - nipyPenguji2
      * - namaPenguji1
      * - namaPenguji2
      * - avatarPenguji1
@@ -64,7 +66,7 @@ class TopikSkripsi extends Model
     public function getDetailTopikSkripsiByID($idTopikSkripsi)
     {
         return DB::select('SELECT topik_bidang.topik_bidang, dosen.nama AS namaDosbing, dosen.email_dosen AS emailDosbing, topik.nipy_fk_nipy AS nipyDosbing,
-            mhs.email_mahasiswa AS emailMahasiswaTerpilih, topik.id AS idTopikSkripsi, topik.judul_topik AS judulTopikSkripsi, topik.deskripsi AS deskripsiTopikSkripsi, topik.status AS statusTopikSkripsi, mhs.nama_mahasiswa AS namaMahasiswaTerpilih, penguji1.nama AS namaPenguji1, penguji2.nama AS namaPenguji2, dosen.avatar AS avatarDosbing, penguji1.avatar AS avatarPenguji1, penguji2.avatar AS avatarPenguji2, topik.rekomendasi_penguji, 
+            mhs.email_mahasiswa AS emailMahasiswaTerpilih, topik.id AS idTopikSkripsi, topik.judul_topik AS judulTopikSkripsi, topik.deskripsi AS deskripsiTopikSkripsi, topik.status AS statusTopikSkripsi, mhs.nama_mahasiswa AS namaMahasiswaTerpilih, penguji1.nipy AS nipyPenguji1, penguji1.nama AS namaPenguji1, penguji2.nipy AS nipyPenguji2, penguji2.nama AS namaPenguji2, dosen.avatar AS avatarDosbing, penguji1.avatar AS avatarPenguji1, penguji2.avatar AS avatarPenguji2, topik.rekomendasi_penguji, ujian.isFixed,
             IF (topik.nim_terpilih_fk = 0, "Belum ada", mhs.nama_mahasiswa) AS mahasiswa_terpilih,
             IF (COUNT(ambil.topik_tugas_akhir_id) = 0, "Belum ada", COUNT(ambil.topik_tugas_akhir_id)) AS jumlahPendaftarTopikSkripsi
             FROM topik_tugas_akhir topik
@@ -121,11 +123,12 @@ class TopikSkripsi extends Model
      * - nimMahasiswaMendaftarTopikSkripsi
      * - emailMahasiswaMendaftarTopikSkripsi
      * - judulTopikSkripsi
+     * - statusMahasiswa
      */
     
     public function getAllMahasiswaMendaftarTopikSkripsiByID($id)
     {
-        return DB::select('SELECT mhs.nama_mahasiswa AS namaMahasiswaMendaftarTopikSkripsi, mhs.nim AS nimMahasiswaMendaftarTopikSkripsi, mhs.email_mahasiswa AS emailMahasiswaMendaftarTopikSkripsi, topik.judul_topik AS judulTopikSkripsi
+        return DB::select('SELECT mhs.nama_mahasiswa AS namaMahasiswaMendaftarTopikSkripsi, mhs.nim AS nimMahasiswaMendaftarTopikSkripsi, mhs.email_mahasiswa AS emailMahasiswaMendaftarTopikSkripsi, topik.judul_topik AS judulTopikSkripsi, mhs.status AS statusMahasiswa
                 FROM ambil_topik_tugas_akhir ambil
                 JOIN mahasiswa mhs ON mhs.nim=ambil.nim_fk_nim
                 JOIN topik_tugas_akhir topik ON topik.id = ambil.topik_tugas_akhir_id

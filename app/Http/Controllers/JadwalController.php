@@ -144,10 +144,10 @@ class JadwalController extends Controller
     public function details(Request $request)
     {
         $tanggal = $request->inputTanggal;
-        $judul = $request->inputJudul;
-        $nipy1 = '002'; // diganti inputan dari page admin. direfaktor agar bisa dinamis sesuai kebutuhan prodi masing-masing.
-        $nipy2 = '029'; // diganti inputan dari page admin
-        $nipy3 = '030'; // diganti inputan dari page admin
+        $tanggal = date('Y-m-d');
+        $nipy1 = $request->inputHiddenNIPYDosbing;
+        $nipy2 = $request->inputHiddenNIPYPenguji1;
+        $nipy3 = $request->inputHiddenNIPYPenguji2;
 
         // Bagian jadwal satu kalendar penuh sesuai bulan yang dipilih pada tanggal
         $jumlahHari = $this->getJumlahHariDalamSatuBulan($tanggal);
@@ -249,81 +249,5 @@ class JadwalController extends Controller
             }
         }
 
-        // Bagian mengambil API dari search engine rekomendasi penguji
-        //$judul = DB::table('topik_tugas_akhir')->pluck('judul_topik');
-
-        //foreach ($judul as $judul) {
-        
-            echo '<p> Judul: <i><b>' . $judul . '</i></b><p>';
-
-            $client = new \GuzzleHttp\Client();
-            $result = $client->post('http://localhost:8800/inverted', [
-                'form_params' => [
-                    'query' => $judul,
-                ]
-            ]);
-
-            $body = json_decode($result->getBody()->getContents(), true);
-            unset($body['error']);
-            unset($body['message']['timeExecution']);
-
-            foreach ($body as $key => $val) {
-                $x[] = json_decode(json_encode($val), true);
-            }
-
-            echo '<p>';
-            echo '<table>';
-            echo '<tr><td><b>Skor</b></td><td><b> Rekomendasi Penguji</b></td><td><b>Judul TA bimbingan sebelumnya</b></td></tr>';
-            //$temp = [];
-            foreach ($x as $x => $y) {
-                foreach ($y as $z) {
-                    rsort($z);
-                    foreach ($z as $key => $a) {
-                        //if (!array_search($a['pembimbing'], $temp)){ // refaktor, buat fungsi tersendiri
-                            if ($key <= 9){
-                                echo '<tr><td>'.round($a['cosim'], 3).'</td><td><font color="red"><b>'.$this->getNamaDosen($a['pembimbing']).'</b></font></td><td>'.$a['judul'].'</td></tr>';
-                            } else {
-                                echo '<tr><td>'.round($a['cosim'], 3).'</td><td>'.$this->getNamaDosen($a['pembimbing']).'</td><td>'.$a['judul'].'</td></tr>';
-                            }
-
-                            $rekomendasi[$key]['cosim'] = round($a['cosim'], 3);
-                            $rekomendasi[$key]['pembimbing'] = $a['pembimbing'];
-                            $rekomendasi[$key]['judul'] = $a['judul'];
-                            //$temp[] = $a['pembimbing'];
-                        //}
-                    }
-                }
-            }
-            echo '</table>';
-        //}
-
-        //=========================================
-        // 1. update kolom rekomendasi (JSON) 
-        // $data = json_encode($rekomendasi, TRUE);
-        // TopikTugasAkhir::where('topik_bidang_fk_id', 13)->update(['rekomendasi_penguji' => $data]);
-
-        // 2. baca kolom rekomendasi JSON
-        // $data = DB::select('SELECT judul_topik, rekomendasi_penguji FROM topik_tugas_akhir');
-        // echo '<p>';
-
-        // foreach ($data as $indeks => $val) {
-        //     echo '<b>Judul TA: '.$val->judul_topik.'</b><br>';
-        //     $opt1 = json_decode(json_encode($data[$indeks]));
-        //     $hasil =  json_decode($opt1->{'rekomendasi_penguji'});
-        //     foreach ($hasil as $subkey => $subval) {
-        //         if ($subkey <= 10 && $subval->pembimbing != $subval->pembimbing){
-        //             echo 'Cosim: ' . $subval->cosim . ' Dosen: ' . $subval->pembimbing . ' Judul: ' . $subval->judul . '<br>';
-        //         }
-        //     }
-        //     echo '<p>';
-        // }
-        //===========================================
     }
-
-
-
-    // return view('tanggal', [
-    //     'tanggal' => $inputTanggal
-    // ]);
-
 }

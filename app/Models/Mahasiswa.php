@@ -73,7 +73,24 @@ class Mahasiswa extends Model
         }
     }
 
-    # Mendapatkan seluruh mahasiswa bimbingan
+    /**
+     * Mendapatkan seluruh mahasiswa bimbingan
+     * 
+     * Kolom:
+     * - id
+     * - nim
+     * - nama_mahasiswa
+     * - judul_topik
+     * - periode
+     * - nipyPenguji1
+     * - namaPenguji1
+     * - avatarPenguji1
+     * - nipyPenguji2
+     * - namaPenguji2
+     * - avatarPenguji2
+     * - lamaSkripsiHinggaLulusDalamBulan
+     * - lamaPropsesSedangSkripsiDalamBulan
+     */
     public function getAllMahasiswaBimbingan($nipy)
     {
         $lulus = config('constants.status_mahasiswa.lulus');
@@ -83,7 +100,7 @@ class Mahasiswa extends Model
         $blocked = config('constants.status_mahasiswa.blocked');
 
         // Refaktor: menggunakan hash untuk mempercepat
-        return DB::select('SELECT topik.id, mhs.nim, mhs.nama_mahasiswa, topik.judul_topik, topik.periode, penguji1.nama AS namaPenguji1, penguji1.avatar AS avatarPenguji1, penguji2.nama AS namaPenguji2, penguji2.avatar AS avatarPenguji2, TIMESTAMPDIFF(month, uji.tanggalSemprop, uji.tanggalPendadaran) AS lamaSkripsiHinggaLulusDalamBulan, TIMESTAMPDIFF(month, uji.tanggalSemprop, CURRENT_DATE()) AS lamaProsesSedangSkripsiDalamBulan,
+        return DB::select('SELECT topik.id, mhs.nim, mhs.nama_mahasiswa, topik.judul_topik, topik.periode, penguji1.nipy AS nipyPenguji1, penguji1.nama AS namaPenguji1, penguji1.avatar AS avatarPenguji1, penguji2.nipy AS nipyPenguji2, penguji2.nama AS namaPenguji2, penguji2.avatar AS avatarPenguji2, TIMESTAMPDIFF(month, uji.tanggalSemprop, uji.tanggalPendadaran) AS lamaSkripsiHinggaLulusDalamBulan, TIMESTAMPDIFF(month, uji.tanggalSemprop, CURRENT_DATE()) AS lamaProsesSedangSkripsiDalamBulan,
             CASE mhs.status 
                 WHEN '.$open.' THEN '.$open.'
                 WHEN '.$blocked.' THEN '.$blocked.'

@@ -489,5 +489,54 @@ class MahasiswaSeeder extends Seeder
             'email_mahasiswa' => 'muhammad1600018001@webmail.uad.ac.id',
             'status' => config('constants.status_mahasiswa.metopen')
         ]);
+
+        DB::table('mahasiswa')->insert([
+            'nim' => '09318012',
+            'nama_mahasiswa' => 'Aman Fitrullah',
+            'email_mahasiswa' => 'amanfitrullah@yahoo.com',
+            'status' => config('constants.status_mahasiswa.lulus')
+        ]);
+
+        DB::table('mahasiswa')->insert([
+            'nim' => '12018032',
+            'nama_mahasiswa' => 'BUDI DARMAWANSYAH',
+            'email_mahasiswa' => 'budidarmawansyah81@gmail.com',
+            'status' => config('constants.status_mahasiswa.lulus')
+        ]);
+
+        DB::table('mahasiswa')->insert([
+            'nim' => '11018049',
+            'nama_mahasiswa' => 'SUKMA ARAS OYAPUTRA',
+            'email_mahasiswa' => 'arlhosstrife@gmail.com',
+            'status' => config('constants.status_mahasiswa.lulus')
+        ]);
+
+        DB::table('mahasiswa')->insert([
+            'nim' => '12018001',
+            'nama_mahasiswa' => 'MUHAMMAD NUR ARDHIANSYAH',
+            'email_mahasiswa' => 'mn.ardhi@gmail.com',
+            'status' => config('constants.status_mahasiswa.lulus')
+        ]);
+
+        DB::table('mahasiswa')->insert([
+            'nim' => '12018057',
+            'nama_mahasiswa' => 'MAMAT AJI',
+            'email_mahasiswa' => 'mamataji2317@gmail.com',
+            'status' => config('constants.status_mahasiswa.lulus')
+        ]);
+
+        DB::table('mahasiswa')->insert([
+            'nim' => '1300018106',
+            'nama_mahasiswa' => 'Nurul Fitriani',
+            'email_mahasiswa' => 'nurfit95@gmail.com',
+            'status' => config('constants.status_mahasiswa.lulus')
+        ]);
+
+        DB::table('mahasiswa')->insert([
+            'nim' => '1000000001',
+            'nama_mahasiswa' => 'Fake Student',
+            'email_mahasiswa' => 'fake@webmail.uad.ac.id',
+            'status' => config('constants.status_mahasiswa.open')
+        ]);
     }
 }
