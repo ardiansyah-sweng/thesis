@@ -5,8 +5,10 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Dosen;
 use App\Models\Mahasiswa;
+use App\Models\TopikTugasAkhir;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Session;
+
 
 
 class LoginController extends Controller
@@ -36,10 +38,12 @@ class LoginController extends Controller
 
         $nipy = $request->nipy;
         $data = Dosen::where('nipy', $nipy)->first();
-
+        
         if ($data) {
             Session::put('nama', $data->nama);
             Session::put('nipy', $data->nipy);
+            Session::put('avatar', $data->avatar);
+
             return redirect('dashboardDosen');
         } else {
             session()->flash('msg', 'NIPY Tidak Terdaftar');

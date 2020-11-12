@@ -16,9 +16,6 @@
         <div class="info">
           <a href="#" class="d-block">{{ Session::get('nama_mahasiswa') }}</a>
         </div>
-        <center>
-            <a href="{{url('/logout')}}"><button type="button" class="btn btn-primary">Logout</button></a>
-        </center>
       </div>
 
       <!-- Sidebar Menu -->
@@ -60,6 +57,11 @@
                     Topik Skripsi
                   </p>
                 </a>
+              </li>
+              <li>
+                <center>
+                    <a href="{{url('/logout')}}"><button type="button" class="btn btn-warning">Logout</button></a>
+                </center>
               </li>
             </ul>
           </li>
