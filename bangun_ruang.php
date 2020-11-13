@@ -346,6 +346,18 @@ class BangunRuang
         return $SATUPERDUA * $SATUPERTIGA * $this->PHI * $this->kuadrat($jariJari) * $tinggi;
     }
 
+    /**
+     * Menghitung volume sepertiga bola
+     * rumus : 1/3 * 4/3 * phi * jariJari * jariJari * jariJari
+     */
+
+    function volumeSepertigaBola($jariJari)
+    {
+        $SATUPERTIGA = 1 / 3;
+        $EMPATPERTIGA = 4 / 3;
+        return $SATUPERTIGA * $EMPATPERTIGA * $this->PHI * $jariJari * $jariJari * $jariJari;
+    }
+
     
 }
 
@@ -424,4 +436,5 @@ echo 'volume prisma segi empat: '.$bangunRuang->volumePrismaSegiEmpat(19,2,5);
 echo '<br>';
 echo 'Volume Setengah Kerucut: ' . $bangunRuang->volumeSetengahKerucut(10, 10);
 echo '<br>';
-
+echo 'Volume Setengah Bola: ' . $bangunRuang->volumeSepertigaBola(5);
+echo '<br>';
