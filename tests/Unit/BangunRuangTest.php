@@ -311,6 +311,7 @@ class BangunRuangTest extends TestCase
         $actualValue = $VolumePrismaSegitigaSikusiku->VolumePrismasegitigaSikusiku($alas, $tinggisegitiga, $tinggiprisma);
         $this->assertEquals($expectedValue, $actualValue);
     }
+    /** */
     /** @test */
     public function tes_Volume_Sepertiga_Bola()
     {
