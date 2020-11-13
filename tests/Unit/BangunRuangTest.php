@@ -315,7 +315,7 @@ class BangunRuangTest extends TestCase
     public function tes_Volume_Sepertiga_Bola()
     {
         $volumeSepertigaBola = new BangunRuang();
-        $expectedValue = 174.44;
+        $expectedValue = 174.44444444444443; 
         $jariJari = 5;
         $actualValue = $volumeSepertigaBola->volumeSepertigaBola($jariJari);
         $this->assertEquals($expectedValue, $actualValue);
