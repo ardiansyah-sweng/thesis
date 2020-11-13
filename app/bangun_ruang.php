@@ -343,8 +343,6 @@ class BangunRuang
         $SATUPERDUA = 0.5;
         $SATUPERTIGA = 0.33;
 
-        
-
         return $SATUPERDUA * $SATUPERTIGA * $this->PHI * $this->kuadrat($jariJari) * $tinggi;
     }
 
