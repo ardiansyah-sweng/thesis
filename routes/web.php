@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\TopikController;
 use App\Http\Controllers\LoginController;
+use App\Http\Controllers\JadwalController;
 
 /*
 |--------------------------------------------------------------------------
@@ -25,6 +26,9 @@ Route::get('/dashboardDosen', [DashboardController::class, 'dosen'])->name('dash
 Route::get('/dashboardMahasiswa', [DashboardController::class, 'mahasiswa'])->name('dashboardMahasiswa');
 Route::get('/logout', [LoginController::class, 'logout'])->name('logout');
 
+## Jadwal
+Route::get('/Jadwal', [JadwalController::class, 'jadwal'])->name('jadwal');
+Route::post('/Jadwal/Details/', [JadwalController::class, 'details']);
 
 Route::post('/Topik', [TopikController::class, 'store']);
 Route::post('/Topik/Decision', [TopikController::class, 'decision']);
