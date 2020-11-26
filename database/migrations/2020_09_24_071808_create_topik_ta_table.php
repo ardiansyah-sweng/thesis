@@ -31,8 +31,16 @@ class CreateTopikTaTable extends Migration
 
             $table->string('judul_topik');
             $table->text('deskripsi');
+
             $table->string('nim_terpilih_fk', 10)->default(0);
+            // $table->index('nim_terpilih_fk');
+            // $table->foreign('nim_terpilih_fk')
+            //     ->references('nim')->on('mahasiswa')
+            //     ->onDelete('cascade');
+
+            $table->string('periode', 50);
             $table->tinyInteger('status')->default(0);
+            $table->json('rekomendasi_penguji')->default(0);
             $table->timestamps();
         });
     }

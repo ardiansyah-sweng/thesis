@@ -1,16 +1,17 @@
 <?php
+//date_default_timezone_set('Asia/Jakarta');
 
 namespace App\Http\Controllers;
 
+use App\Models\AmbilTopikTugasAkhir;
+use App\Models\TopikTugasAkhir;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use DateTime;
 
 class JadwalController extends Controller
 {
-    public $AWAL_JAM_KERJA = '07:00:00';
-    public $AKHIR_JAM_KERJA = '17:00:00';
-    public $LAMA_SIDANG = 7200;
+    public $curr = 'CURRENT_TIMESTAMP';
 
     /**
      * Merekomendasikan jadwal yang tersedia
@@ -68,18 +69,25 @@ class JadwalController extends Controller
 
     function awalAkhirJamKerja($tanggalDalamString, $awalAkhir)
     {
+        
         if ($awalAkhir == 'awal') {
-            return strtotime($tanggalDalamString . ' ' . $this->AWAL_JAM_KERJA);
+            return strtotime($tanggalDalamString . ' ' . config('constants.jam_kerja.awal'));
         }
         if ($awalAkhir == 'akhir') {
-            return strtotime($tanggalDalamString . ' ' . $this->AKHIR_JAM_KERJA);
+            return strtotime($tanggalDalamString . ' ' . config('constants.jam_kerja.akhir'));
         }
+    }
+
+    function selisihFullDay($tanggal)
+    {
+        return strtotime($tanggal . ' ' . config('constants.jam_kerja.akhir')) - strtotime($tanggal . ' ' . config('constants.jam_kerja.awal'));
     }
 
     function cariSlotKosong($allJadwal, $tanggal)
     {
         if ($allJadwal == "fullday") {
-            return $ret['mulai'] = $tanggal . ' ' . $this->AWAL_JAM_KERJA;
+            $ret[0]['selisih'] = $this->selisihFullDay($tanggal);
+            $ret[0]['mulai'] = $tanggal . ' ' . config('constants.jam_kerja.awal');
         } else {
             //print_r($allJadwal);
             //echo '<p>';
@@ -94,17 +102,15 @@ class JadwalController extends Controller
             $awal = strtotime($awalJadwal) - $awalJamKerjaInteger;
             $akhir = $akhirJamKerjaInteger - strtotime($akhirJadwal);
 
-            if ($this->LAMA_SIDANG <= $awal) {
+            if (config('constants.durasi_pendadaran') <= $awal) {
                 $ret[0]['selisih'] = $awal;
-                $ret[0]['mulai'] = $tanggal . ' ' . $this->AWAL_JAM_KERJA;
+                $ret[0]['mulai'] = $tanggal . ' ' . config('constants.jam_kerja.awal');
             }
             //echo '<p>';
 
             for ($i = 0; $i <= count($allJadwal) - 2; $i++) {
-                //echo $allJadwal[$i + 1]['mulai'] . '  ' . $allJadwal[$i]['selesai'] . '<br>';
                 $selisih = strtotime($allJadwal[$i + 1]['mulai']) - strtotime($allJadwal[$i]['selesai']);
-                //echo $selisih . '<br>';
-                if ($this->LAMA_SIDANG <= $selisih) {
+                if (config('constants.durasi_pendadaran') <= $selisih) {
                     $ret[$i + 1]['selisih'] = $selisih;
                     $ret[$i + 1]['mulai'] = $allJadwal[$i]['selesai'];
                 }
@@ -112,15 +118,12 @@ class JadwalController extends Controller
             $jum = count($allJadwal);
             $ret[$jum]['selisih'] = $akhir;
             $ret[$jum]['mulai'] = $akhirJadwal;
-            //return $ret;
-            //echo '<p>';
-            //print_r($ret);
         }
 
         foreach ($ret as $key => $val) {
             //echo $val['selisih'].'<br>';
-            if ($this->LAMA_SIDANG <= $val['selisih']) {
-                echo $val['selisih'] . '<br>';
+            if (config('constants.durasi_pendadaran') <= $val['selisih']) {
+                //echo $val['selisih'] . '<br>';
                 $ret[$key]['selisih'] = $val['selisih'];
                 $ret[$key]['mulai'] = $val['mulai'];
             }
@@ -132,18 +135,21 @@ class JadwalController extends Controller
         return $ret;
     }
 
+    function getNamaDosen($nidn)
+    {
+        $nama = DB::table('dosen')->where('nidn', $nidn)->value('nama');
+        return $nama;
+    }
+
     public function details(Request $request)
     {
         $tanggal = $request->inputTanggal;
-        $awalJamKerja = '07:00:00';
-        $akhirJamKerja = '17:00:00';
-        $DURASI_SIDANG = 7200; //detik
-        $jamAwalKerja = $tanggal . ' ' . $awalJamKerja;
-        $jamAkhirKerja = $tanggal . ' ' . $akhirJamKerja;
-        $nipy1 = '030';
-        $nipy2 = '002';
-        $nipy3 = '029';
+        $tanggal = date('Y-m-d');
+        $nipy1 = $request->inputHiddenNIPYDosbing;
+        $nipy2 = $request->inputHiddenNIPYPenguji1;
+        $nipy3 = $request->inputHiddenNIPYPenguji2;
 
+        // Bagian jadwal satu kalendar penuh sesuai bulan yang dipilih pada tanggal
         $jumlahHari = $this->getJumlahHariDalamSatuBulan($tanggal);
         $month = $this->getAngkaBulan($tanggal);
         $year = $this->getTahun($tanggal);
@@ -151,74 +157,97 @@ class JadwalController extends Controller
         for ($i = 1; $i <= $jumlahHari; $i++) {
             if ($i < 10) {
                 $tanggalInkremen = $year . '-' . $month . '-0' . $i;
-                $hari = $this->getNamaHari($tanggalInkremen);
-                if($tanggal == $tanggalInkremen){
-                    echo '<b><font color="blue">' . $hari . ' ' . $tanggalInkremen . '</font></b><br>';
-                } else {
-                    echo '<b>' . $hari . ' ' . $tanggalInkremen . '</b><br>';
-                }
-                if ($hari == 'Sun') {
-                    $hasil = 'libur';
-                }
-                if ($hari != 'Sun') {
-                    $allJadwal = $this->getAllJadwal($tanggalInkremen, $nipy1, $nipy2, $nipy3);
-                    //print_r($allJadwal);
-                    $kosong = $this->cariSlotKosong($allJadwal, $tanggalInkremen);
-                    //echo '<p>';
-                    if (empty($kosong)) {
-                        $hasil = 'Full booked';
-                    } else {
-                        $hasil = $kosong;
-                    }
-                }
-                print_r($hasil);
-            } else {
+            }
+            if ($i >= 10) {
                 $tanggalInkremen = $year . '-' . $month . '-' . $i;
-                $hari = $this->getNamaHari($tanggalInkremen);
-                if($tanggal == $tanggalInkremen){
-                    echo '<b><font color="blue">' . $hari . ' ' . $tanggalInkremen . '</font></b><br>';
-                } else {
-                    echo '<b>' . $hari . ' ' . $tanggalInkremen . '</b><br>';
+            }
+
+            $hari = $this->getNamaHari($tanggalInkremen);
+            if ($tanggal == $tanggalInkremen) {
+                echo '<b><font color="blue">' . $hari . ' ' . $tanggalInkremen . '</font></b>';
+            }
+            if ($tanggal != $tanggalInkremen) {
+                echo $hari . ' ' . $tanggalInkremen;
+            }
+            if ($hari == 'Sun') {
+                $hasil[0]['selisih'] = 0;
+                $hasil[0]['mulai'] = 'libur';
+            }
+            if ($hari != 'Sun') {
+                $allJadwal = $this->getAllJadwal($tanggalInkremen, $nipy1, $nipy2, $nipy3);
+                $kosong = $this->cariSlotKosong($allJadwal, $tanggalInkremen);
+                if (empty($kosong)) {
+                    $hasil[0]['selisih'] = 1;
+                    $hasil[0]['mulai'] = 'penuh';
                 }
-                if ($hari == 'Sun') {
-                    $hasil = 'libur';
-                }
-                if ($hari != 'Sun') {
-                    $allJadwal = $this->getAllJadwal($tanggalInkremen, $nipy1, $nipy2, $nipy3);
-                    //print_r($allJadwal);
-                    $kosong = $this->cariSlotKosong($allJadwal, $tanggalInkremen);
-                    if (empty($kosong)) {
-                        $hasil = 'Full booked';
-                    } else {
-                        $hasil = $kosong;
+                if (!empty($kosong)) {
+                    foreach ($kosong as $key => $val) {
+                        if ($val['selisih'] < config('constants.durasi_pendadaran')) {
+                            unset($kosong[$key]);
+                        }
+                        if ($val['selisih'] == 0 && $val['mulai'] != 'libur') {
+                            unset($kosong[$key]);
+                        }
                     }
                 }
-                print_r($hasil);
-                echo '<br>';
+                if (empty($kosong)) {
+                    echo ' penuh';
+                }
+                $hasil = $kosong;
+                //echo '<br>';
+            }
+
+            foreach ($hasil as $key => $val) {
+                if ($hari == "Sun" && $val['mulai'] == 'libur') {
+                    echo " <font color='red'>Libur</font><br>";
+                }
+                if ($val['selisih'] >= config('constants.durasi_pendadaran')) {
+                    echo '<font color="green">' . substr($val['mulai'], 10) . '</font><br>';
+                }
             }
             echo '<p>';
         }
 
+        // Bagian detail sesuai tanggal yang dipilih
         $hari = $this->getNamaHari($tanggal);
-        echo '<font color="blue">'.$hari . ' ' . $tanggal . '</font><br>';
+        echo '<font color="blue">' . $hari . ' ' . $tanggal . '</font><br>';
 
         if ($hari == 'Sun') {
-            $hasil = 'libur';
+            $hasil[0]['selisih'] = 0;
+            $hasil[0]['mulai'] = 'libur';
         }
         if ($hari != 'Sun') {
             $allJadwal = $this->getAllJadwal($tanggal, $nipy1, $nipy2, $nipy3);
             $kosong = $this->cariSlotKosong($allJadwal, $tanggal);
             if (empty($kosong)) {
-                $hasil = 'Full booked';
-            } else {
-                $hasil = $kosong;
+                $hasil[0]['selisih'] = 1;
+                $hasil[0]['mulai'] = 'penuh';
+            }
+            if (!empty($kosong)) {
+                foreach ($kosong as $key => $val) {
+                    if ($val['selisih'] < config('constants.durasi_pendadaran')) {
+                        unset($kosong[$key]);
+                    }
+                    if ($val['selisih'] == 0 && $val['mulai'] != 'libur') {
+                        unset($kosong[$key]);
+                    }
+                }
+            }
+            if (empty($kosong)) {
+                echo ' penuh';
+            }
+            $hasil = $kosong;
+            //echo '<br>';
+        }
+        //print_r($hasil);
+        foreach ($hasil as $key => $val) {
+            if ($hari == "Sun" && $val['mulai'] == 'libur') {
+                echo " <font color='red'>Libur</font><br>";
+            }
+            if ($val['selisih'] >= config('constants.durasi_pendadaran')) {
+                echo '<font color="green">' . substr($val['mulai'], 10) . '</font><br>';
             }
         }
-        print_r($hasil);
+
     }
-
-    // return view('tanggal', [
-    //     'tanggal' => $inputTanggal
-    // ]);
-
 }

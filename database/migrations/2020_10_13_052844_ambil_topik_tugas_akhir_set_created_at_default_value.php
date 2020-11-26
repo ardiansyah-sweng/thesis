@@ -14,7 +14,7 @@ class AmbilTopikTugasAkhirSetCreatedAtDefaultValue extends Migration
      */
     public function up()
     {
-        DB::statement("ALTER TABLE ambil_topik_tugas_akhir CHANGE created_at created_at TIMESTAMP NULL DEFAULT CURRENT_TIMESTAMP");
+        // DB::statement("ALTER TABLE ambil_topik_tugas_akhir CHANGE created_at created_at TIMESTAMP NULL DEFAULT CURRENT_TIMESTAMP");
     }
 
     /**
@@ -24,8 +24,8 @@ class AmbilTopikTugasAkhirSetCreatedAtDefaultValue extends Migration
      */
     public function down()
     {
-        Schema::table('ambil_topik_tugas_akhir', function (Blueprint $table) {
-            $table->timestamp('created_at')->default(NULL)->change();
-        });
+        // Schema::table('ambil_topik_tugas_akhir', function (Blueprint $table) {
+        //     $table->timestamp('created_at')->default(NULL)->change();
+        // });
     }
 }
