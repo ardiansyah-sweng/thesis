@@ -14,7 +14,8 @@
         <img src="{{ url('adminLTE/dist/img/user2-160x160.jpg')}}" class="img-circle elevation-2" alt="User Image">
         </div>
         <div class="info">
-          <a href="#" class="d-block">{{ Session::get('nama_mahasiswa') }}</a>
+          <a href="#" class="d-block">{{ Session::get('nim') }}</a>
+          <a href="#" class="d-block">({{ Session::get('stats') }})</a>
         </div>
       </div>
 

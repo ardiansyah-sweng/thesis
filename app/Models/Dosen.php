@@ -13,4 +13,22 @@ class Dosen extends Model
     protected $fillable = [
         'nipy'
     ];
+    
+    public function loginFunctionDosen($id){
+        if(!isset($id)){
+            echo "hush";
+            return redirect('/');
+        }
+        $db = DB::select('SELECT *FROM dosen WHERE nipy = ?',[$id]);
+        if(empty($db)) {
+            $array = array("null", $id, false, 'null');
+            return $array;
+        }
+        $db_encode = json_encode($db, true);
+        $db_decode = json_decode($db_encode, true);
+        $namamhs = $db_decode[0]['nama'];
+        $avatar = $db_decode[0]['avatar'];
+        $array = array($namamhs, $id, true, $avatar);
+        return $array;
+    }
 }
