@@ -9,6 +9,23 @@ use Illuminate\Support\Facades\DB;
 class Mahasiswa extends Model
 {
     protected $table = 'mahasiswa';
+	
+	public function loginFunctionMhs($id){
+        if(!isset($id)){
+            echo "hush";
+            return redirect('/');
+        }
+        $db = DB::select('SELECT *FROM mahasiswa WHERE nim = ?',[$id]);
+        if(empty($db)) {
+            $array = array("null", $id, false);
+            return $array;
+        }
+        $db_encode = json_encode($db, true);
+        $db_decode = json_decode($db_encode, true);
+        $namamhs = $db_decode[0]['nama_mahasiswa'];
+        $array = array($namamhs, $id, true);
+        return $array;
+    }
 
     # Jumlah bimbingan sepanjang masa (skripsi + metopen + lulus)
     public function getJumlahAllBimbingan($nipy)
