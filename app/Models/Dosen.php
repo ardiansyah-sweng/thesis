@@ -14,11 +14,14 @@ class Dosen extends Model
         'nipy'
     ];
 	
+    //Fungsi login untuk dosen
 	public function loginFunctionDosen($id){
         if(!isset($id)){
+            //Buat ngusir, bisa di hapus sebenarnya
             echo "hush";
             return redirect('/');
         }
+        //Ambil datanya
         $db = DB::select('SELECT *FROM dosen WHERE nipy = ?',[$id]);
         if(empty($db)) {
             $array = array("null", $id, false, 'null');
@@ -26,9 +29,9 @@ class Dosen extends Model
         }
         $db_encode = json_encode($db, true);
         $db_decode = json_decode($db_encode, true);
-        $namamhs = $db_decode[0]['nama'];
+        $namadsn = $db_decode[0]['nama'];
         $avatar = $db_decode[0]['avatar'];
-        $array = array($namamhs, $id, true, $avatar);
+        $array = array($namadsn, $id, true, $avatar);
         return $array;
     }
 }
