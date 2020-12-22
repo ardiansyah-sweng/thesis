@@ -15,7 +15,7 @@ class Dosen extends Model
     ];
 	
     //Fungsi login untuk dosen
-	public function loginFunctionDosen($id){
+    public function loginFunctionDosen($id){
         if(!isset($id)){
             //Buat ngusir, bisa di hapus sebenarnya
             echo "hush";

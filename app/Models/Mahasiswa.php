@@ -10,8 +10,9 @@ class Mahasiswa extends Model
 {
     protected $table = 'mahasiswa';
 	
-	public function loginFunctionMhs($id){
+    public function loginFunctionMhs($id){
         if(!isset($id)){
+            //Buat ngusir, bisa di hapus sebenarnya
             echo "hush";
             return redirect('/');
         }

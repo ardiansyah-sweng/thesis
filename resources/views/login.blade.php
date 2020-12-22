@@ -30,7 +30,7 @@
     @if (session()->has('msg'))
           <div class="alert alert-danger">{{ session()->get('msg') }}</div>
       @endif
-          <form action="/aksiLoginDosen" method="post">
+          <form action="aksiLoginDosen" method="post">
             @csrf
             <div class="input-group mb-3">
               <input type="password" class="form-control  @error('nipy') is-invalid @enderror" placeholder="Masukkan NIPY Dosen" name="nipy" autofocus>
