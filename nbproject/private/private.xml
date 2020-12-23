@@ -1,4 +1,27 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project-private xmlns="http://www.netbeans.org/ns/project-private/1">
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
+    <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
+        <group>
+            <file>file:/C:/xampp/htdocs/thesis/thesis/resources/views/mahasiswa/sidebar.blade.php</file>
+            <file>file:/C:/xampp/htdocs/thesis/thesis/tests/Feature/DatabaseTest.php</file>
+            <file>file:/C:/xampp/htdocs/thesis/thesis/composer.json</file>
+            <file>file:/C:/xampp/htdocs/thesis/thesis/app/Helpers/Helper.php</file>
+            <file>file:/C:/xampp/htdocs/thesis/thesis/app/1700018013_1c.php</file>
+            <file>file:/C:/xampp/htdocs/thesis/thesis/tests/Feature/ExampleTest.php</file>
+            <file>file:/C:/xampp/htdocs/thesis/thesis/routes/web.php</file>
+            <file>file:/C:/xampp/htdocs/thesis/thesis/app/Models/Dosen.php</file>
+            <file>file:/C:/xampp/htdocs/thesis/thesis/resources/views/login.blade.php</file>
+            <file>file:/C:/xampp/htdocs/thesis/thesis/app/Http/Controllers/LoginController.php</file>
+            <file>file:/C:/xampp/htdocs/thesis/thesis/app/BangunRuang.php</file>
+            <file>file:/C:/xampp/htdocs/thesis/thesis/app/Http/Controllers/LogoutController.php</file>
+            <file>file:/C:/xampp/htdocs/thesis/thesis/app/Http/Controllers/Controller.php</file>
+            <file>file:/C:/xampp/htdocs/thesis/thesis/tests/Unit/BangunRuangTest.php</file>
+            <file>file:/C:/xampp/htdocs/thesis/thesis/app/matriks.php</file>
+            <file>file:/C:/xampp/htdocs/thesis/thesis/resources/views/layouts/sidebar.blade.php</file>
+            <file>file:/C:/xampp/htdocs/thesis/thesis/app/Http/Controllers/DosenController.php</file>
+            <file>file:/C:/xampp/htdocs/thesis/thesis/resources/views/mahasiswa/login.blade.php</file>
+            <file>file:/C:/xampp/htdocs/thesis/thesis/app/Models/Mahasiswa.php</file>
+        </group>
+    </open-files>
 </project-private>

@@ -27,7 +27,7 @@ Route::get('/', [LoginController::class, 'index'])->name('index');
 Route::get('/dashboardDosen', [DashboardController::class, 'dosen'])->name('dashboardDosen');
 //Dashboard mahasiswa
 Route::get('/dashboardMahasiswa', [DashboardController::class, 'mahasiswa'])->name('dashboardMahasiswa');
-Route::get('/logout', [LoginController::class, 'logout'])->name('logout');
+Route::get('/logout', [LogoutController::class, 'logout'])->name('logout');
 
 ## Bimbingan
 Route::get('/Bimbingan', [BimbinganController::class, 'index']);
