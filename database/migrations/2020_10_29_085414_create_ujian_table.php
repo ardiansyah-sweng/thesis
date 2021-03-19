@@ -27,16 +27,17 @@ class CreateUjianTable extends Migration
             $table->dateTime('tanggalPendadaran');
 
             $table->string('nipyPenguji1', 10);
-            // $table->index('nipyPenguji1');
+            $table->index('nipyPenguji1');
             // $table->foreign('nipyPenguji1')
             //     ->references('nipy')->on('dosen')
             //     ->onDelete('cascade');
 
             $table->string('nipyPenguji2', 10);
-            // $table->index('nipyPenguji2');
+            $table->index('nipyPenguji2');
             // $table->foreign('nipyPenguji2')
             //     ->references('nipy')->on('dosen')
             //     ->onDelete('cascade');
+
             $table->tinyInteger('isFixed')->default(0);
             $table->timestamps();
         });

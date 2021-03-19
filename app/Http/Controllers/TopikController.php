@@ -77,7 +77,6 @@ class TopikController extends Controller
     /**
      * Menampilkan detail topik skripsi berdasarkan ID Topik Skripsi
      */
-
     public function detailTopikSkripsiByID($id, $dosenMahasiswa)
     {
         $nim = Session::get('nim');
@@ -116,6 +115,7 @@ class TopikController extends Controller
      */
     public function membuatNIDNUnik($dataNIDN)
     {
+        $ret = [];
         foreach ($dataNIDN as $subkey => $subval) {
             if ($subval->pembimbing) {
                 $nipy = DB::table('dosen')->where('nidn', $subval->pembimbing)->value('nipy');
@@ -135,6 +135,7 @@ class TopikController extends Controller
      */
     public function insertRekomendasiPenguji($daftarRekomendasiPenguji)
     {
+        $ret = [];
         foreach ($daftarRekomendasiPenguji as $subkey => $subval) {
             if ($subkey <= config('constants.jumlah_penguji') - 1) {
                 $ret[] = $subval;
@@ -168,6 +169,7 @@ class TopikController extends Controller
         if ($request) {
             $dosenPenguji = $this->getRekomendasiDosenPenguji($request->inputHiddenIDTopikSkripsi);
 
+            // Refaktor utk validasi jika ada salah satu rekomendasi penguji yang kosong/tidak ada
             DB::table('ujian')->insert(
                 ['idTopikSkripsiFK' => $request->inputHiddenIDTopikSkripsi, 'nipyPenguji1' => $dosenPenguji[0]['nipy'], 'nipyPenguji2' => $dosenPenguji[1]['nipy']]
             );
@@ -249,7 +251,7 @@ class TopikController extends Controller
     public function rekomendasiPengujiSkripsi($judulTopikSkripsi)
     {
         $nidnDosbing = $this->getNIDNDosbing();
-
+        $rekomendasi = [];
         $client = new \GuzzleHttp\Client();
         $result = $client->post('http://localhost:8800/inverted', [
             'form_params' => [
