@@ -533,6 +533,392 @@ class MahasiswaSeeder extends Seeder
         ]);
 
         DB::table('mahasiswa')->insert([
+            'nim' => '12018200',
+            'nama_mahasiswa' => 'Didit Setia Budi',
+            'email_mahasiswa' => 'diditsb007@gmail.com',
+            'status' => config('constants.status_mahasiswa.lulus')
+        ]);
+
+        DB::table('mahasiswa')->insert([
+            'nim' => '1300018118',
+            'nama_mahasiswa' => 'Nisa Meidina Ulfa',
+            'email_mahasiswa' => 'nisamedina21@gmail.com',
+            'status' => config('constants.status_mahasiswa.lulus')
+        ]);
+
+        DB::table('mahasiswa')->insert([
+            'nim' => '11018004',
+            'nama_mahasiswa' => 'Sasti Yudho Lukito Aji',
+            'email_mahasiswa' => 'sastiyudholukitoaji@gmail.com',
+            'status' => config('constants.status_mahasiswa.lulus')
+        ]);
+
+        DB::table('mahasiswa')->insert([
+            'nim' => '12018133',
+            'nama_mahasiswa' => 'Tya Purnamasari',
+            'email_mahasiswa' => 'tiiatepees@gmail.com',
+            'status' => config('constants.status_mahasiswa.lulus')
+        ]);
+
+        DB::table('mahasiswa')->insert([
+            'nim' => '12018176',
+            'nama_mahasiswa' => 'DANANG WIYONO',
+            'email_mahasiswa' => 'danang.wiyono.12018176@gmail.com',
+            'status' => config('constants.status_mahasiswa.lulus')
+        ]);
+
+        DB::table('mahasiswa')->insert([
+            'nim' => '12018086',
+            'nama_mahasiswa' => 'Furgandini Rencang Pambajeng',
+            'email_mahasiswa' => 'furgandinirencang@gmail.com',
+            'status' => config('constants.status_mahasiswa.lulus')
+        ]);
+
+        DB::table('mahasiswa')->insert([
+            'nim' => '09018296',
+            'nama_mahasiswa' => 'Fais Nursuaedi Arofik',
+            'email_mahasiswa' => 'faizarofik@gmail.com',
+            'status' => config('constants.status_mahasiswa.lulus')
+        ]);
+
+        DB::table('mahasiswa')->insert([
+            'nim' => '12018118',
+            'nama_mahasiswa' => 'Nanang Agung Nugroho',
+            'email_mahasiswa' => 'nanangisnugroho@gmail.com',
+            'status' => config('constants.status_mahasiswa.lulus')
+        ]);
+
+        DB::table('mahasiswa')->insert([
+            'nim' => '12018128',
+            'nama_mahasiswa' => 'Muhammad Diro Sastro Parabuton',
+            'email_mahasiswa' => 'dsparabuton@gmail.com',
+            'status' => config('constants.status_mahasiswa.lulus')
+        ]);
+
+        DB::table('mahasiswa')->insert([
+            'nim' => '12018138',
+            'nama_mahasiswa' => 'Tofa Riyadi',
+            'email_mahasiswa' => 'tofariyadi17@gmail.com',
+            'status' => config('constants.status_mahasiswa.lulus')
+        ]);
+
+        DB::table('mahasiswa')->insert([
+            'nim' => '12018141',
+            'nama_mahasiswa' => 'Galih Pambayun Putri Fendina',
+            'email_mahasiswa' => 'agsgalih@gmail.com',
+            'status' => config('constants.status_mahasiswa.lulus')
+        ]);
+
+        DB::table('mahasiswa')->insert([
+            'nim' => '12018144',
+            'nama_mahasiswa' => 'ELY PRATIWI',
+            'email_mahasiswa' => 'ely12018144@webmail.uad.ac.id',
+            'status' => config('constants.status_mahasiswa.lulus')
+        ]);
+
+        DB::table('mahasiswa')->insert([
+            'nim' => '12018073',
+            'nama_mahasiswa' => 'Aji Eka Putra',
+            'email_mahasiswa' => 'aji.ekpe@gmail.com',
+            'status' => config('constants.status_mahasiswa.lulus')
+        ]);
+
+        DB::table('mahasiswa')->insert([
+            'nim' => '12018092',
+            'nama_mahasiswa' => 'Guntoro',
+            'email_mahasiswa' => 'guntoromomo5@gmail.com',
+            'status' => config('constants.status_mahasiswa.lulus')
+        ]);
+
+        DB::table('mahasiswa')->insert([
+            'nim' => '12018109',
+            'nama_mahasiswa' => 'Siti Wasilatus Sangadah',
+            'email_mahasiswa' => 'wz.chiitt@gmail.com',
+            'status' => config('constants.status_mahasiswa.lulus')
+        ]);
+
+        DB::table('mahasiswa')->insert([
+            'nim' => '12018142',
+            'nama_mahasiswa' => 'Fajar Aprianto',
+            'email_mahasiswa' => 'fajarembul@gmail.com',
+            'status' => config('constants.status_mahasiswa.lulus')
+        ]);
+
+        DB::table('mahasiswa')->insert([
+            'nim' => '12018146',
+            'nama_mahasiswa' => 'Alfiana Novi Aulia',
+            'email_mahasiswa' => 'alphieaulia@gmail.com',
+            'status' => config('constants.status_mahasiswa.lulus')
+        ]);
+
+        DB::table('mahasiswa')->insert([
+            'nim' => '12018183',
+            'nama_mahasiswa' => 'Siti Sariyanti',
+            'email_mahasiswa' => 'siti12018183@webmail.uad.ac.id',
+            'status' => config('constants.status_mahasiswa.lulus')
+        ]);
+
+        DB::table('mahasiswa')->insert([
+            'nim' => '12018202',
+            'nama_mahasiswa' => 'Isgi Arriza',
+            'email_mahasiswa' => 'isgi12018202@webmail.uad.ac.id',
+            'status' => config('constants.status_mahasiswa.lulus')
+        ]);
+
+        DB::table('mahasiswa')->insert([
+            'nim' => '12018021',
+            'nama_mahasiswa' => 'Anang Purnomo',
+            'email_mahasiswa' => 'anangpurnomo22@gmail.com',
+            'status' => config('constants.status_mahasiswa.lulus')
+        ]);
+
+        DB::table('mahasiswa')->insert([
+            'nim' => '11018023',
+            'nama_mahasiswa' => 'ARFAN DWI SUGRIWA',
+            'email_mahasiswa' => 'arfan.ajm152@gmail.com',
+            'status' => config('constants.status_mahasiswa.lulus')
+        ]);
+
+        DB::table('mahasiswa')->insert([
+            'nim' => '11018106',
+            'nama_mahasiswa' => 'Lalu Faesal Ahmad',
+            'email_mahasiswa' => 'echelbraker@gmail.com',
+            'status' => config('constants.status_mahasiswa.lulus')
+        ]);
+
+        DB::table('mahasiswa')->insert([
+            'nim' => '11018046',
+            'nama_mahasiswa' => 'Yan Suryo Sumirat',
+            'email_mahasiswa' => 'yansuryo93@gmail.com',
+            'status' => config('constants.status_mahasiswa.lulus')
+        ]);
+
+        DB::table('mahasiswa')->insert([
+            'nim' => '11018134',
+            'nama_mahasiswa' => 'Angga Ibnu Barata',
+            'email_mahasiswa' => 'angga8arata@gmail.com',
+            'status' => config('constants.status_mahasiswa.lulus')
+        ]);
+
+        DB::table('mahasiswa')->insert([
+            'nim' => '09018034',
+            'nama_mahasiswa' => 'Viriya Wicaksono',
+            'email_mahasiswa' => 'viriyawicaksono@gmail.com',
+            'status' => config('constants.status_mahasiswa.lulus')
+        ]);
+
+        DB::table('mahasiswa')->insert([
+            'nim' => '11018184',
+            'nama_mahasiswa' => 'Satria Anang Efyandro',
+            'email_mahasiswa' => 'efyandro@gmail.com',
+            'status' => config('constants.status_mahasiswa.lulus')
+        ]); 
+
+        DB::table('mahasiswa')->insert([
+            'nim' => '11018138',
+            'nama_mahasiswa' => 'Fajar Eko Susilo',
+            'email_mahasiswa' => 'fajar11018138@webmail.uad.ac.id',
+            'status' => config('constants.status_mahasiswa.lulus')
+        ]); 
+
+        DB::table('mahasiswa')->insert([
+            'nim' => '11018183',
+            'nama_mahasiswa' => 'Sinung Swasta',
+            'email_mahasiswa' => 'sinungswasta@gmail.com',
+            'status' => config('constants.status_mahasiswa.lulus')
+        ]); 
+
+        DB::table('mahasiswa')->insert([
+            'nim' => '11018148',
+            'nama_mahasiswa' => 'Singgih Saputro',
+            'email_mahasiswa' => 'singgihsap@gmail.com',
+            'status' => config('constants.status_mahasiswa.lulus')
+        ]); 
+
+        DB::table('mahasiswa')->insert([
+            'nim' => '11018007',
+            'nama_mahasiswa' => 'Dita Susilowati',
+            'email_mahasiswa' => 'ditasusilowati97@gmail.com',
+            'status' => config('constants.status_mahasiswa.lulus')
+        ]); 
+
+        DB::table('mahasiswa')->insert([
+            'nim' => '11018029',
+            'nama_mahasiswa' => 'Rofid Hilmi',
+            'email_mahasiswa' => 'rofidhilmi59@gmail.com',
+            'status' => config('constants.status_mahasiswa.lulus')
+        ]);
+
+        DB::table('mahasiswa')->insert([
+            'nim' => '11018091',
+            'nama_mahasiswa' => 'Yonata Ambara Saputra',
+            'email_mahasiswa' => 'yonata.ambara@gmail.com',
+            'status' => config('constants.status_mahasiswa.lulus')
+        ]); 
+
+        DB::table('mahasiswa')->insert([
+            'nim' => '11018163',
+            'nama_mahasiswa' => 'Nurwahid',
+            'email_mahasiswa' => 'nurwahid.me@gmail.com',
+            'status' => config('constants.status_mahasiswa.lulus')
+        ]); 
+
+        DB::table('mahasiswa')->insert([
+            'nim' => '11018057',
+            'nama_mahasiswa' => 'Damba Saputra Rosa',
+            'email_mahasiswa' => 'dambasaputra@gmail.com',
+            'status' => config('constants.status_mahasiswa.lulus')
+        ]); 
+
+        DB::table('mahasiswa')->insert([
+            'nim' => '11018052',
+            'nama_mahasiswa' => 'Muh. Imam Ghazhali',
+            'email_mahasiswa' => 'imamghazhali07@gmail.com',
+            'status' => config('constants.status_mahasiswa.lulus')
+        ]); 
+
+        DB::table('mahasiswa')->insert([
+            'nim' => '11018041',
+            'nama_mahasiswa' => 'Zaka Ricky Soleh',
+            'email_mahasiswa' => 'zakaricky1@gmail.com',
+            'status' => config('constants.status_mahasiswa.lulus')
+        ]); 
+
+        DB::table('mahasiswa')->insert([
+            'nim' => '08018286',
+            'nama_mahasiswa' => 'Faisal Rizkiana',
+            'email_mahasiswa' => 'alfazheta@gmail.com',
+            'status' => config('constants.status_mahasiswa.lulus')
+        ]); 
+
+        DB::table('mahasiswa')->insert([
+            'nim' => '09018005',
+            'nama_mahasiswa' => 'Muhammad Fahrurrozaq',
+            'email_mahasiswa' => 'fahrurr3@gmail.com',
+            'status' => config('constants.status_mahasiswa.lulus')
+        ]);
+
+        DB::table('mahasiswa')->insert([
+            'nim' => '09018210',
+            'nama_mahasiswa' => 'Agus Suroyo',
+            'email_mahasiswa' => 'jony.extenz@gmail.com',
+            'status' => config('constants.status_mahasiswa.lulus')
+        ]); 
+
+        DB::table('mahasiswa')->insert([
+            'nim' => '09018019',
+            'nama_mahasiswa' => 'Muhammad Luai Arminanto',
+            'email_mahasiswa' => 'arminantoluai@gmail.com',
+            'status' => config('constants.status_mahasiswa.lulus')
+        ]); 
+
+        DB::table('mahasiswa')->insert([
+            'nim' => '09018230',
+            'nama_mahasiswa' => 'EDWIN ANDRIANTO',
+            'email_mahasiswa' => 'edwinuad@gmail.com',
+            'status' => config('constants.status_mahasiswa.lulus')
+        ]); 
+
+        DB::table('mahasiswa')->insert([
+            'nim' => '07018303',
+            'nama_mahasiswa' => 'Edi Setiyono',
+            'email_mahasiswa' => 'ezze.cool45@gmail.com',
+            'status' => config('constants.status_mahasiswa.lulus')
+        ]); 
+
+        DB::table('mahasiswa')->insert([
+            'nim' => '09018295',
+            'nama_mahasiswa' => 'Nugroho Anwar Sani',
+            'email_mahasiswa' => 'nugroes17@gmail.com',
+            'status' => config('constants.status_mahasiswa.lulus')
+        ]); 
+        DB::table('mahasiswa')->insert([
+            'nim' => '08018197',
+            'nama_mahasiswa' => 'Bestian Nur Affan',
+            'email_mahasiswa' => 'xxx@gmail.com',
+            'status' => config('constants.status_mahasiswa.lulus')
+        ]); 
+        DB::table('mahasiswa')->insert([
+            'nim' => '08018300',
+            'nama_mahasiswa' => 'Reza Ardiansyah',
+            'email_mahasiswa' => 'xxx@gmail.com',
+            'status' => config('constants.status_mahasiswa.lulus')
+        ]); 
+        DB::table('mahasiswa')->insert([
+            'nim' => '06018105',
+            'nama_mahasiswa' => 'Ismail Hasan',
+            'email_mahasiswa' => 'xxx@gmail.com',
+            'status' => config('constants.status_mahasiswa.lulus')
+        ]); 
+        DB::table('mahasiswa')->insert([
+            'nim' => '07018046',
+            'nama_mahasiswa' => 'Muhammad Imaduddin Hanif',
+            'email_mahasiswa' => 'imadoes@gmail.com',
+            'status' => config('constants.status_mahasiswa.lulus')
+        ]); 
+        DB::table('mahasiswa')->insert([
+            'nim' => '08018252',
+            'nama_mahasiswa' => 'Edwin Fenaldi Anggadha',
+            'email_mahasiswa' => 'shin.winds91@gmail.com',
+            'status' => config('constants.status_mahasiswa.lulus')
+        ]); 
+        DB::table('mahasiswa')->insert([
+            'nim' => '08018035',
+            'nama_mahasiswa' => 'Dede Frank Suhara',
+            'email_mahasiswa' => 'dedek08018035@gmail.com',
+            'status' => config('constants.status_mahasiswa.lulus')
+        ]);
+        DB::table('mahasiswa')->insert([
+            'nim' => '08018139',
+            'nama_mahasiswa' => 'Dewangga Ari Putra',
+            'email_mahasiswa' => 'dew_dndwaputra@yahoo.co.id',
+            'status' => config('constants.status_mahasiswa.lulus')
+        ]);  
+        DB::table('mahasiswa')->insert([
+            'nim' => '07018320',
+            'nama_mahasiswa' => 'Herda Purwandari',
+            'email_mahasiswa' => 'eda_rose2000@yahoo.com',
+            'status' => config('constants.status_mahasiswa.lulus')
+        ]); 
+        DB::table('mahasiswa')->insert([
+            'nim' => '06018061',
+            'nama_mahasiswa' => 'Edy Irawan',
+            'email_mahasiswa' => 'xxx@yahoo.com',
+            'status' => config('constants.status_mahasiswa.lulus')
+        ]); 
+        DB::table('mahasiswa')->insert([
+            'nim' => '07018059',
+            'nama_mahasiswa' => 'Arif Hidayat',
+            'email_mahasiswa' => 'arif_ibenk@yahoo.com',
+            'status' => config('constants.status_mahasiswa.lulus')
+        ]); 
+        DB::table('mahasiswa')->insert([
+            'nim' => '05018071',
+            'nama_mahasiswa' => 'Dwi Budi Pramono',
+            'email_mahasiswa' => 'pentatonic777@yahoo.com',
+            'status' => config('constants.status_mahasiswa.lulus')
+        ]); 
+        DB::table('mahasiswa')->insert([
+            'nim' => '06018060',
+            'nama_mahasiswa' => 'Ari Supriyanto',
+            'email_mahasiswa' => 'xxx@yahoo.com',
+            'status' => config('constants.status_mahasiswa.lulus')
+        ]); 
+
+        DB::table('mahasiswa')->insert([
+            'nim' => '07018173',
+            'nama_mahasiswa' => 'Rati Dian Na\'im',
+            'email_mahasiswa' => 'rati.dian@gmail.com',
+            'status' => config('constants.status_mahasiswa.lulus')
+        ]); 
+        DB::table('mahasiswa')->insert([
+            'nim' => '04018150',
+            'nama_mahasiswa' => 'M. Awaluddinur',
+            'email_mahasiswa' => 'rati.dian@gmail.com',
+            'status' => config('constants.status_mahasiswa.lulus')
+        ]); 
+
+        DB::table('mahasiswa')->insert([
             'nim' => '1000000001',
             'nama_mahasiswa' => 'Fake Student',
             'email_mahasiswa' => 'fake@webmail.uad.ac.id',

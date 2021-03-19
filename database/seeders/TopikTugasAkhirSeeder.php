@@ -375,5 +375,441 @@ class TopikTugasAkhirSeeder extends Seeder
             'nim_terpilih_fk' => '1300018106',
             'status' => 1
         ]);
+
+        DB::table('topik_tugas_akhir')->insert([
+            'nipy_fk_nipy' => '030',
+            'topik_bidang_fk_id' => '7',
+            'judul_topik' => 'Pengembangan Sistem Authoring Tools Untuk Publikasi Jurnal Ilmiah Berbasis Web',
+            'nim_terpilih_fk' => '12018200',
+            'status' => 1
+        ]);
+
+        DB::table('topik_tugas_akhir')->insert([
+            'nipy_fk_nipy' => '030',
+            'topik_bidang_fk_id' => '7',
+            'judul_topik' => 'Pengembangan Isyarat Tooltip Untuk Meningkatkan Performa Membaca Pada Buku Elektronik (E-Book)',
+            'nim_terpilih_fk' => '1300018118',
+            'status' => 1
+        ]);
+
+        DB::table('topik_tugas_akhir')->insert([
+            'nipy_fk_nipy' => '030',
+            'topik_bidang_fk_id' => '7',
+            'judul_topik' => 'Pengembangan Aplikasi Authoring Tools Buku Teks Elektronik (E-Text Book) Berbasis Web',
+            'nim_terpilih_fk' => '11018004',
+            'status' => 1
+        ]);
+
+        DB::table('topik_tugas_akhir')->insert([
+            'nipy_fk_nipy' => '030',
+            'topik_bidang_fk_id' => '7',
+            'judul_topik' => 'Pengembangan Aplikasi Authoring Tools Skripsi Berbasis Web',
+            'nim_terpilih_fk' => '12018133',
+            'status' => 1
+        ]);
+
+        DB::table('topik_tugas_akhir')->insert([
+            'nipy_fk_nipy' => '030',
+            'topik_bidang_fk_id' => '7',
+            'judul_topik' => 'Sistem Pendukung Keputusan Menggunakan Metode Analytical Hierarchy Process (AHP) Untuk Pemilihan Buku Teks Kuliah Di Perguruan Tinggi',
+            'nim_terpilih_fk' => '12018176',
+            'status' => 1
+        ]);
+
+        DB::table('topik_tugas_akhir')->insert([
+            'nipy_fk_nipy' => '030',
+            'topik_bidang_fk_id' => '7',
+            'judul_topik' => 'Pengembangan User Interface (UI) dan User Experience (UX) Aplikasi Cashoop untuk Pengelolaan Keuangan Pribadi',
+            'nim_terpilih_fk' => '12018086',
+            'status' => 1
+        ]);
+
+        DB::table('topik_tugas_akhir')->insert([
+            'nipy_fk_nipy' => '030',
+            'topik_bidang_fk_id' => '7',
+            'judul_topik' => 'Pengembangan Web Admin dan Backend Web Services Untuk Aplikasi Manajemen Presensi Rapat',
+            'nim_terpilih_fk' => '12018118',
+            'status' => 1
+        ]);
+
+        DB::table('topik_tugas_akhir')->insert([
+            'nipy_fk_nipy' => '030',
+            'topik_bidang_fk_id' => '7',
+            'judul_topik' => 'Pengembangan Aplikasi Pos Mikro Berbasis Mobile Android Untuk Bisnis Waralaba',
+            'nim_terpilih_fk' => '12018128',
+            'status' => 1
+        ]);
+
+        DB::table('topik_tugas_akhir')->insert([
+            'nipy_fk_nipy' => '030',
+            'topik_bidang_fk_id' => '7',
+            'judul_topik' => 'Pengembangan Web Service Pos Mikro Berbasis Software AS A Service (SaaS) Dengan Arsitektur Multitenancy Pada Bisnis Waralaba',
+            'nim_terpilih_fk' => '12018138',
+            'status' => 1
+        ]);
+
+        DB::table('topik_tugas_akhir')->insert([
+            'nipy_fk_nipy' => '030',
+            'topik_bidang_fk_id' => '7',
+            'judul_topik' => 'Pengembangan Sistem Manajemen Presensi Rapat Menggunakan QR Code Pada Android',
+            'nim_terpilih_fk' => '12018141',
+            'status' => 1
+        ]);
+
+        DB::table('topik_tugas_akhir')->insert([
+            'nipy_fk_nipy' => '030',
+            'topik_bidang_fk_id' => '7',
+            'judul_topik' => 'Pengembangan User Interface (UI) dan User eksperince (UX) Aplikasi Mutaba\'ah Untuk Evaluasi Ibadah Harian Berbasis Android',
+            'nim_terpilih_fk' => '12018144',
+            'status' => 1
+        ]);
+
+        DB::table('topik_tugas_akhir')->insert([
+            'nipy_fk_nipy' => '030',
+            'topik_bidang_fk_id' => '7',
+            'judul_topik' => 'Pengembangan Sistem Web Backend Untuk Administrasi dan Analytic Pada Aplikasi Pos Mikro',
+            'nim_terpilih_fk' => '12018073',
+            'status' => 1
+        ]);
+
+        DB::table('topik_tugas_akhir')->insert([
+            'nipy_fk_nipy' => '030',
+            'topik_bidang_fk_id' => '7',
+            'judul_topik' => 'Pengembangan Aplikasi Mutaba\'ah Untuk Evaluasi Ibadah Harian Berbasis Android',
+            'nim_terpilih_fk' => '12018092',
+            'status' => 1
+        ]);
+
+        DB::table('topik_tugas_akhir')->insert([
+            'nipy_fk_nipy' => '030',
+            'topik_bidang_fk_id' => '7',
+            'judul_topik' => 'Pengembangan User Experience (UX) dan User Interface (UI) Aplikasi Sistem Manajemen Perpustakaan Desa Berbasis Mobile',
+            'nim_terpilih_fk' => '12018109',
+            'status' => 1
+        ]);
+
+        DB::table('topik_tugas_akhir')->insert([
+            'nipy_fk_nipy' => '030',
+            'topik_bidang_fk_id' => '7',
+            'judul_topik' => 'Pengembangan Aplikasi Iperpus Berbasis Mobile Sebagai Implementasi Sistem Perpustakaan Desa Berbasis SaaS',
+            'nim_terpilih_fk' => '12018142',
+            'status' => 1
+        ]);
+
+        DB::table('topik_tugas_akhir')->insert([
+            'nipy_fk_nipy' => '030',
+            'topik_bidang_fk_id' => '7',
+            'judul_topik' => 'Rancang Bangun UI/UX Aplikasi Manajemen Skripsi Pada Program Studi Teknik Informatika Universitas Ahmad Dahlan',
+            'nim_terpilih_fk' => '12018146',
+            'status' => 1
+        ]);
+
+        DB::table('topik_tugas_akhir')->insert([
+            'nipy_fk_nipy' => '030',
+            'topik_bidang_fk_id' => '7',
+            'judul_topik' => 'Pengembangan Kakas Estimasi Perangkat Lunak Dengan Function Point dan Use Case Point Untuk Praktikum Rekayasa Perangkat Lunak',
+            'nim_terpilih_fk' => '12018183',
+            'status' => 1
+        ]);
+
+        DB::table('topik_tugas_akhir')->insert([
+            'nipy_fk_nipy' => '030',
+            'topik_bidang_fk_id' => '7',
+            'judul_topik' => 'Pengembangan Kakas Estimasi Perangkat Lunak Dengan Function Point dan Use Case Point Untuk Praktikum Rekayasa Perangkat Lunak',
+            'nim_terpilih_fk' => '12018202',
+            'status' => 1
+        ]);
+
+        DB::table('topik_tugas_akhir')->insert([
+            'nipy_fk_nipy' => '030',
+            'topik_bidang_fk_id' => '7',
+            'judul_topik' => 'Pengembangan Sistem Pengelolaan Pelanggan Pada Aplikasi Pos Mikro',
+            'nim_terpilih_fk' => '12018202',
+            'status' => 1
+        ]);
+
+        DB::table('topik_tugas_akhir')->insert([
+            'nipy_fk_nipy' => '030',
+            'topik_bidang_fk_id' => '7',
+            'judul_topik' => 'Pengembangan User Experience (UX) dan User Interface (UI)  Aplikasi Ibeauty Berbasis Android',
+            'nim_terpilih_fk' => '12018021',
+            'status' => 1
+        ]);
+
+        DB::table('topik_tugas_akhir')->insert([
+            'nipy_fk_nipy' => '030',
+            'topik_bidang_fk_id' => '7',
+            'judul_topik' => 'Pengembangan Aplikasi Mobile Learning Untuk Pembelajaran Rambu Lalu Lintas Pada Anak Usia 4-7 Tahun',
+            'nim_terpilih_fk' => '11018023',
+            'status' => 1
+        ]);
+
+        DB::table('topik_tugas_akhir')->insert([
+            'nipy_fk_nipy' => '030',
+            'topik_bidang_fk_id' => '7',
+            'judul_topik' => 'Perancangan dan Pengembangan Aplikasi Mobile Android E-Collection Untuk Pencatatan Data Cicilan Kredit Nasabah Bank BPR Yogyakarta',
+            'nim_terpilih_fk' => '11018106',
+            'status' => 1
+        ]);
+
+        DB::table('topik_tugas_akhir')->insert([
+            'nipy_fk_nipy' => '030',
+            'topik_bidang_fk_id' => '7',
+            'judul_topik' => 'Rancang Bangun Aplikasi Web Backend Sebagai Administrator Untuk Pemesanan Menu Di Restoran',
+            'nim_terpilih_fk' => '11018046',
+            'status' => 1
+        ]);
+
+        DB::table('topik_tugas_akhir')->insert([
+            'nipy_fk_nipy' => '030',
+            'topik_bidang_fk_id' => '7',
+            'judul_topik' => 'Pengembangan User Experience(UX) dan User Interface (UI) Aplikasi Tabloo Sebagai Pembaca Skripsi Di Perpustakaan Kampus III UAD Menggunakan Tablet',
+            'nim_terpilih_fk' => '11018134',
+            'status' => 1
+        ]);
+
+        DB::table('topik_tugas_akhir')->insert([
+            'nipy_fk_nipy' => '030',
+            'topik_bidang_fk_id' => '7',
+            'judul_topik' => 'Sistem E-Marketplace Travel Agent Untuk Mempermudah Pencarian Paket Wisata',
+            'nim_terpilih_fk' => '09018034',
+            'status' => 1
+        ]);
+
+        DB::table('topik_tugas_akhir')->insert([
+            'nipy_fk_nipy' => '030',
+            'topik_bidang_fk_id' => '7',
+            'judul_topik' => 'Pengembangan Native Front-End Aplikasi Pembaca Skripsi Di Perpustakaan Kampus III UAD Menggunakan Android Tablet',
+            'nim_terpilih_fk' => '11018183',
+            'status' => 1
+        ]);
+
+        DB::table('topik_tugas_akhir')->insert([
+            'nipy_fk_nipy' => '030',
+            'topik_bidang_fk_id' => '7',
+            'judul_topik' => 'Aplikasi Android Pengelolaan Keuangan Keluarga Modul Perencanaan Keuangan Masa Depan Berbasis Web Service',
+            'nim_terpilih_fk' => '11018184',
+            'status' => 1
+        ]);
+
+        DB::table('topik_tugas_akhir')->insert([
+            'nipy_fk_nipy' => '030',
+            'topik_bidang_fk_id' => '7',
+            'judul_topik' => 'Pengembangan Web Service Backend Untuk Aplikasi Pembaca Skripsi Perpustakaan Kampus III Universitas Ahmad Dahlan',
+            'nim_terpilih_fk' => '11018138',
+            'status' => 1
+        ]);
+
+        DB::table('topik_tugas_akhir')->insert([
+            'nipy_fk_nipy' => '030',
+            'topik_bidang_fk_id' => '7',
+            'judul_topik' => 'Pengembangan User Experience (UX) dan User Interface (UI) Sistem Manajemen Perpustakaan Desa Berbasis SAAS',
+            'nim_terpilih_fk' => '11018148',
+            'status' => 1
+        ]);
+
+        DB::table('topik_tugas_akhir')->insert([
+            'nipy_fk_nipy' => '030',
+            'topik_bidang_fk_id' => '7',
+            'judul_topik' => 'Pengembangan User Experience (UX) dan User Interface (UI) Pada Aplikasi Mobile Learning Untuk Pembelajaran Rambu Lalu Lintas Pada Anak Usia 4-7 Tahun',
+            'nim_terpilih_fk' => '11018007',
+            'status' => 1
+        ]);
+
+        DB::table('topik_tugas_akhir')->insert([
+            'nipy_fk_nipy' => '030',
+            'topik_bidang_fk_id' => '7',
+            'judul_topik' => 'Pengembangan User Experience Dan User Interface Aplikasi iGometer Taksi',
+            'nim_terpilih_fk' => '11018029',
+            'status' => 1
+        ]);
+
+        DB::table('topik_tugas_akhir')->insert([
+            'nipy_fk_nipy' => '030',
+            'topik_bidang_fk_id' => '7',
+            'judul_topik' => 'Pengembangan User Interface (UI) dan User Experience (UX) Aplikasi Mobile Alert Notification Untuk Mempercepat Pemenuhan Kebutuhan Darah Pasien Gawat Darurat Berbasis Social Network & Location Based Service',
+            'nim_terpilih_fk' => '11018091',
+            'status' => 1
+        ]);
+
+        DB::table('topik_tugas_akhir')->insert([
+            'nipy_fk_nipy' => '030',
+            'topik_bidang_fk_id' => '7',
+            'judul_topik' => 'Web Service Backend Manajemen Perpustakaan Desa Berbasis Konsep Software AS A Service (SaaS)',
+            'nim_terpilih_fk' => '11018163',
+            'status' => 1
+        ]);
+
+        DB::table('topik_tugas_akhir')->insert([
+            'nipy_fk_nipy' => '030',
+            'topik_bidang_fk_id' => '7',
+            'judul_topik' => 'Pengembangan Web Service Backend Untuk Aplikasi Pemesanan Menu di Restoran',
+            'nim_terpilih_fk' => '11018057',
+            'status' => 1
+        ]);
+
+        DB::table('topik_tugas_akhir')->insert([
+            'nipy_fk_nipy' => '030',
+            'topik_bidang_fk_id' => '7',
+            'judul_topik' => 'Pengembangan User Experence (UX) dan User Interface (UI) Untuk Aplikasi E-Reader Skripsi Berbasis HTML5',
+            'nim_terpilih_fk' => '11018052',
+            'status' => 1
+        ]);
+
+        DB::table('topik_tugas_akhir')->insert([
+            'nipy_fk_nipy' => '030',
+            'topik_bidang_fk_id' => '7',
+            'judul_topik' => 'Aplikasi Native Android Sebagai  Front End Pemesanan Menu Makanan Di Restoran Menggunakan Web Service',
+            'nim_terpilih_fk' => '11018041',
+            'status' => 1
+        ]);
+
+        DB::table('topik_tugas_akhir')->insert([
+            'nipy_fk_nipy' => '030',
+            'topik_bidang_fk_id' => '7',
+            'judul_topik' => 'Look and Feel Sampul dan Daftar Isi Hypertext Book Berdasarkan Aspek User Experience dan User Interface',
+            'nim_terpilih_fk' => '08018286',
+            'status' => 1
+        ]);
+
+        DB::table('topik_tugas_akhir')->insert([
+            'nipy_fk_nipy' => '030',
+            'topik_bidang_fk_id' => '7',
+            'judul_topik' => 'Integrasi Aplikasi "Lagidimana" dengan Social Network untuk Meningkatkan Jumlah Pengguna',
+            'nim_terpilih_fk' => '09018005',
+            'status' => 1
+        ]);
+
+        DB::table('topik_tugas_akhir')->insert([
+            'nipy_fk_nipy' => '030',
+            'topik_bidang_fk_id' => '7',
+            'judul_topik' => 'Front Office System Menggunakan M-Government Untuk Meningkatkan Interaksi Masyarakat dan Pemerintah Yogyakarta',
+            'nim_terpilih_fk' => '09018210',
+            'status' => 1
+        ]);
+
+        DB::table('topik_tugas_akhir')->insert([
+            'nipy_fk_nipy' => '030',
+            'topik_bidang_fk_id' => '7',
+            'judul_topik' => 'Rancang Bangun Sistem Manajemen Studio Rekaman Berbasis Web',
+            'nim_terpilih_fk' => '09018019',
+            'status' => 1
+        ]);
+
+        DB::table('topik_tugas_akhir')->insert([
+            'nipy_fk_nipy' => '030',
+            'topik_bidang_fk_id' => '7',
+            'judul_topik' => 'Pengembangan Aplikasi Lagidimana Berbasis Android',
+            'nim_terpilih_fk' => '09018230',
+            'status' => 1
+        ]);
+
+        DB::table('topik_tugas_akhir')->insert([
+            'nipy_fk_nipy' => '030',
+            'topik_bidang_fk_id' => '7',
+            'judul_topik' => 'Aplikasi Kartu Nama Virtual Berbasis Web Mobile',
+            'nim_terpilih_fk' => '07018303',
+            'status' => 1
+        ]);
+
+        DB::table('topik_tugas_akhir')->insert([
+            'nipy_fk_nipy' => '030',
+            'topik_bidang_fk_id' => '7',
+            'judul_topik' => 'Aplikasi Mobile Kumpulan Doa Harian Islam Untuk Mempermudah Menghafal Doa Berbasis Android',
+            'nim_terpilih_fk' => '09018295',
+            'status' => 1
+        ]);
+        DB::table('topik_tugas_akhir')->insert([
+            'nipy_fk_nipy' => '030',
+            'topik_bidang_fk_id' => '7',
+            'judul_topik' => 'Pembangunan Aplikasi E-Menu pada Restoran Berbasis Android',
+            'nim_terpilih_fk' => '08018197',
+            'status' => 1
+        ]);
+        DB::table('topik_tugas_akhir')->insert([
+            'nipy_fk_nipy' => '030',
+            'topik_bidang_fk_id' => '7',
+            'judul_topik' => 'Desain dan Implementasi Jejaring Sosial Bagi Penggemar Sepakbola Berbasis Web',
+            'nim_terpilih_fk' => '08018300',
+            'status' => 1
+        ]);
+        DB::table('topik_tugas_akhir')->insert([
+            'nipy_fk_nipy' => '030',
+            'topik_bidang_fk_id' => '7',
+            'judul_topik' => 'Rancang Bangun Aplikasi Mobile Chatt Room Menggunakan Koneksi Bluetooth',
+            'nim_terpilih_fk' => '06018105',
+            'status' => 1
+        ]);
+        DB::table('topik_tugas_akhir')->insert([
+            'nipy_fk_nipy' => '030',
+            'topik_bidang_fk_id' => '7',
+            'judul_topik' => 'Visualisasi Struktur Bangunan Rumah Tahan Gempa Berbasis 3D',
+            'nim_terpilih_fk' => '07018046',
+            'status' => 1
+        ]);
+        DB::table('topik_tugas_akhir')->insert([
+            'nipy_fk_nipy' => '030',
+            'topik_bidang_fk_id' => '7',
+            'judul_topik' => 'Pengembangan Aplikasi Meeting Note Berbasis Android',
+            'nim_terpilih_fk' => '08018252',
+            'status' => 1
+        ]);
+        DB::table('topik_tugas_akhir')->insert([
+            'nipy_fk_nipy' => '030',
+            'topik_bidang_fk_id' => '7',
+            'judul_topik' => 'Sistem Pemesanan Taksi Menggunakan Layanan Berbasis Lokasi',
+            'nim_terpilih_fk' => '08018035',
+            'status' => 1
+        ]);
+        DB::table('topik_tugas_akhir')->insert([
+            'nipy_fk_nipy' => '030',
+            'topik_bidang_fk_id' => '7',
+            'judul_topik' => 'Rancang bangun Web Service Aplikasi Management Event (Acara)',
+            'nim_terpilih_fk' => '08018139',
+            'status' => 1
+        ]);
+        DB::table('topik_tugas_akhir')->insert([
+            'nipy_fk_nipy' => '030',
+            'topik_bidang_fk_id' => '7',
+            'judul_topik' => 'Sistem Informasi Perbandingan Harga Handphone se Bantul Berbasis Web',
+            'nim_terpilih_fk' => '07018320',
+            'status' => 1
+        ]);
+        DB::table('topik_tugas_akhir')->insert([
+            'nipy_fk_nipy' => '030',
+            'topik_bidang_fk_id' => '7',
+            'judul_topik' => 'Website Update Skor Pertandingan Sepak Bola Liga Indonesia',
+            'nim_terpilih_fk' => '06018061',
+            'status' => 1
+        ]);
+        DB::table('topik_tugas_akhir')->insert([
+            'nipy_fk_nipy' => '030',
+            'topik_bidang_fk_id' => '7',
+            'judul_topik' => 'Aplikasi Pengelolaan Keuangan Untuk Organisasi Non Profit Berbasis Cloud Computing',
+            'nim_terpilih_fk' => '07018059',
+            'status' => 1
+        ]);
+        DB::table('topik_tugas_akhir')->insert([
+            'nipy_fk_nipy' => '030',
+            'topik_bidang_fk_id' => '7',
+            'judul_topik' => 'Aplikasi Multimedia Interaktif Pengenalan Topologi Jaringan dan TCP/IP',
+            'nim_terpilih_fk' => '05018071',
+            'status' => 1
+        ]);
+        DB::table('topik_tugas_akhir')->insert([
+            'nipy_fk_nipy' => '030',
+            'topik_bidang_fk_id' => '7',
+            'judul_topik' => 'Sistem Informasi Pengelolaan dan Inventory ATK Studi Kasus di BIFAS UAD',
+            'nim_terpilih_fk' => '06018060',
+            'status' => 1
+        ]);
+        DB::table('topik_tugas_akhir')->insert([
+            'nipy_fk_nipy' => '030',
+            'topik_bidang_fk_id' => '7',
+            'judul_topik' => 'Pengembangan Aplikasi Mobile Web Percakapan Bahasa Korea Berbasis Lokasi Menggunakan Foursquare API',
+            'nim_terpilih_fk' => '07018173',
+            'status' => 1
+        ]);
+
     }
 }

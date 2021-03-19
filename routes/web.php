@@ -18,6 +18,7 @@ use App\Http\Controllers\UjianController;
 | contains the "web" middleware group. Now create something great!
 |
 */
+
 //Route Index sistem
 Route::get('/', [LoginController::class, 'index'])->name('index');
 
@@ -41,14 +42,9 @@ Route::get('/Topik/All', [TopikController::class, 'allTopikSkripsi'])->name('all
 Route::get('/Topik/Details/{id}/{dosenMahasiswa}', [TopikController::class, 'detailTopikSkripsiByID'])->name('detailsTopikSkripsi'); // oke
 Route::post('/Topik/PendaftaranTopik/',[TopikController::class, 'saveTopikMahasiswa']);
 Route::get('/Topik/Add', [TopikController::class, 'addTopikSkripsi']);
-
 Route::post('/Topik', [TopikController::class, 'store']);
 Route::post('/Topik/Decision', [TopikController::class, 'decision']);
-
-
 Route::get('/Topik/All/Mahasiswa', [TopikController::class, 'allTopikSkripsiMahasiswa'])->name('allTopikTAMahasiswa');
-
-
 Route::get('/Topik/Ambil/', [TopikController::class, 'daftarDetailTopik'])->name('daftarTopikMahasiswa');
 Route::get('/Topik/Ambil/{id}', [TopikController::class, 'daftarDetailTopik'])->name('detailTopik');
 
@@ -67,3 +63,6 @@ Route::post('/aksiLoginMahasiswa', [LoginController::class, 'aksiLoginMahasiswa'
 Route::get('/Topik/updateTopikTA/{id}/', [TopikController::class, 'updateTopikTA']);
 //Route aksi update Topik TA
 Route::patch('/Topik/aksiUpdateTA/{id}', [TopikController::class, 'aksiUpdateTA'])->name('aksiUpdateTA');
+Auth::routes();
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');

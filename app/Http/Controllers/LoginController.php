@@ -5,14 +5,18 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Dosen;
 use App\Models\Mahasiswa;
+use App\Models\User;
 use App\Models\TopikTugasAkhir;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Session;
 
-
-
 class LoginController extends Controller
 {
+    public function __construct(User $model)
+    {
+        $this->model = $model;
+    }
+
     #Menampilkan view Login user
     public function index()
     {
@@ -37,7 +41,7 @@ class LoginController extends Controller
         ]);
 
         $nipy = $request->nipy;
-        $data = Dosen::where('nipy', $nipy)->first();
+        $data = $this->model->loginDosen($nipy);
         
         if ($data) {
             Session::put('nama', $data->nama);
@@ -50,7 +54,6 @@ class LoginController extends Controller
             return redirect('dosen');
         }
     }
-
 
     //proses login mahasiswa
     public function aksiLoginMahasiswa(Request $request)

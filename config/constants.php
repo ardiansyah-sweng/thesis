@@ -60,5 +60,4 @@ return array(
      * Susunan penguji sudah fixed atau belum
      */
     'isFixed' => 1,
-
 );

@@ -11,6 +11,6 @@ class Dosen extends Model
     protected $table = 'dosen';
 
     protected $fillable = [
-        'nipy'
+        'nipy', 'nidn', 'nama', 'jabfung', 'email_dosen', 'avatar'
     ];
 }

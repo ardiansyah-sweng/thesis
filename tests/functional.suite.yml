@@ -9,5 +9,7 @@ actor: FunctionalTester
 modules:
     enabled:
         # add a framework module here
+        - Laravel5:
+            environment_file: .env.testing
         - \Helper\Functional
     step_decorators: ~        

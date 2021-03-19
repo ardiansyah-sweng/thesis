@@ -1,0 +1,277 @@
+-- phpMyAdmin SQL Dump
+-- version 5.0.2
+-- https://www.phpmyadmin.net/
+--
+-- Host: 127.0.0.1
+-- Generation Time: Oct 23, 2020 at 02:11 AM
+-- Server version: 10.4.14-MariaDB
+-- PHP Version: 7.4.10
+
+SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
+START TRANSACTION;
+SET time_zone = "+00:00";
+
+
+/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
+/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
+/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
+/*!40101 SET NAMES utf8mb4 */;
+
+--
+-- Database: `manajemen_ta`
+--
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `skripsi`
+--
+
+CREATE TABLE `skripsi` (
+  `nim` varchar(20) NOT NULL,
+  `judul` varchar(500) NOT NULL,
+  `topik` enum('Pengolahan Citra','Sistem Pakar','Pengolahan Teks dan Bahasa Alami','Media Pembelajaran','Estimasi Effort Perangkat Lunak','Sistem Informasi','Kebutuhan Perangkat Lunak','Pengembangan Perangkat Lunak','HCI, UX & UI','Augmented Reality','Multimedia dan Grafika','Pengembangan Game','Kriptografi','Forensik Digital','Keamanan Komputer','Penjaminan Kualitas Perangkat Lunak','Sistem Pendukung Keputusan','Machine Learning dan Data Mining','Kecerdasaran Buatan','Basis Data','Social Network Analysis','Network dan Sistem Terdistribusi','') NOT NULL,
+  `pembimbing` varchar(200) NOT NULL,
+  `tgl_mulai_meto` varchar(13) NOT NULL,
+  `semester` varchar(30) NOT NULL,
+  `penguji1` varchar(200) NOT NULL,
+  `penguji2` varchar(200) NOT NULL,
+  `status` enum('Metopen','Skripsi','Gagal','Lulus') NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `skripsi`
+--
+
+INSERT INTO `skripsi` (`nim`, `judul`, `topik`, `pembimbing`, `tgl_mulai_meto`, `semester`, `penguji1`, `penguji2`, `status`) VALUES
+('12018011', 'Pengembangan Game Anak Soleh Berbasis Role Playingg Game (RPG) Pada Materi Sejarah Nabi dan Rosul Sebagai Media Pembelajaran Mandiri', 'Pengembangan Game', '0504116601', '16/07/2019', 'Gasal 18/19', '0528058401', '0516127501', 'Skripsi'),
+('12018051', 'Perancangan Game The Adventure of West-Born Guardian Menggunakan Metode Multimedia Development Life Cycle Berbasis Adobe Flash', 'Pengembangan Game', '0505118901', '16/07/2019', 'Gasal 18/19', '', '', 'Metopen'),
+('1300018006', 'Rancang Bangun Sistem Informasi Bursa Kerja Khusus Berbasis Web Dengan Menggunakan Metode MVC (Studi Kasus pada SMKN 1 Cijulang)', 'Pengembangan Perangkat Lunak', '0521127303', '16/07/2019', 'Gasal 18/19', '', '', 'Metopen'),
+('1300018102', 'Optimasi Keamanan Plug-in pada Open Journal Sistem (OJS Versi 0.3)', 'Pengolahan Citra', '0509048901', '25/03/2019', 'Genap 18/19', '', '', 'Metopen'),
+('1300018136', 'Aplikasi Pengamanan Dokumen Keuangan Digital Signature Menggunakan Advance Encryption Standard', 'Pengolahan Citra', '0019087601', '25/03/2019', 'Genap 18/19', '', '', 'Metopen'),
+('1300018137', 'Membuat Kamus Digital Tentang Istilah-Istilah Dalam Ilmu Pertanian Berbasis Dekstop', 'Pengolahan Citra', '0523077902', '25/03/2019', 'Genap 18/19', '', '', 'Metopen'),
+('1300018157', 'Analisis dan Perancangan Sistem Informasi Pustaka Islam Bustanul Ulum Berbasis Web Menggunakan Arsitektur MVC dengan Framework Codeigniter', 'Pengolahan Citra', '0407016801', '25/03/2019', 'Genap 18/19', '', '', 'Metopen'),
+('1400018001', 'Penambahan Chapter 3 pada Game Legenda Karna : Sang Anak Surya dengan metode Rapid Application Development', 'Pengembangan Game', '0523068801', '16/07/2019', 'Gasal 18/19', '', '', 'Metopen'),
+('1400018006', 'Analisis Firewall Aplikasi Web Untuk Pencegahan SQL Injection Menggunakan Naysi', 'Keamanan Komputer', '0019087601', '16/07/2019', 'Gasal 18/19', '', '', 'Metopen'),
+('1400018008', 'Pemeriksaan Makna Kalimat dengan Metode N-Grams', 'Pengolahan Teks dan Bahasa Alami', '0530077601', '16/07/2019', 'Gasal 18/19', '', '', 'Metopen'),
+('1400018010', 'Penerapan Kriptografi Advanced Encryption Standard (AES) dan Steganografi Metode Least Significant Bit (LSB) Untuk Mengingkatkan Keamanan Data Cloud Computing', 'Kriptografi', '0019087601', '16/07/2019', 'Gasal 18/19', '', '', 'Metopen'),
+('1400018014', 'Sistem Pendukung Keputusan Pembagian Daging Hewan Qurban Dipadukuhan Samirono Dengan Metode Fuzzy Multi Decission Making (FDADM) dan Simple Addative Weighting (SAW)', 'Sistem Pendukung Keputusan', '0506016701', '16/07/2019', 'Gasal 18/19', '', '', 'Metopen'),
+('1400018015', 'Pengembangan Model 3d Untuk Game Portal Akademik Menggunakan Metode Digital Sculpting', 'Multimedia dan Grafika', '0523068801', '16/07/2019', 'Gasal 18/19', '', '', 'Metopen'),
+('1400018025', 'Penerapan Stemming dalam Pembelajaran Kalimat Berimbuhan Bahasa Indonesia', 'Pengolahan Citra', '0530077601', '25/03/2019', 'Genap 18/19', '', '', 'Metopen'),
+('1400018026', 'Sistem Klasifikasi Diagnosis Penyakit Gagal Ginjal Berbasis Web Menggunakan Metode Algoritma C4.5 (Studi Kasus di RSUD Ciamis)', 'Machine Learning dan Data Mining', '0504088601', '16/07/2019', 'Gasal 18/19', '', '', 'Metopen'),
+('1400018038', 'Rekonstruksi 3D Model Wajah Untuk Avatar Game Virtual Akademik Menggunakan Sensor Kinect 2', 'Multimedia dan Grafika', '0524118801', '16/07/2019', 'Gasal 18/19', '', '', 'Metopen'),
+('1400018040', 'Penerapan Analytical Hierarchy Process Pada Game Virtual Akademik UAD Untuk Memberi Rekomendasi Bidang Minat', 'Sistem Pakar', '0523068801', '16/07/2019', 'Gasal 18/19', '', '', 'Metopen'),
+('1400018048', 'Game Edukasi Huruf Hijaiyah dan Surah Berbasis Android Sebagai Media Digital Belajar Anak Usia Dini Dengan Teknik Animasi Komputer Menggunakan Metode MDLC', 'Pengembangan Game', '0523068801', '16/07/2019', 'Gasal 18/19', '', '', 'Metopen'),
+('1400018049', 'Implementasi Metode Forward Chaining Untuk Pelevelan Game Puzzle Studi Kasus Paud Dini Laras Yogyakarta', 'Pengembangan Game', '0505118901', '16/07/2019', 'Gasal 18/19', '', '', 'Metopen'),
+('1400018052', 'pengembangan model karakter game legenda karna anak sang surya', 'Pengembangan Game', '0523068801', '16/07/2019', 'Gasal 18/19', '', '', 'Metopen'),
+('1400018055', 'Sistem Informasi pada Kantor Agama (KUA)', 'Pengolahan Citra', '0407016801', '25/03/2019', 'Genap 18/19', '', '', 'Metopen'),
+('1400018058', 'Rancang Bangun Aplikasi Penentu Harga Pokok Produksi Menggunakan Metode Job Order Costing Pada Toko Jersey Ojan Sport', 'Sistem Pakar', '0014107301', '16/07/2019', 'Gasal 18/19', '', '', 'Metopen'),
+('1400018072', 'Pencarian SPBU Terdekat di Kota Yogyakarta Menggunakan Metode Djikstra Berbasis Android', 'Pengolahan Citra', '0507087202', '25/03/2019', 'Genap 18/19', '', '', 'Metopen'),
+('1400018080', 'Pencarian Atm BNI Terdekat di Kota Yogyakarta Menggunakan Metode Koloni Berbasis Android', 'Pengolahan Citra', '0507087202', '25/03/2019', 'Genap 18/19', '', '', 'Metopen'),
+('1400018088', 'Sistem Informasi Tracking Sales Menggunakan Google Direction API Berbasis Android di Yuka Fashion', 'Sistem Informasi', '0507087202', '16/07/2019', 'Gasal 18/19', '', '', 'Metopen'),
+('1400018102', 'Pengembangan Aplikasi Stemming Pencarian Kata Dasar Dalam bahasa Inggris Menggunakan Algoritma Porter', 'Pengolahan Teks dan Bahasa Alami', '0530077601', '16/07/2019', 'Gasal 18/19', '', '', 'Metopen'),
+('1400018110', 'Penerapan FSA dalam pencarian nomor telfon dalam dokumen', 'Pengolahan Citra', '0530077601', '25/03/2019', 'Genap 18/19', '', '', 'Metopen'),
+('1400018118', 'Aplikasi Pembelajaran Anak Soleh Menggunakan Media Permainan Puzzle Berbasis Android', 'Pengembangan Perangkat Lunak', '0504116601', '16/07/2019', 'Gasal 18/19', '', '', 'Metopen'),
+('1400018120', 'Penerapan Stemming Dalam Pembelajaran Kalimat Berimbuhan Bahasa Indonesia', 'Pengolahan Citra', '0530077601', '25/03/2019', 'Genap 18/19', '', '', 'Metopen'),
+('1400018125', 'Rekomendasi lokasi wisata terdekat bagi wisatawan wilayah yogyakarta menggunakan pemanfaatan algoritma A* Berbasis WEB. ', 'Kecerdasaran Buatan', '0407016801', '16/07/2019', 'Gasal 18/19', '', '', 'Metopen'),
+('1400018133', 'Analisis dan Implementasi Back Office Sistem Laporan Sekolah Berbasis Website', 'Pengembangan Perangkat Lunak', '0504116601', '16/07/2019', 'Gasal 18/19', '', '', 'Metopen'),
+('1400018137', 'Studi dan Implementasi Data Mining Asociation Rule Untuk Menentukan Pola Layouting Katalog Penawaran Kaos Jogja Distri Muslim', 'Machine Learning dan Data Mining', '0407016801', '16/07/2019', 'Gasal 18/19', '', '', 'Metopen'),
+('1400018141', 'Pengungkapan Keamanan Enkripsi MD5 di Elearning UAD menggunakan Moodle', 'Kriptografi', '0006027001', '16/07/2019', 'Gasal 18/19', '', '', 'Metopen'),
+('1400018153', 'Analisis Bukti Digital Forensik pada Aplikasi Wechat dengan Metode NIST', 'Pengolahan Citra', '0019087601', '25/03/2019', 'Genap 18/19', '', '', 'Metopen'),
+('1400018158', 'Pengembangan Media Pembelajaran IPA Kelas III SD Materi Gerak Benda Berbasis Media Pembelajaran Interaktif', 'Pengembangan Perangkat Lunak', '0521127303', '16/07/2019', 'Gasal 18/19', '', '', 'Metopen'),
+('1400018161', 'Sistem Rekomendasi Kuliner Kota Yogyakarta Dengan Graph Database', 'Basis Data', '0407016801', '16/07/2019', 'Gasal 18/19', '', '', 'Metopen'),
+('1400018168', 'Text Mining Pada Media Sosial Twitter (Studi Kasus: Topik #2019gantipresiden)', 'Pengolahan Teks dan Bahasa Alami', '0526018502', '16/07/2019', 'Gasal 18/19', '', '', 'Metopen'),
+('1400018201', 'Pengembangan Stemming Bahasa Jawa Menggunakan Metode Algoritma Porter Untuk Mencari Akar Kata', 'Pengolahan Teks dan Bahasa Alami', '0530077601', '16/07/2019', 'Gasal 18/19', '', '', 'Metopen'),
+('1400018211', 'Pengelompokkan Hasil Temuan Audit Mutu Internal Universitas Ahmad Dahlan Dengan Metode K-Means', 'Machine Learning dan Data Mining', '0530077601', '16/07/2019', 'Gasal 18/19', '', '', 'Metopen'),
+('1400018214', 'Pengukuran Kinerja Lembaga Dengan Penerapan Sentimen Analisis', 'Pengolahan Teks dan Bahasa Alami', '0516127501', '16/07/2019', 'Gasal 18/19', '', '', 'Metopen'),
+('1400018218', 'Analisis Frequent Term pada Komentar Publik Terhadap Perguruan Tinggi', 'Pengolahan Teks dan Bahasa Alami', '0512078304', '16/07/2019', 'Gasal 18/19', '', '', 'Metopen'),
+('1400018220', 'Perancangan game edukasi 2D \"Budidaya tanaman kelapa sawit\" berbasis Android menggunakan Construct 2', 'Pengolahan Citra', '0504116601', '25/03/2019', 'Genap 18/19', '', '', 'Metopen'),
+('1400018225', 'Pembuatan Aplikasi Kamus Percakapan Bahasa Indonesia - Bahasa Jepang', 'Pengolahan Teks dan Bahasa Alami', '0530077601', '25/03/2019', 'Genap 18/19', '', '', 'Metopen'),
+('1400018232', 'Penerapan stemming dalam penterjemahan bahasa', 'Pengolahan Citra', '0530077601', '25/03/2019', 'Genap 18/19', '', '', 'Metopen'),
+('1400018244', 'Pemanfaatan Bahasa Alami dalam Penelusuran Temuan Audit Mutu Internal', 'Pengolahan Teks dan Bahasa Alami', '0530077601', '16/07/2019', 'Gasal 18/19', '', '', 'Metopen'),
+('1400018249', 'Studi dan Implementasi Teori Graf Untuk Mengukur Tingkat Kepentingan Aktor dalam SOP Akademik UAD', 'Social Network Analysis', ' 0407016801', '16/07/2019', 'Gasal 18/19', '', '', 'Metopen'),
+('1400018254', 'Pengembangan Media Big Book Untuk Meningkatkan Minat Belajar Sejarah Kerajaan Kelas IV SD Muhammadiyah Pepe', 'Media Pembelajaran', '0504116601', '16/07/2019', 'Gasal 18/19', '', '', 'Metopen'),
+('1500017177', 'ID-3 Untuk Diagnosa Penyakit Saluran Pencernaan Pada Balita', 'Machine Learning dan Data Mining', '0522018302', '16/07/2019', 'Gasal 18/19', '', '', 'Metopen'),
+('1500018002', 'Clustering Analisis Sentimen Pada Indeks Kinerja Dosen Menggunakan Metode K Means', 'Pengolahan Teks dan Bahasa Alami', ' 0523077902', '16/07/2019', 'Gasal 18/19', '', '', 'Metopen'),
+('1500018003', 'Pembuatan Web Penentuan Software Effort dengan Fuzzy Use Case Point', 'Estimasi Effort Perangkat Lunak', ' 0523077902', '16/07/2019', 'Gasal 18/19', '', '', 'Metopen'),
+('1500018004', 'Association Rule Mining Peminjaman Buku Perpustakaan Universitas Ahmad Dahlan menggunakan Algoritma FP Growth', 'Machine Learning dan Data Mining', ' 0523077902', '16/07/2019', 'Gasal 18/19', '', '', 'Metopen'),
+('1500018005', 'Pengembangan Aplikasi Pengelolaan Tugas Akhir Menggunakan Metode Agile', 'Pengembangan Perangkat Lunak', ' 0523077902', '16/07/2019', 'Gasal 18/19', '', '', 'Metopen'),
+('1500018011', 'Forensic Mobile Pada Aplikasi Android E-commerve Menggunakan Logical Extraction Method', 'Forensik Digital', '0509048901', '16/07/2019', 'Gasal 18/19', '', '', 'Metopen'),
+('1500018013', 'Aplikasi Peringkas Teks Bahasa Indonesia Dengan Metode Clustering', 'Pengolahan Teks dan Bahasa Alami', ' 0521128502', '16/07/2019', 'Gasal 18/19', '', '', 'Metopen'),
+('1500018015', 'Implementasi Cosine Similarity dalam Pengecekan Keaslian Dokumen Tugas Pemrograman Mahasiswa', 'Pengolahan Teks dan Bahasa Alami', '0530077601', '16/07/2019', 'Gasal 18/19', '', '', 'Metopen'),
+('1500018016', 'Sistem Pendeteksi Kemiripan Dokumen Artikel Dosen Pada Eprint UAD Menggunakan Metode Latent Semantic Analysis (LSA)', 'Pengolahan Teks dan Bahasa Alami', '0526018502', '16/07/2019', 'Gasal 18/19', '', '', 'Metopen'),
+('1500018018', 'Sistem Pendukung Keputusan Pemilihan Kain Tenun Ende Lio Menggunakan Metode Simple Additive Weighting', 'Sistem Pendukung Keputusan', '0505118901', '16/07/2019', 'Gasal 18/19', '', '', 'Metopen'),
+('1500018019', 'Sistem Pendukung Keputusan Penentuan Serbuk Kayu Untuk Menentukan Tumbuh Kembang Jamur Menggunakan Metode Simple Additive Weighting', 'Sistem Pendukung Keputusan', '0505118901', '16/07/2019', 'Gasal 18/19', '', '', 'Metopen'),
+('1500018020', 'Penentuan Kelayakan Tempat Tinggal Dengan Menggunakan Metode K-Means Clustering', 'Machine Learning dan Data Mining', ' 0407016801', '16/07/2019', 'Gasal 18/19', '', '', 'Metopen'),
+('1500018022', 'Penerapan Algoritma Boyer-Moore Dalam Aplikasi Kamus Istilah Broadcasting', 'Pengolahan Teks dan Bahasa Alami', '0530077601', '16/07/2019', 'Gasal 18/19', '', '', 'Metopen'),
+('1500018023', 'Sistem Pendukung Keputusan Analisis Efisiensi Modal Kerja Pada Perusahaan Yang Terdaftar di BEI', 'Sistem Pendukung Keputusan', '0522018302', '16/07/2019', 'Gasal 18/19', '', '', 'Metopen'),
+('1500018026', 'Aplkasi Pendeteksi Kemiripan Portal Berita Online Menggunakan Metode Lavenstein Distance', 'Pengolahan Teks dan Bahasa Alami', '0526018502', '16/07/2019', 'Gasal 18/19', '', '', 'Metopen'),
+('1500018027', 'Deteksi Jenis Kertas Tisu Menggunakan Pendekatan Ciri Tekstur', 'Pengolahan Citra', '0510077302', '16/07/2019', 'Gasal 18/19', '', '', 'Metopen'),
+('1500018028', 'penerapan data mining untuk clustering prediksi penyakit ispa dengan metode k-means', 'Machine Learning dan Data Mining', ' 0407016801', '16/07/2019', 'Gasal 18/19', '', '', 'Metopen'),
+('1500018029', 'Pengembangan Sistem Informasi Distribusi Zakat di LAZISmu DIY', 'Pengolahan Citra', '0505118901', '25/03/2019', 'Genap 18/19', '', '', 'Metopen'),
+('1500018032', 'Penerapan Stemming Pada Kata Berimbuhan Bahasa Jawa Dengan Menggunakan Algoritma Nazief dan Andriani', 'Pengolahan Teks dan Bahasa Alami', '0530077601', '16/07/2019', 'Gasal 18/19', '', '', 'Metopen'),
+('1500018033', 'Rancang Bangun e-commerce untuk penjualan produk pemeliharaan sawit berbasis pwa (Progressive Web Apps) Studi Kasus Toko Aroldi Jaya, Belanti Jaya, Batanghari, Jambi', 'Pengembangan Perangkat Lunak', '0014107301', '16/07/2019', 'Gasal 18/19', '', '', 'Metopen'),
+('1500018035', 'Penerapan text mining pengelompokkan judul manajemen tugas proyek menggunakan metode k-means dengan cosine similarity', 'Pengolahan Teks dan Bahasa Alami', '0407016801', '16/07/2019', 'Gasal 18/19', '', '', 'Metopen'),
+('1500018036', 'Menentukan Kualitas Daun Teh Kering Menggunakan Metode Gray Level Co-Occurrence Matrix', 'Pengolahan Citra', '0530077701', '25/03/2019', 'Genap 18/19', '', '', 'Metopen'),
+('1500018038', 'Layanan Teknologi Informasi Berbasis Mobile Untuk Pelayanan Kesehatan Pada Ibu Hamil Menggunakan Pendekatan Customer Relationship Management', 'Sistem Informasi', '0530077701', '16/07/2019', 'Gasal 18/19', '', '', 'Metopen'),
+('1500018046', 'SPK investasi perusahaan di bei dengan metode rasio keuangan', 'Pengolahan Citra', '0522018302', '25/03/2019', 'Genap 18/19', '', '', 'Metopen'),
+('1500018048', 'Klassifikasi Jenis Kayu Berdasarkan Kode Mutu Kayu Dengan Menggunakan Metode K-Means', 'Machine Learning dan Data Mining', '0505118901', '16/07/2019', 'Gasal 18/19', '', '', 'Metopen'),
+('1500018049', 'Implementasi Resful Web Service Untuk Integrasi Sistem Informasi Penjualan Reseller', 'Pengembangan Perangkat Lunak', '0006027001', '16/07/2019', 'Gasal 18/19', '', '', 'Metopen'),
+('1500018050', 'Aplikasi Kamus Slang Menggunakan Metode Brute Force', 'Pengolahan Teks dan Bahasa Alami', '0530077601', '16/07/2019', 'Gasal 18/19', '', '', 'Metopen'),
+('1500018052', 'Text mining dalam klarifikasi dan pencarian judul buku pada perpustakaan menggunakan metode naive bayes', 'Pengolahan Teks dan Bahasa Alami', '0512078304', '16/07/2019', 'Gasal 18/19', '', '', 'Metopen'),
+('1500018053', 'Perancangan Chatbot Penerimaan Mahasiswa baru Menggunakan Metode AIML Sebagai Virtual Assistant Berbasis Web', 'Pengolahan Teks dan Bahasa Alami', '0530077601', '16/07/2019', 'Gasal 18/19', '', '', 'Metopen'),
+('1500018058', 'Sistem Rekomendasi Pembelian Smartphone Menggunakan Metode K-Nearst Neighboard (KNN)', 'Pengolahan Citra', '0519108901', '25/03/2019', 'Genap 18/19', '', '', 'Metopen'),
+('1500018059', 'Analisis Pengaruh Game Pada Aktivitas Kognitif Anak Menggunakan Alat EEG dengan Metode K-Means dan Cluster', 'Machine Learning dan Data Mining', '0505118901', '16/07/2019', 'Gasal 18/19', '', '', 'Metopen'),
+('1500018061', 'Sistem pendukung keputusan pemilihan smartphone menggunakan metode analitical hierarchy process ', 'Sistem Pendukung Keputusan', '0505118901', '16/07/2019', 'Gasal 18/19', '', '', 'Metopen'),
+('1500018063', 'Perancangan Aplikasi Kamus Istilah Kesenian Pada Fakultas Seni Rupa Institut Seni Indonesia (ISI) Yogyakarta Dengan Menggunakan Spellcheck Leuenstein Distance Berbasis Web', 'Pengolahan Teks dan Bahasa Alami', '0530077601', '16/07/2019', 'Gasal 18/19', '', '', 'Metopen'),
+('1500018065', 'Sistem Pendukung eputusan Diagnosa Gangguan Kepribadian Antisosial', 'Sistem Pendukung Keputusan', '0522018302', '16/07/2019', 'Gasal 18/19', '', '', 'Metopen'),
+('1500018066', 'Diagnosis Penyakit Pre Eklamsia pada Ibu Hamil dengan Algoritma C4.5 Berbasis Rules Datamining', 'Pengolahan Citra', '0504088601', '25/03/2019', 'Genap 18/19', '', '', 'Metopen'),
+('1500018068', 'Steganografi Gambar Dengan Metode LSB Untuk Proteksi Komunikasi Pada Media Online', 'Kriptografi', '0006027001', '16/07/2019', 'Gasal 18/19', '', '', 'Metopen'),
+('1500018069', 'Aplikasi Steganografi Menggunakan Metode LSB Pada Citra Digital', 'Kriptografi', '0006027001', '16/07/2019', 'Gasal 18/19', '', '', 'Metopen'),
+('1500018071', 'Perancangan Desain User Interface dan User Experience Aplikasi Chains', 'Pengolahan Citra', '0523068801', '25/03/2019', 'Genap 18/19', '', '', 'Metopen'),
+('1500018074', 'Implementasi Metode Motion Graphic Pada Video Animation Pendaftaran Offline di Universitas Ahmad Dahlan', 'Multimedia dan Grafika', '0520098702', '16/07/2019', 'Gasal 18/19', '', '', 'Metopen'),
+('1500018075', 'Analisis keamanan WLAN pada tetring', 'Pengolahan Citra', '0521127303', '25/03/2019', 'Genap 18/19', '', '', 'Metopen'),
+('1500018078', 'Penerapan Data Mining untuk Klasterisasi Pemustaka dengan Metode KMeans Berdasarkan Kunjungan', 'Pengolahan Citra', '0407016801', '25/03/2019', 'Genap 18/19', '', '', 'Metopen'),
+('1500018081', 'Evaluasi Kualitas Website Digilib UAD Menggunakan Webqual 4.0 dan Importance Performance Analysis', 'HCI, UX & UI', '0019087601', '16/07/2019', 'Gasal 18/19', '', '', 'Metopen'),
+('1500018082', 'Implementasi Shape Tween pada animasi bahaya penggunaan gadget untuk game battle royale pada anak', 'Pengolahan Citra', '0520098702', '25/03/2019', 'Genap 18/19', '', '', 'Metopen'),
+('1500018083', 'Penerapan Metode Stop Motion Animation Pada Video Profil Kelompok Keilmuan Relata Dan Sistem Cerdas Prodi Teknik Informatika UAD', 'Multimedia dan Grafika', '0520098702', '16/07/2019', 'Gasal 18/19', '', '', 'Metopen'),
+('1500018084', 'Evaluasi Kualitas Website Digilib UAD Menggunakan Metode Usability Testing', 'HCI, UX & UI', '0019087601', '16/07/2019', 'Gasal 18/19', '', '', 'Metopen'),
+('1500018085', 'Perancangan Game Edukasi \"Petualangan Anak Sholeh\" Menggunakan Adobe Flash Berbasis Android', 'Pengembangan Game', '0520098702', '16/07/2019', 'Gasal 18/19', '', '', 'Metopen'),
+('1500018086', 'Pola Peminjaman Buku Perpustakaan Universitas Ahmad Dahlan Menggunakan Algoritma Eclat', 'Machine Learning dan Data Mining', '0511098401', '16/07/2019', 'Gasal 18/19', '', '', 'Metopen'),
+('1500018088', 'Penentuan Masa Tanam Tanaman Pangan Berdasarkan Cuaca dan Hasil Panen Menggunakan Metode Naïve Bayes', 'Machine Learning dan Data Mining', '0015118001', '16/07/2019', 'Gasal 18/19', '', '', 'Metopen'),
+('1500018089', 'Pengenalan Gerakan Isyarat Dengan Sensor Kinect Menggunakan Long Short-Term Memory', 'Augmented Reality', '0524118801', '16/07/2019', 'Gasal 18/19', '', '', 'Metopen'),
+('1500018090', 'Implementasi Motion Tewwn pada animasi bahaya penggunaan gadget pada anak anak', 'Pengolahan Citra', '0520098702', '25/03/2019', 'Genap 18/19', '', '', 'Metopen'),
+('1500018093', 'Sistem Pendukung Keputusan Pentuan Kelayakan Industri Rumahan dengan Metode Simple Additive Weighting (SAW)', 'Pengolahan Citra', '0516127501', '25/03/2019', 'Genap 18/19', '', '', 'Metopen'),
+('1500018100', 'Sistem Pendukung Keputusan Penentuan Jenis Kualitas Kayu Jati', 'Pengolahan Citra', '0504088601', '25/03/2019', 'Genap 18/19', '', '', 'Metopen'),
+('1500018102', 'Pengelompokan data bank sampah menggunakan metode AHC', 'Machine Learning dan Data Mining', '0511098401', '16/07/2019', 'Gasal 18/19', '', '', 'Metopen'),
+('1500018108', 'penerapan Search Engine Optimisation dengan metode result rich snippet google pada muslim-bloggers.com', 'Pengolahan Teks dan Bahasa Alami', '0526018502', '16/07/2019', 'Gasal 18/19', '', '', 'Metopen'),
+('1500018112', 'Penerapan Metode Image Stitching Pada Pembuatan Virtual Reality Pengenalan Islamic Center Universitas Ahmad Dahlan', 'Augmented Reality', '0520098702', '16/07/2019', 'Gasal 18/19', '', '', 'Metopen'),
+('1500018113', 'Mobile Forensic Instant Messenger Berbasis Android Menggunakan Metode Live Forensic', 'Forensik Digital', '0509048901', '16/07/2019', 'Gasal 18/19', '', '', 'Metopen'),
+('1500018114', 'Sistem Pendukung Keputusan Pemilihan Kamera DSLR dengan Metode AHP', 'Pengolahan Citra', '0504088601', '25/03/2019', 'Genap 18/19', '', '', 'Metopen'),
+('1500018116', 'Investigasi Forensik Tindak Kejahatan  E-Commerce dengan Metode Eksperiment  Reaserch', 'Pengolahan Citra', '0510088001', '25/03/2019', 'Genap 18/19', '', '', 'Metopen'),
+('1500018118', 'penggunaan metode c45 clustering dalam penentuan penerima beasiswa universitas ahmad dahlan yogyakarta', 'Machine Learning dan Data Mining', '0512078304', '16/07/2019', 'Gasal 18/19', '', '', 'Metopen'),
+('1500018120', 'Perancangan Sistem Pembelajaran Augmen Reality Berbasis Mobile', 'Pengolahan Citra', '0524118801', '25/03/2019', 'Genap 18/19', '', '', 'Metopen'),
+('1500018123', 'Deteksi Sepeda Motor Tanpa Helm pada Video lalu lintas', 'Pengolahan Citra', '0530077601', '25/03/2019', 'Genap 18/19', '', '', 'Metopen'),
+('1500018127', 'Rekomendasi Jenis Tanaman Pangan Berdasarkan Data Prediksi Cuaca Menggunakan Metode Simple Additive Weighting (SAW)', 'Sistem Pakar', '0015118001', '16/07/2019', 'Gasal 18/19', '', '', 'Metopen'),
+('1500018129', 'Klasifikasi artikel bahasa Indonesia ', 'Pengolahan Citra', '0530077601', '25/03/2019', 'Genap 18/19', '', '', 'Metopen'),
+('1500018132', 'Efektifitas Game Edukasi Untuk Meningkatkan Kemampuan Perhitungan Bagi Anak Kesulitan Belajar', 'Pengolahan Citra', '0020077901', '25/03/2019', 'Genap 18/19', '', '', 'Metopen'),
+('1500018134', 'Penerapan Metode Flexible Pointer Pada Simulasi Interaktif Pengenalan Anatomi Gigi Manusia Berbasis Virtual Reality', 'Augmented Reality', '0523068801', '16/07/2019', 'Gasal 18/19', '', '', 'Metopen'),
+('1500018135', 'Penerapan Data Mining Untuk Pencarian Pola Asosiasi Data Penjualan Pada Ki-kha Shop Menggunakan Algoritma FP-Growth', 'Machine Learning dan Data Mining', '0511098401', '16/07/2019', 'Gasal 18/19', '', '', 'Metopen'),
+('1500018140', 'Penerapan metode Association Rules menggunakan algoritma apriori untuk mengidentifikasi fitur yang sering diakses bersamaan pada log data akses portal dosen universitas ahmad dahlan', 'Machine Learning dan Data Mining', '0521128502', '16/07/2019', 'Gasal 18/19', '', '', 'Metopen'),
+('1500018143', 'Implementasi Chatbot Pada Sistem Penerimaan Mahasiswa Baru Universitas Ahmad Dahlam Dengan Metode Vector Space Model', 'Pengolahan Teks dan Bahasa Alami', '0523077902', '16/07/2019', 'Gasal 18/19', '', '', 'Metopen'),
+('1500018144', 'Penerapan Metode Crips Data Mining dengan Algoritma FP-Growth untuk Mendapatkan Pola Asosiasi (Studi Kasus SeblakCuzz Pusat Yogyakarta)  ', 'Pengolahan Citra', '0511098401', '25/03/2019', 'Genap 18/19', '', '', 'Metopen'),
+('1500018145', 'Sistem Pakar Diagnosa Penyakit Gigi dan Mulut dengan Metode Naïve Bayes', 'Sistem Pakar', '0521128502', '16/07/2019', 'Gasal 18/19', '', '', 'Metopen'),
+('1500018146', 'Penerapan Metode Motion Graphic Pada Video Animasi Kerja Praktek DI Teknik Informaika Universitas Ahmad Dahlan', 'Multimedia dan Grafika', '0520098702', '16/07/2019', 'Gasal 18/19', '', '', 'Metopen'),
+('1500018148', 'Pembuatan Model Prediksi Dampak Kecelakaan Lalu Lintas pada Pengguna Jalan Menggunakan Klasifikasi Data Mining dengan Metode Pohon Keputusan (studi kasus : Polres Bantul)', 'Pengolahan Citra', '0407016801', '25/03/2019', 'Genap 18/19', '', '', 'Metopen'),
+('1500018150', 'Analisis Forentik Malicious pada Hardisk dengan Menggunakan Metode (NPJ)', 'Pengolahan Citra', '0510088001', '25/03/2019', 'Genap 18/19', '', '', 'Metopen'),
+('1500018151', 'Penerapan metode frame by frame pada iklan layanan masyarakat menejemen tugas proyek teknik informatika universitas ahmad dahlan.', 'Multimedia dan Grafika', '0520098702', '16/07/2019', 'Gasal 18/19', '', '', 'Metopen'),
+('1500018153', 'Implementasi Metode Cart Untuk Mendiagnosa Penyakit Hepatitis A pada Anak', 'Sistem Pakar', '0522018302', '16/07/2019', 'Gasal 18/19', '', '', 'Metopen'),
+('1500018155', 'Media Pembelajaran Augmented Reality, Pengembangan Media Pembelajaran Berbasis Augmented Reality di Pembelajaran Ilmu Pengetahuan Alam Sekolah Dasar', 'Pengolahan Citra', '0020077901', '25/03/2019', 'Genap 18/19', '', '', 'Metopen'),
+('1500018156', 'Analisa Tingkat Keamanan Suatu Web dengan Serangan Injection', 'Pengolahan Citra', '0019087601', '25/03/2019', 'Genap 18/19', '', '', 'Metopen'),
+('1500018157', 'Sistem pendukung keputusan Diagnosa kerusakan pada komputer', 'Pengolahan Citra', '0522018302', '25/03/2019', 'Genap 18/19', '', '', 'Metopen'),
+('1500018159', 'Sistem Pakar Diagnosa Kerusakan Mobil Mitsubishi MVP dengan Menggunakan Metode Fuzzy K-NN', 'Sistem Pakar', '0521128502', '16/07/2019', 'Gasal 18/19', '', '', 'Metopen'),
+('1500018160', 'Media Pembelajaran Augmented Reality', 'Pengolahan Citra', '0020077901', '25/03/2019', 'Genap 18/19', '', '', 'Metopen'),
+('1500018161', 'Sistem Rekomendasi Khutbah Jumat Berdasarkan Trending Topic Twitter Menggunakan Vector Space Model', 'Pengolahan Teks dan Bahasa Alami', '0523077902', '16/07/2019', 'Gasal 18/19', '', '', 'Metopen'),
+('1500018162', 'Sistem Pakar Diagnosis Hama dan Penyakit Tanaman Kelapa Sawit Menggunakan Metode Dempster Shafer', 'Sistem Pakar', '0521128502', '16/07/2019', 'Gasal 18/19', '', '', 'Metopen'),
+('1500018163', 'Penerapan Association Rules menggunakan algoritma fp growth untuk analisis pola pelaksanaan skripsi pada program studi teknik Informatika UAD', 'Machine Learning dan Data Mining', '0512078304', '16/07/2019', 'Gasal 18/19', '', '', 'Metopen'),
+('1500018164', 'Analisa Forensik Facebook dalam Kasus Cybercrime ', 'Pengolahan Citra', '0510088001', '25/03/2019', 'Genap 18/19', '', '', 'Metopen'),
+('1500018166', 'Penerapan Sistem Pendukung Keputusan Pada Sistem Irigasi Otomatis Menggunakan Wireless Sensor Network (WSN)', 'Sistem Pendukung Keputusan', '0015118001', '16/07/2019', 'Gasal 18/19', '', '', 'Metopen'),
+('1500018167', 'Penerapan data mining untuk memprediksi koleksi yang sering si pinjam di perpustakan UAD ', 'Pengolahan Citra', '0407016801', '25/03/2019', 'Genap 18/19', '', '', 'Metopen'),
+('1500018169', 'Implementasi Wireless Sensor Network (WSN) Pada Pemantauan Sistem Irigasi Sawah Menggunakan Micro Computer', 'Network dan Sistem Terdistribusi', '0015118001', '16/07/2019', 'Gasal 18/19', '', '', 'Metopen'),
+('1500018171', 'Sistem Pakar Diagnosa Masalah Kehamilan Menggunakan Metode Fuzzy Tsukamoto', 'Sistem Pakar', '0521128502', '16/07/2019', 'Gasal 18/19', '', '', 'Metopen'),
+('1500018172', 'Penanganan Missing Value Pada Dataset Estimasi Effort Perangkat Lunak Menggunakan Decision Tree', 'Estimasi Effort Perangkat Lunak', '0523077902', '16/07/2019', 'Gasal 18/19', '', '', 'Metopen'),
+('1500018173', 'Penerapan Association Rules untuk Mengidentifikasi Fitur Yang diakses bersamaan pada log data portal mahasiswa universitas ahmad dahlan dengan algoritma apriori', 'Machine Learning dan Data Mining', '0521128502', '16/07/2019', 'Gasal 18/19', '', '', 'Metopen'),
+('1500018174', 'Forensic Local GPS Pada Smarthone Platform Android', 'Forensik Digital', '0509048901', '16/07/2019', 'Gasal 18/19', '', '', 'Metopen'),
+('1500018176', 'Analisis algoritma LUC berdasarkan kecepatan dan ukuran file ', 'Kriptografi', '0019087601', '16/07/2019', 'Gasal 18/19', '', '', 'Metopen'),
+('1500018183', 'Analisis Perbandingan Algoritma Kriptografi Elgamal dan Base64 Berdasarkan Kecepatan dan Ukuran File', 'Kriptografi', '0019087601', '16/07/2019', 'Gasal 18/19', '', '', 'Metopen'),
+('1500018185', 'Analisis Forensik Web Terhadap Serangan CSRF(Frame Woth OWASP)', 'Pengolahan Citra', '0509048901', '25/03/2019', 'Genap 18/19', '', '', 'Metopen'),
+('1500018186', 'Prediksi  lama studi mahasiswa FTI dengan metode naive bayes', 'Machine Learning dan Data Mining', '0512078304', '16/07/2019', 'Gasal 18/19', '', '', 'Metopen'),
+('1500018187', 'Clustering data Mahasiswa FTI dengan Metode Fuzzy C-Means', 'Machine Learning dan Data Mining', '0512078304', '16/07/2019', 'Gasal 18/19', '', '', 'Metopen'),
+('1500018188', 'Sistem Pakar Diagnosa Penyakit Sapi Menggunakan Metode Fuzzy C-Means Clustering', 'Sistem Pakar', '0521128502', '16/07/2019', 'Gasal 18/19', '', '', 'Metopen'),
+('1500018190', 'Sistem Rekomendasi Pemilihan Program Studi dengan Metode FCM', 'Pengolahan Citra', '0512078304', '16/07/2019', 'Gasal 18/19', '', '', 'Metopen'),
+('1500018191', 'Analisis ForensikDigital pada Aplikasi Twitter untuk Penanganan Cybercrime', 'Pengolahan Citra', '0510088001', '25/03/2019', 'Genap 18/19', '', '', 'Metopen'),
+('1500018195', 'Sistem Pakar Diagnosa Infeksi Saluran Pernapasan Akut (ISPA) Pada Balita Menggunakan C4.5', 'Pengolahan Citra', '0522018302', '16/07/2019', 'Gasal 18/19', '', '', 'Metopen'),
+('1500018196', 'Pengelompokkan Judul Penelitian Dosen Menggunakan Metode Suffix Tree Clustering', 'Pengolahan Citra', '0511098401', '16/07/2019', 'Gasal 18/19', '', '', 'Metopen'),
+('1500018197', 'Rancangan Skema Login Menggunakan Metode Steganografi Least Significant Bit (LSB) Untuk Mengurangi Kemungkinan Keylogger', 'Pengolahan Citra', '0006027001', '16/07/2019', 'Gasal 18/19', '', '', 'Metopen'),
+('1500018198', 'Sistem pakar diagnosa kerusakan transmisi manual pada mobil ', 'Pengolahan Citra', '0516127501', '25/03/2019', 'Genap 18/19', '', '', 'Metopen'),
+('1500018199', 'Pengelompokkan Data Kerja Praktek Teknik Kimia Menggunakan Metode K-Medoids', 'Pengolahan Citra', '0511098401', '16/07/2019', 'Gasal 18/19', '', '', 'Metopen'),
+('1500018200', 'Pengembangan Aplikasi Topik Tugas Akhir Mahasiswa Sastra Inggris dengan Menggunakan Cosine Similarity', 'Pengolahan Citra', '0516127501', '25/03/2019', 'Genap 18/19', '', '', 'Metopen'),
+('1500018202', 'Penerapan Metode Dictation Grammar Pada Virtual Asistant Cloud', 'Pengolahan Citra', '0523068801', '16/07/2019', 'Gasal 18/19', '', '', 'Metopen'),
+('1500018203', 'Penerapan Text Mining Dalam Pengelompokkan Data Kerja Praktek Menggunakan Metode K-Means', 'Pengolahan Citra', '0511098401', '16/07/2019', 'Gasal 18/19', '', '', 'Metopen'),
+('1500018204', 'Implementasi Teknollogi Augmented Reality Media Pengenalan Aksara Lampung Berbasis Android', 'Pengolahan Citra', '0520098702', '25/03/2019', 'Genap 18/19', '', '', 'Metopen'),
+('1500018207', 'Pemanfaatan Web Crawler untuk mengumpulkan informasi pada media sosial twitter tentang Universitas Ahmad Dahlan', 'Pengolahan Citra', '0512078304', '25/03/2019', 'Genap 18/19', '', '', 'Metopen'),
+('1500018208', 'Penerapan Markerless Defined Target Untuk Aplikasi Perencana Tata Letak Perabot Berbasis Augmented Reality', 'Pengolahan Citra', '0523068801', '16/07/2019', 'Gasal 18/19', '', '', 'Metopen'),
+('1500018209', 'Implementasi pengelompokan data kerja praktek prodi teknik informatika menggunakan metode K-Means', 'Pengolahan Citra', '0407016801', '16/07/2019', 'Gasal 18/19', '', '', 'Metopen'),
+('1500018211', 'Penerapan Data Mining untuk Pengelompokkan Data Pelanggan Agen Lion Parcel dengan Metode Fuzzy C-means', 'Pengolahan Citra', '0511098401', '16/07/2019', 'Gasal 18/19', '', '', 'Metopen'),
+('1500018213', 'Sistem pengambilan keputusan inventory obat pada puskesmas sukorejo 1 kendal dengan metode fifo', 'Pengolahan Citra', '0522018302', '25/03/2019', 'Genap 18/19', '', '', 'Metopen'),
+('1500018214', 'Prediksi persentase masa studi kelulusan tepat waktu teknik industri dengan metode c45 pak', 'Pengolahan Citra', '0511098401', '25/03/2019', 'Genap 18/19', '', '', 'Metopen'),
+('1500018217', 'Implementasi Service Oriented Architecture Pada Aplikasi Pemesanan Makanan Berbasis Mobile Android Di Kantin ADI Kampus 3 UAD', 'Pengolahan Citra', '0507087202', '16/07/2019', 'Gasal 18/19', '', '', 'Metopen'),
+('1500018218', 'evaluasi kualitas website PPDB.smkn1karimun.sch.id menggunakan frameworkk webquel', 'Pengolahan Citra', '0019087601', '16/07/2019', 'Gasal 18/19', '', '', 'Metopen'),
+('1500018219', 'Peningkatan Keamanan Basis Data Pada Website SMK N 1 Karimun Dengan Kriptografi Caesar Chiper dan RSA', 'Pengolahan Citra', '0019087601', '16/07/2019', 'Gasal 18/19', '', '', 'Metopen'),
+('1500018222', 'Pengenalan Suara dan Objek Hewan Sebagai Media Pembelajaran Siswa SD Kelas 4 Berbasis Macromedia Flash', 'Pengolahan Citra', '0510077302', '16/07/2019', 'Gasal 18/19', '', '', 'Metopen'),
+('1500018225', 'Evaluasi Kualitas Website PPDB.smkn1karimun.sch.id menggunakan Framework webquel. Dan Analisa Metode Quality Function Deployment (QFD)', 'Pengolahan Citra', '0019087601', '16/07/2019', 'Gasal 18/19', '', '', 'Metopen'),
+('1500018227', 'Deteksi Perubahan Objek Menggunakan Metode Template Matching', 'Pengolahan Citra', '0510077302', '16/07/2019', 'Gasal 18/19', '', '', 'Metopen'),
+('1500018229', 'Media Pembelajaran Pengenalan Huruf Abjad Untuk Anak TK', 'Pengolahan Citra', '0510077302', '16/07/2019', 'Gasal 18/19', '', '', 'Metopen'),
+('1500018230', 'Forensik Email untuk Mendeteksi Serangan Phishing Menggunakan Metode NIST', 'Pengolahan Citra', '0521127303', '25/03/2019', 'Genap 18/19', '', '', 'Metopen'),
+('1500018232', 'Deteksi Kematangan Buah Naga Menggunakan Metode Naïve Bayes Berbasis Ruang Warna Hue Saturation Value', 'Pengolahan Citra', '0510077302', '16/07/2019', 'Gasal 18/19', '', '', 'Metopen'),
+('1500018234', 'Sistem Pengenalan Dosen Di Kampus Melalui Kamera Pengawas Dengan Metode Background Subtraction dan Eigenface', 'Pengolahan Citra', '0505118901', '16/07/2019', 'Gasal 18/19', '', '', 'Metopen'),
+('1500018235', 'Analisis Data Transaksi di Apotek Al-Fath Medic Berdasarkan Cuaca Menggunakan Algoritma Apriori', 'Pengolahan Citra', '0511098401', '16/07/2019', 'Gasal 18/19', '', '', 'Metopen'),
+('1500018236', 'Penerapan data mining untuk memprediksi kelulusan mahasiswa berdasarkan kunjungan di perpustakaan dengan metode C45', 'Pengolahan Citra', '0407016801', '16/07/2019', 'Gasal 18/19', '', '', 'Metopen'),
+('1500018237', 'Rekomendasi Website Pemesanan Hotel Menggunakan Metode Analytic Network Proccess (AMP)', 'Pengolahan Citra', '0526018502', '16/07/2019', 'Gasal 18/19', '', '', 'Metopen'),
+('1500018241', 'Aplikasi Multimedia Interaktif dengan Model Addie Pada Mata Pelajaran Pancasila', 'Pengolahan Citra', '0510077302', '16/07/2019', 'Gasal 18/19', '', '', 'Metopen'),
+('1500018242', 'Rekomendasi Pembimbing dan Penguji Tugas Akhir Menggunakan Vector Space Model', 'Pengolahan Citra', '0523077902', '16/07/2019', 'Gasal 18/19', '', '', 'Metopen'),
+('1500018245', 'Sistem Pendukung Keputusan Pemilihan Suppllied Kain Menggunakan Metode Promotehee', 'Pengolahan Citra', '0510077302', '25/03/2019', 'Genap 18/19', '', '', 'Metopen'),
+('1500018246', 'Sistem Rekomendasi Konten Dalam Jejaring Sosial Youtube', 'Pengolahan Citra', '0407016801', '16/07/2019', 'Gasal 18/19', '', '', 'Metopen'),
+('1500018247', 'Penerapan Data Mining Penjualan Sepatu Menggunakan Metode Klasifikasi Algoritma Apriori dan C45', 'Pengolahan Citra', '0510077302', '16/07/2019', 'Gasal 18/19', '', '', 'Metopen'),
+('1500018249', 'Pengenalan Wajah Untuk Presensi Mahasiswa Universitas Ahmad Dahlan Menggunakan Convolutional Neural Network', 'Pengolahan Citra', '0524118801', '16/07/2019', 'Gasal 18/19', '', '', 'Metopen'),
+('1500018251', 'Optimasi keamanan Plug-in pada Open Journal Sistem(OJS Versi 0.3)2.Rancang Bangun IoT Forensics pada perangkat Mobile 3.IoT Attack berbasis Open Router', 'Pengolahan Citra', '0509048901', '25/03/2019', 'Genap 18/19', '', '', 'Metopen'),
+('1500018256', 'Analisis Investigasi Forensik Line Massenger Berbasis Web ', 'Pengolahan Citra', '0510088001', '25/03/2019', 'Genap 18/19', '', '', 'Metopen'),
+('1500018257', 'Analisis Investigasi Forensik Telegram Messenger Berbasis Web Metode NIST', 'Pengolahan Citra', '0510088001', '25/03/2019', 'Genap 18/19', '', '', 'Metopen'),
+('1500018259', 'Analisa dan Perbandingan Bukti Forensik Aplikasi Media Sosial Facebook dan Twitter pada Smartphone Android', 'Pengolahan Citra', '0506016701', '25/03/2019', 'Genap 18/19', '', '', 'Metopen'),
+('1500018265', 'Analisis Pencarian Berita Hoax pada Aplikasi Whatsapp Messenger Berbasis Web', 'Pengolahan Teks dan Bahasa Alami', '0521127303', '25/03/2019', 'Genap 18/19', '', '', 'Metopen'),
+('1500018266', 'Penerapan Metode InterPenerapan Metode Interpolation Search Pada Aplikasi Kamus Istilah Ekonomi', 'Pengolahan Citra', '0530077601', '25/03/2019', 'Genap 18/19', '', '', 'Metopen'),
+('1500018267', 'Penerapan Data Mining untuk Memprediksi Penentuan Skripsi Prodi Sastra Inggris UAD Menggunakan Metode Cosine Similarity', 'Pengolahan Citra', '0516127501', '25/03/2019', 'Genap 18/19', '', '', 'Metopen'),
+('1500018268', 'Analisis Association Rule pada Data Mahasiswa Skripsi Prodi Sastra Inggris', 'Pengolahan Citra', '0516127501', '25/03/2019', 'Genap 18/19', '', '', 'Metopen'),
+('1500018269', 'Penerapan Metode Naive Bayes dalam pengidentifikasian kualitas kesuburan tanah', 'Pengolahan Citra', '0511098401', '25/03/2019', 'Genap 18/19', '', '', 'Metopen'),
+('1500018270', 'Forensik Web Terhadap Serangan SQL Injection', 'Forensik Digital', '0019087601', '25/03/2019', 'Genap 18/19', '', '', 'Metopen'),
+('1500018271', 'Analisis Forensik Digital pada Web Server untuk Penanganan Kasus Cyber Crime Phising', 'Forensik Digital', '0506016701', '25/03/2019', 'Genap 18/19', '', '', 'Metopen'),
+('1500018276', 'Sistem Informasi Penjualan dengan Berbasis Web dengan Metode CRM', 'Pengolahan Citra', '0507087202', '25/03/2019', 'Genap 18/19', '', '', 'Metopen'),
+('1500018278', 'Analisis Penggunaan QOS(Quality Of Service) pada Komputer', 'Pengolahan Citra', '0521127303', '25/03/2019', 'Genap 18/19', '', '', 'Metopen'),
+('1500018279', 'Penerapan Data Mining dalam Melakukan Analisis Pola Asosiasi Menggunakan Metode FP.Growht Pada Data Nilai Mahasiswa T.Industri', 'Pengolahan Citra', '0511098401', '25/03/2019', 'Genap 18/19', '', '', 'Metopen'),
+('1500018280', 'Penentuan Reviewer Otomatis Pada Open Jurnal System Menggunakan Latent Semantic Analysis', 'Pengolahan Citra', '0523077902', '16/07/2019', 'Gasal 18/19', '', '', 'Metopen'),
+('1500018281', 'Aplikasi kamus bahasa indonesia -ngapak berbasis web dengan metode sequential search', 'Pengolahan Citra', '0506016701', '16/07/2019', 'Gasal 18/19', '', '', 'Metopen'),
+('1500018282', 'Sistem Informasi Penjualan dengan Berbasis Mobile dengan Metode CRM', 'Pengolahan Citra', '0507087202', '25/03/2019', 'Genap 18/19', '', '', 'Metopen'),
+('1500018283', 'Aplikasi Android Pembelajaran Anak Sholeh Tentang Game Tebak Huruf Hijaiyah Untuk Anak Paud Menggunakan Android Studio', 'Pengolahan Citra', '0504116601', '16/07/2019', 'Gasal 18/19', '', '', 'Metopen'),
+('1500018294', 'Media Pembelajaran Pengenalan Objek Dengan Augmented Reality Untuk Anak Gangguan Pendengaran', 'Pengolahan Citra', '0020077901', '25/03/2019', 'Genap 18/19', '', '', 'Metopen'),
+('1500018296', 'Sistem Pendukung Keputusan Penentuan Prioritas Bantuan Start-Up Menggunakan Anlitical Herarechy Process', 'Pengolahan Citra', '0507087202', '25/03/2019', 'Genap 18/19', '', '', 'Metopen'),
+('1500018298', 'Pengembangan rekomendasi sistem pada reservasi wisata dengan menerapkan metode profile matching', 'Pengolahan Citra', '0523068801', '25/03/2019', 'Genap 18/19', '', '', 'Metopen'),
+('1500018299', 'Sistem Pendukung Keputusan Persetujuan Kredit Usaha Mikro dengan Metode (Moora)', 'Pengolahan Citra', '0507087202', '25/03/2019', 'Genap 18/19', '', '', 'Metopen'),
+('1500018300', 'Analysis & Implementasi kelayakan website Bimawa UAD dengan Metode Usability Testing', 'Pengolahan Citra', '0519108901', '25/03/2019', 'Genap 18/19', '', '', 'Metopen'),
+('1500018301', 'Analisis Bukti Digital Serangan Bomb Mail Menggunakan Metode NIST', 'Pengolahan Citra', '0521127303', '25/03/2019', 'Genap 18/19', '', '', 'Metopen'),
+('1500018303', 'Aplikasi Android Pembelajaran Anak Sholeh Tentang Game Tebak Gambar Untuk Anak PAUD Menggunakan Android Studio', 'Pengolahan Citra', '0504116601', '16/07/2019', 'Gasal 18/19', '', '', 'Metopen'),
+('1500018304', 'Analisa Forensik Layanan Jaringan Cloud', 'Forensik Digital', '0510088001', '25/03/2019', 'Genap 18/19', '', '', 'Metopen'),
+('1500018306', 'Pembangunan Aplikasi Pembelajaran Doa Sehari Hari Anak Soleh Berbasis Android Menggunakan Android Studio', 'Pengolahan Citra', '0504116601', '16/07/2019', 'Gasal 18/19', '', '', 'Metopen'),
+('1500018310', 'Sistem Penentuan Kelayakan Usaha Industri Rumahan Dengan Metode Profile Matching', 'Pengolahan Citra', '0516127501', '16/07/2019', 'Gasal 18/19', '', '', 'Metopen'),
+('1500018311', 'Investigasi Forensik pada E-Mail Spooting Menggunakan Metode Networks Forensik Development Life Cycle (NFDLC)', 'Forensik Digital', '0521127303', '25/03/2019', 'Genap 18/19', '', '', 'Metopen'),
+('1500018317', 'Perancangan Aplikasi Android Macam-macam Shalat dan Gerakannya Untuk Media Pembelajaran Anak Sholeh Usia Dini', 'Pengolahan Citra', '0504116601', '16/07/2019', 'Gasal 18/19', '', '', 'Metopen'),
+('1500018318', 'Sistem Penentuan Potensi Daerah Industri Rumahan Wilayah Kabupaten Bantuk Dengan Metode Transfer Learning', 'Pengolahan Citra', '0516127501', '16/07/2019', 'Gasal 18/19', '', '', 'Metopen'),
+('1500018319', 'Sistem Pendukung Pengambilan Keputusan untuk Penerimaan Pegawai dengan Metode SAW (Simple Additive Weighting)', 'Sistem Pendukung Keputusan', '0507087202', '25/03/2019', 'Genap 18/19', '', '', 'Metopen'),
+('1600018080', 'Penjadwalan Pendadaran dengan metode matriks', 'Pengolahan Citra', '0523077902', '20/04/2020', 'Genap 18/19', '0530077701', '0530077701', 'Skripsi');
+
+--
+-- Indexes for dumped tables
+--
+
+--
+-- Indexes for table `skripsi`
+--
+ALTER TABLE `skripsi`
+  ADD PRIMARY KEY (`nim`,`judul`),
+  ADD KEY `niy` (`pembimbing`),
+  ADD KEY `nim` (`nim`),
+  ADD KEY `judul` (`judul`,`pembimbing`);
+COMMIT;
+
+/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
+/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
+/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
