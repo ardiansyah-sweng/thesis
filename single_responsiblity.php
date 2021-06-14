@@ -47,7 +47,7 @@ class Age {
 
 $data = [
     'nama' => 'Sendy Apriatna',
-    'email' => 'sendy1900018205@webmail.uad.ac.id',
+    'email' => 'sendyapriatna@yahoo.co.id',
     'dob' => '20.04.2001'
 ];
 
