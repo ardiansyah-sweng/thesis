@@ -25,6 +25,7 @@ class VolumeBola implements kalkulator_bangun_ruang
 {
     public $jariJari = 0;
     public $EMPATPERTIGA = 4 / 3;
+    public $PHI = 3.14;
     public function hitung()
     {
         return [
