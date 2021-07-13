@@ -1,0 +1,97 @@
+<?php
+
+interface Kalkulator
+{
+    public function cal();
+}
+
+class Luasegipjg implements Kalkulator
+{
+    public $panjang;
+    public $lebar;
+
+    public function cal()
+    {
+        return $this->panjang * $this->lebar;
+    }
+}
+
+class Vbola implements Kalkulator
+{
+    public $jari;
+    public $phi = 3.14;
+    public function cal()
+    {
+        return (4/3) * $this->phi * $this->jari * $this->jari;
+    }
+}
+
+class Vkerucut implements Kalkulator
+{
+    public $tinggi;
+    public $jari;
+    public $phi = 13.4;
+
+    public function cal()
+    {
+        return (1/3) * $this->phi * $this->jari * $this->jari * $this->jari * $this->tinggi;
+    }
+}
+
+class Vkubus implements Kalkulator
+{
+    public $rusuk;
+
+    public function cal()
+    {
+        return $this->rusuk * $this->rusuk * $this->rusuk; 
+    }
+}
+
+class Klingkaran implements Kalkulator
+{
+    public $jari;
+    public $phi = 13.4;
+
+    public function cal()
+    {
+        return 2 * $this->phi * $this->jari;
+    }
+}
+
+class kalkulatorBangunRuangFactory
+{
+    public function hitung($tipe)
+    {
+    if($tipe==='luaspersegipanjang')
+    {
+        return $this->panjang * $this->lebar;
+    }
+    if($tipe==='volumebola')
+    {
+        return (4/3) * $this->phi * $this->jari * $this->jari;
+    }
+    if($tipe==='volumekerucut')
+    {
+        return (1/3) * $this->phi * $this->jari * $this->jari * $this->jari * $this->tinggi;
+    }
+    if($tipe==='volumekubus')
+    {
+        return $this->rusuk * $this->rusuk * $this->rusuk; 
+    }
+    if($tipe==='kelilinglingkaran')
+    {
+        return 2 * $this->phi * $this->jari;
+    }
+    throw new Exception("Coba lagi");
+    }
+}
+
+$satuan = ['rusuk'=>12, 'tinggi'=>0, 'panjang'=>0, 'lebar'=>0, 'jari'=>0];
+$Kalkulator = 'volumekubus';
+$kalkulatorBangunRuangFactory = new kalkulatorBangunRuangFactory();
+$kalkulatorBangunRuang = $kalkulatorBangunRuangFactory ->initializeKalkulatorBangunRuang($pilihanKalkulatorBangunRuang, $satuan);
+$hasilKalkulatorBangunRuang = $kalkulatorBangunRuang ->hitungBangunRuang();
+print_r($hasilKalkulatorBangunRuang);
+
+?>
