@@ -1,19 +1,19 @@
 <?php
 
-use Shape3D as GlobalShape3D;
+use Bentuk3D as SemuaBentuk;
 
-interface Shape
+interface Bentuk
 {
     public function area();
     public function perimeter();
 }
 
-interface Shape3D extends Shape
+interface Bentuk3D extends Bentuk
 {
     public function volume();
 }
 
-class Rectangle implements Shape
+class Segitiga implements Bentuk
 {
     private $height;
     private $width;
@@ -41,7 +41,7 @@ class Rectangle implements Shape
     }
 }
 
-class Ball implements Shape3D
+class Bola implements Bentuk3D
 {
     private $radius;
 
@@ -65,7 +65,7 @@ class Ball implements Shape3D
     }
 }
 
-class Cone implements Shape3D
+class Kerucut implements Bentuk3D
 {
     public $radius;
     public $height;
@@ -95,7 +95,7 @@ class Cone implements Shape3D
     }
 }
 
-class Cube implements Shape3D
+class Kubus implements Bentuk3D
 {
     private $width;
 
@@ -119,7 +119,7 @@ class Cube implements Shape3D
     }
 }
 
-class Circle implements Shape
+class Lingkaran implements Bentuk
 {
     private $radius;
 
@@ -141,29 +141,29 @@ class Circle implements Shape
     }
 }
 
-$rec = new Rectangle(5, 10);
-$ball = new Ball(14);
-$cone = new Cone(14, 20);
-$cube = new Cube(5);
-$circle = new Circle(21);
-$shapes =  array($rec, $ball, $cone, $cube, $circle);
+$persegi_panjang = new Persegi_Panjang(5, 10);
+$bola = new Bola(14);
+$kerucut = new Kerucut (14, 20);
+$kubus = new Kubus(5);
+$lingkaran = new Lingkaran(21);
+$bentuk =  array($persegi_panjang, $bola, $kerucut, $kubus, $lingkaran);
 
 
 
-echo 'Area of rectangle : ' . $shapes[0]->area() . '<br />';
-echo 'Length            : ' . $shapes[0]->height() . '<br />';
-echo 'Width             : ' . $shapes[0]->width() . '<br />';
+echo 'Area of rectangle : ' . $bentuk[0]->area() . '<br />';
+echo 'Length            : ' . $bentuk[0]->height() . '<br />';
+echo 'Width             : ' . $bentuk[0]->width() . '<br />';
 echo '<br>';
-echo 'Volume of ball    : ' . $shapes[1]->volume() . '<br />';
-echo 'Radius            : ' . $shapes[1]->radius() . '<br />';
+echo 'Volume of ball    : ' . $bentuk[1]->volume() . '<br />';
+echo 'Radius            : ' . $bentuk[1]->radius() . '<br />';
 echo '<br>';
-echo 'Volume of Cone    : ' . $shapes[2]->volume() . '<br />';
-echo 'Radius            : ' . $shapes[2]->radius() . '<br />';
-echo 'Height            : ' . $shapes[2]->height() . '<br />';
+echo 'Volume of Cone    : ' . $bentuk[2]->volume() . '<br />';
+echo 'Radius            : ' . $bentuk[2]->radius() . '<br />';
+echo 'Height            : ' . $bentuk[2]->height() . '<br />';
 echo '<br>';
-echo 'Volume of Cube    : ' . $shapes[3]->volume() . '<br />';
-echo 'Width             : ' . $shapes[3]->width() . '<br />';
+echo 'Volume of Cube    : ' . $bentuk[3]->volume() . '<br />';
+echo 'Width             : ' . $bentuk[3]->width() . '<br />';
 echo '<br>';
-echo 'Circumference     : ' . $shapes[4]->perimeter() . '<br />';
-echo 'Radius            : ' . $shapes[4]->radius() . '<br />';
+echo 'Circumference     : ' . $bentuk[4]->perimeter() . '<br />';
+echo 'Radius            : ' . $bentuk[4]->radius() . '<br />';
 echo '<br>';
