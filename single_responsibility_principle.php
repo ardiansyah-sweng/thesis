@@ -1,61 +1,61 @@
-<?php
-$data = [
-    'nama' => 'Zakiah', 
-    'email' => 'zakiah@uad.ac.id',
-    'dob' => '23.7.1990'
-];
-class Json{
-    public static function from($data){
-        return json_encode($data);
-    }
-}
+  
+<?php 
 
-class UserRequest{
-    protected static $rules=[
-        'name' = 'string',
-        'email' = 'string',
-        'date'='',
-    ];
-
-    public static validate($data){
-        foreach($data as $property=>$type){
-            if(typeOf($data[$property])!==$type){
-                throw new \Exception("User Property {$property} Must Be Of Type {$type}");
-            }
-        }
-    }
-}
-
-class User{
+class User {
     public $name;
     public $email;
     public $dob;
 
     public function __construct($data){
-        $this->name = $data['name'];
-        $this->email = $data['email'];
-        $this->dob = $data['dob'];
+        $this -> name = $data['name'];
+        $this -> email = $data['email'];
+        $this -> dob = $data['dob'];
     }
+}
 
-    public function validate($data){
-        if(!isset($data['name'])){
-            throw new \Exception("Bad Request, User Requires A Name");
-        }
-        if(!isset($data['email'])){
-            throw new \Exception("Bad Request, User Email Required");
-        }
-        if(!isset($data['dob'])){
-            throw new \Exception("Bad Request, User Requires A Date of Birth");
+class UserRequest {
+    protected static $rules = [
+        'name' => 'string',
+        'email' => 'string',
+        'dob' => 'string'   ///ini adalah date of birth yaitu tanggal lahir
+    ];
+
+    public static function validate($data) {
+        foreach (static::$rules as $property => $type) {
+            if (gettype($data[$property]) != $type) {
+                throw new Exception("User Property {$property} Must be of Type {$type}");
+            }
         }
     }
 }
 
-Route::get('/', function(){
-    $data = request()->query();
+class Json {
+    public static function from($data) {
+        return json_encode($data);
+    }
+}
 
-    return $data;
-    $user = new User($data);
-    $user->validate($data);
-    return Json::from($data);
-})
+class Age {
+    public static function now ($data){
+        $dob = new DateTime($data['dob']);
+        $today = new DateTime(date('d.m.y'));
+        return [
+            'year' => $today -> diff($dob) -> y,
+            'month' => $today -> diff($dob) -> m,
+            'day' => $today -> diff($dob) -> d,
+        ];
+    }
+}
+
+$data = [
+    'name' => 'Ikhsan Aditya Nuur Qodri',
+    'email' => 'ikhsanaditya33@gmail.com',
+    'dob' => '06.10.2000'
+];
+
+UserRequest::validate($data);
+$akun = new User($data);
+print_r(Json::from($akun));
+echo '<br><br>';
+print_r(Age::now($data));
 ?>
