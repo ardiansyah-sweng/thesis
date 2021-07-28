@@ -1,0 +1,12 @@
+1. Jelaskan apa pengertian dan keuntungan dari penerapan prinsip berikut pada 
+pengembangan perangkat lunak berikut : 
+- Single Responsibility, yaitu sebuah prinsip dalam pemrograman komputer yang 
+menyatakan bahwa setiap modul, kelas maupun fungsi yang ada pada program 
+komputer harus memiliki satu tanggung jawab saja, keuntungan prinsip ini terletak 
+pada cara penyelesaian tugasnya yang hanya terfokus pada tiap – tiap tugas yang 
+diberikan saja.
+- Prinsip Open/Closed, yaitu sebuah prinsip pada OOP yang mengharuskan kita 
+untuk dapat merancang sebuah entitas yang dapat dirubah tanpa harus memodifikasi 
+source code program yang sudah ada. Keuntungan yang didapatkan dari prinsip ini 
+adalah program yang telah kita buat dapat kita ulang pemakaiannya tanpa harus 
+memodifikasi ulang
