@@ -1,0 +1,4 @@
+1.	a. Prinsip single responsibility = Prinsip ini berarti bahwa kelas hanya boleh memiliki satu pekerjaan. Intinya adalah bahwa dalam sebuah kelas, kelas tersebut seharusnya hanya bertanggung jawab atas sebagian fungsi yang disediakan oleh perangkat lunak, dan tanggung jawab tersebut dirangkum oleh kelas tersebut. 
+keuntungan: Kodingan menjadi lebih rapih,performance menjadi lebih cepat, jumlah line pada method lebih sedikit sehinggan membuat code lebih enak dimaintain dan penggunaan resource memory lebih sedikit.
+b. Prinsip open/closed= prinsip ini berarti bahwa Perangkat lunak entitas (class, modul, fungsi, dll) sebaiknya terbuka untuk ekstensi, tetapi ditutup untuk modifikasi. 
+keuntungan: dapat dimodifikasi tanpa harus mengubah source code-nya yang sudah ditetapkan sebelumnya.
