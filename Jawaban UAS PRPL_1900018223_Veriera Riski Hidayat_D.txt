@@ -5,7 +5,7 @@ JAWABAN UAS PRPL
 1.)1. Prinsip Single Responsibility, yaitu sebuah prinsip dalam pemrograman komputer yang
 menyatakan bahwa setiap modul, kelas maupun fungsi yang ada pada program komputer harus
 memiliki satu tanggung jawab saja, keuntungan prinsip ini terletak pada cara penyelesaian
-tugasnya yang hanya terfokus pada tiap – tiap tugas yang diberikan saja.
+tugasnya yang hanya terfokus pada tiap tugas yang diberikan saja.
 
 Prinsip Open/Closed, yaitu sebuah prinsip pada OOP yang mengharuskan kita untuk dapat
 merancang sebuah entitas yang dapat dirubah tanpa harus memodifikasi source code program
@@ -16,7 +16,11 @@ buat dapat kita ulang pemakaiannya tanpa harus memodifikasi ulang.
 
 3a.)Jika kita menambahkan sebuah class class baru yng mengimplementasikan interface maka
 Interface akan membuat si objek bisa menggunakan objek apapun, dengan syarat objek
-tersebut harus mengimplementasikan method dari interface 
+tersebut harus mengimplementasikan method dari interface
+Cara memanggil tiap class:
+1. interface MyInterface
+2. public abstract class Entitas
+3. public class Mahasiswa extends Entitas implements MyInterface
 
 3b.)https://github.com/verierariski/prpl-pertemuan-12
 
