@@ -1,0 +1,25 @@
+1. a)	Single Responsibility
+    Single Responsibility merupakan prinsip yang mewajibkan suatu kelas (class) sebaiknya hanya memiliki satu tugas. Jangan sampai satu kelas memiliki lebih dari satu tugas. Sebagai contoh suatu program bermaksud menghitung luas seluruh bentuk, misal lingkaran, bujur sangkar, dan lain-lain.
+    Keuntungan dari single responsibility :
+    •	Reuse, lebih mudah untuk mendaya-guna kode program
+    •	Clarity, kode yang kita menjadi sangat jelas karena ditulis hanya focus pada satu hal
+    •	Naming, tentu dengan hanya berfokus pada satu hal, penamaan class jadi lebih gampang.
+    •	Readability, karena berkaitan dengan Clarity dan Naming, maka menjadi sangat membantu dalam pembacaan kode program
+    •	Reduced Coupling, menurunkan tingkat kebergantungan antar class. Semakin tinggi kebergantungan, semakin susah untuk dimodifikasi
+
+    b)	Open closed 
+    Prinsip Open / Closed Principle artinya sebuah class harus bisa di-extend, tapi harus juga tertutup untuk modifikasi.
+    Keuntungan dari open closed principle :
+    •	Open for extention, closed for modification. (Terbuka untuk perluasan, tertutup untuk modifikasi).
+    Dengan tertutupnya code yang sudah ada dari modifikasi maka kemungkinan terjadinya gelombang bug karena kita melakukan suatu perubahan terhadap code yang sudah ada pun dapat dihindari.
+    •	Dengan sifatnya yang “terbuka untuk perluasan”, maka code yang kita buat dapat digunakan berulang. Ini paling dirasakan manfaatnya untuk code swing yang seringkali digunakan secara berulang-ulang dalam aplikasi berbeda.
+
+2. https://github.com/aqslindr/prpl2021/blob/aqsalya_d_1900018185/single_responsibility.php
+
+3. a) Prinsip Open/Closed, merupakan sebuah class yang harus bisa di-extend, tapi harus juga tertutup untuk modifikasi, jelasnya yaitu prinsip ini mengharuskan kita untuk dapat membuat entitas, seperti class, yang dapat dimodifikasi perilakunya (for example, fungsi yang dijalankan) dapat diubah tanpa harus mengubah kode sumber objek yang ditentukan. 
+      Dengan kata lain, suatu objek harus dapat diperluas, artinya suatu perilaku (metode) dapat dimodifikasi dengan menambahkan kode program baru. In terms of existing source code, sebisa mungkin ditutup atau jarang sekali untuk perlu memodifikasi source code perilaku yang sudah ada karena ketika kita menambah class yang baru takutnya dapat melanggar konsep Open/Closed Principle, yang mana tidak boleh ada modifikasi suatu entitas software, baik class, function, modul, atau lainnya.
+      Tapi ketika kita memiliki class atau metode yang sudah ada dan ingin kita perluas tanpa memodifikasinya, maka kita harus pisahkan perilaku/behaviour yang dapat diperluas dibelakang interface dan balikkan dependensi (ke kelas yang mengimplementasikan interface).
+   
+   b) https://github.com/aqslindr/prpl2021/blob/aqsalya_d_1900018185/Tugas_Pertemuan_12.php
+   
+4. http://proyek-laravel-aqsalya.herokuapp.com/public/
