@@ -1,0 +1,21 @@
+1.Prinsip single responsibility adalah prinsip pengembangan perangkat lunak yang memastikan bahwa setiap class hanya memiliki satu tugas utama saja.
+
+Keuntungannya adalah code yang dibuat menjadi lebih rapi dengan jumlah line yang lebih mangkus dan memerlukan resource memorynya lebih sedikt serta peformance nya jadi lebih cepat
+
+
+
+
+
+
+
+Prinsip open/closed adalah prinsip yang digunakan pada sebuah source code dimana kita bisa merubah dengan cara menambah entitas tanpa merubah source code yang sudah di tentukan sebelumnya. Sehingga tidak perlu lagi mengubah sumber source code yang sifatnya tertutup.
+
+Keuntungannya adalah ketika ada syarat yang ingin diubah, cukup menambahkan behavior dari suatu modul dengan menambah kode baru, bukan dari mengubah kode lama yang telah bekerja.
+
+2. https://github.com/SHANYSASNITAANDRIANI/prpl2021/tree/shany-sasnita-andriani_d_1900018176
+
+3. https://github.com/SHANYSASNITAANDRIANI/prpl2021/blob/shany-sasnita-andriani_d_1900018176/kalkulator-bagunruang.php
+    https://github.com/SHANYSASNITAANDRIANI/prpl2021/blob/shany-sasnita-andriani_d_1900018176/pemahaman-prinsip-Open-Closed.php
+
+4. https://proyek-laravel-1900018176.herokuapp.com/public/
+
