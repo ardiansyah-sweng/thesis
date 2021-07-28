@@ -1,0 +1,31 @@
+Nama : M.Afif Abdillah
+NIM : 1900018238
+Kelas : E
+
+1. Prinsip single responsibility, dimana satu class seharusnya hanya 
+memiliki satu pekerjaan saja. maksudnya adalah di dalam satu class , 
+class tersebut seharusnyaâ â hanya bertanggung jawab atas satu bagian dari 
+fungsionalitas yang disediakan oleh perangkat lunak, dan tanggung jawab itu 
+dienkapsulasi olehâ class.
+keuntungannya : lebih mudah dipahami dan di kelola.
+Open Close, yang berarti setiap entitas perangkat lunak (class, module, fungsi, dsb.) 
+sebaiknya terbuka untuk dilakukan ekstensi, dan tertutup untuk modifikasi.
+Keuntunga : dapat membuat program baru tanpa mengutik yang lama
+
+2. github :https://github.com/MAfif-A/prpl2021/pull/4/commits/f13991ec2cebd1e0803cd577bdf55774777d8a18
+
+3. A. Yang terjadi ketika menambahkan Class baru yang mengimplements interface
+Apabila kita ingin menambahkan class baru, program akan jalan dengan syarat menambahkan function untuk memanggil class tersebut di class PaymentFactory, dan return new ke class yang dituju, sehingga program akan jalan.
+-Cara memanggil tiap class-class
+Pada program tersebut ada variable yang digunakan untuk memanggil class dari implements PayableInterface yaitu class PaymentFactory, dimana class PaymentFactory mengubah menjadi bentuk variable sehingga nantinya bisa dipanggi pada variable $jenis = 'atm'; yang akan mengoutputkan hasilnya.
+//Variabel fungsi untuk memanggil class dan mengoutputkannya
+$jenis = 'atm';
+$paymentFactory = new PaymentFactory();
+$payment = $paymentFactory->initializePayment($jenis);
+print_r($payment->pay());
+
+B.https://github.com/MAfif-A/prpl2021/pull/5/commits/494ea24f61d04a52274aaa9708a1fa5dc6342041
+
+4. a.  http://mafifprpl.herokuapp.com/public/
+   b.  https://github.com/MAfif-A/prpl2021/tree/MAfif-A-TugasLaravel
+   c.  http://mafifprpl.herokuapp.com/public/
