@@ -73,7 +73,7 @@ class kalkulatorBangunRuangFactory
     }
     if($tipe==='volumekerucut')
     {
-        return Vkerucut();
+        return Vkerucut(); 
     }
     if($tipe==='volumekubus')
     {
