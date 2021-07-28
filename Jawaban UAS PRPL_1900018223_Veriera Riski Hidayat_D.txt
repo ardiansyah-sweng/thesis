@@ -1,0 +1,23 @@
+NAMA		:Veriera Riski H
+NIM/Kelas	:1900018223 / D
+
+JAWABAN UAS PRPL
+1.)1. Prinsip Single Responsibility, yaitu sebuah prinsip dalam pemrograman komputer yang
+menyatakan bahwa setiap modul, kelas maupun fungsi yang ada pada program komputer harus
+memiliki satu tanggung jawab saja, keuntungan prinsip ini terletak pada cara penyelesaian
+tugasnya yang hanya terfokus pada tiap – tiap tugas yang diberikan saja.
+
+Prinsip Open/Closed, yaitu sebuah prinsip pada OOP yang mengharuskan kita untuk dapat
+merancang sebuah entitas yang dapat dirubah tanpa harus memodifikasi source code program
+yang sudah ada. Keuntungan yang didapatkan dari prinsip ini adalah program yang telah kita
+buat dapat kita ulang pemakaiannya tanpa harus memodifikasi ulang.
+
+2.)https://github.com/verierariski/prpl-pertemuan-10
+
+3a.)Jika kita menambahkan sebuah class class baru yng mengimplementasikan interface maka
+Interface akan membuat si objek bisa menggunakan objek apapun, dengan syarat objek
+tersebut harus mengimplementasikan method dari interface 
+
+3b.)https://github.com/verierariski/prpl-pertemuan-12
+
+4.)http://proyek-laravel-1900018223.herokuapp.com/public/
