@@ -1,122 +1,103 @@
 <?php
 
-interface bangun_ruang
-{
-    public function hitung();
+interface KalBangunRuang {
+    public function hitungBangunRuang($satuan);
 }
 
-class LuasPersegiPanjang implements bangun_ruang
-{
-    public $Panjang = 0;
-    public $Lebar = 0;
+class PersegiPanjang implements KalBangunRuang {
 
-    public function hitung()
-    {
-        return [
-            'Bangun Ruang :' => 'Luas Persegi Panjang',
-            'Panjang :' => $this->Panjang,
-            'Lebar :' => $this->Lebar,
-            'Luas Persegi Panjang :' => ($this->Panjang * $this->Lebar)
-        ];
+    public $panjang;
+    public $lebar;
+
+    public function hitungBangunRuang($satuan) {
+        $this->panjang = $satuan['panjang'];
+        $this->lebar = $satuan['lebar'];
+        return ('Bangun Ruang : Persegi Panjang<br>'.
+                'Panjang : '.$this->panjang.' m<br>'.
+                'Lebar : '.$this->lebar.' m<br>'.
+                'Luas Persegi Panjang : '.$this->panjang * $this->lebar.' m2');
     }
 }
 
-class VolumeBola implements bangun_ruang
-{
-    public $jariJari = 5;
-    public $PHI = 3.14;
-    public $seperempat = 1.33;
-    public function hitung()
-    {
-        return [
-            'Bangun Ruang :' => 'Volume Bola',
-            'Panjang Jari-jari :' => $this->jariJari,
-            'Volume Bola :' => ($this->seperempat * $this->PHI * $this->jariJari * $this->jariJari * $this->jariJari)
-        ];
+class Bola implements KalBangunRuang {
+    public $jejari;
+
+    public function hitungBangunRuang($satuan) {
+        $this->jejari = $satuan['jejari'];
+        return ('Bangun Ruang : Bola<br>'.
+                'Jejari (r) : '.$this->jejari.' m<br>'.
+                'Volume Bola : '.(4/3) * pi() * $this->jejari * $this->jejari * $this->jejari.' m3');
     }
 }
 
-class VolumeKerucut implements bangun_ruang
-{
-    public $jariJari = 0;
-    public $tinggi = 0;
-    public $PHI = 3.14;
-    public $sepertiga = 0.33;
+class Kerucut implements KalBangunRuang {
+    public $tinggi;
+    public $jejari;
 
-    public function hitung()
-    {
-        return [
-            'Bangun Ruang :' => 'Volume Kerucut',
-            'Panjang Jari-jari :' => $this->jariJari,
-            'Tinggi :' => $this->tinggi,
-            'Volume Kerucut :' => ($this->sepertiga * $this->PHI * $this->kuadrat($this->jariJari) * $this->tinggi)
-        ];
+    public function hitungBangunRuang($satuan) {
+        $this->tinggi = $satuan['tinggi'];
+        $this->jejari = $satuan['jejari'];
+        return ('Bangun Ruang : Kerucut<br>'.
+                'Tinggi : '.$this->tinggi.' m<br>'.
+                'Jejari (r) : '.$this->jejari.' m<br>'.
+                'Volume Kerucut : '.(1/3) * pi() * $this->jejari * $this->jejari * $this->tinggi.' m3');
     }
 }
 
-class VolumeKubus implements bangun_ruang
-{
-    public $Rusuk = 12;
+class Kubus implements KalBangunRuang {
+    public $rusuk;
 
-    public function hitung()
-    {
-        return [
-            'Bangun Ruang :' => 'Volume Kubus',
-            'Panjang Rusuk :' => $this->Rusuk,
-            'Volume Kubus :' => ($this->Rusuk * $this->Rusuk * $this->Rusuk)
-        ];
+    public function hitungBangunRuang($satuan) {
+        $this->rusuk = $satuan['rusuk'];
+        return ('Bangun Ruang : Kubus<br>'.
+                'Panjang Rusuk (r) : '.$this->rusuk.' m<br>'.
+                'Volume Kubus : '.$this->rusuk * $this->rusuk * $this->rusuk.' m3');
     }
 }
 
-class KelilingLingkaran implements bangun_ruang
-{
-    public $DUA = 2;
-    public $jariJari = 5;
-    public $PHI = 3.14;
-
-    public function hitung()
-    {
-        return [
-            'Bangun Ruang :' => 'Keliling Lingkaran',
-            'Panjang Jari-jari :' => $this->jariJari,
-            'Keliling Lingkaran :' => ($this->PHI * $this->DUA * $this->jariJari)
-        ];
+class Lingkaran implements KalBangunRuang {
+    public $jejari;
+    public function hitungBangunRuang($satuan) {
+        $this->jejari = $satuan['jejari'];
+        return ('Bangun Ruang : Lingkaran<br>'.
+                'Jejari (r) : '.$this->jejari.' m<br>'.
+                'Keliling Lingkaran : '.(2 * pi() * $this->jejari.' m'));
     }
 }
 
-class kalkulatorBangunRuangFactory
-{
-    public function initializekalkulatorBangunRuang($pilihKalkulatorBangunRuang, $Satuan)
-    {
-        if ($pilihKalkulatorBangunRuang === 'LuasPersegiPanjang') {
-            return new LuasPersegiPanjang($Satuan);
+class KalkulatorBangunRuangFactory {
+    public function initializeKalkulatorBangunRuang($menu) {
+        if ($menu === 'luasPersegiPanjang') {
+            return new PersegiPanjang();
         }
-        if ($pilihKalkulatorBangunRuang === 'VolumeBola') {
-            return new VolumeBola($Satuan);
+        if ($menu == 'volumeBola') {
+            return new Bola();
         }
-        if ($pilihKalkulatorBangunRuang === 'VolumeKerucut') {
-            return new VolumeKerucut($Satuan);
+        if ($menu === 'volumeKerucut') {
+            return new Kerucut();
         }
-        if ($pilihKalkulatorBangunRuang === 'VolumeKubus') {
-            return new VolumeKubus($Satuan);
+        if ($menu === 'volumeKubus') {
+            return new Kubus();
         }
-        if ($pilihKalkulatorBangunRuang === 'KelilingLingkaran') {
-            return new KelilingLingkaran($Satuan);
+        if ($menu === 'kelilingLingkaran') {
+            return new Lingkaran();
         }
 
-        throw new Exception("Bangun Ruang Tidak Ditemukan");
+        throw new Exception("Tidak ada pilihan tersebut!");
     }
 }
 
-$Satuan = [
-    'Rusuk' => 12,
-    'Panjang' => 0,
-    'Lebar' => 0,
-    'jariJari' => 5
+$satuan = [
+    'rusuk'=> 12, 
+    'panjang'=> 0, 
+    'lebar'=> 0, 
+    'jejari'=> 0, 
+    'tinggi'=>0
 ];
-$pilihKalkulatorBangunRuang = 'VolumeKubus';
-$pilihKalkulatorBangunRuang = 'KelilingLingkaran';
+
+
+$pilihanKalkulatorBangunRuang = 'volumeKubus';
 $kalkulatorBangunRuangFactory = new KalkulatorBangunRuangFactory();
-$kalkulatorBangunRuang = $kalkulatorBangunRuangFactory->initializekalkulatorBangunRuang($pilihKalkulatorBangunRuang, $Satuan);
-$hasilKalkulatorBangunRuang = $kalkulatorBangunRuang->hitung();
+$kalkulatorBangunRuang = $kalkulatorBangunRuangFactory->initializeKalkulatorBangunRuang($pilihanKalkulatorBangunRuang);
+$hasilKalkulatorBangunRuang = $kalkulatorBangunRuang->hitungBangunRuang($satuan);
 print_r($hasilKalkulatorBangunRuang);
