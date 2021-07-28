@@ -1,0 +1,18 @@
+1. Prinsip Solid
+a)Prinsip Single Responbility adalah prinsip pengembangan perangkat lunak yang memastikan bahwa setiap class hanya memiliki satu tugas utama saja.
+Keuntungan : Hanya fokus pada satu tanggung jawab saja dan memudahkan maintenance code, serta performance yang menjadi lebih cepat.
+b)Prinsip Open/Closed adalah sebuah program akan dibuat tertutup untuk modifikasi, perubahan, namun terbuka untuk penambahan.
+Keuntungan : Ketika ada persyaratan yang ingin kita ubah maka kita hanya cukup menambahkan behavior dari suatu modul dengan menambahkan kode baru, bukan dari mengubah kode lama yang telah bekerja. ini menjadian OCP(Open/Closed Principle) meringankan maintenance koed dan meminimalkan resiko dari merusak kode yang telah ada.
+
+2. Link Github : https://github.com/Edokur/thesis/blob/Edo-Kurniawan_D_1900018202/single_responsibility.php
+
+3. 
+a) jika kita menambahkan sebuah class yaitu kita dapat dengan mudah mengatur class class tersebut karena pemanggilannya sudah terstruktur dan juga class tersebut dapat dipanggil pada bagian manapun selama masih dalam satu tempat penyimpanan yang sama, dan jika class baru yang mengimplements interface, maka interface akan membuat objek tersebut bisa menggunakan objek apa saja, dengan syarat objek tersebut implements method dari interface.
+Cara pemanggilan membuat :
+class nama_class implements nama_interface
+
+b) Link Github : https://github.com/Edokur/thesis/blob/Edo-Kurniawan_D_1900018202/kalkulator_bangun_ruang.php
+
+
+4. Link Heroku : https://laravel-1900018202-one.herokuapp.com/
+
