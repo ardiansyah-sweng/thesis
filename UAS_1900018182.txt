@@ -1,0 +1,31 @@
+UAS PRPL
+
+1.
+Prinsip Single Responsibility
+	Prinsip ini mewajibkan suatu kelas (class) sebaiknya hanya memiliki satu tugas. 
+Jangan sampai satu kelas memiliki lebih dari satu tugas.Sesuai prinsip “single-responsibility principle (SRP)” 
+sebaiknya kelas totalArea(shape) dipisahkan dengan outputArea(area). Keuntuungannya yaitu tidak akan terjadi
+benturan suau variabel sebab, sudah ada di bagian classnya masing-masing.
+
+Open-Closed Principle
+	menyatakan suatu kelas bisa di extend tetapi “closed” dalam artian tidak perlu memodifikasi kelas sebelumnya.
+Tetapi, jika ingin menambah satu bentuk baru, maka class harus di modif lagi, Untuk mengatasi hal tersebut, 
+tiap kelas bentuk/bangun, Shape, menyertakan suatu interface berupa implement, yaitu metode/fungsi berisi 
+penentuak jari2/sisi/parameter lain disertai luasnya, misalnya diberi nama shapeInterface. Kemudian kelas 
+totalArea memiliki fungsi sum yang memanggil interface dengan for each terhadap seluruh bangun/bentuk. 
+Jika ada satu bentuk/bangun baru, maka asalkan disertai interface dengan nama shapeInterface maka akan 
+otomatis ikut terhitung. Dan karena tidak ada modif di kelas totalArea, maka prinsip “open-closed” terpenuhi.
+
+2. https://github.com/Azril16/Tugas_Pendataan_Anggota
+
+3a. 	
+prinsip open/closed yaitu sebuah class yang dimana terbuka untuk ekstensi, 
+tetapi tertutup untuk memodifikasinya. Semisal kita memiliki suatu project 
+yang sudah berjalan, kit abisa saja menambah fitur baru tanpa harus mengotak-atik 
+source code yang lama yang sudah ada sebelumnya. Caranya/kuncinya yaitu ada di Abstraksi. 
+Yang terjadi jika kita menambahkan class baru, maka akan memperluas interface. 
+Cara memnaggilnya yaitu dengan membuat fungsi pemanggil dengan penginisialisasian di dalamnya.
+
+3b. https://github.com/Azril16/kalkulator
+
+4. https://deploy-prpl.herokuapp.com/
