@@ -1,0 +1,8 @@
+1.  >> Prinsip single responsibility yaitu prinsip pengembangan perangkat lunak yang memastikan bahwa setiap class hanya memiliki satu tugas utama saja.
+    Keuntungan dari prinsip single responsibility yaitu code menjadi lebih rapi, perfomance menjadi lebih cepat, Jumlah line pada method yang menerapkan Single Responsibility akan berkurang dan cenderung membuat code lebih enak di-maintain dan dibaca.
+    >> Prinsip Open/Closed yaitu prinsip yang digunakan pada sebuah source code dimana kita bisa merubah dengan cara menambah entitas tanpa merubah source code yang sudah di tentukan sebelumnya. Sehingga tidak perlu lagi mengubah sumber source code yang sifatnya tertutup. Intinya sebuah program itu dibuat tertutup untuk modifikasi, perubahan, namun terbuka untuk penambahan.
+    Keuntungan dari prinsip open/closed yaitu ketika ada persyaratan yang ingin diubah, cukup menambahkan behavior dari suatu modul dengan menambah kode baru, bukan dari mengubah kode lama yang telah bekerja. Ini menjadikan OCP meringankan maintenance kode dan meminimalkan resiko dari merusak kode yang telah ada.
+2. https://github.com/Kholifatush/PRPL-Pertemuan-10
+3. a) Yang terjadi jika kita menambahkan sebuah class-class baru yang mengimplements interface yaitu kita akan membatasi perubahan pada class yang telah didevelop sebelumnya sehingga tidak menimbulkan bug baru terhadap code yang telah ada. Cara memanggil tiap class-class tersebut yaitu dengan menggunakan inheritance (lewat parent classnya) atau abstraksi (bisa menggunakan abstract class ataupun interface), contohnya : class nama_class implements nama_interface.
+   b) https://github.com/Kholifatush/PRPL_Pertemuan-12
+4. http://kholifatush.herokuapp.com/public/
