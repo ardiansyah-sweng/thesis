@@ -1,0 +1,17 @@
+a. prinsip open/close
+merupakan prinsip yang membuat sebuah source code bisa untuk dilakukan ekstensi
+namun tidak dapat dilakukan modifikasi sehingga hanya dapat dilakukan penambahan 
+namun tidak dapat dilakukan perubahan pada source code yang sudah ada
+
+keuntungan dengan tertutupnya code yang sudah ada dari modifikasi maka kemungkinan
+terjadinya gelombang bug karena kita melakukan suatu perubahan terhadap
+code yang sudah ada pun dapat dihindari
+
+b. prinsip single responsibility
+prinsip ini berbunyi bahwa sebuah class hanya memiliki satu alasan untuk perubahan
+dimana setiap modul, kelas atau fungsinya hanya bertanggung jawab pada satu bagian
+fungsionalitas yang di engkapsulasi
+
+keuntungannya class atau method yang ada jauh lebih mudah untuk dibaca dan dimaintain
+karena membuat source code dengan line yang pendek walau dengan lebih banyak class dan method
+karena di buat terpisah dan bertanggung jawab atas satu fungsi
