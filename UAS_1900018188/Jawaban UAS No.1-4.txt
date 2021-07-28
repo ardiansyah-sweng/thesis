@@ -1,0 +1,43 @@
+1. - Prinsip Single Responsibility
+Prinsip ini mengandung makna dimana satu class seharusnya hanya memiliki satu
+pekerjaan saja. Maksudnya adalah di dalam satu class , class tersebut seharusnya hanya
+bertanggung jawab atas satu bagian dari fungsionalitas yang disediakan oleh perangkat
+lunak, dan tanggung jawab itu dienkapsulasi oleh class. Keuntungan dari prinsip single
+responsibility ini lebih memudahkan maintenance code karena pada prinsip ini hanya
+berfokus pada satu tanggung jawab
+
+- Prinsip open/closed
+Prinsip open/closed ini menyatakan “software entities (classes, modules, functions, etc.)
+should be open for extension, but closed for modification atau terbuka untuk perluasan,
+tertutup untuk modifikasi”. Maksudnya adalah Prinsip ini memaksa kita untuk dapat
+merancang sebuah entitas, misalnya class, yang dapat dimodifikasi perilakunya
+(misalnya, apa yang dikerjakan oleh sebuah method) tanpa harus mempermak source codenya yang sudah ditetapkan sebelumnya. Maksudnya, sebuah entitas sebaiknya bersifat
+terbuka untuk diperluas, sehingga sebuah perilaku (method) dapat diubah dengan cara
+menambahkan kode program baru.Keuntungan dari prinsip open/closed sendiri yaitu
+dengan menggunakan sifatnya yang “terbuka untuk perluasan”, maka code yang kita buat
+dapat digunakan berulang. Ini paling dirasakan manfaatnya untuk code swing yang seringkali
+digunakan secara berulang-ulang dalam aplikasi berbeda.
+
+2. Program prinsip single responsibility
+https://github.com/farhanrrazak/prpl2021/tree/Farhan-RadhiansyahRazak_D_1900018188
+
+3. a). Prinsip Open/Closed yaitu sebuah class yang harus bisa di-extend, tapi harus juga
+tertutup untuk modifikasi yang mana prinsip ini mengharuskan kita untuk dapat
+membuat entitas, seperti class, yang dapat dimodifikasi perilakunya (for example,
+fungsi yang dijalankan) dapat diubah tanpa harus mengubah kode sumber objek
+yang ditentukan. Dengan kata lain, suatu objek harus dapat diperluas, artinya suatu
+perilaku (metode) dapat dimodifikasi dengan menambahkan kode program baru. In
+terms of existing source code, sebisa mungkin ditutup atau jarang sekali untuk perlu
+memodifikasi source code perilaku yang sudah ada karena ketika kita menambah
+class yang baru takutnya dapat melanggar konsep Open/Closed Principle, yang
+mana tidak boleh ada modifikasi suatu entitas software, baik class, function, modul,atau lainnya.Tapi ketika kita memiliki class atau metode yang sudah ada dan ingin
+kita perluas tanpa memodifikasinya, maka kita harus pisahkan perilaku yang dapat
+diperluas dibelakang interface dan balikkan dependensi (ke kelas yang
+mengimplementasikan interface).
+
+b). Kalkulator Bangun Ruang
+https://github.com/farhanrrazak/prpl2021/tree/Farhan-RadhiansyahRazak_D_1900018188
+
+4. Link proyek laravel (in heroku)
+
+https://proyek-laravel-1900018188.herokuapp.com/public/
