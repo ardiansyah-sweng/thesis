@@ -1,0 +1,18 @@
+1.	a. Prinsip single responsibility = Prinsip ini berarti bahwa kelas hanya boleh memiliki satu pekerjaan. Intinya adalah bahwa dalam sebuah kelas, kelas tersebut seharusnya hanya bertanggung jawab atas sebagian fungsi yang disediakan oleh perangkat lunak, dan tanggung jawab tersebut dirangkum oleh kelas tersebut. 
+keuntungan: Kodingan menjadi lebih rapih,performance menjadi lebih cepat, jumlah line pada method lebih sedikit sehinggan membuat code lebih enak dimaintain dan penggunaan resource memory lebih sedikit.
+b. Prinsip open/closed= prinsip ini berarti bahwa Perangkat lunak entitas (class, modul, fungsi, dll) sebaiknya terbuka untuk ekstensi, tetapi ditutup untuk modifikasi. 
+keuntungan: dapat dimodifikasi tanpa harus mengubah source code-nya yang sudah ditetapkan sebelumnya.
+
+2. https://github.com/isan0880/thesis/blob/ikhsan_d_1900018221/single_responsibility_principle.php
+
+3. 	a. Jika menambah class baru  yng mengimplementasikan interface  maka Interface akan membuat si objek  bisa menggunakan objek apa saja,tetapi objek harus mengimplementasikan  method  yang  sama dari interface tanpa  membuatnya  seolah olah class yang berhubungan.
+cara memanggil tiap class dilihat dari kode pada github menggunakan variable
+$jenis = 'credit';
+$paymentFactory = new PaymentFactory();
+$payment = $paymentFactory->initializePayment($jenis);
+print_r($payment->pay());
+	dimana untuk memanggil class-class yang menggunakan implements harus melalui class PaymentFactory yang namtinya akan melakukan initializePayment untuk menentukan class yang akan dipanggil dari variable yang telah ditentukan.interface MyInterface
+public namaClass implements namainterface
+    b.https://github.com/isan0880/thesis/blob/c65476e6b54ec247357945d2ac1e2a32459f6c76/kalkulator%20bangun%20ruang.php
+
+4. http://laravel-1900018221.herokuapp.com/public/
