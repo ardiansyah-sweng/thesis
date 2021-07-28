@@ -1,0 +1,24 @@
+1.	Berdasarkan prinsip SOLID, jelaskan apa pengertian dan keuntungan dari penerapan prinsip berikut pada pengembangan perangkat lunak berikut
+    a)	Prinsip single responsibility
+        Prinsip Single responsibility adalah prinsip pengembangan perangkat lunak yang memastikan bahwa setiap class hanya memiliki satu tugas utama saja.
+
+        Keuntungan
+        Keuntungannya adalah code menjadi lebih rapi, performance menjadi lebih cepat, jumlah line pada method lebih sedikit sehinggan membuat code lebih enak dimaintain dan penggunaan resource memory lebih sedikit.
+    
+    b)	Prinsip open/closed
+        Prinsip open/closed merupakan prinsip yang digunakan pada sebuah source code dimana kita bisa merubah dengan cara menambah entitas tanpa merubah source code yang sudah di tentukan sebelumnya. Sehingga tidak perlu lagi mengubah sumber source code yang sifatnya tertutup.
+
+        Keuntungan
+        Keuntungan nya adalah ketika ada persyaratan yang ingin diubah, cukup menambahkan behavior dari suatu modul dengan menambah kode baru, bukan dari mengubah kode lama yang telah bekerja. Ini menjadikan OCP meringankan maintenance kode dan meminimalkan resiko dari merusak kode yang telah ada.
+
+2. https://github.com/sendyapriatna/thesis/blob/sendy_d_1900018205/single_responsiblity.php
+
+3. a.	Apa yang terjadi jika kita menambahkan sebuah class-class baru yang mengimplements interface?
+        Jika kita menambah sebuah class baruu  yang mengimplements interface, maka interface akan membuat objek tersebut bisa menggunakan objek apa saja, dengan syarat objek tersebut impelements method dari interface.
+
+        Bagaimana cara memanggil tiap class-class tersebut?
+        class nama_class implements nama_interface
+    
+    b.  https://github.com/sendyapriatna/thesis/blob/sendy_d_1900018205/tugas12_Bangun_Ruang.php
+
+4. https://laravel-1900018205.herokuapp.com/
