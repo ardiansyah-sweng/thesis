@@ -6,14 +6,15 @@ UAS PRPL
 
 1. 
 - Prinsip Single Responsibility, yaitu prinsip dalam pemrograman komputer yang
-menyatakan bahwa setiap modul, kelas maupun fungsi yang ada pada program komputer harus
-memiliki satu tanggung jawab saja, keuntungan prinsip ini terletak pada cara penyelesaian
-tugasnya yang hanya terfokus pada tiap – tiap tugas yang diberikan saja.
+menyatakan bahwa setiap modul, kelas dan juga fungsi yang ada pada program komputer harus
+memiliki satu tanggung jawab saja.
+keuntungan : prinsip ini terletak pada cara penyelesaian
+tugasnya yang hanya terfokus pada tiap tugas yang diberikan saja.
 
-- Prinsip Open/Closed, yaitu prinsip pada OOP yang mengharuskan kita untuk dapat
+- Prinsip Open/Closed, yaitu prinsip pada OOP yang mengharuskan programmer untuk dapat
 merancang sebuah entitas yang dapat dirubah tanpa harus memodifikasi source code program
-yang sudah ada. Keuntungan yang didapatkan dari prinsip ini adalah program yang telah kita
-buat dapat kita ulang pemakaiannya tanpa harus memodifikasi ulang.
+yang sudah ada. 
+Keuntungan : program yang telah programmer buat dapat diulang pemakaiannya tanpa harus memodifikasi ulang.
 
 2. https://github.com/nandifasatriap/prpltugas10
 
