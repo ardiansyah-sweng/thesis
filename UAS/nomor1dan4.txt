@@ -1,0 +1,7 @@
+1.	a. Single responsibility principle adalah prinsip pengembangan perangkat lunak yang memastikan bahwa setiap class hanya memiliki satu tugas utama saja. 
+Keuntungannya adalah code menjadi lebih rapi, performance menjadi lebih cepat, jumlah line pada method lebih sedikit sehingga membuat code lebih enak dimaintain dan penggunaan resource memory lebih sedikit.
+
+b. Open/closed principle adalah prinsip yang digunakan pada sebuah cource code dimana kita bisa merubah dengan cara menambah entitas tanpa merubah source code yang sudah ditentukan sebelumnya sehingga tidak perlu lagi mengubah sumber source code yang sifatnya tertutup. 
+Keuntungannya adalah jika ada yang ingin diubah cukup menambahkan behavior dari suatu modul dengan menambah kode baru, bukan dari mengubah kode lama yang telah bekerja, meringankan maintenance kode dan meminimalkan resiko dari merusak kode yang telah ada.
+
+4. https://jangkungpangestuaji-1900018208.herokuapp.com/
