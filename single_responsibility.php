@@ -16,7 +16,7 @@ class UserRequest {
     protected static $rules = [
         'name' => 'string',
         'email' => 'string',
-        'dob' => 'string'   ///ini adalah date of birth yaitu tanggal lahir
+        'dob' => 'string'   
     ];
 
     public static function validate($data) {
@@ -47,9 +47,9 @@ class Age {
 }
 
 $data = [
-    'name' => 'Edo Kurniawan',
-    'email' => 'edok7179@gmail.com',
-    'dob' => '18.03.2001'
+    'name' => 'Zakiah',
+    'email' => 'zakiah@uad.ac.id',
+    'dob' => '23.07.1990'
 ];
 
 UserRequest::validate($data);
