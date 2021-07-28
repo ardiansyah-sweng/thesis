@@ -12,7 +12,7 @@ merancang sebuah entitas yang dapat dirubah tanpa harus memodifikasi source code
 yang sudah ada. Keuntungan yang didapatkan dari prinsip ini adalah program yang telah kita
 buat dapat kita ulang pemakaiannya tanpa harus memodifikasi ulang.
 
-2.)https://github.com/verierariski/prpl-pertemuan-10
+2.)https://github.com/verierariski/prpl-pertemuan-10/blob/main/index.php
 
 3a.)Jika kita menambahkan sebuah class class baru yng mengimplementasikan interface maka
 Interface akan membuat si objek bisa menggunakan objek apapun, dengan syarat objek
@@ -22,6 +22,6 @@ Cara memanggil tiap class:
 2. public abstract class Entitas
 3. public class Mahasiswa extends Entitas implements MyInterface
 
-3b.)https://github.com/verierariski/prpl-pertemuan-12
+3b.)https://github.com/verierariski/prpl-pertemuan-12/blob/main/index.php
 
 4.)http://proyek-laravel-1900018223.herokuapp.com/public/
