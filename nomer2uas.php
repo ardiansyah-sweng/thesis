@@ -59,4 +59,4 @@ $user = new Pengguna($data);
 print_r(Json::from($user));
 echo '<br><br>';
 print_r(Age::now($data));
-?>
+?> 

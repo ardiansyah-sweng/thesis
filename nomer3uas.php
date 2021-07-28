@@ -120,4 +120,4 @@ $bangunRuangFactory = new BangunRuangFactory();
 $bangunRuang = $bangunRuangFactory->initializeBangunRuang($pilihan,$type);
 print_r($bangunRuang->cal());
 
-?>
+?> 
