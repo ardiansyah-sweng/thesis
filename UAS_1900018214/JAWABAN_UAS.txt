@@ -1,0 +1,25 @@
+1. - Prinsip single responsibility
+    Adalah prinsip pemrograman komputer yang menyatakan bahwa setiap modul, kelas atau fungsi dalam program komputer harus memiliki tanggung jawab atas satu bagian dari fungsionalitas program itu, dan harus merangkum bagian itu.
+    Keuntungan:
+    a.	Mudah untuk memperluas kelas dengan fungsionalitas karena kode yang tidak terikat tidak di kelas yang sama
+    b.	Aspek manajemen dependensi antar kelas menjadi lebih mudah di Kelola karena di kelompokan dengan baik
+    c.	Perubahan kode di isolasi dan dampak yang tidak di ketahui pada area lain dari system sangat berkurang
+    d.	Kelas akan jauh lebih kecil dan karenanya akan mudah untuk memahami kodenya
+    e.	Mudah untuk mengidentifikasi cacat dan memperbaiki masalah dalam kode
+
+- Prinsip open/closed
+    Prinsip ini memaksa kita untuk dapat merancang sebuah entitas, misalnya class, yang dapat dimodifikasi perilakunya (misalnya, apa yang dikerjakan oleh sebuah method) tanpa harus mempermak source code-nya yang sudah ditetapkan sebelumnya.
+    Keuntungan :
+    Membuat code yang kita buat menjadi reusable (dapat digunakan berkali-kali) serta mempermudah maintenance (pemeliharaan) code yang sudah ada. Lebih mudah karena tidak perlu dipelihara, karena bersifat closed yang artinya diusahakan untuk tidak mengubah/ memodifikasi source code yang sudah ada
+
+2. https://github.com/bellasaphira/prpl2021/tree/bellasaphira_d_1900018214
+
+3. a. Jika kita menambahkan sebuah class class baru yng mengimplementasikan interface  maka Interface akan membuat si objek  bisa menggunakan objek apapun, dengan syarat objek tersebut harus mengimplementasikan method dari interface 
+        Cara memanggil tiap class :
+        a.	Interface MyInterface
+        b.	Public abstract class Entitas
+        c.	Public class Mahasiswa extends Entitas implements MyInterface
+
+    b. https://github.com/bellasaphira/thesis/tree/Bella_Saphira_D_1900018214
+
+4. http://bellasaphira-1900018214-d.herokuapp.com/public/ 
