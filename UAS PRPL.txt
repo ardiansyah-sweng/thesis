@@ -2,7 +2,7 @@ Nama : Firlana Luchiana Dewi
 Nim : 1900018234
 Kelas : E
 
-JAWABAN UJIAN AKHIR SEMESTER
+UJIAN AKHIR SEMESTER
 PENGANTAR REKAYASA PERANGKAT LUNAK (PRPL)
 
 1. penerapan prinsip berikut pada pengembangan perangkat lunak
