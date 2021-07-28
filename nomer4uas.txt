@@ -1,0 +1,1 @@
+http://proyek-laravel187.herokuapp.com/public/
