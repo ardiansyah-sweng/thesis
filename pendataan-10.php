@@ -44,7 +44,7 @@ class UserRequest
 
     ];
 
-
+ 
 
     public static function validate($data){
 
