@@ -4,4 +4,4 @@
        dapat di implementasikan lebih dari satu interface pada kelas turunannya. 
        Bertujuan untuk menurunkan kepada subclass yang ada sehingga subclass memiliki sifat kelas induk.
        Cara memanggil tiap class tersebut dengan membuat interface Calkulator dengan bangunruang. 
-        Kemudian kita akan mengimplementasikan interface ini kedalam kelas Lpersegi (Luas Persegi), Volbola (Volume Bola), Volkerucut (Volume Kerucut), Volkubus (Volume Kubus), Kelingkaran (Keliling Lingkaran).
+         Kemudian kita akan mengimplementasikan interface ini kedalam kelas Lpersegi (Luas Persegi), Volbola (Volume Bola), Volkerucut (Volume Kerucut), Volkubus (Volume Kubus), Kelingkaran (Keliling Lingkaran).
