@@ -1,0 +1,40 @@
+Nama :Hafizh Nauval Eka Rahmatullah 
+Nim    :1900018192
+Kelas  :D
+Uas PRPL
+
+Jawab 
+1.	
+a.	Pengertian single responsibility ?
+Setiap kelas harus memiliki satu tanggung jawab, dan tanggung jawab itu harus sepenuhnya dirangkum oleh kelas ,dan setiap class tidak boleh lebih dari 1 tanggung jawab
+
+Keuntungan 
+
+-	Dapat memodifikasi code dengan mudah dan code menjadi lebih rapih
+-	Menghindari konflik ketika merge request
+-	Untuk mengurangi kompleksitas saat terjadi perubahan
+-	Menurunkan tingkat kebergantungan antar class. Semakin tinggi kebergantungan semakin susah untuk dimodifikasi
+b.	Apa itu prinsip open/close ?
+Adalah suatu program akan bersifat tertutup untuk modifikasi atau perubahan pada sebuah program seperti perubahan interface ,extension, namun terbuka untuk penambahan. Prinsip ini sangat penting bagi programmer pada sebuah program yang akan dipublikasikan ,karena agar tidak dapat dirubah seenaknya oleh programmer lain dan menjadikan terjaga dari perubahan program
+Keuntungan 
+-	Kode menjadi lebih sederhana
+-	Untuk testing menjadi lebih mudah 
+-	Menghindari terjadinya kesalahan 
+
+
+2.	https://github.com/HAFIZHNAUVAL/thesis/tree/HafizhNauval_D_1900018192
+
+
+3.	
+a.	Contoh terdapat sebuah class yang didalamnya terdapat fungsi method dan didalam method terdapat percabangan if-else, jika kita akan menambahkan sebuah class ,maka tinggal menambahkan saja method nya yang didalamnya terdapat percabangan if else,
+Tambahkan saja maka interface akan membuat objek tersebut
+Memanggil tiap tiap class
+Class nama_class implements_interface
+
+b.	https://github.com/HAFIZHNAUVAL/thesis/tree/HafizhNauval_D_1900018192
+ 
+4.	Salinan tautan Laravel yang sudah berhasil saya deploy ke server heroku
+http://relata.herokuapp.com/public/
+
+
+
