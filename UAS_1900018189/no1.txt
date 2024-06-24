@@ -1,0 +1,12 @@
+. Single-responsibility principle adalah sebuah prinsip yag hanya menharuskan suatu class
+sebaiknya hanya memiliki satu tugas. Jangn sampai satu kelas memiliki lebih dari satu tugas 
+Keuntungan prinsip ini karena satu class hanya mengerjakan satu tugas ,class tersebut akan 
+lebih fokus pada satu tugas tersebut tanpa dilibatkan tugas dari class lain kemudian mudah 
+untuk maintenance
+-Prinsip open/closed adalah sebuah prinsip yang dapat digunakan untuk membuat class yang 
+dimana class tersebut dapat dimodifikasi oleh user tanpa hatus merubah source code nya yang 
+sudah ditetapkan sebelumnya.
+Keuntungan Prinsip open/closed adalah code yang dapat digunakan berulang dan dapat 
+melakukan extends pada kelas lalu meng-overide methodnya, contohnya jika ada sebuah fungsi 
+yang memiliki cara perhitungan yang sama kita dapat memanggil fungsi yang lama tanpa harus 
+membuat code baru
