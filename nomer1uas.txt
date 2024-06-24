@@ -1,0 +1,7 @@
+1.	Pengertian dan keuntungan dari penerapan prinsip berikut pada pengembangan perangkat lunak:
+•	Prinsip single responsibility (SRP)
+Setiap class hanya memiliki satu tugas, sehingga alasan untuk merubah class tersebut hanya satu, yaitu merubah tugas yang diberikan kepadanya. Prinsip Single Responsibility harus selalu dipertimbangkan saat kita menulis kode. Desain class dan modul sangat dipengaruhi olehnya dan ini mengarah pada desain low couple dengan dependensi yang lebih sedikit dan lebih ringan. 
+Keuntungan menggunakan prinsip single responsibility yaitu fungsi dari masing-masing kelas dapat digunakan independent secara terpisah.
+•	Prinsip open/closed
+Open-Close Principle adalah prinsip yang menyatakan bahwa Objek atau entitas itu terbuka untuk ekstensi tetapi tertutup untuk modifikasi. Atau, sebuah class harus bisa dikembangkan tanpa memodifikasi kelas itu sendiri.
+Keuntungan menggunakan prinsip open/closed pada pengembangan perangkat lunak dapat memenuhi faktor-faktor kualitas agar lebih mudah untuk dipahami, lebih fleksibel, mudah dipelihara dan dapat diuji. Hasil perhitungan prinsip SOLID menggunakan aplikasi lebih cepat dibandingkan perhitungan prinsip SOLID secara manual. 
