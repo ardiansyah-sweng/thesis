@@ -1,0 +1,10 @@
+1. Pengertian dan keuntungan :
+•Prinsip single responsibility
+Prinsip ini memiliki arti bahwa satu class seharusnya hanya memiliki satu pekerjaan saja. 
+Dimana di dalam satu class tersebut seharusnya hanya bertanggung jawab atas satu bagian dari fungsionalitas yang disediakan oleh perangkat lunak, dan 
+tanggung jawab itu dienkapsulasi oleh class tersebut. Keuntungannya adalah prinsip ini membuat pengkhususan class agar class yang dimaksud bisa fokus mengerjakan tugas yang diberikan, 
+mudah maintenance codenya.
+•Prinsip open/closed
+Prinsip ini memiliki arti bahwa memaksa kita untuk dapat merancang sebuah entitas yang bersifat terbuka untuk di perluas, 
+sehingga sebuah method dapat diubah dengan cara menambahkan kode program baru. Lalu untuk code yang sudah ada mungkin bisa dibuat secara tertutup atau setidaknya jarang dan tidak untuk di modifikasi. 
+Keuntunganya adalah code bisa digunakan secara berulang.
